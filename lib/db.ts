@@ -8,21 +8,18 @@ const getSql = () => {
   return neon(process.env.DATABASE_URL)
 }
 
-// Execute raw SQL query with proper template string handling
+// Flexible database query helper - accepts template string or regular string
 export async function dbQuery<T = unknown>(
-  strings: TemplateStringsArray,
+  queryOrStrings: string | TemplateStringsArray,
   ...values: unknown[]
 ): Promise<T[]> {
   const sql = getSql()
-  return await sql(strings, ...values)
-}
 
-// Alternative: Pass raw SQL safely (used when query is dynamic)
-export async function dbQueryDynamic<T = unknown>(
-  sqlString: string,
-  params?: unknown[]
-): Promise<T[]> {
-  const sql = getSql()
-  // Use parameterized query to prevent SQL injection
-  return await sql.query(sqlString, params)
+  // If it's a plain string (typeof check), use it directly
+  if (typeof queryOrStrings === 'string') {
+    return (await sql(queryOrStrings as any)) as T[]
+  }
+
+  // Otherwise, it's a template array from tagged template literal
+  return (await sql(queryOrStrings, ...values)) as T[]
 }
