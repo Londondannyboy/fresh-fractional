@@ -33,6 +33,11 @@ const nextConfig: NextConfig = {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
           },
+          // Enable Link prefetching for better performance
+          {
+            key: "Link",
+            value: "</fractional-jobs>; rel=prefetch, </fractional-jobs-articles>; rel=prefetch",
+          },
         ],
       },
     ];
@@ -40,6 +45,11 @@ const nextConfig: NextConfig = {
 
   images: {
     unoptimized: true, // For Vercel deployment
+  },
+
+  // Optimize CSS and package imports for modern browsers
+  experimental: {
+    optimizePackageImports: ["@tailwindcss/typography", "react-markdown"],
   },
 };
 
