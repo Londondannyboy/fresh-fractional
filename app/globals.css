@@ -58,3 +58,134 @@ h3 {
 * {
   @apply transition-colors duration-200;
 }
+
+/* ===========================================
+   Article Content Styling
+   Styles for HTML content from database
+   =========================================== */
+
+.article-content {
+  @apply text-gray-700 leading-relaxed;
+}
+
+/* Headings */
+.article-content h2 {
+  @apply text-3xl font-bold text-gray-900 mt-12 mb-6 pb-4 border-b-2 border-purple-200;
+}
+
+.article-content h3 {
+  @apply text-2xl font-bold text-gray-900 mt-10 mb-4;
+}
+
+.article-content h4 {
+  @apply text-xl font-semibold text-gray-900 mt-8 mb-3;
+}
+
+/* Paragraphs */
+.article-content p {
+  @apply text-lg leading-8 mb-6 text-gray-700;
+}
+
+/* Lists */
+.article-content ul {
+  @apply my-6 ml-6 space-y-3;
+  list-style-type: disc;
+}
+
+.article-content ol {
+  @apply my-6 ml-6 space-y-3;
+  list-style-type: decimal;
+}
+
+.article-content li {
+  @apply text-lg leading-7 text-gray-700 pl-2;
+}
+
+.article-content li::marker {
+  @apply text-purple-600;
+}
+
+/* Strong/Bold text */
+.article-content strong {
+  @apply font-semibold text-gray-900;
+}
+
+/* Emphasis */
+.article-content em {
+  @apply italic text-gray-600;
+}
+
+/* Links */
+.article-content a {
+  @apply text-purple-700 font-medium hover:text-purple-900 underline underline-offset-2;
+}
+
+/* Blockquotes */
+.article-content blockquote {
+  @apply my-8 pl-6 py-4 pr-6 border-l-4 border-purple-500 bg-purple-50 rounded-r-xl italic text-gray-700;
+}
+
+/* Code */
+.article-content code {
+  @apply bg-gray-100 text-purple-700 px-2 py-1 rounded text-sm font-mono;
+}
+
+.article-content pre {
+  @apply my-8 p-6 bg-gray-900 text-gray-100 rounded-xl overflow-x-auto;
+}
+
+.article-content pre code {
+  @apply bg-transparent text-gray-100 p-0;
+}
+
+/* Tables - Comparison Style */
+.article-content table {
+  @apply w-full my-8 bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200;
+}
+
+.article-content thead {
+  @apply bg-purple-700 text-white;
+}
+
+.article-content th {
+  @apply px-6 py-4 text-left font-semibold text-sm uppercase tracking-wider;
+}
+
+.article-content tbody tr {
+  @apply border-b border-gray-100 hover:bg-purple-50 transition-colors;
+}
+
+.article-content tbody tr:last-child {
+  @apply border-b-0;
+}
+
+.article-content td {
+  @apply px-6 py-4 text-gray-700;
+}
+
+.article-content tbody tr:nth-child(even) {
+  @apply bg-gray-50;
+}
+
+/* Images */
+.article-content img {
+  @apply my-8 rounded-xl shadow-lg w-full;
+}
+
+/* Horizontal rules */
+.article-content hr {
+  @apply my-12 border-gray-200;
+}
+
+/* Definition lists (if used) */
+.article-content dl {
+  @apply my-6;
+}
+
+.article-content dt {
+  @apply font-semibold text-gray-900 mt-4;
+}
+
+.article-content dd {
+  @apply ml-4 text-gray-700;
+}

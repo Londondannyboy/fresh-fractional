@@ -154,31 +154,7 @@ export default async function ArticleDetailPage({ params }: PageProps) {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         {/* Article Body with Enhanced Styling */}
         <div
-          className="
-            bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12
-            prose prose-lg max-w-none
-            prose-headings:font-bold prose-headings:text-gray-900
-            prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-gray-200
-            prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-            prose-h4:text-xl prose-h4:mt-6 prose-h4:mb-3
-            prose-p:text-gray-700 prose-p:leading-8 prose-p:mb-6
-            prose-ul:my-6 prose-ul:space-y-3
-            prose-ol:my-6 prose-ol:space-y-3
-            prose-li:text-gray-700 prose-li:leading-7
-            prose-strong:text-gray-900 prose-strong:font-semibold
-            prose-em:italic prose-em:text-gray-600
-            prose-blockquote:border-l-4 prose-blockquote:border-purple-500 prose-blockquote:bg-purple-50 prose-blockquote:rounded-r-lg prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:my-8 prose-blockquote:not-italic prose-blockquote:text-gray-700
-            prose-code:bg-gray-100 prose-code:text-purple-700 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:before:content-[''] prose-code:after:content-['']
-            prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-6 prose-pre:rounded-xl prose-pre:overflow-x-auto prose-pre:my-8
-            prose-a:text-purple-700 prose-a:font-medium prose-a:no-underline hover:prose-a:underline
-            prose-img:rounded-xl prose-img:shadow-lg prose-img:my-8
-            prose-table:w-full prose-table:my-8 prose-table:rounded-lg prose-table:overflow-hidden prose-table:shadow-sm prose-table:border prose-table:border-gray-200
-            prose-thead:bg-purple-50
-            prose-th:px-6 prose-th:py-4 prose-th:text-left prose-th:font-semibold prose-th:text-gray-900 prose-th:border-b prose-th:border-gray-200
-            prose-td:px-6 prose-td:py-4 prose-td:border-b prose-td:border-gray-100
-            prose-tr:even:bg-gray-50
-            prose-hr:my-12 prose-hr:border-gray-200
-          "
+          className="article-content bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12"
           dangerouslySetInnerHTML={{ __html: article.content }}
         />
 
