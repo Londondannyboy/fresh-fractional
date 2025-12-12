@@ -49,8 +49,8 @@ export async function POST(request: NextRequest) {
 
     // Add to user_skills
     const userSkill = await sql`
-      INSERT INTO user_skills (user_id, skill_id, proficiency_level, years_experience, confirmed, confidence, source)
-      VALUES (${userId}, ${skillId}, ${proficiency || null}, ${yearsExperience || null}, true, 1.0, 'manual')
+      INSERT INTO user_skills (user_id, skill_id, proficiency_level, years_experience, confirmed, confidence)
+      VALUES (${userId}, ${skillId}, ${proficiency || null}, ${yearsExperience || null}, true, 1.0)
       RETURNING id, skill_id, proficiency_level, years_experience, confirmed
     `
 
