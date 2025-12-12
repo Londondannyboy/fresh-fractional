@@ -19,7 +19,7 @@ export function VideoHeroBackground({
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.75 // Slow down for cinematic effect
+      videoRef.current.playbackRate = 1.0 // Normal playback speed
     }
   }, [isLoaded])
 
@@ -46,7 +46,7 @@ export function VideoHeroBackground({
 
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Video Element */}
+      {/* Video Element - full opacity, overlays handle darkening */}
       <video
         ref={videoRef}
         autoPlay
@@ -55,10 +55,8 @@ export function VideoHeroBackground({
         playsInline
         onLoadedData={() => setIsLoaded(true)}
         onError={() => setHasError(true)}
-        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover transition-opacity duration-1000 ${
-          isLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
-        style={{ opacity: isLoaded ? opacity : 0 }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover transition-opacity duration-1000"
+        style={{ opacity: isLoaded ? 1 : 0 }}
       >
         <source src={`https://stream.mux.com/${playbackId}/high.mp4`} type="video/mp4" />
         <source src={`https://stream.mux.com/${playbackId}.m3u8`} type="application/x-mpegURL" />
@@ -69,9 +67,7 @@ export function VideoHeroBackground({
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 animate-pulse" />
       )}
 
-      {/* Gradient overlays for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/70 via-purple-900/50 to-purple-900/90" />
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-900/60 via-transparent to-purple-900/60" />
+      {/* No overlay - let video show fully */}
     </div>
   )
 }

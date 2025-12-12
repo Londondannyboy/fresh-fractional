@@ -331,7 +331,7 @@ export default async function Home() {
               <AnimatedStats
                 variant="cards"
                 stats={[
-                  { value: detailedStats.avgDayRate, prefix: '£', label: 'Avg Day Rate' },
+                  { value: 600, prefix: '£', label: 'Avg Day Rate' },
                   { value: totalJobs || 2, label: 'Live Roles' },
                   { value: 58, label: 'Articles', suffix: '+' },
                   { value: 272, label: 'Pages Indexed' }
