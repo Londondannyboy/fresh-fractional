@@ -7,9 +7,9 @@ import { AuthAwareHumeWidget } from "@/components/AuthAwareHumeWidget";
 import { VideoHeroBackground } from "@/components/VideoHeroBackground";
 import { AnimatedStats } from "@/components/AnimatedStats";
 
-// Optional: Set your Mux video playback ID here for the hero background
-// Leave as undefined to use gradient fallback
-const HERO_VIDEO_PLAYBACK_ID: string | undefined = undefined;
+// Mux video playback ID for the hero background
+// Woman walking - professional executive theme
+const HERO_VIDEO_PLAYBACK_ID: string | undefined = "qIS6PGKxIZyzjrDBzxQuqPRBOhHofDnXq1chdsqAY9Y";
 
 export const metadata: Metadata = {
   title: "Fractional Jobs UK 2025 | Fractional CFO, CTO, CMO Roles | Fractional.Quest",

@@ -43,12 +43,18 @@ export function AuthAwareHumeWidget(props: AuthAwareHumeWidgetProps) {
   // Get first name from profile or Stack Auth
   const userName = userProfile?.first_name || user?.displayName?.split(' ')[0] || undefined
 
+  // Merge userName into userProfile if profile exists but has no first_name
+  const mergedUserProfile = userProfile ? {
+    ...userProfile,
+    first_name: userProfile.first_name || userName || null
+  } : null
+
   return (
     <HumeWidget
       {...props}
       isAuthenticated={isAuthenticated}
       userName={userName}
-      userProfile={userProfile}
+      userProfile={mergedUserProfile}
     />
   )
 }
