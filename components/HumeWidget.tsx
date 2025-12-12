@@ -36,6 +36,7 @@ interface VoiceInterfaceProps {
   darkMode?: boolean
   userProfile?: UserProfile | null
   onTranscript?: (transcript: string, allMessages: HumeMessage[]) => void
+  isAuthenticated?: boolean
 }
 
 // Hume message type
@@ -47,7 +48,7 @@ export interface HumeMessage {
   }
 }
 
-function VoiceInterface({ accessToken, onUse, darkMode = true, userProfile, onTranscript }: VoiceInterfaceProps) {
+function VoiceInterface({ accessToken, onUse, darkMode = true, userProfile, onTranscript, isAuthenticated = false }: VoiceInterfaceProps) {
   const { connect, disconnect, status, messages } = useVoice()
   const [isConnecting, setIsConnecting] = useState(false)
   const [hasConnectedOnce, setHasConnectedOnce] = useState(false)
@@ -90,7 +91,10 @@ function VoiceInterface({ accessToken, onUse, darkMode = true, userProfile, onTr
     setIsConnecting(true)
     try {
       // Build variables for Hume config
-      const variables: Record<string, string> = {}
+      const variables: Record<string, string> = {
+        // Always pass auth status - critical for flow branching
+        is_authenticated: isAuthenticated ? 'true' : 'false'
+      }
 
       if (userProfile) {
         if (userProfile.first_name) variables.first_name = userProfile.first_name
@@ -100,6 +104,9 @@ function VoiceInterface({ accessToken, onUse, darkMode = true, userProfile, onTr
         }
         if (userProfile.budget) variables.budget = userProfile.budget
         if (userProfile.timeline) variables.timeline = userProfile.timeline
+        if (userProfile.interests?.length) {
+          variables.interests = userProfile.interests.join(', ')
+        }
       }
 
       // Connect with config ID and variables
@@ -125,7 +132,7 @@ function VoiceInterface({ accessToken, onUse, darkMode = true, userProfile, onTr
       console.error('Failed to connect:', error)
     }
     setIsConnecting(false)
-  }, [connect, accessToken, onUse, hasConnectedOnce, userProfile])
+  }, [connect, accessToken, onUse, hasConnectedOnce, userProfile, isAuthenticated])
 
   const handleDisconnect = useCallback(() => {
     disconnect()
@@ -324,6 +331,7 @@ export function HumeWidget({ variant = 'hero', userName, isAuthenticated = false
           darkMode={darkMode}
           userProfile={mergedProfile}
           onTranscript={onTranscript}
+          isAuthenticated={isAuthenticated}
         />
       </VoiceProvider>
       {!isAuthenticated && (

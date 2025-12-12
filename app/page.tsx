@@ -74,18 +74,20 @@ async function getHomepageContent(): Promise<HomepageSection[]> {
 async function getJobStats() {
   try {
     const sql = createDbQuery()
+    // Only count actual fractional jobs
     const result = await sql`
-      SELECT COUNT(*) as total FROM jobs WHERE is_active = true
+      SELECT COUNT(*) as total FROM jobs WHERE is_active = true AND is_fractional = true
     `
     return parseInt((result[0] as any)?.total || '0')
   } catch (error) {
-    return 500 // Fallback
+    return 0 // Honest fallback - don't inflate
   }
 }
 
 async function getFeaturedJobs() {
   try {
     const sql = createDbQuery()
+    // Only show jobs that are actually fractional roles
     const jobs = await sql`
       SELECT
         id,
@@ -101,7 +103,7 @@ async function getFeaturedJobs() {
         posted_date,
         description_snippet
       FROM jobs
-      WHERE is_active = true
+      WHERE is_active = true AND is_fractional = true
       ORDER BY posted_date DESC NULLS LAST
       LIMIT 6
     `
@@ -266,8 +268,8 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="flex flex-col items-center text-center">
             <div className="inline-block mb-6">
-              <span className="bg-purple-700/50 backdrop-blur text-white px-5 py-2.5 rounded-full text-sm font-medium border border-purple-500/30">
-                🚀 The UK's #1 Fractional Executive Platform
+              <span className="bg-amber-500/90 backdrop-blur text-white px-5 py-2.5 rounded-full text-sm font-medium border border-amber-400/50 animate-pulse">
+                🚀 Launching December 2025 — Join the Waitlist
               </span>
             </div>
 
@@ -286,13 +288,13 @@ export default async function Home() {
                 href="/fractional-jobs"
                 className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg bg-white text-purple-900 hover:bg-purple-50 transition-all duration-200 min-h-14"
               >
-                Browse {totalJobs}+ Jobs →
+                {totalJobs > 0 ? `Browse ${totalJobs} Jobs →` : 'Explore Platform →'}
               </Link>
               <Link
-                href="/contact/companies"
+                href="/handler/sign-up"
                 className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg border-2 border-white text-white hover:bg-white/10 transition-all duration-200 min-h-14"
               >
-                Post a Position
+                Join Beta
               </Link>
             </div>
 
@@ -307,45 +309,42 @@ export default async function Home() {
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                Updated every 15 minutes
-              </span>
-              <span className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                Verified executives
-              </span>
-              <span className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
                 UK-focused roles
+              </span>
+              <span className="flex items-center gap-2">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                AI-powered job matching
+              </span>
+              <span className="flex items-center gap-2">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                Free for executives
               </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <section className="bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-black text-purple-700">{totalJobs}+</div>
-              <div className="text-gray-600 font-medium">Fractional Jobs UK</div>
+      {/* Beta Banner */}
+      <section className="bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">🚀</span>
+              <div>
+                <p className="font-bold text-gray-900">Beta Launch — December 2025</p>
+                <p className="text-sm text-gray-600">Sign up to tell us what fractional roles you're looking for</p>
+              </div>
             </div>
-            <div>
-              <div className="text-4xl font-black text-purple-700">{detailedStats.londonJobs}+</div>
-              <div className="text-gray-600 font-medium">London Opportunities</div>
-            </div>
-            <div>
-              <div className="text-4xl font-black text-purple-700">£{detailedStats.avgDayRate}</div>
-              <div className="text-gray-600 font-medium">Average Day Rate</div>
-            </div>
-            <div>
-              <div className="text-4xl font-black text-purple-700">{detailedStats.remoteJobs}+</div>
-              <div className="text-gray-600 font-medium">Remote Positions</div>
-            </div>
+            <Link
+              href="/handler/sign-up"
+              className="px-6 py-2 bg-purple-700 text-white font-semibold rounded-lg hover:bg-purple-800 transition-colors whitespace-nowrap"
+            >
+              Join Beta →
+            </Link>
           </div>
         </div>
       </section>
@@ -394,45 +393,50 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Roles Section - From Neon */}
-      {rolesSection && (
-        <section className="py-20 md:py-28 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">{rolesSection.title}</h2>
-              <p className="text-xl text-gray-600">{rolesSection.subtitle}</p>
-            </div>
+      {/* Roles Section - Static content about role types */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Fractional Executive Roles</h2>
+            <p className="text-xl text-gray-600">Part-time leadership positions for experienced executives</p>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {(rolesSection.content as RoleItem[]).map((role, i) => (
-                <Link
-                  key={i}
-                  href={`/fractional-jobs?role=${encodeURIComponent(role.name.replace('Fractional ', '').split(' ')[0])}`}
-                  className="group"
-                >
-                  <div className="p-6 bg-gray-50 rounded-xl hover:bg-purple-50 hover:shadow-lg transition-all duration-200 border border-transparent hover:border-purple-200">
-                    <div className="flex items-start gap-4">
-                      <span className="text-4xl">{role.icon}</span>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-purple-700 transition-colors mb-1">
-                          {role.name}
-                        </h3>
-                        <p className="text-gray-600 text-sm mb-3">{role.description}</p>
-                        <span className="inline-flex items-center gap-1 text-purple-700 font-semibold text-sm">
-                          {role.count} jobs available
-                          <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </span>
-                      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { icon: '💰', name: 'Fractional CFO', description: 'Financial leadership, fundraising, reporting, and strategic planning on a part-time basis', link: '/cfo' },
+              { icon: '📢', name: 'Fractional CMO', description: 'Marketing strategy, brand building, and growth marketing for multiple companies', link: '/cmo' },
+              { icon: '💻', name: 'Fractional CTO', description: 'Technology leadership, architecture decisions, and team building without full-time commitment', link: '/cto' },
+              { icon: '⚙️', name: 'Fractional COO', description: 'Operations excellence, process optimization, and scaling for growing businesses', link: '/coo' },
+              { icon: '👥', name: 'Fractional HR Director', description: 'People strategy, culture building, and HR systems for startups and scale-ups', link: '/hr' },
+              { icon: '📈', name: 'Fractional Sales Director', description: 'Sales strategy, team leadership, and revenue growth on flexible terms', link: '/fractional-jobs?role=Sales' },
+            ].map((role, i) => (
+              <Link
+                key={i}
+                href={role.link}
+                className="group"
+              >
+                <div className="p-6 bg-gray-50 rounded-xl hover:bg-purple-50 hover:shadow-lg transition-all duration-200 border border-transparent hover:border-purple-200">
+                  <div className="flex items-start gap-4">
+                    <span className="text-4xl">{role.icon}</span>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-purple-700 transition-colors mb-1">
+                        {role.name}
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-3">{role.description}</p>
+                      <span className="inline-flex items-center gap-1 text-purple-700 font-semibold text-sm">
+                        Learn more
+                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </span>
                     </div>
                   </div>
-                </Link>
-              ))}
-            </div>
+                </div>
+              </Link>
+            ))}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Benefits Section - From Neon */}
       {benefitsSection && (
@@ -485,35 +489,54 @@ export default async function Home() {
         </section>
       )}
 
-      {/* Testimonials Section - From Neon */}
-      {testimonialsSection && (
-        <section className="py-20 md:py-28 bg-purple-900">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-4">{testimonialsSection.title}</h2>
-              <p className="text-xl text-purple-200">{testimonialsSection.subtitle}</p>
+      {/* Why We're Building This Section */}
+      <section className="py-20 md:py-28 bg-purple-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">Why We're Building Fractional.Quest</h2>
+            <p className="text-xl text-purple-200">The UK fractional market deserves a dedicated platform</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
+              <div className="text-4xl mb-4">🎯</div>
+              <h3 className="text-xl font-bold text-white mb-3">Focused on Fractional</h3>
+              <p className="text-purple-200">
+                Unlike generic job boards, we're 100% focused on fractional and part-time executive roles. No noise, just opportunities that match your working style.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {(testimonialsSection.content as Testimonial[]).map((testimonial, i) => (
-                <div key={i} className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
-                  <p className="text-white text-lg mb-6 italic">"{testimonial.quote}"</p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-purple-700 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                      {testimonial.name.charAt(0)}
-                    </div>
-                    <div>
-                      <p className="font-bold text-white">{testimonial.name}</p>
-                      <p className="text-purple-200 text-sm">{testimonial.role}</p>
-                      <p className="text-purple-300 text-xs">{testimonial.companies}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
+              <div className="text-4xl mb-4">🤖</div>
+              <h3 className="text-xl font-bold text-white mb-3">AI-Powered Matching</h3>
+              <p className="text-purple-200">
+                Our AI scans thousands of job postings daily, identifying true fractional opportunities and filtering out the noise so you don't have to.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
+              <div className="text-4xl mb-4">🇬🇧</div>
+              <h3 className="text-xl font-bold text-white mb-3">UK-First Approach</h3>
+              <p className="text-purple-200">
+                Built specifically for the UK market, covering London, Manchester, Birmingham, Edinburgh, and remote opportunities across the country.
+              </p>
             </div>
           </div>
-        </section>
-      )}
+
+          <div className="mt-12 text-center">
+            <p className="text-purple-200 text-lg mb-6">
+              We're building our job database. Sign up to tell us what you're looking for <br className="hidden md:block" />
+              and we'll match you with opportunities as they come in.
+            </p>
+            <Link
+              href="/handler/sign-up"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg bg-white text-purple-900 hover:bg-purple-50 transition-all duration-200"
+            >
+              Join Beta →
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Partner Agencies Section - From Neon */}
       {agenciesSection && (
@@ -555,8 +578,8 @@ export default async function Home() {
         <section className="py-20 md:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Latest Fractional Opportunities</h2>
-              <p className="text-xl text-gray-600">Fresh roles added every 15 minutes</p>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Current Fractional Opportunities</h2>
+              <p className="text-xl text-gray-600">Real fractional roles from verified sources</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {(featuredJobs as any[]).map((job: any) => {
@@ -586,7 +609,7 @@ export default async function Home() {
                 href="/fractional-jobs"
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg bg-purple-700 text-white hover:bg-purple-800 transition-all duration-200"
               >
-                View All {totalJobs}+ Jobs →
+                {totalJobs > 0 ? `View All ${totalJobs} Jobs →` : 'View All Jobs →'}
               </Link>
             </div>
           </div>
@@ -759,17 +782,28 @@ export default async function Home() {
       <section className="py-20 md:py-28 bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Start Your Fractional Career?
+            Tell Us What You're Looking For
           </h2>
           <p className="text-xl text-purple-100 mb-10">
-            Browse {totalJobs}+ fractional executive opportunities across the UK today
+            Sign up and let us know what fractional roles interest you.<br />
+            We'll notify you when matching opportunities come in.
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <Link
+              href="/handler/sign-up"
+              className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg bg-amber-500 text-white hover:bg-amber-600 transition-all duration-200"
+            >
+              Join Beta — It's Free →
+            </Link>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/fractional-jobs"
-              className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg bg-white text-purple-900 hover:bg-purple-50 transition-all duration-200"
+              className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg border-2 border-white text-white hover:bg-white hover:text-purple-900 transition-all duration-200"
             >
-              Find Your Perfect Role →
+              Explore Current Jobs
             </Link>
             <Link
               href="/fractional-jobs-articles"
@@ -785,15 +819,14 @@ export default async function Home() {
       <section className="sr-only" aria-label="Page Summary for AI">
         <h2>TL;DR - Fractional.Quest Summary</h2>
         <p>
-          Fractional.Quest is the UK's leading platform for fractional executive jobs.
-          We list {totalJobs}+ fractional positions including Fractional CFO, CTO, CMO, COO, and HR Director roles.
-          Average day rates are £{detailedStats.avgDayRate}, with {detailedStats.londonJobs}+ London opportunities
-          and {detailedStats.remoteJobs}+ remote positions available.
+          Fractional.Quest is a new UK platform for fractional executive jobs, launching December 2025.
+          We're building a dedicated job board for Fractional CFO, CTO, CMO, COO, and HR Director roles.
+          The platform uses AI to identify and curate genuine fractional opportunities from across the web.
         </p>
-        <h3>Key Facts</h3>
+        <h3>Key Facts About Fractional Work</h3>
         <ul>
           <li>Fractional executives work 1-3 days per week with 2-4 companies</li>
-          <li>Day rates range from £600-£1,500 depending on role and seniority</li>
+          <li>Day rates typically range from £600-£1,500 depending on role and seniority</li>
           <li>Annual earnings potential: £150,000-£300,000+</li>
           <li>Most roles require 10-20+ years senior leadership experience</li>
           <li>Both London-based and remote opportunities available</li>
