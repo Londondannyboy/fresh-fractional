@@ -8,13 +8,24 @@ import { UserGraph } from '@/components/UserGraph'
 
 const CONFIG_ID = 'd57ceb71-4cf5-47e9-87cd-6052445a031c'
 
-function VoiceInterface({ token, profile }: { token: string; profile: any }) {
-  const { connect, disconnect, status, messages, lastVoiceMessage, isPlaying, isMuted, micFft } = useVoice()
+function VoiceInterface({ token, profile, userId }: { token: string; profile: any; userId?: string }) {
+  const {
+    connect,
+    disconnect,
+    status,
+    messages,
+    isPlaying,
+    error: voiceError,
+    isError,
+    isAudioError,
+    isMicrophoneError,
+    readyState
+  } = useVoice()
 
   // Debug: Log all status changes with timestamp
   useEffect(() => {
     const time = new Date().toLocaleTimeString()
-    console.log(`=== HUME STATUS [${time}] ===`, status.value)
+    console.log(`=== HUME STATUS [${time}] ===`, status.value, `readyState: ${readyState}`)
 
     if (status.value === 'disconnected') {
       console.warn('⚠️ DISCONNECTED - Check if this was unexpected')
@@ -22,7 +33,20 @@ function VoiceInterface({ token, profile }: { token: string; profile: any }) {
     if (status.value === 'error') {
       console.error('❌ HUME ERROR STATE')
     }
-  }, [status.value])
+  }, [status.value, readyState])
+
+  // Log error states
+  useEffect(() => {
+    if (isError || isAudioError || isMicrophoneError || voiceError) {
+      console.error('=== HUME ERROR ===', JSON.stringify({
+        isError,
+        isAudioError,
+        isMicrophoneError,
+        voiceErrorMessage: voiceError?.message || String(voiceError),
+        voiceErrorName: voiceError?.name
+      }, null, 2))
+    }
+  }, [isError, isAudioError, isMicrophoneError, voiceError])
 
   useEffect(() => {
     console.log('=== HUME MESSAGES ===', messages.length, 'total')
@@ -36,20 +60,21 @@ function VoiceInterface({ token, profile }: { token: string; profile: any }) {
   }, [isPlaying])
 
   const handleConnect = useCallback(async () => {
-    // Pass ALL profile data from Neon to Hume
+    // Pass user_id and profile data to Hume
+    // user_id is critical for the Hume tool to query our database
     const vars = {
+      user_id: userId || '',  // CRITICAL: Hume tools use this to identify the user
       first_name: profile?.first_name || '',
-      is_authenticated: 'true',
+      is_authenticated: userId ? 'true' : 'false',
       current_country: profile?.current_country || 'United Kingdom',
       interests: Array.isArray(profile?.interests) ? profile.interests.join(', ') : (profile?.interests || ''),
       timeline: profile?.timeline || '',
       budget: profile?.budget_monthly ? `£${profile.budget_monthly}/day` : (profile?.budget || ''),
-      // Additional profile data
       email: profile?.email || '',
       last_name: profile?.last_name || ''
     }
 
-    console.log('[Hume] Connecting with ALL profile data:', vars)
+    console.log('[Hume] Connecting with user_id and profile:', JSON.stringify(vars, null, 2))
 
     try {
       await connect({
@@ -63,7 +88,7 @@ function VoiceInterface({ token, profile }: { token: string; profile: any }) {
     } catch (e: any) {
       console.error('Connection error:', e)
     }
-  }, [connect, token, profile])
+  }, [connect, token, profile, userId])
 
   const isConnected = status.value === 'connected'
   const isConnecting = status.value === 'connecting'
@@ -154,7 +179,18 @@ function VoiceInterface({ token, profile }: { token: string; profile: any }) {
       {/* Debug info */}
       {isConnected && (
         <div className="text-xs text-gray-400 mb-4 font-mono">
-          Status: {status.value} | Playing: {isPlaying ? 'YES' : 'NO'} | Messages: {messages.length}
+          Status: {status.value} | Playing: {isPlaying ? 'YES' : 'NO'} | Messages: {messages.length} | WS: {readyState}
+        </div>
+      )}
+
+      {/* Error display */}
+      {(isError || isAudioError || isMicrophoneError) && (
+        <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4 text-sm">
+          <p className="font-medium text-red-800 mb-1">Connection Issue:</p>
+          {isError && <p className="text-red-600">• General error</p>}
+          {isAudioError && <p className="text-red-600">• Audio playback error</p>}
+          {isMicrophoneError && <p className="text-red-600">• Microphone error</p>}
+          {voiceError && <p className="text-red-600">• {String(voiceError)}</p>}
         </div>
       )}
 
@@ -247,8 +283,29 @@ export default function VoicePage() {
               <p className="text-gray-600">Initializing voice...</p>
             </div>
           ) : (
-            <VoiceProvider>
-              <VoiceInterface token={token} profile={profile} />
+            <VoiceProvider
+              onClose={(event) => {
+                console.warn('=== HUME onClose ===', JSON.stringify({
+                  code: event?.code,
+                  reason: event?.reason,
+                  wasClean: event?.wasClean
+                }, null, 2))
+              }}
+              onError={(error) => {
+                console.error('=== HUME onError ===', JSON.stringify({
+                  message: error?.message || String(error),
+                  name: error?.name,
+                  stack: error?.stack?.substring(0, 200)
+                }, null, 2))
+              }}
+              onMessage={(msg) => {
+                // Log specific message types that might indicate issues
+                if (msg.type === 'error' || msg.type === 'chat_metadata') {
+                  console.log('=== HUME onMessage ===', msg.type, JSON.stringify(msg, null, 2))
+                }
+              }}
+            >
+              <VoiceInterface token={token} profile={profile} userId={user?.id} />
             </VoiceProvider>
           )}
         </div>

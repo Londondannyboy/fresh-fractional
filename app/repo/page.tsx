@@ -7,8 +7,54 @@ import Link from 'next/link'
 
 const CONFIG_ID = 'd57ceb71-4cf5-47e9-87cd-6052445a031c'
 
+interface JobResult {
+  title: string
+  company: string
+  location?: string
+  slug?: string
+}
+
 function VoiceInterface({ token, userId, profile }: { token: string; userId?: string; profile?: any }) {
   const { connect, disconnect, status, messages, isPlaying } = useVoice()
+  const [displayedJobs, setDisplayedJobs] = useState<JobResult[]>([])
+  const [showJobsPanel, setShowJobsPanel] = useState(false)
+
+  // Watch for job results in assistant messages
+  useEffect(() => {
+    const lastAssistantMsg = [...messages].reverse().find(
+      (m: any) => m.type === 'assistant_message' && m.message?.content
+    ) as any
+
+    if (lastAssistantMsg?.message?.content) {
+      const content = lastAssistantMsg.message.content.toLowerCase()
+      // Detect when Quest mentions finding jobs
+      if (content.includes('found') && (content.includes('job') || content.includes('role') || content.includes('position'))) {
+        setShowJobsPanel(true)
+        // Parse jobs from the message - look for "fractional.quest/job/" links
+        const jobMatches = lastAssistantMsg.message.content.match(/fractional\.quest\/job\/([^\s,\.]+)/g)
+        if (jobMatches) {
+          // Fetch job details for display
+          fetchJobsForDisplay(jobMatches.map((m: string) => m.replace('fractional.quest/job/', '')))
+        }
+      }
+    }
+  }, [messages])
+
+  const fetchJobsForDisplay = async (slugs: string[]) => {
+    try {
+      const response = await fetch('/api/jobs-by-slug', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slugs: slugs.slice(0, 5) })
+      })
+      if (response.ok) {
+        const jobs = await response.json()
+        setDisplayedJobs(jobs)
+      }
+    } catch (e) {
+      console.error('Failed to fetch jobs for display:', e)
+    }
+  }
 
   const handleConnect = useCallback(async () => {
     const vars = {
@@ -104,13 +150,57 @@ function VoiceInterface({ token, userId, profile }: { token: string; userId?: st
         </p>
       </div>
 
+      {/* Jobs Panel - appears when Quest finds jobs */}
+      {showJobsPanel && displayedJobs.length > 0 && (
+        <div className="border-t border-gray-200 bg-gradient-to-r from-purple-50 to-amber-50 p-6">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-bold text-gray-900">
+              Jobs Quest Found For You
+            </h3>
+            <button
+              onClick={() => setShowJobsPanel(false)}
+              className="text-gray-400 hover:text-gray-600"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div className="grid gap-3">
+            {displayedJobs.map((job, i) => (
+              <Link
+                key={i}
+                href={`/job/${job.slug}`}
+                className="block bg-white rounded-xl p-4 border border-gray-200 hover:border-purple-300 hover:shadow-md transition-all group"
+              >
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors">
+                      {job.title}
+                    </h4>
+                    <p className="text-sm text-gray-600">{job.company}</p>
+                    {job.location && (
+                      <p className="text-xs text-gray-500 mt-1">{job.location}</p>
+                    )}
+                  </div>
+                  <span className="text-purple-600 text-sm font-medium">View →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <p className="text-xs text-gray-500 mt-4 text-center">
+            Click any job to see full details and apply
+          </p>
+        </div>
+      )}
+
       {/* Conversation Panel */}
       {conversationMessages.length > 0 && (
-        <div className="border-t border-gray-200 bg-white p-6 max-h-96 overflow-y-auto">
-          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
-            Conversation ({conversationMessages.length} messages)
+        <div className="border-t border-gray-200 bg-white p-6 max-h-64 overflow-y-auto">
+          <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
+            Transcript
           </h3>
-          <div className="space-y-4">
+          <div className="space-y-3">
             {conversationMessages.map((msg: any, i: number) => {
               const isUser = msg.type === 'user_message'
               const content = msg.message?.content || ''
@@ -120,13 +210,13 @@ function VoiceInterface({ token, userId, profile }: { token: string; userId?: st
                   className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-[85%] rounded-2xl px-4 py-3 ${
+                    className={`max-w-[85%] rounded-xl px-3 py-2 ${
                       isUser
                         ? 'bg-purple-600 text-white'
-                        : 'bg-gray-100 text-gray-800'
+                        : 'bg-gray-100 text-gray-700'
                     }`}
                   >
-                    <p className="text-sm whitespace-pre-wrap">{content}</p>
+                    <p className="text-sm">{content}</p>
                   </div>
                 </div>
               )
