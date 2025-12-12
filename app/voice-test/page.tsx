@@ -9,17 +9,39 @@ import { UserGraph } from '@/components/UserGraph'
 const CONFIG_ID = 'd57ceb71-4cf5-47e9-87cd-6052445a031c'
 
 function VoiceInterface({ token, profile }: { token: string; profile: any }) {
-  const { connect, disconnect, status, messages } = useVoice()
+  const { connect, disconnect, status, messages, lastVoiceMessage, isPlaying, isMuted, micFft } = useVoice()
+
+  // Debug: Log all messages and status changes
+  useEffect(() => {
+    console.log('=== HUME STATUS ===', status.value)
+  }, [status.value])
+
+  useEffect(() => {
+    console.log('=== HUME MESSAGES ===', messages.length, 'total')
+    messages.slice(-3).forEach((m: any, i: number) => {
+      console.log(`  [${m.type}]`, m.message?.content?.substring(0, 50) || m)
+    })
+  }, [messages])
+
+  useEffect(() => {
+    console.log('=== HUME isPlaying ===', isPlaying)
+  }, [isPlaying])
 
   const handleConnect = useCallback(async () => {
+    // Pass ALL profile data from Neon to Hume
     const vars = {
       first_name: profile?.first_name || '',
       is_authenticated: 'true',
-      current_country: profile?.current_country || '',
-      interests: '',
-      timeline: '',
-      budget: ''
+      current_country: profile?.current_country || 'United Kingdom',
+      interests: Array.isArray(profile?.interests) ? profile.interests.join(', ') : (profile?.interests || ''),
+      timeline: profile?.timeline || '',
+      budget: profile?.budget_monthly ? `£${profile.budget_monthly}/day` : (profile?.budget || ''),
+      // Additional profile data
+      email: profile?.email || '',
+      last_name: profile?.last_name || ''
     }
+
+    console.log('[Hume] Connecting with ALL profile data:', vars)
 
     try {
       await connect({
@@ -113,11 +135,20 @@ function VoiceInterface({ token, profile }: { token: string; profile: any }) {
       {/* Status text */}
       <p className="text-lg text-gray-600 mb-8">
         {isConnected
-          ? '🎤 Listening... speak naturally'
+          ? isPlaying
+            ? '🔊 Assistant is speaking...'
+            : '🎤 Listening... speak naturally'
           : isConnecting
           ? 'Connecting to voice...'
           : 'Tap to start a conversation'}
       </p>
+
+      {/* Debug info */}
+      {isConnected && (
+        <div className="text-xs text-gray-400 mb-4 font-mono">
+          Status: {status.value} | Playing: {isPlaying ? 'YES' : 'NO'} | Messages: {messages.length}
+        </div>
+      )}
 
       {/* Conversation */}
       {recentMessages.length > 0 && (
