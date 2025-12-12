@@ -7,11 +7,6 @@ import Link from 'next/link'
 
 const CONFIG_ID = 'd57ceb71-4cf5-47e9-87cd-6052445a031c'
 
-interface Message {
-  type: string
-  message?: { content?: string }
-}
-
 function VoiceInterface({ token, userId, profile }: { token: string; userId?: string; profile?: any }) {
   const { connect, disconnect, status, messages, isPlaying } = useVoice()
 
@@ -48,7 +43,7 @@ function VoiceInterface({ token, userId, profile }: { token: string; userId?: st
 
   // Filter to user and assistant messages
   const conversationMessages = messages.filter(
-    (m: Message) => m.type === 'user_message' || m.type === 'assistant_message'
+    (m: any) => m.type === 'user_message' || m.type === 'assistant_message'
   )
 
   return (
@@ -101,7 +96,7 @@ function VoiceInterface({ token, userId, profile }: { token: string; userId?: st
         <div className="border-t border-gray-200 bg-white p-6 max-h-80 overflow-y-auto">
           <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Conversation</h3>
           <div className="space-y-4">
-            {conversationMessages.map((msg: Message, i: number) => (
+            {conversationMessages.map((msg: any, i: number) => (
               <div
                 key={i}
                 className={`flex ${msg.type === 'user_message' ? 'justify-end' : 'justify-start'}`}
