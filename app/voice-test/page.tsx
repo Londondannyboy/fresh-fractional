@@ -294,8 +294,7 @@ export default function VoicePage() {
               onError={(error) => {
                 console.error('=== HUME onError ===', JSON.stringify({
                   message: error?.message || String(error),
-                  name: error?.name,
-                  stack: error?.stack?.substring(0, 200)
+                  type: (error as any)?.type
                 }, null, 2))
               }}
               onMessage={(msg) => {
