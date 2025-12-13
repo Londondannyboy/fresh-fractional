@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/pydantic-extract.py": {
+      "runtime": "python3.11"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/pydantic-extract",
+      "destination": "/api/pydantic-extract.py"
+    }
+  ]
+}
