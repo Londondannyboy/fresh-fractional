@@ -39,33 +39,27 @@ interface FilterOption {
   label: string
 }
 
-// Static fractional role categories
-const FRACTIONAL_ROLES: FilterOption[] = [
-  { value: '', label: 'All Roles' },
-  { value: 'CFO', label: 'Fractional CFO' },
-  { value: 'CMO', label: 'Fractional CMO' },
-  { value: 'CTO', label: 'Fractional CTO' },
-  { value: 'COO', label: 'Fractional COO' },
-  { value: 'Sales', label: 'Fractional Sales' },
-  { value: 'HR', label: 'Fractional HR' },
-  { value: 'Other', label: 'Other Roles' },
+// Functional department categories (matches database ENUM)
+const ROLE_CATEGORIES: FilterOption[] = [
+  { value: '', label: 'All Departments' },
+  { value: 'Engineering', label: 'Engineering' },
+  { value: 'Marketing', label: 'Marketing' },
+  { value: 'Finance', label: 'Finance' },
+  { value: 'Operations', label: 'Operations' },
+  { value: 'Sales', label: 'Sales' },
+  { value: 'HR', label: 'HR' },
+  { value: 'Product', label: 'Product' },
+  { value: 'Design', label: 'Design' },
+  { value: 'Data', label: 'Data' },
+  { value: 'Legal', label: 'Legal' },
+  { value: 'Customer Success', label: 'Customer Success' },
+  { value: 'Other', label: 'Other' },
 ]
-
-// Map database role_category values to fractional categories
-const ROLE_CATEGORY_MAPPING: Record<string, string[]> = {
-  'CFO': ['CFO', 'Finance Director', 'Finance Manager', 'Financial Controller', 'Head of Finance', 'Finance', 'Accounting/Auditing'],
-  'CMO': ['CMO', 'Marketing Director', 'Marketing Manager', 'Advertising', 'Advertising Strategist'],
-  'CTO': ['CTO', 'Head of AI', 'AI Director', 'Engineering and Information Technology', 'Software Engineering Coach'],
-  'COO': ['COO', 'Managing Director', 'Programme Manager', 'Project Manager', 'Chief of Staff'],
-  'Sales': ['Sales', 'Sales Director', 'Business Consultant', 'Client Success Manager'],
-  'HR': ['HR', 'HR Director', 'People Director'],
-  'Other': ['Other'],
-}
 
 // Fetch filter options from database
 async function getFilterOptions(sql: any) {
-  // Use static fractional role categories
-  const roleOptions: FilterOption[] = FRACTIONAL_ROLES
+  // Use functional department categories (matches database ENUM)
+  const roleOptions: FilterOption[] = ROLE_CATEGORIES
 
   // Get workplace types
   const workTypeResults = await sql`
@@ -183,11 +177,9 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
     // Build dynamic WHERE clause
     let whereConditions = ['is_active = true']
 
-    if (roleFilter && ROLE_CATEGORY_MAPPING[roleFilter]) {
-      // Map the fractional role to all matching database categories
-      const mappedCategories = ROLE_CATEGORY_MAPPING[roleFilter]
-      const categoryConditions = mappedCategories.map(cat => `role_category = '${cat}'`).join(' OR ')
-      whereConditions.push(`(${categoryConditions})`)
+    if (roleFilter) {
+      // Direct match against database ENUM
+      whereConditions.push(`role_category = '${roleFilter}'`)
     }
 
     if (remoteFilter === 'remote') {

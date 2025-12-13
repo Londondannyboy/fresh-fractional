@@ -48,8 +48,8 @@ class StructuredJob(BaseModel):
 
     # Categorization
     vertical: str = Field(description="Industry vertical: Technology, Finance, Healthcare, Professional Services, E-commerce, Manufacturing, Recruitment, Consulting, Media, Retail, etc.")
-    seniority_level: str = Field(description="One of: Executive, Senior, Mid-Senior, Associate, Entry")
-    role_category: str = Field(description="MUST be one of these exact values: CFO, CMO, CTO, COO, HR, Sales, Other. Map finance/accounting roles to CFO, marketing roles to CMO, technology/engineering roles to CTO, operations/project roles to COO, people/HR roles to HR, business development/sales roles to Sales. Use 'Other' only if no category fits.")
+    seniority_level: str = Field(description="MUST be one of: Executive, Director, Manager, Senior, Mid, Junior, Intern. Map C-suite/VP to Executive, directors to Director, managers to Manager, senior ICs to Senior, mid-level to Mid, entry-level to Junior, interns to Intern.")
+    role_category: str = Field(description="MUST be one of these exact values: Engineering, Marketing, Finance, Operations, Sales, HR, Product, Design, Data, Legal, Customer Success, Other. Map: software/tech roles to Engineering, marketing/growth/content to Marketing, finance/accounting to Finance, ops/project management to Operations, sales/partnerships to Sales, recruiting/people to HR, product management to Product, UX/UI to Design, data science/analytics to Data, legal/compliance to Legal, customer success/support to Customer Success. Use 'Other' only if nothing fits.")
 
     # Compensation
     salary_min: Optional[int] = Field(default=None, description="Minimum salary/day rate as integer (no currency symbol)")
@@ -180,14 +180,29 @@ Your role is to transform raw job postings into beautifully crafted, editorially
 - Identify the true seniority - "Fractional CFO" is Executive level
 
 **CRITICAL - Role Category Classification:**
-role_category MUST be exactly one of: CFO, CMO, CTO, COO, HR, Sales, Other
-- CFO: Finance Directors, Financial Controllers, Accounting, Treasury, FP&A
-- CMO: Marketing Directors, Brand, Growth, Demand Gen, Communications
-- CTO: Tech Directors, Engineering Leads, AI/ML, Product Tech, VP Engineering
-- COO: Operations Directors, Project/Programme Managers, Chief of Staff, MD
-- HR: People Directors, Talent, L&D, HR Business Partners
-- Sales: Sales Directors, Revenue, Business Development, Partnerships
+role_category MUST be exactly one of: Engineering, Marketing, Finance, Operations, Sales, HR, Product, Design, Data, Legal, Customer Success, Other
+- Engineering: Software Engineers, Developers, Tech Leads, CTOs, VPs of Engineering, DevOps, Platform
+- Marketing: Marketing Managers, CMOs, Growth, Demand Gen, Content, Brand, Communications
+- Finance: CFOs, Finance Directors, Controllers, Accountants, FP&A, Treasury
+- Operations: COOs, Ops Managers, Project/Programme Managers, Chief of Staff
+- Sales: Sales Directors, AEs, BDRs, Partnerships, Revenue
+- HR: People Directors, Recruiters, Talent, L&D, HR Business Partners
+- Product: Product Managers, Product Directors, Product Owners
+- Design: UX/UI Designers, Design Directors, UX Researchers
+- Data: Data Scientists, Data Engineers, Analytics, BI
+- Legal: Legal Counsel, Compliance, Contracts
+- Customer Success: CSMs, Support Leads, Customer Education
 - Other: Only if nothing else fits (rare)
+
+**CRITICAL - Seniority Level Classification:**
+seniority_level MUST be exactly one of: Executive, Director, Manager, Senior, Mid, Junior, Intern
+- Executive: C-suite (CEO, CFO, CTO, CMO, COO), VPs, Partners
+- Director: Directors, Heads of Department
+- Manager: Managers, Team Leads
+- Senior: Senior individual contributors (Senior Engineer, Senior Designer)
+- Mid: Mid-level individual contributors (no senior/junior prefix)
+- Junior: Entry-level, Associates, Junior titles
+- Intern: Interns, Apprentices, Graduate schemes
 
 **Quality Standards:**
 - Every listing should read like it belongs in a premium publication
