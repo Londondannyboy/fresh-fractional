@@ -31,14 +31,14 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Fractional Jobs UK | CFO, CTO, CMO Roles | Fractional.Quest",
-    template: "%s | Fractional.Quest"
+    default: "Fractional Jobs UK | CFO, CTO, CMO Roles | Fractional Quest",
+    template: "%s | Fractional Quest"
   },
   description: "Discover the best fractional jobs in the UK. Browse fractional CFO, CMO, CTO and executive roles in London. Connect with leading fractional recruitment agencies and find flexible leadership opportunities.",
   keywords: ["fractional jobs", "fractional jobs UK", "fractional CFO", "fractional CTO", "fractional CMO", "fractional COO", "fractional executive", "part-time executive", "fractional recruitment agencies", "London fractional jobs"],
-  authors: [{ name: "Fractional.Quest" }],
-  creator: "Fractional.Quest",
-  publisher: "Fractional.Quest",
+  authors: [{ name: "Fractional Quest" }],
+  creator: "Fractional Quest",
+  publisher: "Fractional Quest",
   metadataBase: new URL("https://fractional.quest"),
   alternates: {
     canonical: "https://fractional.quest",
@@ -47,14 +47,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     url: "https://fractional.quest",
-    siteName: "Fractional.Quest",
+    siteName: "Fractional Quest",
     title: "Fractional Jobs UK | CFO, CTO, CMO Roles",
     description: "Discover the best fractional jobs in the UK. Browse fractional CFO, CMO, CTO and executive roles in London.",
     // Images auto-generated from app/opengraph-image.tsx
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fractional Jobs UK | Fractional.Quest",
+    title: "Fractional Jobs UK | Fractional Quest",
     description: "Discover the best fractional jobs in the UK. Browse fractional CFO, CMO, CTO and executive roles.",
     site: "@fractionalquest",
     creator: "@fractionalquest",
@@ -78,7 +78,7 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": "https://fractional.quest/#organization",
-  name: "Fractional.Quest",
+  name: "Fractional Quest",
   alternateName: ["Fractional Quest", "FractionalQuest"],
   url: "https://fractional.quest",
   logo: {
@@ -109,14 +109,14 @@ const organizationJsonLd = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Fractional.Quest",
+  name: "Fractional Quest",
   alternateName: ["Fractional Quest", "FractionalQuest", "Fractional Jobs UK"],
   url: "https://fractional.quest",
   description: "UK marketplace for fractional jobs and executive services. Browse fractional CFO, CMO, CTO roles.",
   inLanguage: "en-GB",
   publisher: {
     "@type": "Organization",
-    name: "Fractional.Quest",
+    name: "Fractional Quest",
     url: "https://fractional.quest",
     logo: {
       "@type": "ImageObject",

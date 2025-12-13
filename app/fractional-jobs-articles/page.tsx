@@ -10,10 +10,10 @@ export const revalidate = 14400 // Revalidate every 4 hours
 const HERO_VIDEO_PLAYBACK_ID: string | undefined = "qIS6PGKxIZyzjrDBzxQuqPRBOhHofDnXq1chdsqAY9Y"
 
 export const metadata: Metadata = {
-  title: 'Fractional Executive Articles & Guides | Fractional.Quest',
+  title: 'Fractional Executive Articles & Guides | Fractional Quest',
   description: 'Expert guides and articles about fractional executive roles, career tips, salary guides, and hiring strategies for CFO, CTO, CMO roles.',
   openGraph: {
-    title: 'Fractional Executive Articles & Guides | Fractional.Quest',
+    title: 'Fractional Executive Articles & Guides | Fractional Quest',
     description: 'Expert guides and articles about fractional executive roles, career tips, and hiring strategies.',
     type: 'website',
   },

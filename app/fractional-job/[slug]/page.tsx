@@ -105,16 +105,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     `
 
     if (jobs.length === 0) {
-      return { title: 'Job Not Found | Fractional.Quest' }
+      return { title: 'Job Not Found | Fractional Quest' }
     }
 
     const job = jobs[0] as any
     return {
-      title: `${job.title} at ${job.company_name} | Fractional.Quest`,
-      description: `Fractional ${job.title} position at ${job.company_name} in ${job.location}. Browse and apply on Fractional.Quest - a UK fractional executive job board.`,
+      title: `${job.title} at ${job.company_name} | Fractional Quest`,
+      description: `Fractional ${job.title} position at ${job.company_name} in ${job.location}. Browse and apply on Fractional Quest - a UK fractional executive job board.`,
     }
   } catch {
-    return { title: 'Job | Fractional.Quest' }
+    return { title: 'Job | Fractional Quest' }
   }
 }
 
@@ -748,7 +748,7 @@ export default async function JobDetailPage({ params }: PageProps) {
                       borderColor: colors.text,
                       color: colors.text
                     }}
-                    aria-label="Browse all fractional jobs on Fractional.Quest"
+                    aria-label="Browse all fractional jobs on Fractional Quest"
                   >
                     ← Browse All Fractional Jobs
                   </Link>

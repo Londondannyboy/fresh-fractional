@@ -43,12 +43,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const article = await getArticle(slug)
 
   if (!article) {
-    return { title: 'Article Not Found | Fractional.Quest' }
+    return { title: 'Article Not Found | Fractional Quest' }
   }
 
   return {
-    title: `${article.title} | Fractional.Quest`,
-    description: article.meta_description || article.excerpt || 'Read this article on Fractional.Quest',
+    title: `${article.title} | Fractional Quest`,
+    description: article.meta_description || article.excerpt || 'Read this article on Fractional Quest',
   }
 }
 

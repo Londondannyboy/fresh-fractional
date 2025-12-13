@@ -12,7 +12,7 @@ export function ShareButtons({ title, company, slug }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false)
 
   const jobUrl = `https://fractional.quest/fractional-job/${slug}`
-  const shareText = `${title} at ${company} - Fractional.Quest`
+  const shareText = `${title} at ${company} - Fractional Quest`
 
   const shareLinkedIn = () => {
     const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(jobUrl)}`

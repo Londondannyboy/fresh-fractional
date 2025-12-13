@@ -801,9 +801,9 @@ export default async function Home() {
 
       {/* AI Summary Section - Hidden visually but available for AI crawlers */}
       <section className="sr-only" aria-label="Page Summary for AI">
-        <h2>TL;DR - Fractional.Quest Summary</h2>
+        <h2>TL;DR - Fractional Quest Summary</h2>
         <p>
-          Fractional.Quest is the UK's marketplace for fractional executive services.
+          Fractional Quest is the UK's marketplace for fractional executive services.
           Companies can hire Fractional CFO, CMO, CTO, COO, and HR Director executives
           at a fraction of full-time cost. Fractional executives also use the platform
           to find fractional opportunities.
