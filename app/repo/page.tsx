@@ -8,6 +8,17 @@ import RepoBuilder from '@/components/RepoBuilder'
 
 const CONFIG_ID = 'd57ceb71-4cf5-47e9-87cd-6052445a031c'
 
+// Store chat_group_id per user for Hume resume functionality
+function getChatGroupId(userId: string): string | null {
+  if (typeof window === 'undefined') return null
+  return localStorage.getItem(`hume_chat_group_${userId}`)
+}
+
+function setChatGroupId(userId: string, chatGroupId: string) {
+  if (typeof window === 'undefined') return
+  localStorage.setItem(`hume_chat_group_${userId}`, chatGroupId)
+}
+
 interface JobResult {
   title: string
   company: string
@@ -46,6 +57,48 @@ function VoiceInterface({ token, userId, profile, memoryContext }: {
   const processedConfirmations = useRef<Set<string>>(new Set())
   const lastExtractedText = useRef<string>('')
   const fadeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const wasConnectedRef = useRef(false)
+
+  // Save conversation to Supermemory when session ends
+  useEffect(() => {
+    // Track connection state
+    if (status.value === 'connected') {
+      wasConnectedRef.current = true
+    }
+
+    // Only save if we were connected and now disconnected
+    if (status.value === 'disconnected' && wasConnectedRef.current && userId && messages.length > 0) {
+      wasConnectedRef.current = false
+
+      // Build transcript from messages
+      const transcript = messages
+        .filter((m: any) => m.type === 'user_message' || m.type === 'assistant_message')
+        .map((m: any) => {
+          const role = m.type === 'user_message' ? 'User' : 'Repo'
+          return `${role}: ${m.message?.content || ''}`
+        })
+        .join('\n')
+
+      if (transcript.length > 50) {
+        console.log('[Supermemory] Saving conversation transcript, length:', transcript.length)
+
+        fetch('/api/supermemory-save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId, transcript })
+        })
+          .then(r => r.json())
+          .then(data => {
+            if (data.saved) {
+              console.log('[Supermemory] Conversation saved successfully')
+            } else {
+              console.log('[Supermemory] Conversation not saved:', data.reason || data.error)
+            }
+          })
+          .catch(err => console.error('[Supermemory] Save error:', err))
+      }
+    }
+  }, [status.value, messages, userId])
 
   // Auto-fade and save unvalidated preference after timeout
   useEffect(() => {
@@ -269,7 +322,13 @@ function VoiceInterface({ token, userId, profile, memoryContext }: {
       previous_context: memoryContext || '',
     }
 
+    // Check for existing chat to resume
+    const existingChatGroupId = userId ? getChatGroupId(userId) : null
+
     console.log('[Hume] Connecting with profile:', vars)
+    if (existingChatGroupId) {
+      console.log('[Hume] Resuming chat group:', existingChatGroupId)
+    }
     if (memoryContext) {
       console.log('[Hume] Memory context:', memoryContext.substring(0, 200))
     }
@@ -278,6 +337,7 @@ function VoiceInterface({ token, userId, profile, memoryContext }: {
       await connect({
         auth: { type: 'accessToken', value: token },
         configId: CONFIG_ID,
+        resumedChatGroupId: existingChatGroupId || undefined,
         sessionSettings: {
           type: 'session_settings' as const,
           variables: vars
@@ -555,7 +615,11 @@ export default function RepoPage() {
   // Fetch memory context from Supermemory
   useEffect(() => {
     if (!user) return
-    fetch('/api/memory-context')
+    fetch('/api/supermemory-context', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: user.id, query: 'career preferences skills experience' })
+    })
       .then(r => r.ok ? r.json() : null)
       .then(data => {
         if (data?.context) {
@@ -565,6 +629,15 @@ export default function RepoPage() {
       })
       .catch(e => console.error('[Memory context error]', e))
   }, [user])
+
+  // Handle chat_group_id from Hume for resume functionality
+  const handleHumeMessage = useCallback((msg: any) => {
+    // Save chat_group_id for resume functionality
+    if (msg.type === 'chat_metadata' && msg.chatGroupId && user?.id) {
+      console.log('[Hume] Saving chat_group_id for resume:', msg.chatGroupId)
+      setChatGroupId(user.id, msg.chatGroupId)
+    }
+  }, [user?.id])
 
   if (!user) return null
 
@@ -646,10 +719,7 @@ export default function RepoPage() {
           <VoiceProvider
             onError={(err) => console.error('[Hume Error]', err)}
             onClose={(e) => console.warn('[Hume Close]', e?.code, e?.reason)}
-            onMessage={(msg) => {
-              // Log message types for debugging
-              console.log('[Hume]', msg.type)
-            }}
+            onMessage={handleHumeMessage}
           >
             <VoiceInterface
               token={token}
