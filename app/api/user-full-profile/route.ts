@@ -37,29 +37,29 @@ export async function GET() {
     let qualifications: any[] = []
 
     if (profile) {
-      // Fetch skills
+      // Fetch skills - user_id is neon_auth_id (text), not profile.id (uuid)
       const skillResults = await sql`
-        SELECT id, skill_name, skill_level, years_experience
+        SELECT id, skill_name_raw as skill_name, proficiency_level as skill_level, years_experience
         FROM user_skills
-        WHERE user_id = ${profile.id}
+        WHERE user_id = ${profile.neon_auth_id}
         ORDER BY years_experience DESC NULLS LAST
       `
       skills = skillResults
 
       // Fetch experiences
       const expResults = await sql`
-        SELECT id, company_name, role_title, start_date, end_date
+        SELECT id, company_name_raw as company_name, role_title, start_year as start_date, end_year as end_date
         FROM user_experiences
-        WHERE user_id = ${profile.id}
-        ORDER BY end_date DESC NULLS FIRST
+        WHERE user_id = ${profile.neon_auth_id}
+        ORDER BY end_year DESC NULLS FIRST
       `
       experiences = expResults
 
       // Fetch qualifications
       const qualResults = await sql`
-        SELECT id, qualification_name, institution, year_obtained
+        SELECT id, name as qualification_name, institution, year_obtained
         FROM user_qualifications
-        WHERE user_id = ${profile.id}
+        WHERE user_id = ${profile.neon_auth_id}
         ORDER BY year_obtained DESC NULLS LAST
       `
       qualifications = qualResults
