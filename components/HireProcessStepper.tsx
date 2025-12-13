@@ -41,16 +41,17 @@ export function HireProcessStepper({
   className = ''
 }: HireProcessStepperProps) {
   const colorClasses: Record<string, { bg: string; text: string; border: string }> = {
-    emerald: { bg: 'bg-emerald-500', text: 'text-emerald-500', border: 'border-emerald-500' },
-    amber: { bg: 'bg-amber-500', text: 'text-amber-500', border: 'border-amber-500' },
-    blue: { bg: 'bg-blue-500', text: 'text-blue-500', border: 'border-blue-500' },
-    orange: { bg: 'bg-orange-500', text: 'text-orange-500', border: 'border-orange-500' },
-    purple: { bg: 'bg-purple-500', text: 'text-purple-500', border: 'border-purple-500' },
-    pink: { bg: 'bg-pink-500', text: 'text-pink-500', border: 'border-pink-500' },
-    red: { bg: 'bg-red-500', text: 'text-red-500', border: 'border-red-500' },
+    gray: { bg: 'bg-gray-900', text: 'text-gray-900', border: 'border-gray-900' },
+    emerald: { bg: 'bg-gray-800', text: 'text-gray-800', border: 'border-gray-800' },
+    amber: { bg: 'bg-gray-800', text: 'text-gray-800', border: 'border-gray-800' },
+    blue: { bg: 'bg-gray-800', text: 'text-gray-800', border: 'border-gray-800' },
+    orange: { bg: 'bg-gray-800', text: 'text-gray-800', border: 'border-gray-800' },
+    purple: { bg: 'bg-gray-800', text: 'text-gray-800', border: 'border-gray-800' },
+    pink: { bg: 'bg-gray-800', text: 'text-gray-800', border: 'border-gray-800' },
+    red: { bg: 'bg-gray-800', text: 'text-gray-800', border: 'border-gray-800' },
   }
 
-  const colors = colorClasses[accentColor] || colorClasses.emerald
+  const colors = colorClasses[accentColor] || colorClasses.gray
 
   return (
     <div className={`${className}`}>

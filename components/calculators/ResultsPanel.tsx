@@ -16,7 +16,7 @@ interface ResultsPanelProps {
   subtitle?: string
   results: ResultItem[]
   variant?: 'default' | 'compact' | 'horizontal'
-  accentColor?: 'purple' | 'amber' | 'green'
+  accentColor?: 'purple' | 'amber' | 'green' | 'gray'
 }
 
 export function ResultsPanel({
@@ -31,9 +31,9 @@ export function ResultsPanel({
       case 'amber':
         return 'from-amber-600 to-amber-500'
       case 'green':
-        return 'from-emerald-600 to-emerald-500'
+        return 'from-gray-800 to-gray-700'
       default:
-        return 'from-purple-900 to-purple-700'
+        return 'from-gray-900 to-gray-800'
     }
   }, [accentColor])
 

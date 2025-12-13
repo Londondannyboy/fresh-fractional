@@ -20,7 +20,7 @@ export function CalculatorCard({
   return (
     <div className="calculator-container">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-50 to-purple-100/50 px-6 py-5 border-b border-purple-100">
+      <div className="bg-gradient-to-r from-gray-100 to-gray-50 px-6 py-5 border-b border-gray-200">
         <div className="flex items-center gap-4">
           {icon && (
             <span className="text-3xl">{icon}</span>

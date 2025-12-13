@@ -5,7 +5,7 @@ import { useMemo } from 'react'
 interface ComparisonItem {
   label: string
   value: number
-  color?: 'purple' | 'amber' | 'gray' | 'green' | 'red'
+  color?: 'purple' | 'amber' | 'gray' | 'green' | 'red' | 'black'
   details?: { label: string; value: string }[]
 }
 
@@ -27,11 +27,12 @@ export function ComparisonChart({
   const maxValue = useMemo(() => Math.max(...items.map(i => i.value)), [items])
 
   const colorClasses = {
-    purple: 'bg-purple-600',
+    purple: 'bg-gray-800',
     amber: 'bg-amber-500',
     gray: 'bg-gray-400',
-    green: 'bg-emerald-500',
-    red: 'bg-red-500'
+    green: 'bg-gray-600',
+    red: 'bg-red-500',
+    black: 'bg-gray-900'
   }
 
   const difference = useMemo(() => {
@@ -89,19 +90,19 @@ export function ComparisonChart({
 
       {/* Savings callout */}
       {showDifference && difference > 0 && (
-        <div className="mt-8 p-4 bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl border border-emerald-200">
+        <div className="mt-8 p-4 bg-gradient-to-r from-gray-100 to-gray-50 rounded-xl border border-gray-300">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-emerald-700">{differenceLabel}</p>
-              <p className="text-3xl font-data font-bold text-emerald-800">
+              <p className="text-sm font-medium text-gray-700">{differenceLabel}</p>
+              <p className="text-3xl font-data font-bold text-gray-900">
                 {formatValue(difference)}
               </p>
             </div>
             <div className="text-right">
-              <p className="text-4xl font-data font-bold text-emerald-600">
+              <p className="text-4xl font-data font-bold text-gray-800">
                 {percentageSaved}%
               </p>
-              <p className="text-sm text-emerald-600">less than full-time</p>
+              <p className="text-sm text-gray-600">less than full-time</p>
             </div>
           </div>
         </div>

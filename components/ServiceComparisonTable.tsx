@@ -58,14 +58,15 @@ export function ServiceComparisonTable({
   ]
 
   const colorClasses: Record<string, { header: string; highlight: string; border: string }> = {
-    emerald: { header: 'bg-emerald-500', highlight: 'bg-emerald-50', border: 'border-emerald-500' },
-    amber: { header: 'bg-amber-500', highlight: 'bg-amber-50', border: 'border-amber-500' },
-    blue: { header: 'bg-blue-500', highlight: 'bg-blue-50', border: 'border-blue-500' },
-    orange: { header: 'bg-orange-500', highlight: 'bg-orange-50', border: 'border-orange-500' },
-    purple: { header: 'bg-purple-500', highlight: 'bg-purple-50', border: 'border-purple-500' },
+    gray: { header: 'bg-gray-900', highlight: 'bg-gray-100', border: 'border-gray-900' },
+    emerald: { header: 'bg-gray-800', highlight: 'bg-gray-100', border: 'border-gray-800' },
+    amber: { header: 'bg-gray-800', highlight: 'bg-gray-100', border: 'border-gray-800' },
+    blue: { header: 'bg-gray-800', highlight: 'bg-gray-100', border: 'border-gray-800' },
+    orange: { header: 'bg-gray-800', highlight: 'bg-gray-100', border: 'border-gray-800' },
+    purple: { header: 'bg-gray-800', highlight: 'bg-gray-100', border: 'border-gray-800' },
   }
 
-  const colors = colorClasses[accentColor] || colorClasses.emerald
+  const colors = colorClasses[accentColor] || colorClasses.gray
 
   return (
     <div className={`overflow-x-auto ${className}`}>
