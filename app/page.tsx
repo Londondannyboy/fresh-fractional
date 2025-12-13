@@ -354,9 +354,18 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Why Hire Fractional - Company Focused */}
-      <section className="py-20 md:py-28 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Why Hire Fractional - Company Focused - with subdued video */}
+      <section className="py-20 md:py-28 relative overflow-hidden">
+        {/* Video Background - very subdued */}
+        <div className="absolute inset-0 z-0">
+          <VideoHeroBackground
+            playbackId={HERO_VIDEO_PLAYBACK_ID}
+            fallbackGradient={true}
+          />
+          {/* Heavy overlay to keep it subtle */}
+          <div className="absolute inset-0 bg-gray-50/90" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Hire Fractional Executives?</h2>
             <p className="text-xl text-gray-600 leading-relaxed">
@@ -478,10 +487,10 @@ export default async function Home() {
               {(howItWorksSection.content as HowItWorksStep[]).map((step, i) => (
                 <div key={i} className="relative">
                   {i < (howItWorksSection.content as HowItWorksStep[]).length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-purple-200 -translate-x-1/2" />
+                    <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gray-300 -translate-x-1/2" />
                   )}
                   <div className="text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 text-purple-700 rounded-full text-2xl font-bold mb-4">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-900 text-white rounded-full text-2xl font-bold mb-4">
                       {step.step}
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
@@ -547,12 +556,21 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Calculator Section */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Calculator Section - with subdued video background */}
+      <section className="py-20 md:py-28 relative overflow-hidden">
+        {/* Video Background - subdued/dimmed */}
+        <div className="absolute inset-0 z-0">
+          <VideoHeroBackground
+            playbackId={HERO_VIDEO_PLAYBACK_ID}
+            fallbackGradient={true}
+          />
+          {/* Extra dark overlay to make video more subtle */}
+          <div className="absolute inset-0 bg-black/70" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">Calculate Your Earning Potential</h2>
-            <p className="text-xl text-purple-200">See how much you could earn as a fractional executive</p>
+            <p className="text-xl text-gray-300">See how much you could earn as a fractional executive</p>
           </div>
           <FractionalCalculator />
         </div>
@@ -592,7 +610,7 @@ export default async function Home() {
             <div className="text-center">
               <Link
                 href="/fractional-jobs"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg bg-purple-700 text-white hover:bg-purple-800 transition-all duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg bg-gray-900 text-white hover:bg-black transition-all duration-200"
               >
                 {totalJobs > 0 ? `View All ${totalJobs} Jobs →` : 'View All Jobs →'}
               </Link>
@@ -620,7 +638,7 @@ export default async function Home() {
             <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
               <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
                 What is a fractional job?
-                <span className="text-purple-700 group-open:rotate-180 transition-transform">▼</span>
+                <span className="text-gray-700 group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <p className="mt-4 text-gray-600 leading-relaxed">
                 A fractional job is a part-time executive role where you work 1-3 days per week providing strategic leadership without full-time commitment. Fractional executives typically work with 2-4 companies simultaneously, offering their expertise as a Fractional CFO, CMO, CTO, COO, or HR Director. This model allows companies to access senior talent at a fraction of the cost of a full-time hire.
@@ -630,7 +648,7 @@ export default async function Home() {
             <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
               <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
                 How much do fractional executives earn in the UK?
-                <span className="text-purple-700 group-open:rotate-180 transition-transform">▼</span>
+                <span className="text-gray-700 group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <p className="mt-4 text-gray-600 leading-relaxed">
                 Fractional executives in the UK typically earn £600-£1,500 per day depending on seniority and expertise. Many fractional executives earn £150,000-£300,000+ annually by working with 2-4 clients. Fractional CFOs and CTOs often command the highest rates, while the average day rate across all fractional roles is approximately £{detailedStats.avgDayRate}.
@@ -640,7 +658,7 @@ export default async function Home() {
             <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
               <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
                 Do I need to be based in London for fractional work?
-                <span className="text-purple-700 group-open:rotate-180 transition-transform">▼</span>
+                <span className="text-gray-700 group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <p className="mt-4 text-gray-600 leading-relaxed">
                 No, while London has the most fractional opportunities ({detailedStats.londonJobs}+ roles currently), many fractional positions are remote or hybrid. Birmingham, Manchester, Edinburgh, and Bristol all have growing fractional markets. Currently, we have {detailedStats.remoteJobs}+ remote fractional positions available across the UK.
@@ -650,7 +668,7 @@ export default async function Home() {
             <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
               <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
                 How many clients should a fractional executive work with?
-                <span className="text-purple-700 group-open:rotate-180 transition-transform">▼</span>
+                <span className="text-gray-700 group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <p className="mt-4 text-gray-600 leading-relaxed">
                 Most fractional executives work with 2-4 clients simultaneously to diversify income while maintaining quality delivery to each client. Working with fewer clients allows deeper engagement, while more clients provide income security. The ideal number depends on the complexity of each role and your personal working style.
@@ -660,7 +678,7 @@ export default async function Home() {
             <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
               <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
                 What's the difference between fractional and interim roles?
-                <span className="text-purple-700 group-open:rotate-180 transition-transform">▼</span>
+                <span className="text-gray-700 group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <p className="mt-4 text-gray-600 leading-relaxed">
                 Interim roles are typically full-time positions for a fixed period (3-12 months) to cover gaps or manage transitions. Fractional roles are ongoing part-time positions where you work 1-3 days per week indefinitely. Fractional work offers more flexibility and the ability to work with multiple clients, while interim work provides deeper immersion in a single company.
@@ -670,7 +688,7 @@ export default async function Home() {
             <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
               <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
                 What experience do I need for fractional executive roles?
-                <span className="text-purple-700 group-open:rotate-180 transition-transform">▼</span>
+                <span className="text-gray-700 group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <p className="mt-4 text-gray-600 leading-relaxed">
                 Most fractional executive positions require 10-20+ years of experience with a proven track record in senior leadership roles. Companies hiring fractional executives want someone who can hit the ground running and deliver strategic impact quickly. Experience in startups, scale-ups, or PE-backed companies is particularly valuable.
@@ -733,13 +751,22 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Final CTA Section - with subdued video */}
+      <section className="py-20 md:py-28 relative overflow-hidden">
+        {/* Video Background - subdued */}
+        <div className="absolute inset-0 z-0">
+          <VideoHeroBackground
+            playbackId={HERO_VIDEO_PLAYBACK_ID}
+            fallbackGradient={true}
+          />
+          {/* Dark overlay for text contrast */}
+          <div className="absolute inset-0 bg-black/80" />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Hire a Fractional Executive?
           </h2>
-          <p className="text-xl text-emerald-100 mb-10">
+          <p className="text-xl text-gray-300 mb-10">
             Tell us about your needs and we'll match you with pre-vetted<br />
             fractional executives within 48 hours.
           </p>
@@ -747,7 +774,7 @@ export default async function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link
               href="/handler/sign-up"
-              className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg bg-emerald-500 text-black hover:bg-emerald-400 transition-all duration-200"
+              className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg bg-white text-black hover:bg-gray-100 transition-all duration-200"
             >
               Find a Fractional Executive →
             </Link>
@@ -756,13 +783,13 @@ export default async function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/fractional-jobs"
-              className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg border-2 border-white text-white hover:bg-white hover:text-emerald-900 transition-all duration-200"
+              className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-200"
             >
               I'm a Fractional Executive
             </Link>
             <Link
               href="/fractional-cfo-services"
-              className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg border-2 border-white text-white hover:bg-white hover:text-emerald-900 transition-all duration-200"
+              className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-200"
             >
               Learn About Services
             </Link>

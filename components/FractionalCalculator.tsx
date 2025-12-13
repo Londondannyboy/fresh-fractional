@@ -36,7 +36,7 @@ export function FractionalCalculator() {
           <label htmlFor="day-rate" className="block text-sm font-medium text-gray-700 mb-2">
             Day Rate
           </label>
-          <div className="text-3xl font-bold text-purple-700 mb-2" aria-live="polite">
+          <div className="text-3xl font-bold text-gray-900 mb-2" aria-live="polite">
             {formatCurrency(dayRate)}
           </div>
           <input
@@ -51,7 +51,7 @@ export function FractionalCalculator() {
             aria-valuemin={400}
             aria-valuemax={2000}
             aria-valuenow={dayRate}
-            className="w-full h-2 bg-purple-100 rounded-lg appearance-none cursor-pointer accent-purple-700"
+            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray-900"
           />
           <div className="flex justify-between text-xs text-gray-600 mt-1">
             <span>£400</span>
@@ -64,7 +64,7 @@ export function FractionalCalculator() {
           <label htmlFor="days-per-week" className="block text-sm font-medium text-gray-700 mb-2">
             Days per Client/Week
           </label>
-          <div className="text-3xl font-bold text-purple-700 mb-2" aria-live="polite">
+          <div className="text-3xl font-bold text-gray-900 mb-2" aria-live="polite">
             {daysPerWeek} days
           </div>
           <input
@@ -79,7 +79,7 @@ export function FractionalCalculator() {
             aria-valuemin={1}
             aria-valuemax={5}
             aria-valuenow={daysPerWeek}
-            className="w-full h-2 bg-purple-100 rounded-lg appearance-none cursor-pointer accent-purple-700"
+            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray-900"
           />
           <div className="flex justify-between text-xs text-gray-600 mt-1">
             <span>1 day</span>
@@ -92,7 +92,7 @@ export function FractionalCalculator() {
           <label htmlFor="num-clients" className="block text-sm font-medium text-gray-700 mb-2">
             Number of Clients
           </label>
-          <div className="text-3xl font-bold text-purple-700 mb-2" aria-live="polite">
+          <div className="text-3xl font-bold text-gray-900 mb-2" aria-live="polite">
             {clients} clients
           </div>
           <input
@@ -107,7 +107,7 @@ export function FractionalCalculator() {
             aria-valuemin={1}
             aria-valuemax={4}
             aria-valuenow={clients}
-            className="w-full h-2 bg-purple-100 rounded-lg appearance-none cursor-pointer accent-purple-700"
+            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray-900"
           />
           <div className="flex justify-between text-xs text-gray-600 mt-1">
             <span>1</span>
@@ -117,14 +117,14 @@ export function FractionalCalculator() {
       </div>
 
       {/* Results */}
-      <div className="grid grid-cols-3 gap-4 p-6 bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl">
+      <div className="grid grid-cols-3 gap-4 p-6 bg-gradient-to-r from-gray-100 to-gray-200 rounded-xl">
         <div className="text-center">
           <div className="text-sm text-gray-600 mb-1">Weekly</div>
           <div className="text-2xl font-bold text-gray-900">
             {formatCurrency(weeklyEarnings)}
           </div>
         </div>
-        <div className="text-center border-x border-purple-200">
+        <div className="text-center border-x border-gray-300">
           <div className="text-sm text-gray-600 mb-1">Monthly</div>
           <div className="text-2xl font-bold text-gray-900">
             {formatCurrency(monthlyEarnings)}
@@ -132,7 +132,7 @@ export function FractionalCalculator() {
         </div>
         <div className="text-center">
           <div className="text-sm text-gray-600 mb-1">Annual (48 weeks)</div>
-          <div className="text-3xl font-bold text-purple-700">
+          <div className="text-3xl font-bold text-gray-900">
             {formatCurrency(annualEarnings)}
           </div>
         </div>
