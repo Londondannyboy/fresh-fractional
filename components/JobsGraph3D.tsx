@@ -62,14 +62,17 @@ export function JobsGraph3D({
 
         const data = await response.json()
 
-        if (!data.nodes || data.nodes.length === 0) {
+        // API returns { graph: { nodes, edges }, ... }
+        const graphData = data.graph || data
+
+        if (!graphData.nodes || graphData.nodes.length === 0) {
           setError(true)
           setLoading(false)
           return
         }
 
         // Transform to 3D graph format with reduced connections
-        const nodes: GraphNode[] = data.nodes.map((node: any) => ({
+        const nodes: GraphNode[] = graphData.nodes.map((node: any) => ({
           id: node.id,
           name: node.label,
           group: node.type || 'default',
@@ -82,7 +85,7 @@ export function JobsGraph3D({
         const linkCounts: Record<string, number> = {}
         const maxLinksPerNode = 5
 
-        const links: GraphLink[] = data.edges
+        const links: GraphLink[] = (graphData.edges || [])
           .filter((edge: any) => {
             const sourceCount = linkCounts[edge.from] || 0
             const targetCount = linkCounts[edge.to] || 0
