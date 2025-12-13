@@ -98,13 +98,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Sync to Supermemory if available
+    console.log('[Hume Webhook] SUPERMEMORY_API_KEY configured:', !!process.env.SUPERMEMORY_API_KEY)
     if (process.env.SUPERMEMORY_API_KEY) {
       try {
-        await storeConversationMemory(user_id, conversationText)
-        console.log('[Hume Webhook] Synced to Supermemory')
+        console.log('[Hume Webhook] Calling Supermemory with userId:', user_id)
+        console.log('[Hume Webhook] Transcript length:', conversationText.length, 'chars')
+        const smResult = await storeConversationMemory(user_id, conversationText)
+        console.log('[Hume Webhook] Supermemory sync SUCCESS')
       } catch (smError) {
-        console.error('[Hume Webhook] Supermemory sync failed:', smError)
+        console.error('[Hume Webhook] Supermemory sync FAILED:', smError)
       }
+    } else {
+      console.log('[Hume Webhook] Supermemory SKIPPED - no API key')
     }
 
     return NextResponse.json({
@@ -132,6 +137,10 @@ export async function GET() {
     status: 'ok',
     endpoint: 'Hume Webhook',
     accepts: ['chat_end', 'session_end'],
-    saves_to: ['Neon (user_conversations)', 'ZEP']
+    saves_to: ['Neon (user_conversations)', 'ZEP', 'Supermemory'],
+    configured: {
+      zep: !!process.env.ZEP_API_KEY,
+      supermemory: !!process.env.SUPERMEMORY_API_KEY
+    }
   })
 }

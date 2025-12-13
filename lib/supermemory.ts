@@ -41,6 +41,9 @@ class SupermemoryClient {
     content: string,
     metadata?: Record<string, unknown>
   ): Promise<AddMemoryResponse> {
+    console.log('[Supermemory] addMemory called for user:', userId)
+    console.log('[Supermemory] Content preview:', content.substring(0, 100))
+
     const response = await fetch(`${SUPERMEMORY_API_URL}/memories`, {
       method: 'POST',
       headers: {
@@ -58,13 +61,17 @@ class SupermemoryClient {
       }),
     })
 
+    console.log('[Supermemory] Response status:', response.status)
+
     if (!response.ok) {
       const error = await response.text()
-      console.error('Supermemory add error:', error)
+      console.error('[Supermemory] Add FAILED:', response.status, error)
       throw new Error(`Failed to add memory: ${error}`)
     }
 
-    return response.json()
+    const result = await response.json()
+    console.log('[Supermemory] Add SUCCESS, id:', result.id)
+    return result
   }
 
   /**
