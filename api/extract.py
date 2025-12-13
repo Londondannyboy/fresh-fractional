@@ -1,15 +1,13 @@
 """
 Pydantic AI extraction for Fractional.Quest
-Uses pydantic-ai with Google Gemini for structured preference extraction
+Vercel Serverless Function
 """
+from http.server import BaseHTTPRequestHandler
+import json
 import os
-from typing import Optional
-from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+import asyncio
 from pydantic import BaseModel, Field
 from pydantic_ai import Agent
-
-app = FastAPI()
 
 
 # Pydantic models for structured output
@@ -52,30 +50,54 @@ Only extract EXPLICIT preferences. Set should_confirm=true if any hard validatio
 )
 
 
-@app.post("/api/extract")
-async def extract(request: Request):
-    """Extract preferences using Pydantic AI"""
+async def do_extraction(transcript: str) -> dict:
+    """Run the extraction"""
+    if not transcript.strip():
+        return {"preferences": [], "should_confirm": False}
+
     try:
-        body = await request.json()
-        transcript = body.get("transcript", "")
-
-        if not transcript.strip():
-            return JSONResponse({"preferences": [], "should_confirm": False})
-
         result = await extraction_agent.run(f"Extract preferences from:\n\n{transcript}")
-
-        return JSONResponse(result.data.model_dump())
-
+        return result.data.model_dump()
     except Exception as e:
         print(f"[Extract] Error: {e}")
-        return JSONResponse({"preferences": [], "should_confirm": False, "error": str(e)})
+        return {"preferences": [], "should_confirm": False, "error": str(e)}
 
 
-@app.get("/api/health")
-async def health():
-    return {"status": "ok", "agent": "pydantic-ai", "model": "gemini-2.0-flash"}
+class handler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        # Read request body
+        content_length = int(self.headers.get('Content-Length', 0))
+        body = self.rfile.read(content_length).decode('utf-8')
 
+        try:
+            data = json.loads(body)
+            transcript = data.get("transcript", "")
 
-# Vercel serverless handler
-from mangum import Mangum
-handler = Mangum(app)
+            # Run async extraction
+            result = asyncio.run(do_extraction(transcript))
+
+            # Send response
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+            self.wfile.write(json.dumps(result).encode())
+
+        except Exception as e:
+            self.send_response(500)
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps({"error": str(e)}).encode())
+
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.end_headers()
+        self.wfile.write(json.dumps({"status": "ok", "agent": "pydantic-ai"}).encode())
+
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.end_headers()
