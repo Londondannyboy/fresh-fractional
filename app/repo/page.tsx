@@ -5,6 +5,7 @@ import { useUser } from '@stackframe/stack'
 import { VoiceProvider, useVoice } from '@humeai/voice-react'
 import Link from 'next/link'
 import RepoBuilder from '@/components/RepoBuilder'
+import { KnowledgeGraph } from '@/components/KnowledgeGraph'
 
 const CONFIG_ID = 'd57ceb71-4cf5-47e9-87cd-6052445a031c'
 
@@ -40,11 +41,29 @@ interface ExtractedPreference {
   raw_text: string
 }
 
-function VoiceInterface({ token, userId, profile, memoryContext }: {
+interface GraphData {
+  nodes: Array<{
+    id: string
+    type: 'user' | 'skill' | 'job' | 'company' | 'preference' | 'fact'
+    label: string
+    data?: Record<string, unknown>
+  }>
+  edges: Array<{
+    source: string
+    target: string
+    type: string
+    weight?: number
+    label?: string
+  }>
+}
+
+function VoiceInterface({ token, userId, profile, memoryContext, graphData, onPreferenceAdded }: {
   token: string
   userId?: string
   profile?: any
   memoryContext?: string
+  graphData?: GraphData
+  onPreferenceAdded?: () => void
 }) {
   const { connect, disconnect, status, messages, isPlaying } = useVoice()
   const [displayedJobs, setDisplayedJobs] = useState<JobResult[]>([])
@@ -125,12 +144,13 @@ function VoiceInterface({ token, userId, profile, memoryContext }: {
     }
   }, [pendingPreference])
 
-  // Save preference (validated or not)
+  // Save preference (validated or not) to Neon + ZEP
   const handleSavePreference = async (validated: boolean) => {
     if (!pendingPreference || savingPreference) return
 
     setSavingPreference(true)
     try {
+      // Save to Neon database
       const response = await fetch('/api/save-repo-preference', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -145,6 +165,30 @@ function VoiceInterface({ token, userId, profile, memoryContext }: {
 
       if (response.ok) {
         console.log(`[Preference] Saved ${validated ? 'validated' : 'unvalidated'}:`, pendingPreference)
+
+        // Also save to ZEP knowledge graph (fire and forget)
+        fetch('/api/zep-context', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            userId,
+            preference: {
+              type: pendingPreference.preference_type,
+              values: pendingPreference.values,
+              validated,
+              raw_text: pendingPreference.raw_text
+            }
+          })
+        })
+          .then(r => r.json())
+          .then(data => {
+            if (data.saved) {
+              console.log('[Preference] Saved to ZEP:', pendingPreference.preference_type)
+              // Trigger graph refresh
+              onPreferenceAdded?.()
+            }
+          })
+          .catch(e => console.error('[Preference] ZEP save error:', e))
       }
     } catch (error) {
       console.error('[Preference] Save error:', error)
@@ -449,9 +493,35 @@ function VoiceInterface({ token, userId, profile, memoryContext }: {
           }
           onPreferenceSaved={(pref, validated) => {
             console.log('[RepoBuilder] Saved:', pref, validated ? '(validated)' : '(soft)')
+            // Trigger graph refresh after a short delay for ZEP to process
+            setTimeout(() => onPreferenceAdded?.(), 500)
           }}
         />
       </div>
+
+      {/* Live Knowledge Graph */}
+      {graphData && graphData.nodes.length > 1 && (
+        <div className="px-6 py-4 border-t border-gray-200">
+          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+            <div className="px-4 py-3 bg-gradient-to-r from-indigo-50 to-purple-50 border-b border-gray-100">
+              <div className="flex items-center gap-2">
+                <span className="text-lg">🧠</span>
+                <h3 className="text-sm font-semibold text-gray-800">Your Knowledge Graph</h3>
+                <span className="text-xs text-gray-500 ml-auto">
+                  {graphData.nodes.length} nodes • {graphData.edges.length} connections
+                </span>
+              </div>
+            </div>
+            <div className="p-2">
+              <KnowledgeGraph
+                data={graphData}
+                width={500}
+                height={280}
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Preference Confirmation Card - fades and auto-saves */}
       {pendingPreference && (
@@ -592,15 +662,21 @@ export default function RepoPage() {
   const [error, setError] = useState<string | null>(null)
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [showDebug, setShowDebug] = useState(false)
+  const [zepContext, setZepContext] = useState<string>('')
+  const [graphData, setGraphData] = useState<GraphData | null>(null)
   const [debugInfo, setDebugInfo] = useState<{
     supermemoryLoaded: boolean
     supermemoryLength: number
+    zepLoaded: boolean
+    zepLength: number
     humeResumeId: string | null
     profileLoaded: boolean
     extractionEndpoint: string | null
   }>({
     supermemoryLoaded: false,
     supermemoryLength: 0,
+    zepLoaded: false,
+    zepLength: 0,
     humeResumeId: null,
     profileLoaded: false,
     extractionEndpoint: null
@@ -638,8 +714,12 @@ export default function RepoPage() {
       .then(r => r.ok ? r.json() : null)
       .then(data => {
         if (data?.context) {
-          console.log('[Memory context from Supermemory]', data.context.substring(0, 100))
-          setMemoryContext(data.context)
+          console.log('[Supermemory] Context loaded:', data.context.substring(0, 100))
+          setMemoryContext(prev => {
+            // Combine with ZEP context if available
+            const combined = [prev, data.context].filter(Boolean).join('\n\n')
+            return combined
+          })
           setDebugInfo(prev => ({
             ...prev,
             supermemoryLoaded: true,
@@ -647,8 +727,53 @@ export default function RepoPage() {
           }))
         }
       })
-      .catch(e => console.error('[Memory context error]', e))
+      .catch(e => console.error('[Supermemory] Error:', e))
   }, [user])
+
+  // Fetch knowledge graph context from ZEP
+  useEffect(() => {
+    if (!user) return
+    fetch(`/api/zep-context?userId=${user.id}&query=skills experience preferences`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (data?.context) {
+          console.log('[ZEP] Context loaded:', data.context.substring(0, 100))
+          setZepContext(data.context)
+          setMemoryContext(prev => {
+            // Combine with Supermemory context
+            const combined = [data.context, prev].filter(Boolean).join('\n\n')
+            return combined
+          })
+          setDebugInfo(prev => ({
+            ...prev,
+            zepLoaded: true,
+            zepLength: data.context.length
+          }))
+        } else if (data?.source === 'disabled') {
+          console.log('[ZEP] Disabled - no API key configured')
+        }
+      })
+      .catch(e => console.error('[ZEP] Error:', e))
+  }, [user])
+
+  // Fetch knowledge graph visualization data
+  const fetchGraphData = useCallback(() => {
+    if (!user) return
+    fetch(`/api/graph/user?userId=${user.id}`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (data?.graph) {
+          console.log('[Graph] Loaded:', data.graph.nodes.length, 'nodes,', data.graph.edges.length, 'edges')
+          setGraphData(data.graph)
+        }
+      })
+      .catch(e => console.error('[Graph] Error:', e))
+  }, [user])
+
+  // Initial graph fetch
+  useEffect(() => {
+    fetchGraphData()
+  }, [fetchGraphData])
 
   // Check for existing Hume chat to resume
   useEffect(() => {
@@ -748,6 +873,10 @@ export default function RepoPage() {
                   <span>Profile: {debugInfo.profileLoaded ? 'Loaded' : 'Not loaded'}</span>
                 </div>
                 <div className="flex items-center gap-2">
+                  <span className={`w-2 h-2 rounded-full ${debugInfo.zepLoaded ? 'bg-green-500' : 'bg-yellow-500'}`} />
+                  <span>ZEP Graph: {debugInfo.zepLoaded ? `${debugInfo.zepLength} chars` : 'Empty'}</span>
+                </div>
+                <div className="flex items-center gap-2">
                   <span className={`w-2 h-2 rounded-full ${debugInfo.supermemoryLoaded ? 'bg-green-500' : 'bg-yellow-500'}`} />
                   <span>Supermemory: {debugInfo.supermemoryLoaded ? `${debugInfo.supermemoryLength} chars` : 'Empty'}</span>
                 </div>
@@ -759,9 +888,15 @@ export default function RepoPage() {
                   <span className={`w-2 h-2 rounded-full ${debugInfo.extractionEndpoint?.includes('Pydantic') ? 'bg-green-500' : 'bg-yellow-500'}`} />
                   <span>Extraction: {debugInfo.extractionEndpoint || 'Checking...'}</span>
                 </div>
+                {zepContext && (
+                  <div className="pt-2 border-t border-gray-700">
+                    <p className="text-gray-400 mb-1">ZEP Context:</p>
+                    <p className="text-gray-500 text-[10px] break-all">{zepContext.substring(0, 100)}...</p>
+                  </div>
+                )}
                 {memoryContext && (
                   <div className="pt-2 border-t border-gray-700">
-                    <p className="text-gray-400 mb-1">Memory Preview:</p>
+                    <p className="text-gray-400 mb-1">Combined Memory:</p>
                     <p className="text-gray-500 text-[10px] break-all">{memoryContext.substring(0, 150)}...</p>
                   </div>
                 )}
@@ -815,6 +950,8 @@ export default function RepoPage() {
               userId={user.id}
               profile={profile}
               memoryContext={memoryContext}
+              graphData={graphData || undefined}
+              onPreferenceAdded={fetchGraphData}
             />
           </VoiceProvider>
         )}

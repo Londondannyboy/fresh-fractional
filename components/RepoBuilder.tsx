@@ -188,11 +188,12 @@ export default function RepoBuilder({ userId, voiceTranscript, onPreferenceSaved
     setValidations(prev => prev.filter(v => v.id !== id))
   }
 
-  // Save preference to backend
+  // Save preference to backend (Neon + ZEP)
   const savePreference = async (pref: ExtractedPreference, validated: boolean) => {
     if (!userId) return
 
     try {
+      // Save to Neon database
       await fetch('/api/save-repo-preference', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -204,6 +205,28 @@ export default function RepoBuilder({ userId, voiceTranscript, onPreferenceSaved
           raw_text: pref.raw_text
         })
       })
+
+      // Also save to ZEP knowledge graph (fire and forget)
+      fetch('/api/zep-context', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userId,
+          preference: {
+            type: pref.type,
+            values: pref.values,
+            validated,
+            raw_text: pref.raw_text
+          }
+        })
+      })
+        .then(r => r.json())
+        .then(data => {
+          if (data.saved) {
+            console.log('[RepoBuilder] Saved to ZEP:', pref.type)
+          }
+        })
+        .catch(e => console.error('[RepoBuilder] ZEP save error:', e))
 
       onPreferenceSaved?.(pref, validated)
     } catch (error) {
