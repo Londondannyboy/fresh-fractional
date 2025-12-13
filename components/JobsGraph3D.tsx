@@ -84,19 +84,21 @@ export function JobsGraph3D({
 
         const links: GraphLink[] = (graphResult.edges || [])
           .filter((edge: any) => {
-            const sourceCount = linkCounts[edge.from] || 0
-            const targetCount = linkCounts[edge.to] || 0
+            const src = edge.source || edge.from
+            const tgt = edge.target || edge.to
+            const sourceCount = linkCounts[src] || 0
+            const targetCount = linkCounts[tgt] || 0
             if (sourceCount >= maxLinksPerNode || targetCount >= maxLinksPerNode) {
               return false
             }
-            linkCounts[edge.from] = sourceCount + 1
-            linkCounts[edge.to] = targetCount + 1
+            linkCounts[src] = sourceCount + 1
+            linkCounts[tgt] = targetCount + 1
             return true
           })
           .map((edge: any) => ({
-            source: edge.from,
-            target: edge.to,
-            label: edge.label || ''
+            source: edge.source || edge.from,
+            target: edge.target || edge.to,
+            label: edge.label || edge.type || ''
           }))
 
         setGraphData({ nodes, links })
