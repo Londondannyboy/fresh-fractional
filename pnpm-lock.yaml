@@ -56,6 +56,9 @@ importers:
       three:
         specifier: ^0.182.0
         version: 0.182.0
+      three-spritetext:
+        specifier: ^1.10.0
+        version: 1.10.0(three@0.182.0)
       zod:
         specifier: ^4.1.13
         version: 4.1.13
@@ -4289,6 +4292,12 @@ packages:
     engines: {node: '>=12'}
     peerDependencies:
       three: '>=0.154'
+
+  three-spritetext@1.10.0:
+    resolution: {integrity: sha512-t08iP1FCU1lQh8T5MmCpdijKgas8GDHJE0LqMGBuVu3xqMMpFnEZhTlih7FlxLPQizHIGoumUSpfOlY1GO/Tgg==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      three: '>=0.86.0'
 
   three@0.182.0:
     resolution: {integrity: sha512-GbHabT+Irv+ihI1/f5kIIsZ+Ef9Sl5A1Y7imvS5RQjWgtTPfPnZ43JmlYI7NtCRDK9zir20lQpfg8/9Yd02OvQ==}
@@ -9578,6 +9587,10 @@ snapshots:
       d3-geo: 3.1.1
       d3-octree: 1.1.0
       d3-scale: 4.0.2
+      three: 0.182.0
+
+  three-spritetext@1.10.0(three@0.182.0):
+    dependencies:
       three: 0.182.0
 
   three@0.182.0: {}

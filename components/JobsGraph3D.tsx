@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useCallback, useState } from 'react'
 import dynamic from 'next/dynamic'
+import * as THREE from 'three'
+import SpriteText from 'three-spritetext'
 
 // Dynamically import the 3D graph component with SSR disabled
 const ForceGraph3D = dynamic(() => import('react-force-graph-3d'), {
@@ -167,6 +169,36 @@ export function JobsGraph3D({
     return node.name || node.id
   }, [])
 
+  // Create custom node with sphere and text label
+  const createNodeObject = useCallback((node: any) => {
+    // Create a group to hold sphere and text
+    const group = new THREE.Group()
+
+    // Create sphere
+    const radius = node.group === 'company' ? 8 : node.group === 'job' ? 5 : 3
+    const geometry = new THREE.SphereGeometry(radius, 16, 16)
+    const material = new THREE.MeshLambertMaterial({
+      color: node.color || groupColors.default,
+      transparent: true,
+      opacity: 0.9,
+    })
+    const sphere = new THREE.Mesh(geometry, material)
+    group.add(sphere)
+
+    // Create text sprite - truncate long names
+    const displayName = node.name?.length > 20 ? node.name.substring(0, 18) + '...' : node.name || ''
+    const sprite = new SpriteText(displayName)
+    sprite.color = node.group === 'company' ? '#ffffff' : node.group === 'job' ? '#e0e7ff' : '#a7f3d0'
+    sprite.textHeight = node.group === 'company' ? 4 : node.group === 'job' ? 3 : 2
+    sprite.backgroundColor = 'rgba(0,0,0,0.6)'
+    sprite.padding = 1.5
+    sprite.borderRadius = 2
+    sprite.position.y = radius + 6
+    group.add(sprite)
+
+    return group
+  }, [])
+
   return (
     <div className="relative" style={{ width: '100%', height }}>
       <div
@@ -201,14 +233,17 @@ export function JobsGraph3D({
             width={dimensions.width}
             height={dimensions.height}
             backgroundColor="rgba(0,0,0,0)"
-            nodeColor={(node: any) => node.color || groupColors.default}
-            nodeVal={(node: any) => node.val}
+            nodeThreeObject={createNodeObject}
             nodeLabel={getNodeLabel}
-            nodeOpacity={0.95}
             linkColor={() => 'rgba(99, 102, 241, 0.3)'}
             linkWidth={2}
             linkOpacity={0.5}
             onNodeClick={handleNodeClick}
+            onNodeHover={(node: any) => {
+              if (containerRef.current) {
+                containerRef.current.style.cursor = node?.url ? 'pointer' : 'grab'
+              }
+            }}
             enableNodeDrag={true}
             enableNavigationControls={true}
             d3AlphaDecay={0.02}
