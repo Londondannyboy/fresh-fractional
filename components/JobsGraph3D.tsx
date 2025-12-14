@@ -16,6 +16,7 @@ interface GraphNode {
   val: number
   url?: string
   color?: string
+  company?: string  // For job nodes, store the company name
 }
 
 interface GraphLink {
@@ -89,7 +90,8 @@ export function JobsGraph3D({
           // Companies are largest, jobs medium, skills smaller
           val: node.type === 'company' ? 80 : node.type === 'job' ? 30 : 8,
           url: node.url,
-          color: groupColors[node.type] || groupColors.default
+          color: groupColors[node.type] || groupColors.default,
+          company: node.data?.company || undefined  // Store company name for job nodes
         }))
 
         // Keep all company-job links, limit skill links
@@ -210,19 +212,31 @@ export function JobsGraph3D({
     }, 1600)
   }, [])
 
-  // Generate label for node - all are clickable
+  // Helper to get short company name (first word or two)
+  const getShortCompanyName = useCallback((company: string) => {
+    if (!company) return ''
+    const words = company.split(' ')
+    // Take first word, or first two if first is very short
+    if (words[0].length <= 3 && words.length > 1) {
+      return words.slice(0, 2).join(' ')
+    }
+    return words[0]
+  }, [])
+
+  // Generate label for node - companies permanent, jobs on hover
   const getNodeLabel = useCallback((node: any) => {
     if (node.group === 'company') {
-      return `🏢 ${node.name}\n👆 View company jobs`
+      return `🏢 ${node.name}\n👆 View company jobs` // Also show on hover for company
     }
     if (node.group === 'job') {
-      return `💼 ${node.name}\n👆 View job`
+      const shortCompany = node.company ? ` @ ${getShortCompanyName(node.company)}` : ''
+      return `${node.name}${shortCompany}\n👆 Click to view`
     }
     if (node.group === 'skill') {
-      return `🔧 ${node.name}\n👆 Find jobs with this skill`
+      return `${node.name}\n👆 Find jobs with this skill`
     }
     return node.name || node.id
-  }, [])
+  }, [getShortCompanyName])
 
   return (
     <div className="relative" style={{ width: '100%', height }}>
