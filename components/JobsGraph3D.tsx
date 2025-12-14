@@ -149,6 +149,21 @@ export function JobsGraph3D({
     return () => window.removeEventListener('resize', updateDimensions)
   }, [])
 
+  // Zoom camera in after graph loads
+  useEffect(() => {
+    if (!graphData || !graphRef.current) return
+
+    // Wait for graph to initialize then zoom in
+    const timer = setTimeout(() => {
+      if (graphRef.current) {
+        // Move camera much closer - distance of 150 instead of default ~400
+        graphRef.current.cameraPosition({ z: 150 }, { x: 0, y: 0, z: 0 }, 1000)
+      }
+    }, 500)
+
+    return () => clearTimeout(timer)
+  }, [graphData])
+
   const handleNodeClick = useCallback((node: any) => {
     if (node.url) {
       window.location.href = node.url
@@ -174,26 +189,28 @@ export function JobsGraph3D({
     // Create a group to hold sphere and text
     const group = new THREE.Group()
 
-    // Create sphere
-    const radius = node.group === 'company' ? 8 : node.group === 'job' ? 5 : 3
+    // Create sphere - larger for better visibility
+    const radius = node.group === 'company' ? 10 : node.group === 'job' ? 7 : 4
     const geometry = new THREE.SphereGeometry(radius, 16, 16)
     const material = new THREE.MeshLambertMaterial({
       color: node.color || groupColors.default,
       transparent: true,
-      opacity: 0.9,
+      opacity: 0.95,
     })
     const sphere = new THREE.Mesh(geometry, material)
     group.add(sphere)
 
-    // Create text sprite - truncate long names
-    const displayName = node.name?.length > 20 ? node.name.substring(0, 18) + '...' : node.name || ''
+    // Create text sprite - larger text, especially for jobs
+    const maxLen = node.group === 'job' ? 30 : 25
+    const displayName = node.name?.length > maxLen ? node.name.substring(0, maxLen - 2) + '...' : node.name || ''
     const sprite = new SpriteText(displayName)
-    sprite.color = node.group === 'company' ? '#ffffff' : node.group === 'job' ? '#e0e7ff' : '#a7f3d0'
-    sprite.textHeight = node.group === 'company' ? 4 : node.group === 'job' ? 3 : 2
-    sprite.backgroundColor = 'rgba(0,0,0,0.6)'
-    sprite.padding = 1.5
-    sprite.borderRadius = 2
-    sprite.position.y = radius + 6
+    sprite.color = node.group === 'company' ? '#ffffff' : node.group === 'job' ? '#ffffff' : '#a7f3d0'
+    // Much larger text heights
+    sprite.textHeight = node.group === 'company' ? 6 : node.group === 'job' ? 5 : 3
+    sprite.backgroundColor = node.group === 'job' ? 'rgba(59, 130, 246, 0.8)' : 'rgba(0,0,0,0.7)'
+    sprite.padding = 2
+    sprite.borderRadius = 3
+    sprite.position.y = radius + 8
     group.add(sprite)
 
     return group
