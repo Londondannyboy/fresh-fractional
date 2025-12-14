@@ -272,14 +272,7 @@ export default async function Home() {
                   </p>
 
                   {/* Hidden image for SEO - contains keyword in alt text */}
-                  <img
-                    src="/logo.svg"
-                    alt="Fractional jobs UK - fractional executive jobs and services"
-                    className="sr-only"
-                    aria-hidden="true"
-                  />
-
-                  <p className="text-lg text-white/70 mb-8 leading-relaxed">
+                  <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                     Find fractional executive jobs or hire fractional CFO, CMO, CTO leadership.
                     Browse roles or access services—start within days.
                   </p>
@@ -307,19 +300,19 @@ export default async function Home() {
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                     <div className="text-center">
                       <div className="text-3xl md:text-4xl font-bold text-emerald-400 font-mono">60%</div>
-                      <div className="text-xs text-white/50 uppercase tracking-wider mt-1">Cost Savings</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wider mt-1">Cost Savings</div>
                     </div>
                     <div className="text-center">
                       <div className="text-3xl md:text-4xl font-bold text-white font-mono">7 Days</div>
-                      <div className="text-xs text-white/50 uppercase tracking-wider mt-1">To Start</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wider mt-1">To Start</div>
                     </div>
                     <div className="text-center">
                       <div className="text-3xl md:text-4xl font-bold text-white font-mono">1-3</div>
-                      <div className="text-xs text-white/50 uppercase tracking-wider mt-1">Days/Week</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wider mt-1">Days/Week</div>
                     </div>
                     <div className="text-center">
                       <div className="text-3xl md:text-4xl font-bold text-white font-mono">15+ Yrs</div>
-                      <div className="text-xs text-white/50 uppercase tracking-wider mt-1">Experience</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wider mt-1">Experience</div>
                     </div>
                   </div>
                 </div>
