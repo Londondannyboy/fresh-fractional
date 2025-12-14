@@ -16,6 +16,7 @@ interface JobCardProps {
   className?: string
   onClick?: () => void
   companyDomain?: string
+  description?: string
 }
 
 export function JobCard({
@@ -32,6 +33,7 @@ export function JobCard({
   className = '',
   onClick,
   companyDomain,
+  description,
 }: JobCardProps) {
   const displayedCompensation = compensation || (dayRate ? `${currency}${dayRate}/day` : null)
 
@@ -76,7 +78,7 @@ export function JobCard({
       </div>
 
       {/* Meta Information */}
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm mb-4">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm mb-3">
         <span className="flex items-center gap-1.5 text-gray-600">
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -101,6 +103,13 @@ export function JobCard({
           </span>
         )}
       </div>
+
+      {/* Description */}
+      {description && (
+        <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+          {description}
+        </p>
+      )}
 
       {/* Skills Tags */}
       {skills.length > 0 && (

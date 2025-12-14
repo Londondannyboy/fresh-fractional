@@ -29,6 +29,7 @@ interface JobsPageProps {
     role?: string
     location?: string
     industry?: string
+    q?: string
   }>
 }
 
@@ -148,6 +149,7 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
   const roleFilter = params.role || ''
   const locationFilter = params.location || ''
   const industryFilter = params.industry || ''
+  const searchQuery = params.q || ''
 
   try {
     const sql = createDbQuery()
@@ -171,6 +173,20 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
     if (industryFilter) {
       // Direct match against industry ENUM
       whereConditions.push(`industry = '${industryFilter}'`)
+    }
+
+    // Search query - search in title, company, skills
+    if (searchQuery) {
+      const sanitizedQuery = searchQuery.replace(/'/g, "''")
+      whereConditions.push(`(
+        LOWER(title) LIKE LOWER('%${sanitizedQuery}%')
+        OR LOWER(company_name) LIKE LOWER('%${sanitizedQuery}%')
+        OR LOWER(description_snippet) LIKE LOWER('%${sanitizedQuery}%')
+        OR EXISTS (
+          SELECT 1 FROM unnest(skills_required) AS skill
+          WHERE LOWER(skill) LIKE LOWER('%${sanitizedQuery}%')
+        )
+      )`)
     }
 
     const whereClause = whereConditions.join(' AND ')
@@ -214,31 +230,34 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
       if (roleFilter) params.set('role', roleFilter)
       if (locationFilter) params.set('location', locationFilter)
       if (industryFilter) params.set('industry', industryFilter)
+      if (searchQuery) params.set('q', searchQuery)
       return `/fractional-jobs?${params.toString()}`
     }
 
+    // Check if we have any active filters
+    const hasActiveFilters = roleFilter || locationFilter || industryFilter || searchQuery
+
     return (
       <div className="min-h-screen bg-white">
-        {/* Hero Section with 3D Knowledge Graph Background */}
-        <section className="relative min-h-[50vh] flex items-end overflow-hidden">
-          <div className="absolute inset-0">
-            <JobsGraph3D limit={30} height="100%" isHero={true} showOverlay={true} />
-          </div>
+        {/* Compact Hero Section */}
+        <section className="bg-gray-900 pt-6 pb-8">
+          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+            <Link href="/" className="inline-flex items-center text-gray-400 hover:text-white mb-4 transition-colors text-sm">
+              <span className="mr-2">←</span> Back to Home
+            </Link>
 
-          {/* Bottom-aligned content with glass panel */}
-          <div className="relative z-10 w-full pb-12 md:pb-16">
-            <div className="max-w-6xl mx-auto px-6 lg:px-8">
-              <div className="bg-black/40 backdrop-blur-md rounded-2xl p-8 md:p-10 border border-white/10 max-w-2xl">
-                <Link href="/" className="inline-flex items-center text-white/70 hover:text-white mb-4 transition-colors text-sm tracking-wide">
-                  <span className="mr-2">←</span> Back to Home
-                </Link>
-
-                <span className="inline-block bg-white/10 backdrop-blur text-white/90 px-4 py-1.5 rounded-full text-xs font-medium uppercase tracking-widest mb-4">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+              <div>
+                <span className="inline-block bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider mb-3">
                   {total}+ Live Positions
                 </span>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 leading-[0.95] tracking-tight">
-                  Fractional Jobs UK
+                <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                  {searchQuery ? (
+                    <>Jobs matching "<span className="text-blue-400">{searchQuery}</span>"</>
+                  ) : (
+                    'Fractional Jobs UK'
+                  )}
                 </h1>
 
                 <img
@@ -249,53 +268,54 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
                   height={1}
                 />
 
-                <p className="text-lg text-white/70 leading-relaxed">
-                  CFO, CMO, CTO & specialist roles • £600-£1,500/day • Updated daily
+                <p className="text-gray-400">
+                  {searchQuery ? (
+                    `Showing ${total} position${total !== 1 ? 's' : ''} with this skill or keyword`
+                  ) : (
+                    'CFO, CMO, CTO & specialist roles • £600-£1,500/day • Updated daily'
+                  )}
                 </p>
               </div>
+
+              {/* Quick stats */}
+              <div className="flex gap-4 lg:gap-6">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white">{total}</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider">Jobs</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-amber-400">7</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider">Categories</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-400">15+</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider">Locations</div>
+                </div>
+              </div>
             </div>
+
+            {/* Search context banner when filtering */}
+            {hasActiveFilters && (
+              <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                  </svg>
+                  <span className="text-sm text-gray-300">
+                    Filtered by:
+                    {searchQuery && <span className="ml-2 px-2 py-0.5 bg-blue-500/20 rounded text-blue-300">"{searchQuery}"</span>}
+                    {roleFilter && <span className="ml-2 px-2 py-0.5 bg-amber-500/20 rounded text-amber-300">{roleFilter}</span>}
+                    {locationFilter && <span className="ml-2 px-2 py-0.5 bg-purple-500/20 rounded text-purple-300">{locationFilter}</span>}
+                    {industryFilter && <span className="ml-2 px-2 py-0.5 bg-emerald-500/20 rounded text-emerald-300">{industryFilter}</span>}
+                  </span>
+                </div>
+                <Link href="/fractional-jobs" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  Clear all ×
+                </Link>
+              </div>
+            )}
           </div>
         </section>
-
-        {/* Sunburst Role Explorer - Desktop Only */}
-        <DesktopOnly>
-          <section className="py-16 bg-gray-950">
-            <div className="max-w-6xl mx-auto px-6 lg:px-8">
-              <div className="text-center mb-10">
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-400 mb-2 block">Explore Hierarchy</span>
-                <h2 className="text-3xl md:text-4xl font-black text-white">Role Explorer</h2>
-                <p className="text-gray-400 mt-2">Click to drill down through roles, companies, and jobs</p>
-              </div>
-              <Suspense fallback={
-                <div className="flex items-center justify-center h-96 bg-gray-900 rounded-xl">
-                  <div className="w-12 h-12 border-4 border-amber-500/30 border-t-amber-500 rounded-full animate-spin" />
-                </div>
-              }>
-                <JobsSunburst height="500px" />
-              </Suspense>
-            </div>
-          </section>
-        </DesktopOnly>
-
-        {/* Skills Radar - Desktop Only */}
-        <DesktopOnly>
-          <section className="py-16 bg-gray-900">
-            <div className="max-w-5xl mx-auto px-6 lg:px-8">
-              <div className="text-center mb-10">
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-purple-400 mb-2 block">Skills Analysis</span>
-                <h2 className="text-3xl md:text-4xl font-black text-white">Compare Role Skills</h2>
-                <p className="text-gray-400 mt-2">See which skills matter most across C-suite roles</p>
-              </div>
-              <Suspense fallback={
-                <div className="flex items-center justify-center h-96 bg-gray-950 rounded-xl">
-                  <div className="w-12 h-12 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin" />
-                </div>
-              }>
-                <SkillsRadar height="500px" />
-              </Suspense>
-            </div>
-          </section>
-        </DesktopOnly>
 
         {/* Filter Section */}
         <section className="py-8 bg-gray-50 border-b border-gray-200">
@@ -312,20 +332,14 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
           </div>
         </section>
 
-        {/* Jobs List - Dark section with 3D Knowledge Graph */}
-        <section className="py-12 relative overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0">
-              <JobsGraph3D limit={30} height="100%" isHero={true} showOverlay={true} />
-            </div>
-            <div className="absolute inset-0 bg-gray-900/85" />
-          </div>
-          <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+        {/* Jobs List - Clean white section */}
+        <section className="py-8 bg-white">
+          <div className="max-w-6xl mx-auto px-6 lg:px-8">
             {jobs.length === 0 ? (
-              <div className="text-center py-16 bg-white/10 backdrop-blur rounded-xl border border-white/20">
+              <div className="text-center py-16 bg-gray-50 rounded-xl border border-gray-200">
                 <div className="text-6xl mb-4">🔍</div>
-                <h2 className="text-2xl font-bold text-white mb-2">No jobs match your filters</h2>
-                <p className="text-gray-300 mb-6">Try adjusting your search criteria</p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">No jobs match your filters</h2>
+                <p className="text-gray-600 mb-6">Try adjusting your search criteria</p>
                 <Link href="/fractional-jobs">
                   <button className="px-6 py-2.5 bg-gray-900 text-white rounded-lg hover:bg-black font-semibold transition-colors">
                     Clear All Filters
@@ -353,6 +367,7 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
                           skills={job.skills_required || []}
                           postedDaysAgo={postedDaysAgo}
                           companyDomain={job.company_domain}
+                          description={job.description_snippet}
                         />
                       </Link>
                     )
@@ -364,7 +379,7 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
                   <div className="flex justify-center items-center gap-2">
                     {page > 1 && (
                       <Link href={buildPageUrl(page - 1)}>
-                        <button className="px-4 py-2 bg-white/10 border border-white/20 text-white rounded-lg hover:bg-white/20 font-medium transition-colors">
+                        <button className="px-4 py-2 bg-gray-100 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-200 font-medium transition-colors">
                           ← Previous
                         </button>
                       </Link>
@@ -380,8 +395,8 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
                             <button
                               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                                 pageNum === page
-                                  ? 'bg-white text-gray-900'
-                                  : 'bg-white/10 border border-white/20 text-white hover:bg-white/20'
+                                  ? 'bg-gray-900 text-white'
+                                  : 'bg-gray-100 border border-gray-200 text-gray-700 hover:bg-gray-200'
                               }`}
                             >
                               {pageNum}
@@ -393,7 +408,7 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
 
                     {page < totalPages && (
                       <Link href={buildPageUrl(page + 1)}>
-                        <button className="px-4 py-2 bg-white/10 border border-white/20 text-white rounded-lg hover:bg-white/20 font-medium transition-colors">
+                        <button className="px-4 py-2 bg-gray-100 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-200 font-medium transition-colors">
                           Next →
                         </button>
                       </Link>
@@ -506,26 +521,71 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
           </div>
         </section>
 
+        {/* Data Exploration Section - Desktop Only */}
+        <DesktopOnly>
+          <section className="py-16 bg-gray-950">
+            <div className="max-w-6xl mx-auto px-6 lg:px-8">
+              <div className="text-center mb-10">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-purple-400 mb-2 block">Advanced Analytics</span>
+                <h2 className="text-2xl md:text-3xl font-bold text-white">Explore the Market</h2>
+                <p className="text-gray-400 mt-2">Interactive visualizations of roles, skills, and opportunities</p>
+              </div>
+
+              <div className="grid lg:grid-cols-2 gap-8">
+                {/* Sunburst */}
+                <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
+                  <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
+                    <span className="text-amber-400">◉</span> Role Hierarchy
+                  </h3>
+                  <p className="text-sm text-gray-400 mb-4">Click to explore roles, companies, and jobs</p>
+                  <Suspense fallback={
+                    <div className="flex items-center justify-center h-80 bg-gray-900 rounded-lg">
+                      <div className="w-10 h-10 border-4 border-amber-500/30 border-t-amber-500 rounded-full animate-spin" />
+                    </div>
+                  }>
+                    <JobsSunburst height="320px" />
+                  </Suspense>
+                </div>
+
+                {/* Skills Radar */}
+                <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
+                  <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
+                    <span className="text-purple-400">◉</span> Skills Comparison
+                  </h3>
+                  <p className="text-sm text-gray-400 mb-4">Compare skill requirements across C-suite roles</p>
+                  <Suspense fallback={
+                    <div className="flex items-center justify-center h-80 bg-gray-900 rounded-lg">
+                      <div className="w-10 h-10 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin" />
+                    </div>
+                  }>
+                    <SkillsRadar height="320px" />
+                  </Suspense>
+                </div>
+              </div>
+            </div>
+          </section>
+        </DesktopOnly>
+
         {/* CTA Section */}
-        <section className="py-24 md:py-32 bg-gray-900">
+        <section className="py-20 md:py-24 bg-gray-900">
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
             <span className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500 mb-6 block">Stay Updated</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
               Can't find the right job?
             </h2>
-            <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
               Get notified when new fractional positions match your profile
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/handler/sign-up"
-                className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg bg-white text-gray-900 hover:bg-gray-100 transition-all duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-white text-gray-900 hover:bg-gray-100 transition-all duration-200"
               >
                 Create Job Alert
               </Link>
               <Link
                 href="/fractional-jobs-articles"
-                className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg border border-white/20 text-white hover:bg-white/10 transition-all duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg border border-white/20 text-white hover:bg-white/10 transition-all duration-200"
               >
                 Read Career Guides
               </Link>
