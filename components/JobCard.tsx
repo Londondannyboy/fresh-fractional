@@ -113,9 +113,9 @@ export function JobCard({
         </p>
       )}
 
-      {/* Mini Graphs Section - Skills & Company Knowledge Graph */}
+      {/* Mini Graphs Section - Skills & Company Knowledge Graph - Desktop Only */}
       {skills.length > 0 && (
-        <div className="grid grid-cols-2 gap-4 mb-4 p-3 bg-gray-50/50 rounded-lg border border-gray-100">
+        <div className="hidden md:grid grid-cols-2 gap-4 mb-4 p-3 bg-gray-50/50 rounded-lg border border-gray-100">
           <MiniSkillsChart skills={skills} maxSkills={5} />
           <MiniCompanyGraph
             companyName={company}
