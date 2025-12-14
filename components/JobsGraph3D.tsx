@@ -153,11 +153,11 @@ export function JobsGraph3D({
   useEffect(() => {
     if (!graphData || !graphRef.current) return
 
-    // Wait for graph to initialize then zoom in
+    // Wait for graph to initialize then zoom in very close
     const timer = setTimeout(() => {
       if (graphRef.current) {
-        // Move camera much closer - distance of 150 instead of default ~400
-        graphRef.current.cameraPosition({ z: 150 }, { x: 0, y: 0, z: 0 }, 1000)
+        // Move camera very close - distance of 80 for intimate view
+        graphRef.current.cameraPosition({ z: 80 }, { x: 0, y: 0, z: 0 }, 1000)
       }
     }, 500)
 
@@ -189,9 +189,9 @@ export function JobsGraph3D({
     // Create a group to hold sphere and text
     const group = new THREE.Group()
 
-    // Create sphere - larger for better visibility
-    const radius = node.group === 'company' ? 10 : node.group === 'job' ? 7 : 4
-    const geometry = new THREE.SphereGeometry(radius, 16, 16)
+    // Create sphere - much larger for better visibility and clickability
+    const radius = node.group === 'company' ? 12 : node.group === 'job' ? 10 : 6
+    const geometry = new THREE.SphereGeometry(radius, 24, 24)
     const material = new THREE.MeshLambertMaterial({
       color: node.color || groupColors.default,
       transparent: true,
@@ -201,16 +201,16 @@ export function JobsGraph3D({
     group.add(sphere)
 
     // Create text sprite - larger text, especially for jobs
-    const maxLen = node.group === 'job' ? 30 : 25
+    const maxLen = node.group === 'job' ? 35 : 25
     const displayName = node.name?.length > maxLen ? node.name.substring(0, maxLen - 2) + '...' : node.name || ''
     const sprite = new SpriteText(displayName)
-    sprite.color = node.group === 'company' ? '#ffffff' : node.group === 'job' ? '#ffffff' : '#a7f3d0'
-    // Much larger text heights
-    sprite.textHeight = node.group === 'company' ? 6 : node.group === 'job' ? 5 : 3
-    sprite.backgroundColor = node.group === 'job' ? 'rgba(59, 130, 246, 0.8)' : 'rgba(0,0,0,0.7)'
-    sprite.padding = 2
-    sprite.borderRadius = 3
-    sprite.position.y = radius + 8
+    sprite.color = '#ffffff'
+    // Much larger text heights for readability
+    sprite.textHeight = node.group === 'company' ? 8 : node.group === 'job' ? 7 : 4
+    sprite.backgroundColor = node.group === 'job' ? 'rgba(59, 130, 246, 0.9)' : node.group === 'company' ? 'rgba(245, 158, 11, 0.9)' : 'rgba(16, 185, 129, 0.8)'
+    sprite.padding = 3
+    sprite.borderRadius = 4
+    sprite.position.y = radius + 10
     group.add(sprite)
 
     return group
@@ -251,10 +251,12 @@ export function JobsGraph3D({
             height={dimensions.height}
             backgroundColor="rgba(0,0,0,0)"
             nodeThreeObject={createNodeObject}
+            nodeThreeObjectExtend={false}
             nodeLabel={getNodeLabel}
-            linkColor={() => 'rgba(99, 102, 241, 0.3)'}
-            linkWidth={2}
-            linkOpacity={0.5}
+            nodeRelSize={8}
+            linkColor={() => 'rgba(99, 102, 241, 0.4)'}
+            linkWidth={3}
+            linkOpacity={0.6}
             onNodeClick={handleNodeClick}
             onNodeHover={(node: any) => {
               if (containerRef.current) {
@@ -263,10 +265,11 @@ export function JobsGraph3D({
             }}
             enableNodeDrag={true}
             enableNavigationControls={true}
-            d3AlphaDecay={0.02}
-            d3VelocityDecay={0.3}
-            warmupTicks={50}
-            cooldownTicks={100}
+            d3AlphaDecay={0.03}
+            d3VelocityDecay={0.4}
+            d3AlphaMin={0.001}
+            warmupTicks={100}
+            cooldownTicks={200}
           />
         )}
       </div>
