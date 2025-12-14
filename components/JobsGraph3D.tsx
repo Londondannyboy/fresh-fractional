@@ -2,8 +2,12 @@
 
 import { useEffect, useRef, useCallback, useState } from 'react'
 import dynamic from 'next/dynamic'
-import * as THREE from 'three'
-import SpriteText from 'three-spritetext'
+
+// Dynamically import THREE and SpriteText only when needed
+const loadThreeModules = () => Promise.all([
+  import('three'),
+  import('three-spritetext')
+])
 
 // Dynamically import the 3D graph component with SSR disabled
 const ForceGraph3D = dynamic(() => import('react-force-graph-3d'), {
@@ -59,9 +63,40 @@ export function JobsGraph3D({
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [dimensions, setDimensions] = useState({ width: 800, height: 500 })
+  const [isVisible, setIsVisible] = useState(false)
+  const [threeModules, setThreeModules] = useState<{ THREE: any; SpriteText: any } | null>(null)
 
-  // Fetch graph data
+  // Only load THREE modules when component becomes visible
   useEffect(() => {
+    if (!isVisible) return
+
+    loadThreeModules().then(([THREE, SpriteTextModule]) => {
+      setThreeModules({ THREE, SpriteText: SpriteTextModule.default })
+    })
+  }, [isVisible])
+
+  // Intersection observer - only render when visible
+  useEffect(() => {
+    if (!containerRef.current) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.1, rootMargin: '100px' }
+    )
+
+    observer.observe(containerRef.current)
+    return () => observer.disconnect()
+  }, [])
+
+  // Fetch graph data - only when visible
+  useEffect(() => {
+    if (!isVisible) return
+
     async function fetchData() {
       try {
         const params = new URLSearchParams()
@@ -129,7 +164,7 @@ export function JobsGraph3D({
     }
 
     fetchData()
-  }, [roleFilter, locationFilter, categoryFilter, limit])
+  }, [isVisible, roleFilter, locationFilter, categoryFilter, limit])
 
   // Handle resize
   useEffect(() => {
@@ -186,6 +221,10 @@ export function JobsGraph3D({
 
   // Create custom node with sphere and text label
   const createNodeObject = useCallback((node: any) => {
+    if (!threeModules) return null
+
+    const { THREE, SpriteText } = threeModules
+
     // Create a group to hold sphere and text
     const group = new THREE.Group()
 
@@ -214,7 +253,7 @@ export function JobsGraph3D({
     group.add(sprite)
 
     return group
-  }, [])
+  }, [threeModules])
 
   return (
     <div className="relative" style={{ width: '100%', height }}>
@@ -243,7 +282,7 @@ export function JobsGraph3D({
           </div>
         )}
 
-        {!loading && !error && graphData && (
+        {!loading && !error && graphData && threeModules && (
           <ForceGraph3D
             ref={graphRef}
             graphData={graphData}

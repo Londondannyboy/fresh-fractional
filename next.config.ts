@@ -75,10 +75,11 @@ const nextConfig: NextConfig = {
       "@tailwindcss/typography",
       "react-markdown",
       "@humeai/voice-react",
-      "@mux/mux-player-react",
       "@stackframe/stack",
       "@neondatabase/serverless",
       "zod",
+      "three",
+      "three-spritetext",
     ],
     // Inline critical CSS to eliminate render-blocking requests
     optimizeCss: true,

@@ -4,15 +4,10 @@ import { createDbQuery } from "@/lib/db";
 import { FractionalCalculator } from "@/components/FractionalCalculator";
 import { JobCard } from "@/components/JobCard";
 import { AuthAwareHumeWidget } from "@/components/AuthAwareHumeWidget";
-import { VideoHeroBackground } from "@/components/VideoHeroBackground";
 import { AnimatedStats } from "@/components/AnimatedStats";
 import { LatestNews } from "@/components/RoleNews";
 import { JobsGraph3D } from "@/components/JobsGraph3D";
 import { DesktopOnly } from "@/components/DesktopOnly";
-
-// Mux video playback ID for the hero background
-// Woman walking - professional executive theme
-const HERO_VIDEO_PLAYBACK_ID: string | undefined = "qIS6PGKxIZyzjrDBzxQuqPRBOhHofDnXq1chdsqAY9Y";
 
 export const metadata: Metadata = {
   title: "Fractional Jobs UK | Fractional Executive Jobs & Services Platform",
@@ -358,17 +353,9 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Why Hire Fractional - Company Focused - with subdued video */}
-      <section className="py-20 md:py-28 relative overflow-hidden">
-        {/* Video Background */}
-        <div className="absolute inset-0 z-0">
-          <VideoHeroBackground
-            playbackId={HERO_VIDEO_PLAYBACK_ID}
-            fallbackGradient={true}
-          />
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Why Hire Fractional - Company Focused */}
+      <section className="py-20 md:py-28 relative overflow-hidden bg-gradient-to-br from-gray-900 via-slate-900 to-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">Why Hire Fractional Executives?</h2>
             <p className="text-xl text-gray-300 leading-relaxed">
@@ -559,17 +546,9 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Calculator Section - with subdued video background */}
-      <section className="py-20 md:py-28 relative overflow-hidden">
-        {/* Video Background */}
-        <div className="absolute inset-0 z-0">
-          <VideoHeroBackground
-            playbackId={HERO_VIDEO_PLAYBACK_ID}
-            fallbackGradient={true}
-          />
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Calculator Section */}
+      <section className="py-20 md:py-28 bg-gradient-to-br from-slate-900 via-gray-900 to-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">Calculate Your Earning Potential</h2>
             <p className="text-xl text-gray-300">See how much you could earn as a fractional executive</p>
@@ -767,17 +746,9 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Final CTA Section - with subdued video */}
-      <section className="py-20 md:py-28 relative overflow-hidden">
-        {/* Video Background */}
-        <div className="absolute inset-0 z-0">
-          <VideoHeroBackground
-            playbackId={HERO_VIDEO_PLAYBACK_ID}
-            fallbackGradient={true}
-          />
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Final CTA Section */}
+      <section className="py-20 md:py-28 bg-gradient-to-br from-gray-900 via-slate-800 to-black">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Hire a Fractional Executive?
           </h2>
