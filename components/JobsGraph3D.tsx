@@ -65,6 +65,7 @@ export function JobsGraph3D({
   const [dimensions, setDimensions] = useState({ width: 800, height: 500 })
   const [isVisible, setIsVisible] = useState(false)
   const [threeModules, setThreeModules] = useState<{ THREE: any; SpriteText: any } | null>(null)
+  const [cameraInfo, setCameraInfo] = useState({ x: 0, y: 0, z: 80, distance: 80 })
 
   // Only load THREE modules when component becomes visible
   useEffect(() => {
@@ -198,6 +199,28 @@ export function JobsGraph3D({
 
     return () => clearTimeout(timer)
   }, [graphData])
+
+  // Track camera position for debug info
+  useEffect(() => {
+    if (!graphRef.current) return
+
+    const interval = setInterval(() => {
+      if (graphRef.current) {
+        const pos = graphRef.current.cameraPosition()
+        if (pos) {
+          const distance = Math.sqrt(pos.x * pos.x + pos.y * pos.y + pos.z * pos.z)
+          setCameraInfo({
+            x: Math.round(pos.x),
+            y: Math.round(pos.y),
+            z: Math.round(pos.z),
+            distance: Math.round(distance)
+          })
+        }
+      }
+    }, 500)
+
+    return () => clearInterval(interval)
+  }, [graphData, threeModules])
 
   const handleNodeClick = useCallback((node: any) => {
     if (!node.url || !graphRef.current) {
@@ -356,6 +379,29 @@ export function JobsGraph3D({
                 <span><strong className="text-white">Scroll</strong> to zoom in/out</span>
               </li>
             </ul>
+
+            {/* Viewpoint Info */}
+            <div className="mt-4 pt-3 border-t border-gray-700">
+              <h5 className="text-gray-400 text-[10px] uppercase tracking-wider mb-2">Viewpoint</h5>
+              <div className="font-mono text-[10px] space-y-1">
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Position:</span>
+                  <span className="text-emerald-400">{cameraInfo.x}, {cameraInfo.y}, {cameraInfo.z}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Distance:</span>
+                  <span className="text-blue-400">{cameraInfo.distance}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Nodes:</span>
+                  <span className="text-amber-400">{graphData?.nodes.length || 0}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Links:</span>
+                  <span className="text-purple-400">{graphData?.links.length || 0}</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Bottom center legend */}
