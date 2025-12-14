@@ -134,12 +134,6 @@ export function JobsGraph3D({
   const handleNodeClick = useCallback((node: any) => {
     if (node.url) {
       window.location.href = node.url
-    } else if (node.group === 'job' && node.name) {
-      const slug = (node.name || '')
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-|-$/g, '')
-      window.location.href = `/fractional-job/${slug}`
     }
   }, [])
 
@@ -178,7 +172,7 @@ export function JobsGraph3D({
             backgroundColor="rgba(0,0,0,0)"
             nodeColor={(node: any) => node.color || groupColors.default}
             nodeVal={(node: any) => node.val}
-            nodeLabel={(node: any) => node.name || node.id}
+            nodeLabel={(node: any) => `${node.name || node.id}${node.group === 'job' ? ' (click to view)' : ''}`}
             nodeOpacity={0.9}
             linkColor={() => 'rgba(99, 102, 241, 0.4)'}
             linkWidth={1.5}
@@ -192,22 +186,28 @@ export function JobsGraph3D({
 
       {!loading && !error && (
         <>
-          <div className="absolute bottom-3 left-3 bg-black/60 px-3 py-2 rounded-lg text-[11px] text-slate-400 z-10">
-            <span className="mr-3">🖱️ Drag to rotate</span>
-            <span className="mr-3">🔍 Scroll to zoom</span>
-            <span>👆 Click node to explore</span>
+          {/* Top instruction banner */}
+          <div className="absolute top-3 left-1/2 -translate-x-1/2 bg-blue-600/90 backdrop-blur px-4 py-2 rounded-full text-sm text-white z-10 shadow-lg">
+            <span className="font-medium">Click any blue job node to view the full listing</span>
           </div>
 
-          <div className="absolute bottom-3 right-3 bg-black/60 px-3 py-2 rounded-lg text-[10px] z-10 flex flex-wrap gap-2 max-w-[280px]">
-            <div className="flex items-center gap-1">
-              <div className="w-2.5 h-2.5 rounded-full bg-blue-500" />
-              <span className="text-slate-400">Jobs</span>
+          {/* Bottom left controls */}
+          <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur px-3 py-2 rounded-lg text-xs text-slate-300 z-10">
+            <span className="mr-3">🖱️ Drag to rotate</span>
+            <span className="mr-3">🔍 Scroll to zoom</span>
+          </div>
+
+          {/* Bottom right legend */}
+          <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur px-3 py-2 rounded-lg text-xs z-10 flex flex-wrap gap-3">
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+              <span className="text-slate-300 font-medium">Jobs (clickable)</span>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
               <span className="text-slate-400">Skills</span>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
               <span className="text-slate-400">Companies</span>
             </div>
