@@ -8,6 +8,14 @@
     "start": "next start",
     "lint": "eslint"
   },
+  "browserslist": [
+    "Chrome >= 90",
+    "Firefox >= 90",
+    "Safari >= 14",
+    "Edge >= 90",
+    "iOS >= 14",
+    "not dead"
+  ],
   "dependencies": {
     "d3": "^7.9.0",
     "globe.gl": "^2.45.0",
