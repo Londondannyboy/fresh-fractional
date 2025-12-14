@@ -244,13 +244,17 @@ export default async function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingJsonLd) }}
       />
     <div className="flex flex-col">
-      {/* Hero Section with Video Background - Modern Cinematic Design */}
+      {/* Hero Section with 3D Knowledge Graph - Interactive Job Network */}
       <section className="relative min-h-screen flex items-end overflow-hidden">
-        {/* Video Background */}
-        <VideoHeroBackground
-          playbackId={HERO_VIDEO_PLAYBACK_ID}
-          fallbackGradient={true}
-        />
+        {/* 3D Knowledge Graph Background */}
+        <div className="absolute inset-0">
+          <JobsGraph3D
+            limit={30}
+            height="100%"
+            isHero={true}
+            showOverlay={true}
+          />
+        </div>
 
         {/* Bottom-aligned content with glass panel */}
         <div className="relative z-10 w-full pb-12 md:pb-20">

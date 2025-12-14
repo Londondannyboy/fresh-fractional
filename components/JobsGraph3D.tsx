@@ -28,6 +28,8 @@ export interface JobsGraph3DProps {
   roleFilter?: string
   limit?: number
   height?: string
+  isHero?: boolean
+  showOverlay?: boolean
 }
 
 const groupColors: Record<string, string> = {
@@ -42,8 +44,11 @@ export function JobsGraph3D({
   roleFilter = '',
   limit = 20,
   height = '500px',
+  isHero = false,
+  showOverlay = true,
 }: JobsGraph3DProps) {
   const containerRef = useRef<HTMLDivElement>(null)
+  const graphRef = useRef<any>(null)
   const [graphData, setGraphData] = useState<{ nodes: GraphNode[], links: GraphLink[] } | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -69,26 +74,31 @@ export function JobsGraph3D({
           return
         }
 
-        // Transform data - limit connections to reduce clutter
-        const linkCounts: Record<string, number> = {}
-        const maxLinksPerNode = 4
-
+        // Transform data - make companies much larger and central
         const nodes: GraphNode[] = graphResult.nodes.map((node: any) => ({
           id: node.id,
           name: node.label,
           group: node.type || 'default',
-          val: node.type === 'job' ? 25 : node.type === 'company' ? 18 : 10,
+          // Companies are largest, jobs medium, skills smaller
+          val: node.type === 'company' ? 80 : node.type === 'job' ? 30 : 8,
           url: node.url,
           color: groupColors[node.type] || groupColors.default
         }))
+
+        // Keep all company-job links, limit skill links
+        const linkCounts: Record<string, number> = {}
+        const maxSkillLinks = 3
 
         const links: GraphLink[] = (graphResult.edges || [])
           .filter((edge: any) => {
             const src = edge.source || edge.from
             const tgt = edge.target || edge.to
+            // Always keep company links
+            if (edge.type === 'at_company') return true
+            // Limit skill links
             const sourceCount = linkCounts[src] || 0
             const targetCount = linkCounts[tgt] || 0
-            if (sourceCount >= maxLinksPerNode || targetCount >= maxLinksPerNode) {
+            if (sourceCount >= maxSkillLinks || targetCount >= maxSkillLinks) {
               return false
             }
             linkCounts[src] = sourceCount + 1
@@ -137,80 +147,86 @@ export function JobsGraph3D({
     }
   }, [])
 
+  // Generate label for node - companies get big labels
+  const getNodeLabel = useCallback((node: any) => {
+    if (node.group === 'company') {
+      return `🏢 ${node.name}`
+    }
+    if (node.group === 'job') {
+      return `${node.name}\n👆 Click to view job`
+    }
+    return node.name || node.id
+  }, [])
+
   return (
     <div className="relative" style={{ width: '100%', height }}>
       <div
         ref={containerRef}
-        className="w-full h-full rounded-xl overflow-hidden"
+        className={`w-full h-full overflow-hidden ${isHero ? '' : 'rounded-xl'}`}
         style={{
-          background: 'radial-gradient(ellipse at center, #1a1a2e 0%, #0f0f1a 100%)',
+          background: 'radial-gradient(ellipse at center, #0a0a1a 0%, #000000 100%)',
         }}
       >
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center z-10">
             <div className="text-center">
-              <div className="w-12 h-12 border-4 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin mx-auto mb-4" />
-              <p className="text-indigo-300 text-sm">Loading 3D graph...</p>
+              <div className="w-12 h-12 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin mx-auto mb-4" />
+              <p className="text-blue-300 text-sm">Loading job network...</p>
             </div>
           </div>
         )}
 
         {error && (
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-            <svg className="w-12 h-12 text-indigo-500 mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-12 h-12 text-blue-500 mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9c0-1.657-4.03-3-9-3s-9 1.343-9 3m18 0a9 9 0 01-9 9m-9-9a9 9 0 019-9" />
             </svg>
-            <p className="text-indigo-300 text-sm">Unable to load network data</p>
+            <p className="text-blue-300 text-sm">Unable to load network data</p>
           </div>
         )}
 
         {!loading && !error && graphData && (
           <ForceGraph3D
+            ref={graphRef}
             graphData={graphData}
             width={dimensions.width}
             height={dimensions.height}
             backgroundColor="rgba(0,0,0,0)"
             nodeColor={(node: any) => node.color || groupColors.default}
             nodeVal={(node: any) => node.val}
-            nodeLabel={(node: any) => `${node.name || node.id}${node.group === 'job' ? ' (click to view)' : ''}`}
-            nodeOpacity={0.9}
-            linkColor={() => 'rgba(99, 102, 241, 0.4)'}
-            linkWidth={1.5}
-            linkOpacity={0.6}
+            nodeLabel={getNodeLabel}
+            nodeOpacity={0.95}
+            linkColor={() => 'rgba(99, 102, 241, 0.3)'}
+            linkWidth={2}
+            linkOpacity={0.5}
             onNodeClick={handleNodeClick}
             enableNodeDrag={true}
             enableNavigationControls={true}
+            d3AlphaDecay={0.02}
+            d3VelocityDecay={0.3}
+            warmupTicks={50}
+            cooldownTicks={100}
           />
         )}
       </div>
 
-      {!loading && !error && (
+      {!loading && !error && showOverlay && (
         <>
-          {/* Top instruction banner */}
-          <div className="absolute top-3 left-1/2 -translate-x-1/2 bg-blue-600/90 backdrop-blur px-4 py-2 rounded-full text-sm text-white z-10 shadow-lg">
-            <span className="font-medium">Click any blue job node to view the full listing</span>
-          </div>
-
-          {/* Bottom left controls */}
-          <div className="absolute bottom-3 left-3 bg-black/70 backdrop-blur px-3 py-2 rounded-lg text-xs text-slate-300 z-10">
-            <span className="mr-3">🖱️ Drag to rotate</span>
-            <span className="mr-3">🔍 Scroll to zoom</span>
-          </div>
-
-          {/* Bottom right legend */}
-          <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur px-3 py-2 rounded-lg text-xs z-10 flex flex-wrap gap-3">
+          {/* Bottom center legend - minimal for hero mode */}
+          <div className={`absolute ${isHero ? 'bottom-6' : 'bottom-3'} left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm px-4 py-2 rounded-full text-xs z-10 flex items-center gap-4`}>
             <div className="flex items-center gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
-              <span className="text-slate-300 font-medium">Jobs (clickable)</span>
+              <div className="w-4 h-4 rounded-full bg-amber-500" />
+              <span className="text-white font-medium">Companies</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+              <div className="w-3 h-3 rounded-full bg-blue-500" />
+              <span className="text-slate-300">Jobs</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="w-2 h-2 rounded-full bg-emerald-500" />
               <span className="text-slate-400">Skills</span>
             </div>
-            <div className="flex items-center gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-              <span className="text-slate-400">Companies</span>
-            </div>
+            <span className="text-slate-400 border-l border-slate-600 pl-4">Click jobs to explore</span>
           </div>
         </>
       )}
