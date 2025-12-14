@@ -108,7 +108,7 @@ export function JobCard({
 
       {/* Description */}
       {description && (
-        <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+        <p className="text-sm text-gray-600 mb-4 line-clamp-3 leading-relaxed">
           {description}
         </p>
       )}

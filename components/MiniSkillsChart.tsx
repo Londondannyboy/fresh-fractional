@@ -23,7 +23,7 @@ export function MiniSkillsChart({ skills, maxSkills = 5, className = '' }: MiniS
     return skills.slice(0, maxSkills).map((skill, i) => ({
       name: skill,
       // Create visual weight based on position (first skills assumed more important)
-      weight: 100 - (i * 15),
+      weight: 100 - (i * 12),
       color: skillColors[i % skillColors.length]
     }))
   }, [skills, maxSkills])
@@ -32,31 +32,35 @@ export function MiniSkillsChart({ skills, maxSkills = 5, className = '' }: MiniS
 
   return (
     <div className={`${className}`}>
-      <div className="flex items-center gap-1.5 mb-2">
+      <div className="flex items-center gap-1.5 mb-3">
         <svg className="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
         </svg>
         <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Skills Profile</span>
       </div>
-      <div className="space-y-1.5">
-        {displaySkills.map((skill, i) => (
-          <div key={skill.name} className="flex items-center gap-2">
-            <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+      <div className="space-y-2">
+        {displaySkills.map((skill) => (
+          <div key={skill.name} className="group">
+            <div className="flex items-center justify-between mb-0.5">
+              <span className="text-xs text-gray-700 font-medium" title={skill.name}>
+                {skill.name}
+              </span>
+            </div>
+            <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden">
               <div
-                className="h-full rounded-full transition-all duration-500"
+                className="h-full rounded-full transition-all duration-700 ease-out group-hover:opacity-100"
                 style={{
                   width: `${skill.weight}%`,
                   backgroundColor: skill.color,
-                  opacity: 0.8
+                  opacity: 0.85
                 }}
               />
             </div>
-            <span className="text-xs text-gray-600 w-24 truncate">{skill.name}</span>
           </div>
         ))}
       </div>
       {skills.length > maxSkills && (
-        <p className="text-xs text-gray-400 mt-1.5">+{skills.length - maxSkills} more skills</p>
+        <p className="text-xs text-gray-400 mt-2">+{skills.length - maxSkills} more skills</p>
       )}
     </div>
   )

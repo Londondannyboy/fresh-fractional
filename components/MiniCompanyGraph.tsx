@@ -1,6 +1,17 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useMemo, useRef, useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
+
+// Dynamically import ForceGraph2D with SSR disabled
+const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center h-full bg-gray-50 rounded-lg">
+      <div className="w-6 h-6 border-2 border-amber-500/30 border-t-amber-500 rounded-full animate-spin" />
+    </div>
+  )
+})
 
 interface MiniCompanyGraphProps {
   companyName: string
@@ -10,17 +21,15 @@ interface MiniCompanyGraphProps {
   className?: string
 }
 
-interface Node {
+interface GraphNode {
   id: string
-  label: string
+  name: string
   type: 'company' | 'job' | 'skill'
-  x: number
-  y: number
+  val: number
   color: string
-  size: number
 }
 
-interface Link {
+interface GraphLink {
   source: string
   target: string
 }
@@ -38,129 +47,133 @@ export function MiniCompanyGraph({
   skills = [],
   className = ''
 }: MiniCompanyGraphProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [isHovered, setIsHovered] = useState(false)
+  const graphRef = useRef<any>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [dimensions, setDimensions] = useState({ width: 200, height: 140 })
 
+  // Handle resize
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    if (!containerRef.current) return
 
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        setDimensions({
+          width: containerRef.current.offsetWidth,
+          height: containerRef.current.offsetHeight
+        })
+      }
+    }
 
-    const width = canvas.width
-    const height = canvas.height
-    const centerX = width / 2
-    const centerY = height / 2
+    updateDimensions()
+    window.addEventListener('resize', updateDimensions)
+    return () => window.removeEventListener('resize', updateDimensions)
+  }, [])
 
-    // Create nodes
-    const nodes: Node[] = []
-    const links: Link[] = []
+  // Build graph data
+  const graphData = useMemo(() => {
+    const nodes: GraphNode[] = []
+    const links: GraphLink[] = []
 
     // Company node (center)
-    const shortCompany = companyName.split(' ')[0].slice(0, 8)
+    const shortCompany = companyName.split(' ').slice(0, 2).join(' ')
     nodes.push({
       id: 'company',
-      label: shortCompany,
+      name: shortCompany,
       type: 'company',
-      x: centerX,
-      y: centerY,
-      color: colors.company,
-      size: 16
+      val: 25,
+      color: colors.company
     })
 
-    // Job node (above company)
-    const shortJob = jobTitle.split(' ').slice(0, 2).join(' ').slice(0, 12)
+    // Job node
+    const shortJob = jobTitle.split(' ').slice(0, 3).join(' ')
     nodes.push({
       id: 'job',
-      label: shortJob,
+      name: shortJob,
       type: 'job',
-      x: centerX,
-      y: centerY - 35,
-      color: colors.job,
-      size: 12
+      val: 15,
+      color: colors.job
     })
     links.push({ source: 'company', target: 'job' })
 
-    // Skill nodes (around the company)
+    // Skill nodes (limit to 4 for readability)
     const displaySkills = skills.slice(0, 4)
-    const angleStep = (Math.PI * 2) / Math.max(displaySkills.length, 1)
-    const startAngle = Math.PI / 2 // Start from bottom
-
     displaySkills.forEach((skill, i) => {
-      const angle = startAngle + (i * angleStep)
-      const radius = 38
+      const shortSkill = skill.split(' ').slice(0, 2).join(' ')
       nodes.push({
         id: `skill-${i}`,
-        label: skill.slice(0, 6),
+        name: shortSkill,
         type: 'skill',
-        x: centerX + Math.cos(angle) * radius,
-        y: centerY + Math.sin(angle) * radius,
-        color: colors.skill,
-        size: 6
+        val: 8,
+        color: colors.skill
       })
       links.push({ source: 'job', target: `skill-${i}` })
     })
 
-    // Clear canvas
-    ctx.clearRect(0, 0, width, height)
+    return { nodes, links }
+  }, [companyName, jobTitle, skills])
 
-    // Draw links
-    ctx.strokeStyle = 'rgba(156, 163, 175, 0.4)'
-    ctx.lineWidth = 1
-    links.forEach(link => {
-      const source = nodes.find(n => n.id === link.source)
-      const target = nodes.find(n => n.id === link.target)
-      if (source && target) {
-        ctx.beginPath()
-        ctx.moveTo(source.x, source.y)
-        ctx.lineTo(target.x, target.y)
-        ctx.stroke()
-      }
-    })
-
-    // Draw nodes
-    nodes.forEach(node => {
-      // Node circle
-      ctx.beginPath()
-      ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2)
-      ctx.fillStyle = node.color
-      ctx.fill()
-
-      // Node label
-      ctx.fillStyle = '#4b5563'
-      ctx.font = `${node.type === 'company' ? '9px' : '7px'} system-ui`
-      ctx.textAlign = 'center'
-      ctx.textBaseline = 'middle'
-
-      if (node.type === 'company') {
-        ctx.fillText(node.label, node.x, node.y + node.size + 10)
-      } else if (node.type === 'job') {
-        ctx.fillText(node.label, node.x, node.y - node.size - 6)
-      }
-    })
-  }, [companyName, jobTitle, skills, isHovered])
+  // Zoom to fit on load
+  useEffect(() => {
+    if (graphRef.current) {
+      setTimeout(() => {
+        graphRef.current?.zoomToFit(300, 20)
+      }, 500)
+    }
+  }, [graphData])
 
   if (!companyName) return null
 
   return (
-    <div
-      className={`${className}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className={`${className}`}>
       <div className="flex items-center gap-1.5 mb-2">
         <svg className="w-3.5 h-3.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
         </svg>
         <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Knowledge Graph</span>
       </div>
-      <div className="bg-gray-50 rounded-lg p-1 flex items-center justify-center">
-        <canvas
-          ref={canvasRef}
-          width={140}
-          height={100}
-          className="block"
+      <div
+        ref={containerRef}
+        className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg overflow-hidden"
+        style={{ height: '140px' }}
+      >
+        <ForceGraph2D
+          ref={graphRef}
+          graphData={graphData}
+          width={dimensions.width}
+          height={140}
+          backgroundColor="transparent"
+          nodeColor={(node: any) => node.color}
+          nodeVal={(node: any) => node.val}
+          nodeLabel={(node: any) => node.name}
+          nodeCanvasObject={(node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
+            // Draw node circle
+            const size = Math.sqrt(node.val) * 2
+            ctx.beginPath()
+            ctx.arc(node.x, node.y, size, 0, 2 * Math.PI)
+            ctx.fillStyle = node.color
+            ctx.fill()
+
+            // Draw label for company and job nodes
+            if (node.type === 'company' || node.type === 'job') {
+              const fontSize = node.type === 'company' ? 10 / globalScale : 8 / globalScale
+              ctx.font = `600 ${fontSize}px system-ui, sans-serif`
+              ctx.textAlign = 'center'
+              ctx.textBaseline = 'middle'
+              ctx.fillStyle = '#374151'
+
+              const yOffset = size + fontSize
+              ctx.fillText(node.name, node.x, node.y + yOffset)
+            }
+          }}
+          linkColor={() => 'rgba(156, 163, 175, 0.5)'}
+          linkWidth={1.5}
+          d3AlphaDecay={0.05}
+          d3VelocityDecay={0.4}
+          warmupTicks={50}
+          cooldownTicks={100}
+          enableNodeDrag={false}
+          enableZoomInteraction={false}
+          enablePanInteraction={false}
         />
       </div>
     </div>
