@@ -247,12 +247,40 @@ export default async function Home() {
             limit={30}
             height="100%"
             isHero={true}
-            showOverlay={true}
+            showOverlay={false}
+          />
+        </div>
+
+        {/* Mini Graph - CFO Focus (Top Right) - Desktop Only */}
+        <div className="hidden lg:block absolute top-24 right-6 w-72 h-56 rounded-xl overflow-hidden border-2 border-white/20 shadow-2xl z-30">
+          <div className="absolute top-2 left-2 z-10 bg-black/70 backdrop-blur px-3 py-1 rounded text-xs">
+            <span className="text-amber-400 font-semibold">CFO Jobs</span>
+          </div>
+          <JobsGraph3D
+            roleFilter="CFO"
+            limit={12}
+            height="100%"
+            isHero={true}
+            showOverlay={false}
+          />
+        </div>
+
+        {/* Mini Graph - London Focus (Middle Right) - Desktop Only */}
+        <div className="hidden lg:block absolute top-[340px] right-6 w-72 h-56 rounded-xl overflow-hidden border-2 border-white/20 shadow-2xl z-30">
+          <div className="absolute top-2 left-2 z-10 bg-black/70 backdrop-blur px-3 py-1 rounded text-xs">
+            <span className="text-blue-400 font-semibold">London Jobs</span>
+          </div>
+          <JobsGraph3D
+            locationFilter="london"
+            limit={12}
+            height="100%"
+            isHero={true}
+            showOverlay={false}
           />
         </div>
 
         {/* Bottom-aligned content with glass panel */}
-        <div className="relative z-10 w-full pb-12 md:pb-20">
+        <div className="relative z-10 w-full pb-8 md:pb-12">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row justify-between items-end gap-8">
               {/* Left: Main content */}
@@ -270,7 +298,6 @@ export default async function Home() {
                     Executive Jobs & Fractional Services Marketplace
                   </p>
 
-                  {/* Hidden image for SEO - contains keyword in alt text */}
                   <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                     Find fractional executive jobs or hire fractional CFO, CMO, CTO leadership.
                     Browse roles or access services—start within days.
@@ -293,28 +320,26 @@ export default async function Home() {
                 </div>
               </div>
 
-              {/* Right: Stats panel */}
-              <div className="w-full lg:w-auto">
-                <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10">
-                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-                    <div className="text-center">
-                      <div className="text-3xl md:text-4xl font-bold text-emerald-400 font-mono">60%</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wider mt-1">Cost Savings</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl md:text-4xl font-bold text-white font-mono">7 Days</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wider mt-1">To Start</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl md:text-4xl font-bold text-white font-mono">1-3</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wider mt-1">Days/Week</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl md:text-4xl font-bold text-white font-mono">15+ Yrs</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wider mt-1">Experience</div>
-                    </div>
-                  </div>
+            </div>
+
+            {/* Legend & Instructions - Below content */}
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="bg-black/60 backdrop-blur-sm px-5 py-3 rounded-xl text-sm flex items-center gap-6">
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-amber-500" />
+                  <span className="text-white font-medium">Companies</span>
                 </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-blue-500" />
+                  <span className="text-gray-300">Jobs</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span className="text-gray-400">Skills</span>
+                </div>
+              </div>
+              <div className="bg-black/60 backdrop-blur-sm px-5 py-3 rounded-xl text-sm text-gray-300">
+                <span className="text-white font-medium">Explore:</span> Click nodes to view • Drag to rotate • Scroll to zoom
               </div>
             </div>
           </div>

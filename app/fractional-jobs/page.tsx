@@ -250,7 +250,7 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
                 />
 
                 <p className="text-lg text-white/70 leading-relaxed">
-                  CFO, CMO, CTO & specialist roles • £600-£1,500/day • Updated every 15 minutes
+                  CFO, CMO, CTO & specialist roles • £600-£1,500/day • Updated daily
                 </p>
               </div>
             </div>

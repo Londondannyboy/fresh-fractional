@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useCallback, useState } from 'react'
 import dynamic from 'next/dynamic'
+import type SpriteTextType from 'three-spritetext'
 
 // Dynamically import the 3D graph component with SSR disabled
 const ForceGraph3D = dynamic(() => import('react-force-graph-3d'), {
@@ -59,6 +60,14 @@ export function JobsGraph3D({
   const [error, setError] = useState(false)
   const [dimensions, setDimensions] = useState({ width: 800, height: 500 })
   const [cameraInfo, setCameraInfo] = useState({ x: 0, y: 0, z: 80, distance: 80 })
+  const [SpriteText, setSpriteText] = useState<typeof SpriteTextType | null>(null)
+
+  // Load SpriteText dynamically on client
+  useEffect(() => {
+    import('three-spritetext').then(mod => {
+      setSpriteText(() => mod.default)
+    })
+  }, [])
 
   // Fetch graph data
   useEffect(() => {
@@ -238,6 +247,46 @@ export function JobsGraph3D({
     return node.name || node.id
   }, [getShortCompanyName])
 
+  // Create 3D label object for nodes - this EXTENDS the default sphere
+  const createNodeLabel = useCallback((node: any): any => {
+    if (!SpriteText) return undefined
+
+    // Only show permanent labels for companies and jobs, not skills
+    if (node.group === 'skill') return undefined
+
+    // Get the label text
+    let labelText = ''
+    let textColor = '#ffffff'
+    let fontSize = 3
+
+    if (node.group === 'company') {
+      labelText = node.name || ''
+      textColor = '#f59e0b' // amber
+      fontSize = 4
+    } else if (node.group === 'job') {
+      // Shorter label for jobs
+      const shortName = (node.name || '').split(' ').slice(0, 3).join(' ')
+      labelText = shortName
+      textColor = '#93c5fd' // light blue
+      fontSize = 2.5
+    }
+
+    if (!labelText) return undefined
+
+    const sprite = new SpriteText(labelText)
+    sprite.color = textColor
+    sprite.textHeight = fontSize
+    sprite.backgroundColor = 'rgba(0,0,0,0.6)'
+    sprite.padding = 1
+    sprite.borderRadius = 2
+
+    // Position label above the node
+    const nodeSize = node.group === 'company' ? 12 : 8
+    sprite.position.y = nodeSize
+
+    return sprite
+  }, [SpriteText])
+
   return (
     <div className="relative" style={{ width: '100%', height }}>
       <div
@@ -277,6 +326,8 @@ export function JobsGraph3D({
             nodeLabel={getNodeLabel}
             nodeRelSize={8}
             nodeOpacity={0.95}
+            nodeThreeObject={SpriteText ? createNodeLabel : undefined}
+            nodeThreeObjectExtend={true}
             linkColor={() => 'rgba(99, 102, 241, 0.5)'}
             linkWidth={2}
             linkOpacity={0.6}
