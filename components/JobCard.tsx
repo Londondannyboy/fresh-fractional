@@ -1,6 +1,8 @@
 import React from 'react'
 import { Badge } from './Badge'
 import { CompanyLogo } from './CompanyLogo'
+import { MiniSkillsChart } from './MiniSkillsChart'
+import { MiniCompanyGraph } from './MiniCompanyGraph'
 
 interface JobCardProps {
   title: string
@@ -109,6 +111,19 @@ export function JobCard({
         <p className="text-sm text-gray-600 mb-4 line-clamp-2">
           {description}
         </p>
+      )}
+
+      {/* Mini Graphs Section - Skills & Company Knowledge Graph */}
+      {skills.length > 0 && (
+        <div className="grid grid-cols-2 gap-4 mb-4 p-3 bg-gray-50/50 rounded-lg border border-gray-100">
+          <MiniSkillsChart skills={skills} maxSkills={5} />
+          <MiniCompanyGraph
+            companyName={company}
+            companyDomain={companyDomain}
+            jobTitle={title}
+            skills={skills}
+          />
+        </div>
       )}
 
       {/* Skills Tags */}
