@@ -224,8 +224,111 @@ export default async function FractionalCtoJobsUkPage() {
         </div>
       </section>
 
+      {/* AI/ML Boom Section */}
+      <section className="py-20 md:py-28 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-4 block">Market Dynamics</span>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
+              The AI/ML Boom Driving<br /><span className="text-blue-600">Fractional CTO Demand</span>
+            </h2>
+            <div className="w-24 h-1 bg-blue-500"></div>
+          </div>
+          <article className="prose prose-lg prose-gray max-w-none space-y-6">
+            <p className="text-gray-700 leading-relaxed">
+              The explosive growth in fractional CTO opportunities—up 55% year-over-year—directly correlates with the AI/ML integration wave sweeping UK businesses. Every company from Series A startups to established mid-market firms now faces the same question: how do we integrate AI without derailing our roadmap or overspending on experiments?
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              This creates perfect conditions for fractional CTOs. A full-time CTO with deep AI/ML expertise commands £200,000-£350,000 packages. Yet most companies need this expertise for strategic guidance, vendor selection, and architecture decisions—not 40 hours weekly. A fractional CTO providing 2 days per week at £1,200 daily costs £115,000 annually, saving over £100,000 while accessing identical expertise.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              Beyond AI, the technical complexity curve continues steepening. Cloud-native architectures, microservices, event-driven systems, real-time data pipelines—the modern tech stack demands expertise non-technical founders cannot acquire quickly. Meanwhile, hiring full-time senior engineers has become brutally competitive. Fractional CTOs solve both problems: they architect the right systems and attract strong engineering talent through their reputation and network.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              London accounts for roughly 60% of fractional CTO opportunities, though Manchester, Edinburgh, and Cambridge show strong growth. FinTech and B2B SaaS dominate demand, but HealthTech, PropTech, and ClimaTech increasingly seek fractional technical leadership. The common thread: regulated or complex domains where strategic technical decisions carry existential weight.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      {/* Technical Specializations Section */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-4 block">In Demand</span>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
+              Technical Specializations<br /><span className="text-blue-600">Commanding Premium Rates</span>
+            </h2>
+            <div className="w-24 h-1 bg-blue-500"></div>
+          </div>
+          <article className="prose prose-lg prose-gray max-w-none space-y-6">
+            <p className="text-gray-700 leading-relaxed">
+              While generalist fractional CTOs maintain steady demand, specialized expertise commands significant premiums. Understanding which specializations pay top rates helps position your fractional practice for maximum earnings.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">AI/ML Integration & Architecture</h3>
+            <p className="text-gray-700 leading-relaxed">
+              Fractional CTOs with production AI/ML experience command £1,300-£1,600 daily. Companies need guidance on LLM integration, RAG architectures, vector databases, and prompt engineering at scale. The key differentiation: hands-on production experience, not just theoretical knowledge. Clients pay premium rates for CTOs who have shipped AI features to millions of users and can navigate the reliability and cost challenges.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Platform Engineering & DevOps</h3>
+            <p className="text-gray-700 leading-relaxed">
+              As companies scale from 10 to 100+ engineers, platform engineering becomes critical. Fractional CTOs specializing in Kubernetes, infrastructure-as-code, CI/CD pipelines, and developer experience command £1,100-£1,400 daily. The value proposition: reducing deployment friction and enabling engineering teams to ship faster. Series B-C companies pay willingly for CTOs who can transform their deployment cadence from weekly to daily.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Security & Compliance Architecture</h3>
+            <p className="text-gray-700 leading-relaxed">
+              FinTech, HealthTech, and financial services require fractional CTOs with deep security and compliance expertise. SOC 2, ISO 27001, PCI DSS, GDPR—navigating these frameworks while maintaining development velocity demands experience. Rates of £1,200-£1,500 daily reflect the specialized knowledge and liability involved. This niche particularly suits former enterprise CTOs transitioning to fractional work.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Mobile-First Architecture</h3>
+            <p className="text-gray-700 leading-relaxed">
+              Consumer apps and B2C platforms need CTOs who understand mobile-first architecture, offline-first design, and app store optimization. React Native, Flutter, native iOS/Android expertise combined with backend scalability knowledge creates a valuable specialization. Rates of £1,000-£1,300 daily, with higher premiums for CTOs who have shipped apps to millions of users.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      {/* Building Practice Section */}
+      <section className="py-20 md:py-28 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-4 block">Practical Guide</span>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
+              Building a Successful<br /><span className="text-blue-600">Fractional CTO Practice</span>
+            </h2>
+            <div className="w-24 h-1 bg-blue-500"></div>
+          </div>
+          <article className="prose prose-lg prose-gray max-w-none space-y-6">
+            <p className="text-gray-700 leading-relaxed">
+              Transitioning from full-time CTO to fractional work requires strategic positioning. The most successful fractional CTOs share common patterns in how they build and maintain their practices.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Positioning Over Generalization</h3>
+            <p className="text-gray-700 leading-relaxed">
+              Avoid marketing yourself as a "fractional CTO for any company." Instead, claim specific territory: "fractional CTO for Series A FinTech companies building regulated platforms" or "fractional CTO helping B2B SaaS scale from £1M to £10M ARR." This specificity makes referrals flow naturally. When a VC encounters a portfolio company matching your profile, your specialized positioning makes you the obvious choice.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">The Portfolio Approach</h3>
+            <p className="text-gray-700 leading-relaxed">
+              Most successful fractional CTOs maintain 2-4 concurrent clients. The typical structure: one anchor client at 2-3 days weekly (£120,000-180,000 annually), one secondary client at 1-2 days weekly (£60,000-£100,000), plus advisory roles or due diligence projects. This diversification provides income stability while preventing over-reliance on any single client.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Network Building in Tech</h3>
+            <p className="text-gray-700 leading-relaxed">
+              Unlike other fractional roles, CTO opportunities flow heavily through VC and tech community networks. Attend London Tech Week, speak at developer conferences, contribute to open source, and build relationships with Series A-B investors. Many fractional CTOs report that 70-80% of opportunities come through warm introductions—your network becomes your primary business development engine.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Managing Multiple Codebases</h3>
+            <p className="text-gray-700 leading-relaxed">
+              The operational challenge of fractional CTO work: context switching between different tech stacks, teams, and codebases. Successful practitioners develop systems: detailed handover documents, recorded architecture decision records, and scheduled "deep work" days for each client. Tuesday might be Client A (FinTech, Python/React), Wednesday Client B (SaaS, Node/Vue), with Thursdays reserved for strategic thinking and architecture reviews across all clients.
+            </p>
+          </article>
+        </div>
+      </section>
+
       {/* IR35 Calculator */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <div className="mb-12 text-center">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-2 block">UK Tax</span>
