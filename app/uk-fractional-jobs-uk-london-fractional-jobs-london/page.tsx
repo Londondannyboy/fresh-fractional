@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { createDbQuery } from '@/lib/db'
 import { JobCard } from '@/components/JobCard'
 import { JobsGraph3D } from '@/components/JobsGraph3D'
@@ -291,6 +292,22 @@ export default async function FractionalJobsUKPage() {
             <span className="text-xs font-medium uppercase tracking-[0.3em] text-gray-400 mb-4 block">Complete Guide</span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">The Complete Guide to Fractional Jobs UK</h2>
             <p className="text-xl text-gray-500">Understanding the UK&apos;s fastest-growing executive career model</p>
+          </div>
+
+          {/* Featured Image for SEO */}
+          <div className="relative w-full h-64 md:h-80 mb-12 rounded-2xl overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80"
+              alt="Fractional jobs UK - Executive professionals in a modern London office discussing strategy, representing the growing fractional executive market"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 896px"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <p className="text-white/90 text-sm font-medium">Fractional executives are reshaping how UK companies access senior leadership</p>
+            </div>
           </div>
 
           <div className="prose prose-lg prose-gray max-w-none">
