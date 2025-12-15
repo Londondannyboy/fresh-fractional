@@ -92,11 +92,13 @@ export function FractionalRateCalculatorUK({ className = '' }: FractionalRateCal
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {/* Role Selector */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="role-select-rate" className="block text-sm font-semibold text-gray-700 mb-2">
               Your Role
             </label>
             <select
+              id="role-select-rate"
               value={selectedRole}
+              aria-label="Your Role"
               onChange={(e) => {
                 setSelectedRole(e.target.value)
                 const newRole = ROLES.find(r => r.id === e.target.value)
@@ -117,11 +119,13 @@ export function FractionalRateCalculatorUK({ className = '' }: FractionalRateCal
 
           {/* Location Selector */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="location-select" className="block text-sm font-semibold text-gray-700 mb-2">
               Your Location
             </label>
             <select
+              id="location-select"
               value={selectedLocation}
+              aria-label="Your Location"
               onChange={(e) => {
                 setSelectedLocation(e.target.value)
                 const newLocation = LOCATIONS.find(l => l.id === e.target.value)
@@ -145,7 +149,7 @@ export function FractionalRateCalculatorUK({ className = '' }: FractionalRateCal
         <div className="space-y-6 mb-8">
           {/* Day Rate */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="day-rate-slider" className="block text-sm font-semibold text-gray-700 mb-2">
               Your Day Rate
             </label>
             <div className="flex items-baseline gap-2 mb-3">
@@ -157,7 +161,9 @@ export function FractionalRateCalculatorUK({ className = '' }: FractionalRateCal
               </span>
             </div>
             <input
+              id="day-rate-slider"
               type="range"
+              aria-label="Your Day Rate"
               min={locationAdjustedMin}
               max={locationAdjustedMax}
               step="25"
@@ -174,14 +180,16 @@ export function FractionalRateCalculatorUK({ className = '' }: FractionalRateCal
 
           {/* Days Per Week Per Client */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="days-week-slider" className="block text-sm font-semibold text-gray-700 mb-2">
               Days Per Week (Per Client)
             </label>
             <div className="text-2xl font-bold text-gray-900 mb-3">
               {daysPerWeek} {daysPerWeek === 1 ? 'day' : 'days'}
             </div>
             <input
+              id="days-week-slider"
               type="range"
+              aria-label="Days Per Week Per Client"
               min="0.5"
               max="4"
               step="0.5"
@@ -197,14 +205,16 @@ export function FractionalRateCalculatorUK({ className = '' }: FractionalRateCal
 
           {/* Number of Clients */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label id="clients-label" className="block text-sm font-semibold text-gray-700 mb-2">
               Number of Clients
             </label>
-            <div className="flex gap-3">
+            <div className="flex gap-3" role="group" aria-labelledby="clients-label">
               {[1, 2, 3, 4].map(num => (
                 <button
                   key={num}
                   onClick={() => setClients(num)}
+                  aria-label={`Select ${num} client${num > 1 ? 's' : ''}`}
+                  aria-pressed={clients === num}
                   className={`flex-1 py-3 rounded-lg font-semibold transition-colors ${
                     clients === num
                       ? 'bg-purple-700 text-white'

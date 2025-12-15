@@ -52,9 +52,9 @@ export function Footer() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {/* For Executives */}
               <div>
-                <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wide">
+                <h2 className="font-semibold text-white mb-4 text-sm uppercase tracking-wide">
                   For Executives
-                </h4>
+                </h2>
                 <ul className="space-y-3">
                   <li>
                     <Link href="/uk-fractional-jobs-uk-london-fractional-jobs-london" className="text-gray-400 hover:text-white text-sm transition-colors font-medium">
@@ -91,9 +91,9 @@ export function Footer() {
 
               {/* For Companies */}
               <div>
-                <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wide">
+                <h2 className="font-semibold text-white mb-4 text-sm uppercase tracking-wide">
                   For Companies
-                </h4>
+                </h2>
                 <ul className="space-y-3">
                   <li>
                     <Link href="/calculators/company-savings" className="text-gray-400 hover:text-white text-sm transition-colors">
@@ -125,9 +125,9 @@ export function Footer() {
 
               {/* Locations */}
               <div>
-                <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wide">
+                <h2 className="font-semibold text-white mb-4 text-sm uppercase tracking-wide">
                   Locations
-                </h4>
+                </h2>
                 <ul className="space-y-3">
                   <li>
                     <Link href="/uk-fractional-jobs-uk-london-fractional-jobs-london" className="text-gray-400 hover:text-white text-sm transition-colors font-medium">
@@ -159,9 +159,9 @@ export function Footer() {
 
               {/* Resources */}
               <div>
-                <h4 className="font-semibold text-white mb-4 text-sm uppercase tracking-wide">
+                <h2 className="font-semibold text-white mb-4 text-sm uppercase tracking-wide">
                   Resources
-                </h4>
+                </h2>
                 <ul className="space-y-3">
                   <li>
                     <Link href="/articles" className="text-gray-400 hover:text-white text-sm transition-colors">

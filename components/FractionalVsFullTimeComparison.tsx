@@ -71,10 +71,11 @@ export function FractionalVsFullTimeComparison({ className = '' }: FractionalVsF
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           {/* Role Selector */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="role-select" className="block text-sm font-semibold text-gray-700 mb-2">
               Executive Role
             </label>
             <select
+              id="role-select"
               value={selectedRole}
               onChange={(e) => {
                 setSelectedRole(e.target.value)
@@ -82,6 +83,7 @@ export function FractionalVsFullTimeComparison({ className = '' }: FractionalVsF
                 if (newRole) setFullTimeSalary(newRole.avgSalary)
               }}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-900"
+              aria-label="Executive Role"
             >
               {ROLES.map(r => (
                 <option key={r.id} value={r.id}>
@@ -94,13 +96,14 @@ export function FractionalVsFullTimeComparison({ className = '' }: FractionalVsF
 
           {/* Full-Time Salary */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="salary-slider" className="block text-sm font-semibold text-gray-700 mb-2">
               Full-Time {role.label} Salary
             </label>
             <div className="text-2xl font-bold text-gray-900 mb-2">
               {formatCurrency(fullTimeSalary)}
             </div>
             <input
+              id="salary-slider"
               type="range"
               min="80000"
               max="300000"
@@ -108,6 +111,7 @@ export function FractionalVsFullTimeComparison({ className = '' }: FractionalVsF
               value={fullTimeSalary}
               onChange={(e) => setFullTimeSalary(Number(e.target.value))}
               className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+              aria-label={`Full-Time ${role.label} Salary`}
             />
             <div className="flex justify-between text-xs text-gray-500 mt-1">
               <span>£80k</span>
@@ -117,13 +121,14 @@ export function FractionalVsFullTimeComparison({ className = '' }: FractionalVsF
 
           {/* Days Per Week Needed */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="days-slider" className="block text-sm font-semibold text-gray-700 mb-2">
               Days Per Week Needed
             </label>
             <div className="text-2xl font-bold text-gray-900 mb-2">
               {daysNeeded} {daysNeeded === 1 ? 'day' : 'days'}/week
             </div>
             <input
+              id="days-slider"
               type="range"
               min="1"
               max="5"
@@ -131,6 +136,7 @@ export function FractionalVsFullTimeComparison({ className = '' }: FractionalVsF
               value={daysNeeded}
               onChange={(e) => setDaysNeeded(Number(e.target.value))}
               className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+              aria-label="Days Per Week Needed"
             />
             <div className="flex justify-between text-xs text-gray-500 mt-1">
               <span>1 day</span>
