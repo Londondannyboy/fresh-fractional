@@ -1,28 +1,13 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
 import { createDbQuery } from '@/lib/db'
 import { JobCard } from '@/components/JobCard'
 import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { FAQ } from '@/components/FAQ'
-
-// Dynamic imports for client-side interactive components
-const FractionalVsFullTimeComparison = dynamic(
-  () => import('@/components/FractionalVsFullTimeComparison').then(mod => mod.FractionalVsFullTimeComparison),
-  { ssr: false, loading: () => <div className="h-96 bg-gray-100 rounded-2xl animate-pulse" /> }
-)
-const FractionalRateCalculatorUK = dynamic(
-  () => import('@/components/FractionalRateCalculatorUK').then(mod => mod.FractionalRateCalculatorUK),
-  { ssr: false, loading: () => <div className="h-96 bg-gray-100 rounded-2xl animate-pulse" /> }
-)
-const FractionalFitQuiz = dynamic(
-  () => import('@/components/FractionalFitQuiz').then(mod => mod.FractionalFitQuiz),
-  { ssr: false, loading: () => <div className="h-96 bg-gray-100 rounded-2xl animate-pulse" /> }
-)
-const UKMarketDashboard = dynamic(
-  () => import('@/components/UKMarketDashboard').then(mod => mod.UKMarketDashboard),
-  { ssr: false, loading: () => <div className="h-96 bg-gray-100 rounded-2xl animate-pulse" /> }
-)
+import { FractionalVsFullTimeComparison } from '@/components/FractionalVsFullTimeComparison'
+import { FractionalRateCalculatorUK } from '@/components/FractionalRateCalculatorUK'
+import { FractionalFitQuiz } from '@/components/FractionalFitQuiz'
+import { UKMarketDashboard } from '@/components/UKMarketDashboard'
 
 export const revalidate = 3600 // Revalidate every hour
 
