@@ -39,7 +39,7 @@ export default function FractionalMarketingPage() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <h2 className="text-3xl font-black text-gray-900 mb-6">Fractional Marketing Leadership</h2>
-          <p className="text-xl text-gray-600 leading-relaxed mb-6">Not every company needs a full-time marketing executive, but most need strategic marketing leadership. Fractional marketing leaders work part-time (typically 1-3 days per week) providing the strategic direction, team leadership, and marketing expertise your business needs.</p>
+          <p className="text-xl text-gray-600 leading-relaxed mb-6">Not every company needs a full-time marketing executive, but most need strategic marketing leadership. Research from <a href="https://www.warc.com/content/paywall/article/warc-exclusive/the-future-of-marketing-leadership/en-gb/138591" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline">WARC</a> shows that marketing effectiveness depends more on strategic leadership quality than team size. Fractional marketing leaders work part-time (typically 1-3 days per week) providing the strategic direction, team leadership, and marketing expertise your business needs, following <a href="https://www.marketingsociety.com/think-piece/future-cmo-role" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline">Marketing Society insights</a> on modern marketing leadership.</p>
           <div className="grid md:grid-cols-3 gap-6 mt-10">
             {[
               { title: 'Fractional CMO', description: 'C-level marketing leadership for strategy, brand, and growth.', link: '/fractional-cmo-services' },

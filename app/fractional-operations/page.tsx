@@ -39,7 +39,7 @@ export default function FractionalOperationsPage() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <h2 className="text-3xl font-black text-gray-900 mb-6">Fractional Operations Leadership</h2>
-          <p className="text-xl text-gray-600 leading-relaxed mb-6">As companies scale, operational complexity grows exponentially. Fractional operations leaders bring the experience to build scalable systems, processes, and teams—without the cost of a full-time executive.</p>
+          <p className="text-xl text-gray-600 leading-relaxed mb-6">As companies scale, operational complexity grows exponentially. The <a href="https://www.lean.org/explore-lean/what-is-lean/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">Lean Enterprise Institute</a> demonstrates how systematic operational excellence enables sustainable growth. Fractional operations leaders bring the experience to build scalable systems, processes, and teams—without the cost of a full-time executive, applying <a href="https://www.themanufacturer.com/articles/operational-excellence/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">operational excellence principles</a> proven in scaling businesses.</p>
           <div className="grid md:grid-cols-3 gap-6 mt-10">
             {[
               { title: 'Fractional COO', description: 'C-level operations leadership for scaling and transformation.', link: '/fractional-coo-services' },

@@ -39,7 +39,7 @@ export default function FractionalTechnologyPage() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <h2 className="text-3xl font-black text-gray-900 mb-6">Fractional Technology Leadership</h2>
-          <p className="text-xl text-gray-600 leading-relaxed mb-6">Technology decisions shape your company's future. Fractional technology leaders bring deep technical expertise and leadership experience—helping you make the right architectural decisions, build great teams, and ship quality products.</p>
+          <p className="text-xl text-gray-600 leading-relaxed mb-6">Technology decisions shape your company's future. The <a href="https://www.digitalcatapultcentre.org.uk/insights/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Digital Catapult</a> highlights how strategic technology leadership drives UK innovation and competitiveness. Fractional technology leaders bring deep technical expertise and leadership experience—helping you make the right architectural decisions, build great teams, and ship quality products following <a href="https://www.software.ac.uk/resources/guides" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">software sustainability best practices</a>.</p>
           <div className="grid md:grid-cols-3 gap-6 mt-10">
             {[
               { title: 'Fractional CTO', description: 'C-level technical leadership for strategy and architecture.', link: '/fractional-cto-services' },
