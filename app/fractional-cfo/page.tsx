@@ -818,7 +818,7 @@ export default function FractionalCFOGuidePage() {
                 <li className="flex items-start">
                   <span className="mr-3 text-2xl">📊</span>
                   <div>
-                    <strong className="text-gray-900">Quantify results:</strong> "Raised £15M Series B" > "Supported fundraising"
+                    <strong className="text-gray-900">Quantify results:</strong> "Raised £15M Series B" &gt; "Supported fundraising"
                   </div>
                 </li>
                 <li className="flex items-start">
