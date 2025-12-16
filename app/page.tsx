@@ -270,61 +270,240 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingJsonLd) }}
       />
-    <div className="flex flex-col">
-      {/* Hero Section with 3D Knowledge Graph - Interactive Job Network */}
-      <section className="relative min-h-screen flex items-end overflow-hidden bg-gradient-to-br from-gray-900 via-slate-900 to-black">
-        {/* 3D Knowledge Graph Background - Desktop Only */}
-        <div className="hidden md:block absolute inset-0">
-          <JobsGraph3D
-            limit={15}
-            height="100%"
-            isHero={true}
-            showOverlay={false}
-          />
-        </div>
+    <div className="flex flex-col bg-black">
+      {/* Hero Section - Talk with Frac */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+        {/* Subtle gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-950/20 via-black to-blue-950/20" />
 
-        {/* Bottom-aligned content with glass panel */}
-        <div className="relative z-10 w-full pb-8 md:pb-12">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row justify-between items-end gap-8">
-              {/* Left: Main content */}
-              <div className="max-w-2xl">
-                <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 md:p-10 border border-white/10">
-                  <span className="inline-block bg-blue-500/20 backdrop-blur text-blue-300 px-4 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider mb-6">
-                    UK's Fractional Jobs Platform
-                  </span>
+        {/* Animated glow effect */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
 
-                  <div className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 leading-[1.1]" role="heading" aria-level={1}>
-                    Fractional Jobs UK
-                  </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20 text-center">
+          <div className="max-w-4xl mx-auto">
+            {/* Badge */}
+            <span className="inline-block bg-blue-500/20 backdrop-blur text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium uppercase tracking-wider mb-8">
+              AI-Powered Job Search
+            </span>
 
-                  <p className="text-xl md:text-2xl text-blue-400 font-semibold mb-4">
-                    Executive Jobs & Services Marketplace
-                  </p>
+            {/* Main Headline */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1]">
+              Talk with Frac
+            </h1>
 
-                  <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                    Find fractional CFO, CMO, CTO roles. £600-£1,500/day.
-                  </p>
+            {/* Subheadline */}
+            <p className="text-xl md:text-2xl text-blue-400 font-semibold mb-6">
+              Your AI assistant for fractional executive jobs
+            </p>
 
-                  <div className="flex flex-wrap gap-3">
-                    <Link
-                      href="/fractional-jobs"
-                      className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-200"
-                    >
-                      Browse Jobs →
-                    </Link>
-                    <Link
-                      href="/fractional-services"
-                      className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-white/10 backdrop-blur border border-blue-500/50 text-white hover:bg-blue-500/20 hover:border-blue-500 transition-all duration-200"
-                    >
-                      Hire Executives
-                    </Link>
-                  </div>
+            {/* Description */}
+            <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+              Voice-powered search for CFO, CMO, CTO roles. Just speak naturally—Frac finds jobs, answers questions, and saves your interests.
+            </p>
+
+            {/* Primary CTA - Glowing/Pulsating */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+              <Link
+                href="/frac"
+                className="group relative inline-flex items-center justify-center px-10 py-5 text-lg font-bold rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white hover:scale-105 transition-all duration-200"
+              >
+                {/* Pulsating glow */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-500 rounded-xl blur-lg opacity-75 group-hover:opacity-100 animate-pulse" />
+                <div className="relative flex items-center gap-3">
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                  </svg>
+                  Start Talking with Frac
                 </div>
-              </div>
+              </Link>
 
+              <Link
+                href="/fractional-jobs"
+                className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-xl bg-white/5 backdrop-blur border border-blue-500/30 text-white hover:bg-white/10 hover:border-blue-500/50 transition-all duration-200"
+              >
+                Browse Jobs
+              </Link>
+            </div>
+
+            {/* Stats */}
+            <div className="flex flex-wrap justify-center gap-8 text-center">
+              <div>
+                <div className="text-3xl font-bold text-white mb-1">{totalJobs}+</div>
+                <div className="text-sm text-gray-500 uppercase tracking-wider">Live Jobs</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-white mb-1">£{detailedStats.avgDayRate}</div>
+                <div className="text-sm text-gray-500 uppercase tracking-wider">Avg Day Rate</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-white mb-1">{detailedStats.remoteJobs}+</div>
+                <div className="text-sm text-gray-500 uppercase tracking-wider">Remote Roles</div>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Feature Section 1 - Voice Search */}
+      <section className="bg-black py-20 md:py-32 border-t border-gray-900">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left: Image/Visual */}
+            <div className="relative">
+              <div className="aspect-video bg-gradient-to-br from-blue-950 to-gray-900 rounded-2xl border border-blue-500/20 flex items-center justify-center">
+                <svg className="w-24 h-24 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Right: Content */}
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+                Just speak. Frac listens.
+              </h2>
+              <p className="text-lg text-gray-400 mb-6 leading-relaxed">
+                No typing, no complex searches. Just talk naturally about what you're looking for. "Show me CFO roles in London" or "I want remote work at £1,200 a day."
+              </p>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Natural voice search—no keywords needed</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Instant results while you talk</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Ask follow-up questions conversationally</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Feature Section 2 - Human-in-the-Loop */}
+      <section className="bg-black py-20 md:py-32 border-t border-gray-900">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left: Content */}
+            <div className="order-2 md:order-1">
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+                Smart confirmations
+              </h2>
+              <p className="text-lg text-gray-400 mb-6 leading-relaxed">
+                When Frac detects you're interested in a job, it asks for confirmation before saving. No accidental saves, no missed opportunities.
+              </p>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>AI detects your intent from conversation</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Simple confirm/cancel for every action</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Your preferences saved automatically</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Right: Image/Visual */}
+            <div className="relative order-1 md:order-2">
+              <div className="aspect-video bg-gradient-to-br from-blue-950 to-gray-900 rounded-2xl border border-blue-500/20 flex items-center justify-center">
+                <svg className="w-24 h-24 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Feature Section 3 - Memory */}
+      <section className="bg-black py-20 md:py-32 border-t border-gray-900">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left: Image/Visual */}
+            <div className="relative">
+              <div className="aspect-video bg-gradient-to-br from-blue-950 to-gray-900 rounded-2xl border border-blue-500/20 flex items-center justify-center">
+                <svg className="w-24 h-24 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Right: Content */}
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+                Frac remembers everything
+              </h2>
+              <p className="text-lg text-gray-400 mb-6 leading-relaxed">
+                Your preferences, past conversations, saved jobs—Frac builds a knowledge graph of your career journey. Come back anytime and pick up where you left off.
+              </p>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Persistent conversation history</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Learns your preferences over time</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Resume conversations across devices</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-black py-20 md:py-32 border-t border-gray-900">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+            Ready to talk?
+          </h2>
+          <p className="text-xl text-gray-400 mb-10">
+            Start your voice-powered job search in seconds.
+          </p>
+          <Link
+            href="/frac"
+            className="group relative inline-flex items-center justify-center px-12 py-6 text-xl font-bold rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white hover:scale-105 transition-all duration-200"
+          >
+            {/* Pulsating glow */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-500 rounded-xl blur-lg opacity-75 group-hover:opacity-100 animate-pulse" />
+            <div className="relative flex items-center gap-3">
+              <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+              </svg>
+              Start Talking with Frac
+            </div>
+          </Link>
         </div>
       </section>
 
