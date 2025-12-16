@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import { Badge } from './Badge'
 import { CompanyLogo } from './CompanyLogo'
 import { MiniSkillsChart } from './MiniSkillsChart'
@@ -27,6 +28,7 @@ interface JobCardProps {
   estimatedDayRate?: { min: number; max: number }
   companyType?: 'direct' | 'recruiter' | 'job_board'
   appealSummary?: string
+  keyDeliverables?: string[]
 }
 
 export function JobCard({
@@ -51,7 +53,11 @@ export function JobCard({
   estimatedDayRate,
   companyType = 'recruiter',
   appealSummary,
+  keyDeliverables,
 }: JobCardProps) {
+  // State for expandable graphs
+  const [showGraphs, setShowGraphs] = useState(false)
+
   // Enhanced compensation display with estimation
   const displayedCompensation = compensation || (dayRate ? `${currency}${dayRate}/day` : null)
   const hasEstimatedRate = !displayedCompensation && estimatedDayRate
@@ -90,13 +96,13 @@ export function JobCard({
     <div
       onClick={onClick}
       className={`group relative bg-gray-900 border-2 border-gray-800 rounded-2xl p-6
-        hover:border-purple-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)]
+        hover:border-blue-600 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)]
         hover:-translate-y-1 transition-all duration-300 cursor-pointer
         overflow-hidden flex flex-col min-h-[600px] ${className}`}
     >
       {/* Neon gradient overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-blue-500/0 to-purple-500/0
-        group-hover:from-purple-500/5 group-hover:via-blue-500/5 group-hover:to-purple-500/5
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 via-blue-500/0 to-blue-600/0
+        group-hover:from-blue-600/5 group-hover:via-blue-500/5 group-hover:to-blue-600/5
         transition-all duration-500 rounded-2xl pointer-events-none" />
 
       {/* Content wrapper */}
@@ -104,7 +110,7 @@ export function JobCard({
         {/* Role badge - top right corner */}
         {roleCategory && (
           <div className="absolute -top-2 -right-2">
-            <Badge role={roleCategory} size="sm" className="shadow-lg shadow-purple-500/30">
+            <Badge role={roleCategory} size="sm" className="shadow-lg shadow-blue-600/30">
               {roleCategory}
             </Badge>
           </div>
@@ -112,7 +118,7 @@ export function JobCard({
 
         {/* Title & Company - FIRST - Most Important */}
         <div className="mb-3">
-          <h3 className="text-xl md:text-2xl font-black text-white !text-white group-hover:text-purple-100 transition-colors mb-3 leading-tight min-h-[3.5rem] line-clamp-2">
+          <h3 className="text-xl md:text-2xl font-black text-white !text-white group-hover:text-blue-100 transition-colors mb-3 leading-tight min-h-[3.5rem] line-clamp-2">
             {title}
           </h3>
           <p className="text-base md:text-lg font-bold text-white !text-white mb-3">{company}</p>
@@ -153,7 +159,7 @@ export function JobCard({
 
           {/* Why Apply - Prominent Appeal Summary */}
           {appealSummary && (
-            <div className="mt-3 p-3 bg-gradient-to-r from-purple-500/20 to-blue-500/20 border-l-4 border-purple-500 rounded-lg">
+            <div className="mt-3 p-3 bg-gradient-to-r from-blue-600/20 to-blue-600/20 border-l-4 border-blue-600 rounded-lg">
               <p className="text-sm font-semibold text-white leading-relaxed">
                 {appealSummary}
               </p>
@@ -163,8 +169,8 @@ export function JobCard({
 
         {/* Company Summary - NEW */}
         {displayCompanySummary && (
-          <div className="mb-4 p-3 bg-purple-950/30 border border-purple-800/30 rounded-lg">
-            <p className="text-xs text-purple-300 leading-relaxed">
+          <div className="mb-4 p-3 bg-blue-950/30 border border-blue-800/30 rounded-lg">
+            <p className="text-xs text-blue-300 leading-relaxed">
               💡 {displayCompanySummary}
             </p>
           </div>
@@ -213,22 +219,61 @@ export function JobCard({
           </p>
         )}
 
-        {/* Dual Graphs - Skills & Company Network */}
+        {/* Key Deliverables */}
+        {keyDeliverables && keyDeliverables.length > 0 && (
+          <div className="mb-4 p-4 bg-gray-950/50 rounded-xl border border-gray-800">
+            <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+              <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              What You'll Deliver
+            </h4>
+            <ul className="space-y-2">
+              {keyDeliverables.map((deliverable, i) => (
+                <li key={i} className="text-sm text-gray-300 flex items-start gap-2">
+                  <span className="text-blue-400 mt-0.5">•</span>
+                  <span>{deliverable}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Dual Graphs - Skills & Company Network - Expandable */}
         {skills.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-            {/* Skills Chart */}
-            <div className="p-4 bg-gradient-to-br from-purple-950/40 to-gray-900/60 rounded-xl border border-purple-500/30 hover:border-purple-500/50 transition-colors">
-              <MiniSkillsChart skills={skills} maxSkills={5} />
-            </div>
-            {/* Company Graph - Black Background */}
-            <div className="p-4 bg-black/80 rounded-xl border border-gray-800 hover:border-gray-700 transition-colors">
-              <MiniCompanyGraph
-                companyName={company}
-                companyDomain={companyDomain}
-                jobTitle={title}
-                skills={skills}
-              />
-            </div>
+          <div className="mb-4">
+            <button
+              onClick={(e) => { e.preventDefault(); setShowGraphs(!showGraphs); }}
+              className="w-full flex items-center justify-between p-3 bg-gray-950/50 rounded-lg border border-gray-800 hover:border-blue-600 transition-colors text-sm font-semibold text-white"
+            >
+              <span className="flex items-center gap-2">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                View Skills & Company Analysis
+              </span>
+              <svg className={`w-5 h-5 transition-transform ${showGraphs ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {showGraphs && (
+              <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {/* Skills Chart */}
+                <div className="p-4 bg-gradient-to-br from-blue-950/40 to-gray-900/60 rounded-xl border border-blue-600/30 hover:border-blue-600/50 transition-colors">
+                  <MiniSkillsChart skills={skills} maxSkills={5} />
+                </div>
+                {/* Company Graph - Black Background */}
+                <div className="p-4 bg-black/80 rounded-xl border border-gray-800 hover:border-gray-700 transition-colors">
+                  <MiniCompanyGraph
+                    companyName={company}
+                    companyDomain={companyDomain}
+                    jobTitle={title}
+                    skills={skills}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         )}
 
@@ -236,12 +281,12 @@ export function JobCard({
         {skills.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">
             {skills.slice(0, 5).map((skill) => (
-              <span key={skill} className="px-3 py-1.5 bg-gray-800 text-gray-200 text-sm font-medium rounded-lg border border-gray-700 hover:border-purple-500 transition-colors">
+              <span key={skill} className="px-3 py-1.5 bg-gray-800 text-gray-200 text-sm font-medium rounded-lg border border-gray-700 hover:border-blue-600 transition-colors">
                 {skill}
               </span>
             ))}
             {skills.length > 5 && (
-              <span className="px-3 py-1.5 bg-purple-900/30 text-purple-300 text-sm font-medium rounded-lg border border-purple-700">
+              <span className="px-3 py-1.5 bg-blue-900/30 text-blue-300 text-sm font-medium rounded-lg border border-blue-700">
                 +{skills.length - 5} more
               </span>
             )}
@@ -251,10 +296,10 @@ export function JobCard({
         {/* Enhanced Apply Button - Centered & Glowing */}
         <div className="pt-4 border-t border-gray-800 mt-auto">
           <button
-            className="relative w-full px-8 py-4 bg-gradient-to-r from-purple-600 via-purple-500 to-blue-600
-              hover:from-purple-500 hover:via-purple-400 hover:to-blue-500
+            className="relative w-full px-8 py-4 bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500
+              hover:from-blue-600 hover:via-blue-500 hover:to-blue-400
               text-white font-black text-base rounded-xl
-              shadow-[0_0_25px_rgba(168,85,247,0.5)] hover:shadow-[0_0_40px_rgba(168,85,247,0.8)]
+              shadow-[0_0_25px_rgba(37,99,235,0.5)] hover:shadow-[0_0_40px_rgba(37,99,235,0.8)]
               transform hover:scale-[1.02] transition-all duration-300
               overflow-hidden group/btn"
           >
@@ -263,7 +308,7 @@ export function JobCard({
               translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-700" />
 
             {/* Glow pulse animation */}
-            <div className="absolute inset-0 bg-purple-400/20 animate-pulse rounded-xl" />
+            <div className="absolute inset-0 bg-blue-400/20 animate-pulse rounded-xl" />
 
             <span className="relative flex items-center justify-center gap-2">
               Apply Now
