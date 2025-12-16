@@ -240,10 +240,52 @@ export function generateSlug(title: string): string {
 }
 
 /**
- * Get company logo from brand.dev data
+ * Get relevant image from Unsplash based on category
  */
-export async function getCompanyLogo(domain: string): Promise<string | null> {
-  if (!domain) return null
+async function getUnsplashImage(category: ArticleCategory): Promise<string | null> {
+  const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY
+
+  // Fallback to free Unsplash Source if no API key
+  const categoryKeywords: Record<ArticleCategory, string> = {
+    Finance: 'business-finance',
+    Marketing: 'marketing-strategy',
+    Engineering: 'technology-coding',
+    Operations: 'business-office',
+    HR: 'team-people',
+    Sales: 'business-meeting',
+    General: 'business-executive'
+  }
+
+  const keyword = categoryKeywords[category] || 'business'
+
+  try {
+    if (UNSPLASH_ACCESS_KEY) {
+      // Use official API if we have a key
+      const response = await fetch(
+        `https://api.unsplash.com/photos/random?query=${keyword}&orientation=landscape`,
+        {
+          headers: { 'Authorization': `Client-ID ${UNSPLASH_ACCESS_KEY}` }
+        }
+      )
+      const data = await response.json()
+      return data.urls?.regular || null
+    } else {
+      // Use Unsplash Source (no auth needed)
+      return `https://source.unsplash.com/1200x630/?${keyword}`
+    }
+  } catch {
+    return `https://source.unsplash.com/1200x630/?business`
+  }
+}
+
+/**
+ * Get company logo from brand.dev data, fallback to Unsplash
+ */
+export async function getCompanyLogo(domain: string, category: ArticleCategory = 'General'): Promise<string | null> {
+  if (!domain) {
+    // No domain, use Unsplash
+    return getUnsplashImage(category)
+  }
 
   const sql = createDbQuery()
 
@@ -255,12 +297,14 @@ export async function getCompanyLogo(domain: string): Promise<string | null> {
     if (brand?.logos) {
       // logos is JSONB, extract the primary logo URL
       const logos = typeof brand.logos === 'string' ? JSON.parse(brand.logos) : brand.logos
-      return logos?.primary || logos?.icon || logos?.[0] || null
+      const logoUrl = logos?.primary || logos?.icon || logos?.[0]
+      if (logoUrl) return logoUrl
     }
 
-    return null
+    // No logo found, fallback to Unsplash
+    return getUnsplashImage(category)
   } catch {
-    return null
+    return getUnsplashImage(category)
   }
 }
 
