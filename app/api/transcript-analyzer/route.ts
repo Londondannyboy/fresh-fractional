@@ -29,14 +29,15 @@ export async function POST(request: NextRequest) {
     const body: TranscriptAnalyzerRequest = await request.json()
     const { transcript, userId } = body
 
-    console.log('[Transcript Analyzer] Analyzing:', transcript.substring(0, 100))
+    console.log('[Transcript Analyzer] Analyzing:', transcript.substring(0, 200))
+    console.log('[Transcript Analyzer] Full transcript:', transcript)
 
     // Extract intent from transcript
     const intent = extractIntent(transcript)
-    console.log('[Transcript Analyzer] Intent:', intent)
+    console.log('[Transcript Analyzer] Intent:', JSON.stringify(intent, null, 2))
 
-    if (intent.action === 'search_jobs' && intent.roleType) {
-      // Query Neon DB directly
+    if (intent.action === 'search_jobs') {
+      // Query Neon DB directly (roleType can be undefined for general search)
       const jobs = await searchJobsFromDB(intent.roleType, intent.location)
 
       return NextResponse.json({
@@ -110,8 +111,9 @@ function extractIntent(transcript: string): ExtractedIntent {
   // Check for job search intent
   const hasJobSearchKeyword = jobSearchKeywords.some(kw => lowerText.includes(kw))
   const hasJobWord = lowerText.includes('job') || lowerText.includes('role') || lowerText.includes('position')
+  const hasFractionalJob = lowerText.includes('fractional job') || lowerText.includes('fractional role')
 
-  if (hasJobSearchKeyword && hasJobWord) {
+  if ((hasJobSearchKeyword && hasJobWord) || hasFractionalJob) {
     // Extract role type
     let roleType: string | undefined
     let maxMatches = 0
@@ -131,13 +133,11 @@ function extractIntent(transcript: string): ExtractedIntent {
     else if (lowerText.includes('birmingham')) location = 'Birmingham'
     else if (lowerText.includes('uk') || lowerText.includes('united kingdom')) location = 'UK'
 
-    if (roleType) {
-      return {
-        action: 'search_jobs',
-        roleType,
-        location,
-        confidence: 0.8
-      }
+    return {
+      action: 'search_jobs',
+      roleType: roleType || undefined,  // Can be undefined for general search
+      location,
+      confidence: roleType ? 0.8 : 0.6
     }
   }
 
@@ -175,9 +175,9 @@ function extractIntent(transcript: string): ExtractedIntent {
 /**
  * Query Neon DB directly for jobs
  */
-async function searchJobsFromDB(roleType: string, location?: string) {
+async function searchJobsFromDB(roleType?: string, location?: string) {
   try {
-    const rolePattern = `%${roleType}%`
+    const rolePattern = roleType ? `%${roleType}%` : '%'
     const locationPattern = location ? `%${location}%` : '%'
 
     const jobs = await sql`
