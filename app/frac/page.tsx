@@ -178,23 +178,24 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
 
     // Track tool calls
     if (latestMessage.type === 'tool_call') {
-      addDebugLog(`🔧 Tool called: ${latestMessage.tool_name || latestMessage.name}`, 'tool')
+      const toolName = (latestMessage as any).tool_name || (latestMessage as any).name || 'unknown'
+      addDebugLog(`🔧 Tool called: ${toolName}`, 'tool')
       setToolCalls(prev => [...prev.slice(-10), {
-        name: latestMessage.tool_name || latestMessage.name,
-        params: latestMessage.parameters,
+        name: toolName,
+        params: (latestMessage as any).parameters,
         time: new Date().toLocaleTimeString()
       }])
     }
 
     // Check for tool responses (these contain our structured data)
     if (latestMessage.type === 'tool_response') {
-      const toolName = latestMessage.tool_name || 'unknown'
+      const toolName = (latestMessage as any).tool_name || 'unknown'
       addDebugLog(`📥 Tool response from: ${toolName}`, 'tool')
 
-      if (latestMessage.content) {
+      if ((latestMessage as any).content) {
         try {
           // Try to parse as JSON
-          const parsed = JSON.parse(latestMessage.content)
+          const parsed = JSON.parse((latestMessage as any).content)
           addDebugLog(`✅ Parsed JSON response from ${toolName}`, 'success')
 
           // Check if it's job results
@@ -210,7 +211,8 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
           }
         } catch (e) {
           // Not JSON, just text
-          addDebugLog(`⚠️ Tool response is text, not JSON: ${latestMessage.content?.substring(0, 50)}`, 'info')
+          const content = (latestMessage as any).content
+          addDebugLog(`⚠️ Tool response is text, not JSON: ${content?.substring(0, 50)}`, 'info')
         }
       }
     }
