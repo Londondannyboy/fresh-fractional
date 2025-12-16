@@ -46,7 +46,13 @@ function VoiceInterface({ token, userId, userName }: VoiceInterfaceProps) {
     connect({
       auth: { type: 'accessToken', value: token },
       configId: CONFIG_ID,
-      resumedChatGroupId: storedChatGroupId || undefined
+      resumedChatGroupId: storedChatGroupId || undefined,
+      sessionSettings: {
+        type: 'session_settings' as const,
+        variables: {
+          user_id: userId
+        }
+      }
     })
       .catch(err => console.error('Failed to connect to Hume:', err))
 
