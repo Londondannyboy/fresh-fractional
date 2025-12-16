@@ -122,18 +122,16 @@ async function getFeaturedJobs() {
 async function getDetailedStats() {
   try {
     const sql = createDbQuery()
-    const [londonJobs, remoteJobs, avgRateResult] = await Promise.all([
-      sql`SELECT COUNT(*) as count FROM jobs WHERE is_active = true AND location ILIKE '%london%'`,
-      sql`SELECT COUNT(*) as count FROM jobs WHERE is_active = true AND (is_remote = true OR workplace_type = 'Remote')`,
-      sql`SELECT AVG(CAST(REGEXP_REPLACE(compensation, '[^0-9]', '', 'g') AS INTEGER)) as avg FROM jobs WHERE is_active = true AND compensation IS NOT NULL AND compensation ~ '^[£$]?[0-9]+'`
-    ])
+    const avgRateResult = await sql`
+      SELECT AVG(CAST(REGEXP_REPLACE(compensation, '[^0-9]', '', 'g') AS INTEGER)) as avg
+      FROM jobs
+      WHERE is_active = true AND compensation IS NOT NULL AND compensation ~ '^[£$]?[0-9]+'
+    `
     return {
-      londonJobs: parseInt((londonJobs[0] as any)?.count || '0'),
-      remoteJobs: parseInt((remoteJobs[0] as any)?.count || '0'),
-      avgDayRate: Math.round(parseFloat((avgRateResult[0] as any)?.avg || '850'))
+      avgDayRate: Math.round(parseFloat((avgRateResult[0] as any)?.avg || '500'))
     }
   } catch (error) {
-    return { londonJobs: 85, remoteJobs: 60, avgDayRate: 950 }
+    return { avgDayRate: 500 } // Honest fallback
   }
 }
 
@@ -326,7 +324,7 @@ export default async function Home() {
             </div>
 
             {/* Stats */}
-            <div className="flex flex-wrap justify-center gap-8 text-center">
+            <div className="flex flex-wrap justify-center gap-12 text-center">
               <div>
                 <div className="text-3xl font-bold text-white mb-1">{totalJobs}+</div>
                 <div className="text-sm text-gray-500 uppercase tracking-wider">Live Jobs</div>
@@ -334,10 +332,6 @@ export default async function Home() {
               <div>
                 <div className="text-3xl font-bold text-white mb-1">£{detailedStats.avgDayRate}</div>
                 <div className="text-sm text-gray-500 uppercase tracking-wider">Avg Day Rate</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-white mb-1">{detailedStats.remoteJobs}+</div>
-                <div className="text-sm text-gray-500 uppercase tracking-wider">Remote Roles</div>
               </div>
             </div>
           </div>
@@ -507,60 +501,33 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* SEO Content Section - Crawler Optimized */}
-      <section className="bg-white py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-              The UK's Marketplace for Fractional Jobs
-            </h1>
-
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Fractional jobs are transforming how executives work in the UK. As the leading platform for fractional executive opportunities, we connect experienced professionals with companies seeking part-time leadership. The growth of this market is supported by data from <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">ONS employment statistics</a> showing evolving work patterns, and <a href="https://www.ipse.co.uk/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">IPSE research</a> on the UK&apos;s independent professional sector. Whether you're looking for fractional CFO, CMO, CTO, or COO roles, our marketplace offers hundreds of verified opportunities across the United Kingdom.
-            </p>
-
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Fractional work differs from traditional employment by allowing executives to work with 2-4 companies simultaneously, typically dedicating 1-3 days per week to each client. This model has gained significant traction in the UK market, supported by <a href="https://www.cipd.org/uk/knowledge/reports/flexible-hybrid-working/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">CIPD research on flexible working</a>, with fractional jobs now commanding day rates between £600-£1,500 depending on role and experience. Understanding <a href="https://www.gov.uk/guidance/understanding-off-payroll-working-ir35" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">IR35 compliance</a> is essential for fractional executives, who can earn £150,000-£300,000+ annually while maintaining flexibility and work-life balance that full-time positions cannot offer.
-            </p>
-
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              For companies, hiring fractional executives provides access to senior talent without the commitment and cost of full-time hires. The <a href="https://www.britishbusinessbank.co.uk/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">British Business Bank&apos;s</a> research shows UK SMEs increasingly leverage flexible talent models. Fractional jobs enable businesses to secure strategic leadership at 40-60% less expense than permanent executives, with engagements starting within days rather than months. This approach has proven particularly valuable for startups tracked by <a href="https://www.beauhurst.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">Beauhurst</a>, scale-ups, and SMEs across London, Manchester, Birmingham, and throughout the UK.
-            </p>
-
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Our platform serves both sides of the fractional market: executives seeking flexible, high-value opportunities and companies requiring strategic leadership without full-time overhead. Professional bodies like the <a href="https://www.iod.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">Institute of Directors</a> and <a href="https://www.cim.co.uk/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">Chartered Institute of Marketing</a> increasingly recognize fractional work as a viable executive career path. Browse our curated fractional jobs, explore fractional executive services, or learn more about how fractional work can transform your career or business.
-            </p>
+      {/* Services Banner - Neon Theme */}
+      <section id="services" className="bg-black border-t border-gray-900 py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-3">Hire Fractional Executives</h2>
+            <p className="text-gray-400 text-lg">Senior leadership for growing companies</p>
           </div>
-        </div>
-      </section>
-
-      {/* Services Banner */}
-      <section id="services" className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Fractional Executive Services</h2>
-            <p className="text-gray-600">Senior leadership for growing companies</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Link href="/fractional-cfo-services" className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-shadow border border-gray-200">
-              <span className="text-3xl block mb-2">💰</span>
-              <span className="font-bold text-gray-900 block">Fractional CFO</span>
-              <span className="text-sm text-gray-500">Financial Leadership</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <Link href="/fractional-cfo-services" className="group bg-gradient-to-br from-blue-950 to-gray-900 rounded-xl p-6 text-center hover:from-blue-900 hover:to-gray-800 transition-all border border-blue-500/20 hover:border-blue-500/50">
+              <span className="text-4xl block mb-3">💰</span>
+              <span className="font-bold text-white block mb-1 group-hover:text-blue-400 transition-colors">Fractional CFO</span>
+              <span className="text-sm text-gray-400">Financial Leadership</span>
             </Link>
-            <Link href="/fractional-cmo-services" className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-shadow border border-gray-200">
-              <span className="text-3xl block mb-2">📢</span>
-              <span className="font-bold text-gray-900 block">Fractional CMO</span>
-              <span className="text-sm text-gray-500">Marketing Leadership</span>
+            <Link href="/fractional-cmo-services" className="group bg-gradient-to-br from-blue-950 to-gray-900 rounded-xl p-6 text-center hover:from-blue-900 hover:to-gray-800 transition-all border border-blue-500/20 hover:border-blue-500/50">
+              <span className="text-4xl block mb-3">📢</span>
+              <span className="font-bold text-white block mb-1 group-hover:text-blue-400 transition-colors">Fractional CMO</span>
+              <span className="text-sm text-gray-400">Marketing Leadership</span>
             </Link>
-            <Link href="/fractional-cto-services" className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-shadow border border-gray-200">
-              <span className="text-3xl block mb-2">💻</span>
-              <span className="font-bold text-gray-900 block">Fractional CTO</span>
-              <span className="text-sm text-gray-500">Technical Leadership</span>
+            <Link href="/fractional-cto-services" className="group bg-gradient-to-br from-blue-950 to-gray-900 rounded-xl p-6 text-center hover:from-blue-900 hover:to-gray-800 transition-all border border-blue-500/20 hover:border-blue-500/50">
+              <span className="text-4xl block mb-3">💻</span>
+              <span className="font-bold text-white block mb-1 group-hover:text-blue-400 transition-colors">Fractional CTO</span>
+              <span className="text-sm text-gray-400">Technical Leadership</span>
             </Link>
-            <Link href="/fractional-coo-services" className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-shadow border border-gray-200">
-              <span className="text-3xl block mb-2">⚙️</span>
-              <span className="font-bold text-gray-900 block">Fractional COO</span>
-              <span className="text-sm text-gray-500">Operations Leadership</span>
+            <Link href="/fractional-coo-services" className="group bg-gradient-to-br from-blue-950 to-gray-900 rounded-xl p-6 text-center hover:from-blue-900 hover:to-gray-800 transition-all border border-blue-500/20 hover:border-blue-500/50">
+              <span className="text-4xl block mb-3">⚙️</span>
+              <span className="font-bold text-white block mb-1 group-hover:text-blue-400 transition-colors">Fractional COO</span>
+              <span className="text-sm text-gray-400">Operations Leadership</span>
             </Link>
           </div>
         </div>

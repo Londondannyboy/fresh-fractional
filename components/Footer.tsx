@@ -2,31 +2,30 @@ import Link from 'next/link'
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-black border-t border-gray-900 text-white">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-4">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-gray-600 to-gray-800 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-500 rounded-xl flex items-center justify-center">
                 <span className="text-white font-black text-2xl">F</span>
               </div>
               <div>
                 <span className="font-bold text-white text-xl">Fractional</span>
-                <span className="text-gray-400 font-bold text-xl">.Quest</span>
+                <span className="text-blue-400 font-bold text-xl">.Quest</span>
               </div>
             </Link>
             <p className="text-gray-400 leading-relaxed mb-6">
-              The UK's emerging platform connecting companies with fractional executives.
-              Find your next CFO, CTO, CMO, or COO on a part-time basis.
+              Voice-powered job search for fractional executives. Talk with Frac to find CFO, CTO, CMO, and COO roles worldwide.
             </p>
             <div className="flex gap-4">
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
+                className="w-10 h-10 bg-blue-950 border border-blue-500/30 rounded-lg flex items-center justify-center hover:bg-blue-900 hover:border-blue-500/50 transition-all"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -37,7 +36,7 @@ export function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
+                className="w-10 h-10 bg-blue-950 border border-blue-500/30 rounded-lg flex items-center justify-center hover:bg-blue-900 hover:border-blue-500/50 transition-all"
                 aria-label="Twitter"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -196,16 +195,16 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-800">
+      <div className="border-t border-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} Fractional Quest. All rights reserved. Built in the UK.
+            <p className="text-sm text-gray-500">
+              © {new Date().getFullYear()} Fractional Quest. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <span className="text-xs text-gray-400 flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
-                Beta — Launching December 2025
+              <span className="text-xs text-gray-500 flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+                Beta — Launching 2025
               </span>
             </div>
           </div>
