@@ -39,6 +39,7 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
 
   // State for visual displays
   const [displayedJobs, setDisplayedJobs] = useState<any[]>([])
+  const [transcriptJobs, setTranscriptJobs] = useState<any[]>([])  // NEW: From transcript analyzer
   const [confirmation, setConfirmation] = useState<any | null>(null)
   const [debugMode, setDebugMode] = useState(true)  // Enable debug by default
   const [debugLogs, setDebugLogs] = useState<string[]>([])
@@ -50,6 +51,34 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
     setDebugLogs(prev => [...prev.slice(-30), { timestamp, message, type }])
     console.log(`[${timestamp}] ${message}`)
   }, [])
+
+  // NEW: Analyze transcript with Pydantic AI layer
+  const analyzeTranscript = useCallback(async (transcript: string) => {
+    if (!transcript || transcript.length < 10) return
+
+    addDebugLog('🔬 Analyzing transcript with Pydantic AI layer...', 'tool')
+
+    try {
+      const response = await fetch('/api/transcript-analyzer', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          transcript,
+          userId
+        })
+      })
+
+      const result = await response.json()
+      addDebugLog(`📊 Transcript analysis: ${result.status}`, 'info')
+
+      if (result.data?.type === 'job_results') {
+        addDebugLog(`🎯 Transcript found ${result.data.jobs.length} jobs!`, 'success')
+        setTranscriptJobs(result.data.jobs)
+      }
+    } catch (e) {
+      addDebugLog(`❌ Transcript analysis failed: ${e}`, 'error')
+    }
+  }, [userId, addDebugLog])
 
   // Debug: Log all status changes with timestamp
   useEffect(() => {
@@ -176,7 +205,22 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
         }
       }
     }
-  }, [messages, addDebugLog])
+
+    // NEW: Trigger transcript analysis after user messages
+    if (latestMessage.type === 'user_message' || latestMessage.type === 'assistant_message') {
+      // Build full transcript from recent messages
+      const transcript = messages
+        .filter((m: any) => m.type === 'user_message' || m.type === 'assistant_message')
+        .map((m: any) => m.message?.content || '')
+        .filter(Boolean)
+        .join(' ')
+
+      // Analyze transcript (debounced to avoid excessive calls)
+      if (transcript.length > 20) {
+        analyzeTranscript(transcript)
+      }
+    }
+  }, [messages, addDebugLog, analyzeTranscript])
 
   const handleConnect = useCallback(async () => {
     // Pass user_id and profile data to Hume
@@ -360,7 +404,7 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
         </div>
       )}
 
-      {/* Visual Job Display */}
+      {/* Visual Job Display - Hume Tools */}
       {displayedJobs.length > 0 && (
         <div className="w-full max-w-4xl mt-8 animate-fade-in">
           <div className="flex items-center gap-2 mb-4">
@@ -368,11 +412,49 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
             <h3 className="text-lg font-semibold text-gray-900">
-              Jobs Found ({displayedJobs.length})
+              Jobs Found - Hume Tools ({displayedJobs.length})
             </h3>
+            <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full font-medium">
+              Method A
+            </span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {displayedJobs.map((job) => (
+              <JobCard
+                key={job.id}
+                jobId={job.id}
+                title={job.title}
+                company={job.company}
+                location={job.location}
+                isRemote={job.isRemote}
+                dayRate={job.dayRate}
+                currency={job.currency}
+                onClick={() => window.location.href = `/fractional-job/${job.slug}`}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Visual Job Display - Transcript Analysis (Pydantic AI Layer) */}
+      {transcriptJobs.length > 0 && (
+        <div className="w-full max-w-4xl mt-8 animate-fade-in">
+          <div className="flex items-center gap-2 mb-4">
+            <svg className="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <h3 className="text-lg font-semibold text-gray-900">
+              Jobs Found - Transcript Analysis ({transcriptJobs.length})
+            </h3>
+            <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium">
+              Method B
+            </span>
+          </div>
+          <p className="text-sm text-gray-600 mb-4 italic">
+            🔬 Detected from conversation using Pydantic AI layer + direct Neon DB query
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {transcriptJobs.map((job) => (
               <JobCard
                 key={job.id}
                 jobId={job.id}
@@ -468,7 +550,8 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
               <div className={`px-2 py-1 rounded text-xs font-bold ${isConnected ? 'bg-green-600' : 'bg-red-600'}`}>
                 {status.value}
               </div>
-              <div className="text-gray-400">Jobs: {displayedJobs.length}</div>
+              <div className="text-gray-400">Hume Jobs: {displayedJobs.length}</div>
+              <div className="text-green-400">Transcript Jobs: {transcriptJobs.length}</div>
               <div className="text-gray-400">Messages: {messages.length}</div>
             </div>
             <button
