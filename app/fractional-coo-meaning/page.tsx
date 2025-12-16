@@ -22,7 +22,7 @@ export default function FractionalCOOMeaningPage() {
 
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-emerald-50 border-l-4 border-emerald-600 p-8 mb-12">
+          <div className="bg-blue-50 border-l-4 border-blue-600 p-8 mb-12">
             <div className="prose prose-lg max-w-none">
               <p className="text-2xl font-light text-gray-900 mb-0">
                 <strong>"Fractional COO"</strong> means a Chief Operating Officer who works <strong>part-time</strong> (a "fraction" of full-time hours)—typically 1-3 days per week—providing strategic operational leadership to multiple companies simultaneously.
@@ -94,7 +94,7 @@ export default function FractionalCOOMeaningPage() {
             <p><strong>vs Operations Consultant:</strong> Fractional COOs make decisions and execute. Consultants advise and leave implementation to you.</p>
             <p><strong>vs Interim COO:</strong> Fractional works part-time ongoing. Interim works full-time temporarily (during transitions).</p>
 
-            <div className="bg-emerald-600 text-white p-8 my-12">
+            <div className="bg-blue-600 text-white p-8 my-12">
               <p className="text-2xl font-bold mb-4">In Simple Terms:</p>
               <p className="text-xl mb-0">A fractional COO is a senior operations executive you share with other companies, paying only for the days you need them, while getting full C-suite expertise at 60-70% savings.</p>
             </div>
@@ -106,7 +106,7 @@ export default function FractionalCOOMeaningPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black mb-6">Learn More About Fractional COOs</h2>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="/fractional-coo" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 inline-block transition-colors">
+            <Link href="/fractional-coo" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 inline-block transition-colors">
               Complete COO Guide →
             </Link>
             <Link href="/fractional-coo-cost" className="bg-gray-900 hover:bg-gray-800 text-white font-bold py-4 px-8 inline-block transition-colors">

@@ -120,7 +120,7 @@ export default function FractionalCOOPage() {
             <h2 className="text-3xl md:text-4xl font-black text-gray-900">Fractional COO: Definition</h2>
           </div>
 
-          <div className="bg-emerald-50 border-l-4 border-emerald-600 p-8 mb-12">
+          <div className="bg-blue-50 border-l-4 border-blue-600 p-8 mb-12">
             <div className="prose prose-lg max-w-none">
               <p className="text-2xl md:text-3xl font-light text-gray-900 leading-relaxed mb-0">
                 A <strong className="font-bold">fractional COO</strong> is a senior operations executive who works with companies on a <strong>part-time or project basis</strong>, providing strategic operational leadership without the commitment and cost of a full-time hire.
@@ -138,7 +138,7 @@ export default function FractionalCOOPage() {
             </p>
 
             <p>
-              <strong>The fractional executive movement has seen remarkable growth</strong>: According to <a href="https://hbr.org/podcast/2024/11/the-growing-hr-trend-of-fractional-leadership" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">LinkedIn data shared by Harvard Business Review</a>, the number of professionals identifying as fractional leaders has surged from approximately 2,000 two years ago to over 110,000 today. <a href="https://www.newsweek.com/fractional-work-flexibility-temporary-part-time-employment-growth-stage-companies-2036193" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">Revelio Labs research published in Newsweek</a> shows that the share of new executive positions mentioning fractional work has <strong>increased by more than 3x since 2018</strong>, with acceleration notably picking up after COVID-19.
+              <strong>The fractional executive movement has seen remarkable growth</strong>: According to <a href="https://hbr.org/podcast/2024/11/the-growing-hr-trend-of-fractional-leadership" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">LinkedIn data shared by Harvard Business Review</a>, the number of professionals identifying as fractional leaders has surged from approximately 2,000 two years ago to over 110,000 today. <a href="https://www.newsweek.com/fractional-work-flexibility-temporary-part-time-employment-growth-stage-companies-2036193" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Revelio Labs research published in Newsweek</a> shows that the share of new executive positions mentioning fractional work has <strong>increased by more than 3x since 2018</strong>, with acceleration notably picking up after COVID-19.
             </p>
 
             <p>
@@ -146,7 +146,7 @@ export default function FractionalCOOPage() {
             </p>
 
             <p>
-              According to <a href="https://executive-ed.xpro.mit.edu/chief-operating-officer-program" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">MIT xPRO's Chief Operating Officer Program</a>, today's COO role is increasingly complex, requiring expertise across hiring, finance, production, policymaking, and marketing. Modern COOs must address dynamic challenges—from employee retention and digital transformation to ESG issues—while functioning as strategic C-suite partners who translate the CEO's vision into practical business solutions.
+              According to <a href="https://executive-ed.xpro.mit.edu/chief-operating-officer-program" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">MIT xPRO's Chief Operating Officer Program</a>, today's COO role is increasingly complex, requiring expertise across hiring, finance, production, policymaking, and marketing. Modern COOs must address dynamic challenges—from employee retention and digital transformation to ESG issues—while functioning as strategic C-suite partners who translate the CEO's vision into practical business solutions.
             </p>
           </div>
         </div>
@@ -167,7 +167,7 @@ export default function FractionalCOOPage() {
             </p>
 
             <p>
-              As Amy Bonsall, a fractional leader featured in <a href="https://hbr.org/podcast/2025/08/how-to-make-fractional-leadership-work" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">Harvard Business Review's research</a>, explains: "As a fractional leader, I am very much a part of a leadership team... the company should not know that you're fractional. They should feel that you're there in all of the key moments." This embedded approach differentiates fractional COOs from traditional consultants.
+              As Amy Bonsall, a fractional leader featured in <a href="https://hbr.org/podcast/2025/08/how-to-make-fractional-leadership-work" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Harvard Business Review's research</a>, explains: "As a fractional leader, I am very much a part of a leadership team... the company should not know that you're fractional. They should feel that you're there in all of the key moments." This embedded approach differentiates fractional COOs from traditional consultants.
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 my-10 not-prose">
@@ -254,7 +254,7 @@ export default function FractionalCOOPage() {
                   The foundation of any fractional COO's work is building operational infrastructure that allows your company to scale without chaos. They start by assessing your current operational capabilities and then design and implement systems that bring order to chaos and enable growth.
                 </p>
                 <p>
-                  Research shows the impact of operational efficiency is substantial. <a href="https://zipdo.co/statistics/technology-in-operations-management/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">Studies indicate</a> that companies with highly engaged employees are 21% more profitable, and 70% of business leaders agree that digital technology integration is indispensable for their company's survival.
+                  Research shows the impact of operational efficiency is substantial. <a href="https://zipdo.co/statistics/technology-in-operations-management/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Studies indicate</a> that companies with highly engaged employees are 21% more profitable, and 70% of business leaders agree that digital technology integration is indispensable for their company's survival.
                 </p>
               </div>
 
@@ -271,7 +271,7 @@ export default function FractionalCOOPage() {
                   Fractional COOs excel at taking companies through inflection points—those critical moments when your current operations will break if you don't evolve them. They plan for scale before you hit breaking points, identifying what needs to change at 2x, 5x, and 10x your current size.
                 </p>
                 <p>
-                  <strong>The stakes are high</strong>: Research shows that <a href="https://www.victorflow.com/blog/startup-failure-rates-2024" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">90% of startups fail</a>, with 42% collapsing due to misreading market demand, 29% running out of funding, and 23% suffering from team issues. Studies reveal that only 70% of successful startups scale after consistently meeting goals. Fractional COOs help navigate this treacherous terrain with experience from multiple scaling journeys.
+                  <strong>The stakes are high</strong>: Research shows that <a href="https://www.victorflow.com/blog/startup-failure-rates-2024" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">90% of startups fail</a>, with 42% collapsing due to misreading market demand, 29% running out of funding, and 23% suffering from team issues. Studies reveal that only 70% of successful startups scale after consistently meeting goals. Fractional COOs help navigate this treacherous terrain with experience from multiple scaling journeys.
                 </p>
               </div>
 
@@ -304,7 +304,7 @@ export default function FractionalCOOPage() {
             </p>
 
             <p>
-              According to <a href="https://www.newsweek.com/fractional-work-flexibility-temporary-part-time-employment-growth-stage-companies-2036193" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">Newsweek's analysis of fractional executive trends</a>, startups are leading adopters of this model. As Padraic Connolly, CEO of Swippitt, explains: "For startups, any hire is a high risk. Fractional is a way to bring in renowned leadership and get that immediate impact without large contracts."
+              According to <a href="https://www.newsweek.com/fractional-work-flexibility-temporary-part-time-employment-growth-stage-companies-2036193" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Newsweek's analysis of fractional executive trends</a>, startups are leading adopters of this model. As Padraic Connolly, CEO of Swippitt, explains: "For startups, any hire is a high risk. Fractional is a way to bring in renowned leadership and get that immediate impact without large contracts."
             </p>
 
             <div className="grid md:grid-cols-2 gap-8 my-10 not-prose">
@@ -381,7 +381,7 @@ export default function FractionalCOOPage() {
                   Hiring the wrong COO is expensive—not just in compensation but in lost momentum and opportunity cost. Executive hiring has a 40%+ failure rate in the first 18 months. Fractional engagements reduce this risk dramatically. You can "try before you buy"—validate working relationship, leadership style, and cultural fit before committing to full-time employment.
                 </p>
                 <p>
-                  As <a href="https://www.newsweek.com/fractional-work-flexibility-temporary-part-time-employment-growth-stage-companies-2036193" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">Anna Airoldi, economist at Revelio Labs, noted</a>: "This is quite a big increase. There has definitely been an increase in the trend in the past five years or so, especially after COVID."
+                  As <a href="https://www.newsweek.com/fractional-work-flexibility-temporary-part-time-employment-growth-stage-companies-2036193" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Anna Airoldi, economist at Revelio Labs, noted</a>: "This is quite a big increase. There has definitely been an increase in the trend in the past five years or so, especially after COVID."
                 </p>
               </div>
             </div>
@@ -399,7 +399,7 @@ export default function FractionalCOOPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/fractional-coo-services"
-              className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 transition-colors"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 transition-colors"
             >
               Find Fractional COOs →
             </Link>

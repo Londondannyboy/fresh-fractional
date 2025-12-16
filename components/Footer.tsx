@@ -204,7 +204,7 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-6">
               <span className="text-xs text-gray-400 flex items-center gap-2">
-                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
                 Beta — Launching December 2025
               </span>
             </div>

@@ -24,15 +24,15 @@ export default function FractionalCOOForStartupsPage() {
         <div className="max-w-4xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="text-center p-6 bg-gray-50">
-              <div className="text-3xl font-black text-emerald-700">$5k-12k</div>
+              <div className="text-3xl font-black text-blue-700">$5k-12k</div>
               <div className="text-gray-600">Monthly Cost</div>
             </div>
             <div className="text-center p-6 bg-gray-50">
-              <div className="text-3xl font-black text-emerald-700">12-24 mo</div>
+              <div className="text-3xl font-black text-blue-700">12-24 mo</div>
               <div className="text-gray-600">Typical Engagement</div>
             </div>
             <div className="text-center p-6 bg-gray-50">
-              <div className="text-3xl font-black text-emerald-700">2 days</div>
+              <div className="text-3xl font-black text-blue-700">2 days</div>
               <div className="text-gray-600">Per Week Average</div>
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function FractionalCOOForStartupsPage() {
               You know you need a COO. But you're pre-Series B with limited cash, can't offer market-rate comp + equity, and hiring takes 4-6 months you don't have.
             </p>
 
-            <div className="bg-emerald-50 border-l-4 border-emerald-600 p-6 my-8">
+            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-8">
               <p className="text-xl font-bold mb-2">The Fractional Solution:</p>
               <p className="mb-0">Get a senior COO (15-20+ years experience) who's scaled 5+ startups through your exact phase, starting in 1-2 weeks, for $60k-$144k/year instead of $250k+. They work 1-3 days/week focusing on high-leverage strategic work.</p>
             </div>
@@ -126,17 +126,17 @@ export default function FractionalCOOForStartupsPage() {
                 <tbody>
                   <tr className="border-b">
                     <td className="py-3 px-4 font-bold">Pre-Series A</td>
-                    <td className="py-3 px-4 text-emerald-700">$72k/year (1 day/week)</td>
+                    <td className="py-3 px-4 text-blue-700">$72k/year (1 day/week)</td>
                     <td className="py-3 px-4">Can't afford / Can't attract talent</td>
                   </tr>
                   <tr className="border-b bg-gray-50">
                     <td className="py-3 px-4 font-bold">Series A</td>
-                    <td className="py-3 px-4 text-emerald-700">$120k/year (2 days/week)</td>
+                    <td className="py-3 px-4 text-blue-700">$120k/year (2 days/week)</td>
                     <td className="py-3 px-4">$280k+ (salary + equity + benefits)</td>
                   </tr>
                   <tr className="border-b">
                     <td className="py-3 px-4 font-bold">Series B</td>
-                    <td className="py-3 px-4 text-emerald-700">$144k/year (2-3 days/week)</td>
+                    <td className="py-3 px-4 text-blue-700">$144k/year (2-3 days/week)</td>
                     <td className="py-3 px-4">$320k+ (senior COO)</td>
                   </tr>
                 </tbody>
@@ -158,7 +158,7 @@ export default function FractionalCOOForStartupsPage() {
           </p>
           <Link
             href="/fractional-coo-services"
-            className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 transition-colors"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 transition-colors"
           >
             Find Startup-Experienced COOs →
           </Link>

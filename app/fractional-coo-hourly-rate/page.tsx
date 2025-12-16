@@ -26,15 +26,15 @@ export default function FractionalCOOHourlyRatePage() {
         <div className="max-w-4xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <div className="text-center p-6 bg-gray-50">
-              <div className="text-3xl font-black text-emerald-700">$150</div>
+              <div className="text-3xl font-black text-blue-700">$150</div>
               <div className="text-gray-600">Average Hourly</div>
             </div>
             <div className="text-center p-6 bg-gray-50">
-              <div className="text-3xl font-black text-emerald-700">$1,200</div>
+              <div className="text-3xl font-black text-blue-700">$1,200</div>
               <div className="text-gray-600">Average Day Rate</div>
             </div>
             <div className="text-center p-6 bg-gray-50">
-              <div className="text-3xl font-black text-emerald-700">8 hrs</div>
+              <div className="text-3xl font-black text-blue-700">8 hrs</div>
               <div className="text-gray-600">Typical Day Length</div>
             </div>
           </div>
@@ -43,15 +43,15 @@ export default function FractionalCOOHourlyRatePage() {
             <h2>Hourly Rate Breakdown</h2>
 
             <div className="space-y-4 not-prose my-8">
-              <div className="border-l-4 border-emerald-600 pl-6 py-4">
+              <div className="border-l-4 border-blue-600 pl-6 py-4">
                 <div className="font-bold text-lg mb-2">Entry-Level: $125-$150/hour</div>
                 <p className="text-gray-600">10-15 years experience, smaller companies ($2M-$10M revenue)</p>
               </div>
-              <div className="border-l-4 border-emerald-600 pl-6 py-4">
+              <div className="border-l-4 border-blue-600 pl-6 py-4">
                 <div className="font-bold text-lg mb-2">Mid-Level: $150-$200/hour</div>
                 <p className="text-gray-600">15-20 years experience, growth companies ($10M-$50M revenue)</p>
               </div>
-              <div className="border-l-4 border-emerald-600 pl-6 py-4">
+              <div className="border-l-4 border-blue-600 pl-6 py-4">
                 <div className="font-bold text-lg mb-2">Senior: $200-$250/hour</div>
                 <p className="text-gray-600">20+ years experience, complex operations, $50M+ revenue</p>
               </div>
@@ -75,7 +75,7 @@ export default function FractionalCOOHourlyRatePage() {
               <li>You want predictable monthly costs</li>
             </ul>
 
-            <p className="text-xl font-bold text-gray-900 bg-emerald-50 p-6 my-8">
+            <p className="text-xl font-bold text-gray-900 bg-blue-50 p-6 my-8">
               Most fractional COOs prefer day rates for ongoing work because hourly tracking creates admin overhead and doesn't capture strategic thinking time outside scheduled hours.
             </p>
 
@@ -97,7 +97,7 @@ export default function FractionalCOOHourlyRatePage() {
           <h2 className="text-3xl font-black mb-6">Ready to Hire a Fractional COO?</h2>
           <Link
             href="/fractional-coo-services"
-            className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 transition-colors"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 transition-colors"
           >
             Find Fractional COOs →
           </Link>

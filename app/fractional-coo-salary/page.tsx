@@ -43,11 +43,11 @@ export default function FractionalCooSalaryPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-emerald-900 to-emerald-800 py-20">
+      <section className="bg-gradient-to-br from-blue-900 to-blue-800 py-20">
         <div className="max-w-4xl mx-auto px-4">
-          <Link href="/" className="text-emerald-200 hover:text-white mb-6 inline-block">← Back to Home</Link>
+          <Link href="/" className="text-blue-200 hover:text-white mb-6 inline-block">← Back to Home</Link>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Fractional COO Salary 2025</h1>
-          <p className="text-xl text-emerald-100 mb-8">
+          <p className="text-xl text-blue-100 mb-8">
             Complete guide to fractional COO pay rates, day rates, and annual earnings in the US market.
           </p>
         </div>
@@ -58,15 +58,15 @@ export default function FractionalCooSalaryPage() {
         <div className="max-w-4xl mx-auto px-4 py-8">
           <div className="grid grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-4xl font-black text-emerald-700">$1,300</div>
+              <div className="text-4xl font-black text-blue-700">$1,300</div>
               <div className="text-gray-600">Average Day Rate</div>
             </div>
             <div>
-              <div className="text-4xl font-black text-emerald-700">$195k</div>
+              <div className="text-4xl font-black text-blue-700">$195k</div>
               <div className="text-gray-600">Average Annual</div>
             </div>
             <div>
-              <div className="text-4xl font-black text-emerald-700">2-3</div>
+              <div className="text-4xl font-black text-blue-700">2-3</div>
               <div className="text-gray-600">Days Per Client</div>
             </div>
           </div>
@@ -77,9 +77,9 @@ export default function FractionalCooSalaryPage() {
       <section className="py-12 bg-gray-950">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-8">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-400 mb-2 block">Live Market Data</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-400 mb-2 block">Live Market Data</span>
             <h2 className="text-3xl md:text-4xl font-black text-white">Real Fractional COO Salaries</h2>
-            <p className="text-emerald-200 mt-2">From actual job postings on Fractional Quest</p>
+            <p className="text-blue-200 mt-2">From actual job postings on Fractional Quest</p>
           </div>
           <Suspense fallback={<div className="text-white text-center">Loading rate data...</div>}>
             <RateDistribution roleFilter="COO" />
@@ -101,7 +101,7 @@ export default function FractionalCooSalaryPage() {
                     <p className="text-sm text-gray-600">{tier.experience} experience</p>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-black text-emerald-700">{tier.range}</div>
+                    <div className="text-2xl font-black text-blue-700">{tier.range}</div>
                     <div className="text-sm text-gray-600">{tier.annual}/year</div>
                   </div>
                 </div>
@@ -123,7 +123,7 @@ export default function FractionalCooSalaryPage() {
                   <div className="font-bold text-gray-900">{loc.location}</div>
                   <div className="text-sm text-gray-600">Premium: {loc.premium}</div>
                 </div>
-                <div className="text-xl font-black text-emerald-700">{loc.range}</div>
+                <div className="text-xl font-black text-blue-700">{loc.range}</div>
               </div>
             ))}
           </div>
@@ -142,7 +142,7 @@ export default function FractionalCooSalaryPage() {
                   <div className="font-bold text-gray-900">{ind.industry}</div>
                   <div className="text-sm text-gray-600">Demand: {ind.demand}</div>
                 </div>
-                <div className="text-xl font-black text-emerald-700">{ind.range}</div>
+                <div className="text-xl font-black text-blue-700">{ind.range}</div>
               </div>
             ))}
           </div>
@@ -150,16 +150,16 @@ export default function FractionalCooSalaryPage() {
       </section>
 
       {/* Earnings Calculator */}
-      <section className="py-16 bg-emerald-600 text-white">
+      <section className="py-16 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black mb-6">Calculate Your Fractional COO Earnings</h2>
-          <p className="text-xl text-emerald-100 mb-8">
+          <p className="text-xl text-blue-100 mb-8">
             2-3 clients × 2 days/week × $1,300/day = $156k-$234k annually<br />
             4 clients × 2 days/week = $312k/year
           </p>
           <Link
             href="/fractional-coo-jobs-uk"
-            className="inline-block bg-white text-emerald-700 font-bold py-4 px-8 hover:bg-emerald-50 transition-colors"
+            className="inline-block bg-white text-blue-700 font-bold py-4 px-8 hover:bg-blue-50 transition-colors"
           >
             Browse Fractional COO Jobs →
           </Link>
@@ -175,7 +175,7 @@ export default function FractionalCooSalaryPage() {
           </p>
           <Link
             href="/how-to-become-fractional-coo"
-            className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 transition-colors"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 transition-colors"
           >
             Read the Career Guide →
           </Link>

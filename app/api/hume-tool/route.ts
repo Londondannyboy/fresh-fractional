@@ -235,6 +235,7 @@ async function searchJobs(params: {
       return `No ${roleText}fractional roles found${locationText} currently. Try a broader search.`
     }
 
+    // Build human-readable descriptions for Frac to speak
     const jobDescriptions = jobs.map(j => {
       let desc = `${j.title} at ${j.company_name}`
       if (j.location) desc += `, ${j.location}`
@@ -245,12 +246,32 @@ async function searchJobs(params: {
           desc += ` - ${symbol}${j.salary_min}-${j.salary_max}/day`
         }
       }
-      // Add link to job (using slug for SEO-friendly URLs)
-      if (j.slug) desc += ` - View at fractional.quest/job/${j.slug}`
       return desc
-    }).join('. ')
+    }).join(', ')
 
-    return `Found ${jobs.length} roles: ${jobDescriptions}`
+    // Return BOTH text (for Frac to speak) and structured data (for UI to render)
+    return JSON.stringify({
+      text: `I found ${jobs.length} fractional ${params.role_type || ''} role${jobs.length > 1 ? 's' : ''}${params.location ? ` in ${params.location}` : ''}. ${jobDescriptions}. Would you like to know more about any of these?`,
+      data: {
+        type: 'job_results',
+        query: {
+          role_type: params.role_type,
+          location: params.location,
+          remote: params.remote
+        },
+        jobs: jobs.map(j => ({
+          id: j.id,
+          slug: j.slug,
+          title: j.title,
+          company: j.company_name,
+          location: j.location,
+          isRemote: j.is_remote || false,
+          dayRate: j.salary_min,
+          dayRateMax: j.salary_max,
+          currency: j.salary_currency || 'GBP',
+        }))
+      }
+    })
   } catch (error) {
     console.error('[searchJobs] Error:', error)
     return "Unable to search jobs at this time."

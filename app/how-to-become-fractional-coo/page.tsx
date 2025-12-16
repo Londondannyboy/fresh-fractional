@@ -40,7 +40,7 @@ export default function HowToBecomeFractionalCOOPage() {
               <li><strong>Executive presence</strong> — Can command room with CEOs, boards, investors</li>
             </ul>
 
-            <div className="bg-emerald-50 border-l-4 border-emerald-600 p-6 my-8">
+            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-8">
               <p className="text-lg font-bold mb-2">Reality Check:</p>
               <p className="mb-0">If you're a manager or director hoping to "become fractional" to skip to COO level—it won't work. Clients need proven executives with scars from scaling multiple companies. Build that track record first.</p>
             </div>
@@ -166,7 +166,7 @@ export default function HowToBecomeFractionalCOOPage() {
 
             <h2>Economics: What You'll Earn</h2>
 
-            <div className="bg-emerald-50 p-8 my-8">
+            <div className="bg-blue-50 p-8 my-8">
               <h3 className="mt-0">Realistic Earnings Scenarios</h3>
 
               <div className="space-y-4">
@@ -196,7 +196,7 @@ export default function HowToBecomeFractionalCOOPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black mb-6">Ready to Go Fractional?</h2>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="/fractional-coo-jobs-uk" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 inline-block transition-colors">
+            <Link href="/fractional-coo-jobs-uk" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 inline-block transition-colors">
               Browse Fractional COO Jobs →
             </Link>
             <Link href="/fractional-coo-salary" className="bg-gray-900 hover:bg-gray-800 text-white font-bold py-4 px-8 inline-block transition-colors">

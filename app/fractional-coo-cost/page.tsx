@@ -123,8 +123,8 @@ export default function FractionalCOOCostPage() {
                 </ul>
               </div>
 
-              <div className="bg-emerald-600 text-white p-8 relative">
-                <div className="absolute top-4 right-4 text-xs bg-white text-emerald-600 px-2 py-1 font-bold">POPULAR</div>
+              <div className="bg-blue-600 text-white p-8 relative">
+                <div className="absolute top-4 right-4 text-xs bg-white text-blue-600 px-2 py-1 font-bold">POPULAR</div>
                 <div className="text-sm uppercase tracking-wider mb-2">Active Leadership</div>
                 <div className="text-3xl font-black mb-4">$10-12k</div>
                 <div className="text-white/80 text-sm mb-4">2 days per week</div>
@@ -216,12 +216,12 @@ export default function FractionalCOOCostPage() {
                   <td className="py-4 px-6">1-2 weeks</td>
                   <td className="py-4 px-6">3-6 months ramp</td>
                 </tr>
-                <tr className="border-b-2 border-gray-900 font-bold bg-emerald-50">
+                <tr className="border-b-2 border-gray-900 font-bold bg-blue-50">
                   <td className="py-4 px-6">TOTAL YEAR 1</td>
-                  <td className="py-4 px-6 text-emerald-700">$120,000</td>
+                  <td className="py-4 px-6 text-blue-700">$120,000</td>
                   <td className="py-4 px-6">$355,000</td>
                 </tr>
-                <tr className="bg-emerald-600 text-white font-bold">
+                <tr className="bg-blue-600 text-white font-bold">
                   <td className="py-4 px-6">YOU SAVE</td>
                   <td className="py-4 px-6" colSpan={2}>$235,000 (66% savings)</td>
                 </tr>
@@ -252,7 +252,7 @@ export default function FractionalCOOCostPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/fractional-coo-services"
-              className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 transition-colors"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 transition-colors"
             >
               Find Fractional COOs →
             </Link>

@@ -5,6 +5,7 @@ import { useUser } from '@stackframe/stack'
 import { VoiceProvider, useVoice } from '@humeai/voice-react'
 import Link from 'next/link'
 import { UserGraph } from '@/components/UserGraph'
+import { JobCard } from '@/components/JobCard'
 
 const CONFIG_ID = 'd57ceb71-4cf5-47e9-87cd-6052445a031c'
 
@@ -35,6 +36,10 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
 
   // Track previous connection state to detect disconnections
   const wasConnectedRef = useRef(false)
+
+  // State for visual displays
+  const [displayedJobs, setDisplayedJobs] = useState<any[]>([])
+  const [confirmation, setConfirmation] = useState<any | null>(null)
 
   // Debug: Log all status changes with timestamp
   useEffect(() => {

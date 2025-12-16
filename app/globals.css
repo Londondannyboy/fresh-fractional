@@ -18,10 +18,10 @@
   --primary-dark: #0a0a0a;
   --primary-darker: #000000;
 
-  /* Accent - Amber for CTAs */
-  --accent: #f59e0b;
-  --accent-light: #fbbf24;
-  --accent-dark: #d97706;
+  /* Accent - Royal Blue for CTAs */
+  --accent: #2563eb;
+  --accent-light: #3b82f6;
+  --accent-dark: #1d4ed8;
 
   /* Text hierarchy */
   --text-primary: #111827;
@@ -82,14 +82,17 @@
   --color-gray-800: #1f2937;
   --color-gray-900: #111827;
 
-  /* Amber shades */
-  --color-amber-50: #fffbeb;
-  --color-amber-100: #fef3c7;
-  --color-amber-200: #fde68a;
-  --color-amber-300: #fcd34d;
-  --color-amber-400: #fbbf24;
-  --color-amber-500: #f59e0b;
-  --color-amber-600: #d97706;
+  /* Royal Blue shades */
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-800: #1e40af;
+  --color-blue-900: #1e3a8a;
 
   /* Typography */
   --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
@@ -217,7 +220,7 @@ h3 {
 
 .btn-accent:hover {
   background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
-  box-shadow: var(--shadow-lg), 0 0 20px rgb(245 158 11 / 0.3);
+  box-shadow: var(--shadow-lg), 0 0 20px rgb(37 99 235 / 0.3);
   transform: translateY(-1px);
 }
 
@@ -612,8 +615,8 @@ h3 {
   box-shadow: 0 0 40px rgb(17 24 39 / 0.3);
 }
 
-.glow-amber {
-  box-shadow: 0 0 40px rgb(245 158 11 / 0.2);
+.glow-blue {
+  box-shadow: 0 0 40px rgb(37 99 235 / 0.2);
 }
 
 /* Premium border */
