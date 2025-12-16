@@ -353,7 +353,7 @@ export default async function TechJobsPage() {
               <strong>Day rates by specialization:</strong> General CTO/VP Engineering: £900-£1,200. Cloud architecture specialists: £1,000-£1,350. Security (CISO): £1,100-£1,400. AI/ML specialists: £1,200-£1,500. Rates reflect scarcity of genuine expertise.
             </p>
             <p className="text-gray-700">
-              <strong>Define technical outcomes upfront.</strong> For cloud migration: "Migrate 80% of workloads to AWS with <10% downtime, achieve £15k/month cost reduction." For scaling: "Support 10x traffic growth with <200ms p95 latency." For security: "Achieve SOC 2 Type II certification within 8 months." Measurable outcomes prevent endless architectural philosophy debates.
+              <strong>Define technical outcomes upfront.</strong> For cloud migration: "Migrate 80% of workloads to AWS with &lt;10% downtime, achieve £15k/month cost reduction." For scaling: "Support 10x traffic growth with &lt;200ms p95 latency." For security: "Achieve SOC 2 Type II certification within 8 months." Measurable outcomes prevent endless architectural philosophy debates.
             </p>
           </div>
         </div>
