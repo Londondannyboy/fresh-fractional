@@ -259,8 +259,112 @@ export default async function StartupJobsPage() {
         </div>
       </section>
 
-      {/* IR35 Calculator */}
+      {/* Why Startups Hire Fractional Executives */}
       <section className="py-24 md:py-32 bg-white">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-gray-400 mb-4 block">Industry Context</span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Startups Hire Fractional Executives</h2>
+          </div>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-xl text-gray-600 leading-relaxed mb-6">
+              Startups face a brutal paradox: they need senior expertise to survive and scale, but can't afford full-time executive salaries when burn rate determines runway. According to <a href="https://www.beauhurst.com/research/the-scaleup-gap/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">Beauhurst research</a>, UK scale-ups that hire senior functional leadership earlier grow 3.2x faster than those who delay—but premature full-time C-level hires are the second most common cause of startup failure.
+            </p>
+            <p className="text-gray-700 mb-6">
+              The data is stark. <a href="https://www.british-business-bank.co.uk/research/small-business-equity-tracker-2023/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">British Business Bank research</a> shows that only 42% of UK startups survive past five years, and the majority of failures cite "wrong team" as a primary factor. Often this means hiring too senior too late, or not senior enough too early. Fractional executives solve this timing problem by providing the right level of expertise exactly when needed.
+            </p>
+            <p className="text-gray-700 mb-6">
+              Consider a Series A SaaS company at £2M ARR. They need CFO-level expertise to prepare their Series B materials, model unit economics, and build investor relationships. But a full-time CFO at £180k+ salary plus equity represents 9% of revenue—an unsustainable burn. A fractional CFO at 2 days/week (~£100k annually) provides the same expertise at half the cost, extending runway by 6-9 months.
+            </p>
+            <p className="text-gray-700 mb-6">
+              The challenge intensifies around fundraising. <a href="https://dealroom.co/guides/european-startup-fundraising" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">Dealroom data</a> shows that startups with "investor-ready" metrics (proper ARR tracking, cohort analysis, unit economics) raise 40% more capital at 25% higher valuations. But building this requires CFO or VP Finance expertise that most founders and early finance hires lack. Fractional executives bring this sophistication without the permanent overhead.
+            </p>
+            <p className="text-gray-700">
+              Beyond finance, startups need marketing expertise to find product-market fit, technical leadership to build scalable architecture, and operations expertise to implement processes before chaos takes over. Fractional executives provide this across all functions, matching the startup's stage and specific challenges. They've seen the patterns that kill startups and know how to avoid them.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* What Startup Fractional Executives Do Differently */}
+      <section className="py-24 md:py-32 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-gray-400 mb-4 block">Role Requirements</span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">What Startup Fractional Executives Do Differently</h2>
+          </div>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-xl text-gray-600 leading-relaxed mb-6">
+              Fractional executives working with startups need a different skill set than those serving established companies. They operate in resource-constrained, high-uncertainty environments where flexibility trumps process.
+            </p>
+            <p className="text-gray-700 mb-6">
+              <strong>Fundraising expertise is non-negotiable.</strong> Most fractional CFOs working with startups have personally raised £50M+ across multiple rounds. They know exactly what metrics VCs scrutinize, how to build financial narratives that justify valuations, and how to navigate due diligence. They've sat through dozens of partner meetings and understand the difference between investor interest and actual term sheets. This pattern recognition is invaluable during the intense 3-4 month fundraising sprint.
+            </p>
+            <p className="text-gray-700 mb-6">
+              <strong>Hands-on execution matters.</strong> Unlike fractional executives at mature companies who primarily advise, startup fractional leaders get hands dirty. A fractional CMO doesn't just review strategy—they write the first ad copy, set up the marketing automation, and personally close early design partners. A fractional CTO doesn't just review architecture diagrams—they review pull requests, interview engineering candidates, and make critical build-vs-buy decisions. Research from <a href="https://sifted.eu/articles/european-startup-failure-rate/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">Sifted</a> shows that early-stage companies need "player-coaches," not pure strategists.
+            </p>
+            <p className="text-gray-700 mb-6">
+              <strong>Speed of execution is critical.</strong> Startups don't have time for 90-day strategic planning cycles. Fractional executives who succeed in startup environments make high-quality decisions with 60% of the information, ship quickly, and iterate. They understand that perfect is the enemy of good when runway is measured in months. They bring frameworks and templates from previous companies to accelerate execution.
+            </p>
+            <p className="text-gray-700 mb-6">
+              <strong>Network access provides unfair advantage.</strong> The best startup fractional executives have warm introductions to relevant VCs, can connect you with specialist recruiters who place in your sector, and know which service providers (lawyers, accountants, PR firms) are startup-friendly vs corporate-focused. This network effect often justifies their fees independent of direct work output.
+            </p>
+            <p className="text-gray-700">
+              <strong>Emotional resilience is essential.</strong> Startups are volatile. Product pivots, funding challenges, key employee departures—fractional executives need the experience to remain calm and strategic when founders are stressed. Having navigated multiple companies through similar challenges, they provide the steady hand that prevents panic-driven decisions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Hiring Guide */}
+      <section className="py-24 md:py-32 bg-white">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-gray-400 mb-4 block">Hiring Guide</span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Hiring Fractional Executives at Startups: What to Look For</h2>
+          </div>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-xl text-gray-600 leading-relaxed mb-6">
+              Hiring wrong at the executive level can kill a startup. Here's how to identify fractional talent that will accelerate growth, not drain resources.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Green Flags: Experience That Matters</h3>
+            <ul className="space-y-3 text-gray-700 mb-6">
+              <li><strong>Stage-specific experience:</strong> If you're Series A, they should have 3+ companies at Series A/B stage. Pre-seed experience doesn't translate to Series B challenges</li>
+              <li><strong>Recent fundraising success:</strong> Ask: "What was the last round you helped raise, when, and at what valuation?" Vague answers are red flags</li>
+              <li><strong>Sector relevance:</strong> FinTech has different regulatory requirements than HealthTech. B2B SaaS dynamics differ from marketplaces. Sector experience matters</li>
+              <li><strong>Hands-on proof points:</strong> They can describe specific tools they've implemented, dashboards they've built, or campaigns they've personally executed</li>
+              <li><strong>Founder references:</strong> They can connect you with 2-3 founders they've recently worked with. Strong fractionals have founders who rave about them</li>
+            </ul>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Red Flags: Warning Signs</h3>
+            <ul className="space-y-3 text-gray-700 mb-6">
+              <li><strong>Only corporate experience:</strong> Someone who spent 15 years at FTSE 100 companies won't understand startup speed and scrappiness</li>
+              <li><strong>Too many current clients:</strong> If they're working with 6+ companies, you're getting 5-10 hours/month maximum. That's consulting, not fractional leadership</li>
+              <li><strong>No startup failures:</strong> Sounds counterintuitive, but the best startup executives have survived at least one failure. They've learned what kills companies</li>
+              <li><strong>Rigid on process:</strong> "We need to implement SAP" or "Let's run a full rebrand" before understanding context shows corporate thinking</li>
+              <li><strong>Can't explain technical concepts simply:</strong> If a CFO can't explain CAC payback to a non-finance founder clearly, they'll struggle with board communications</li>
+            </ul>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Structuring the Engagement</h3>
+            <p className="text-gray-700 mb-4">
+              Start with a 3-month trial at 2 days/week. This lets both parties validate fit without long-term commitment. According to <a href="https://www.atomico.com/the-state-of-european-tech" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">Atomico's State of European Tech</a>, successful startup fractional engagements typically run 6-18 months, aligning with fundraising cycles or major milestones (product launch, market entry, etc.).
+            </p>
+            <p className="text-gray-700 mb-4">
+              <strong>Equity considerations:</strong> 25% of startup fractional roles include equity. For critical pre-seed/seed hires, 0.5-1% is reasonable. Series A: 0.25-0.5%. Series B+: equity becomes rare unless they're truly transformational. Ensure vesting aligns with engagement length (1-year cliff, then monthly).
+            </p>
+            <p className="text-gray-700 mb-4">
+              <strong>Day rates by stage:</strong> Pre-seed/Seed: £600-£900. Series A: £800-£1,100. Series B: £900-£1,200. Series C+: £1,000-£1,400. Don't lowball—great fractionals have multiple offers and will choose companies that value their expertise appropriately.
+            </p>
+            <p className="text-gray-700">
+              <strong>Define success metrics upfront.</strong> For a fractional CFO: "Complete Series B raise at target valuation within 6 months." For a CMO: "Launch demand gen engine generating 50 qualified leads/month." For a CTO: "Achieve 99.5% uptime while scaling from 1k to 10k customers." Specificity creates accountability and prevents scope drift.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* IR35 Calculator */}
+      <section className="py-24 md:py-32 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.3em] text-gray-400 mb-4 block">Tax Planning</span>
