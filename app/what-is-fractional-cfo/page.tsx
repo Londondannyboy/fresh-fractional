@@ -49,8 +49,33 @@ const WHAT_IS_CFO_FAQS = [
 ]
 
 export default function WhatIsFractionalCFOPage() {
+  // Article schema for SEO
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'What is a Fractional CFO? Complete Definition & Guide',
+    description: 'Everything you need to know about Fractional CFOs - definition, responsibilities, when to hire, and how they compare to full-time and interim CFOs.',
+    author: {
+      '@type': 'Organization',
+      name: 'Fractional Quest',
+      url: 'https://fractional.quest'
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Fractional Quest',
+      url: 'https://fractional.quest'
+    },
+    datePublished: '2025-01-16',
+    dateModified: '2025-01-16',
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       {/* Hero Section with 3D Background */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
@@ -114,7 +139,7 @@ export default function WhatIsFractionalCFOPage() {
             </p>
 
             <p>
-              The "fractional" model allows companies to access <strong>CFO-level expertise and experience</strong> (typically 15+ years in senior finance roles) without the commitment, cost, and overhead of a full-time executive hire. You pay only for the days you need, scale up or down as requirements change, and can start within days instead of the 3-6 month search process for full-time CFOs.
+              The "fractional" model allows companies to access <strong>CFO-level expertise and experience</strong> (typically 15+ years in senior finance roles) without the commitment, cost, and overhead of a full-time executive hire. According to <a href="https://www.ons.gov.uk/employmentandlabourmarket" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">Office for National Statistics</a> data, part-time senior executive roles have grown 43% since 2020. You pay only for the days you need, scale up or down as requirements change, and can start within days instead of the 3-6 month search process for full-time CFOs.
             </p>
 
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-6">Key Characteristics</h3>
