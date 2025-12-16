@@ -11,17 +11,29 @@ import { SavingsCalculator } from '@/components/SavingsCalculator'
 export const revalidate = 3600 // Revalidate every hour
 
 export const metadata: Metadata = {
-  title: 'Fractional Jobs UK 2025: CFO, CTO, CMO Executive Roles',
-  description: 'Find fractional executive jobs UK. CFO, CTO, CMO roles with £800-£1,500 day rates. Interactive tools, market insights, and real-time opportunities.',
-  keywords: 'fractional jobs UK, fractional jobs London, fractional executive jobs UK, fractional CFO jobs UK, fractional CMO jobs UK, fractional CTO jobs UK, fractional jobs 2025',
+  title: 'Fractional Jobs UK: CFO, CTO, CMO Executive Roles 2025',
+  description: 'Find 17+ fractional executive jobs across UK. Part-time CFO, CTO, CMO, COO roles with £700-£1,500 day rates. London, Manchester, Birmingham. Interactive tools & market insights.',
+  keywords: 'fractional jobs UK, fractional CFO jobs UK, fractional CTO jobs UK, fractional CMO jobs UK, part-time executive jobs UK, interim executive jobs UK, fractional COO jobs UK',
   alternates: {
     canonical: 'https://fractional.quest/fractional-jobs-uk',
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: 'Fractional Jobs UK 2025: CFO, CTO, CMO Executive Roles',
-    description: 'Find fractional executive jobs UK. CFO, CTO, CMO roles with interactive tools and market insights.',
+    title: 'Fractional Jobs UK: CFO, CTO, CMO Executive Roles 2025',
+    description: 'Find 17+ fractional executive jobs UK. £700-£1,500 day rates. Interactive calculators and market insights.',
     type: 'website',
     url: 'https://fractional.quest/fractional-jobs-uk',
+    siteName: 'Fractional Quest',
   },
 }
 
