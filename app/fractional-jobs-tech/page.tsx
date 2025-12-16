@@ -255,8 +255,112 @@ export default async function TechJobsPage() {
         </div>
       </section>
 
-      {/* IR35 Calculator */}
+      {/* Why Tech Companies Hire Fractional Executives */}
       <section className="py-24 md:py-32 bg-white">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-gray-400 mb-4 block">Industry Context</span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Tech Companies Hire Fractional Executives</h2>
+          </div>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-xl text-gray-600 leading-relaxed mb-6">
+              The technology sector faces a unique leadership challenge: technical complexity is accelerating faster than talent pipelines can produce experienced leaders. According to <a href="https://survey.stackoverflow.co/2023/#leadership-experience" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Stack Overflow's Developer Survey</a>, only 8% of developers have 20+ years of experience—the cohort from which technical executives are typically drawn. Yet technology decisions made today have 5-10 year consequences for scalability, security, and technical debt.
+            </p>
+            <p className="text-gray-700 mb-6">
+              This scarcity drives compensation to unsustainable levels. A CTO with deep cloud architecture experience, AI/ML implementation history, and successful scaling credentials commands £180k-£300k in salary plus significant equity. For companies at £5-20M revenue, this represents 1-6% of revenue—often untenable when margins are thin and growth investment needs are high.
+            </p>
+            <p className="text-gray-700 mb-6">
+              The technical landscape compounds this challenge. <a href="https://octoverse.github.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">GitHub's Octoverse report</a> tracks the explosion of programming languages, frameworks, and architectural patterns. A CTO who built their expertise on monolithic PHP applications in 2010 may lack relevant experience for microservices, Kubernetes, serverless architectures, and edge computing that define modern systems. Companies need leaders with current, battle-tested knowledge.
+            </p>
+            <p className="text-gray-700 mb-6">
+              Security and compliance requirements have become executive-level concerns. GDPR, SOC 2, ISO 27001, PCI-DSS—these aren't checkbox exercises but fundamental architectural decisions. Research from the <a href="https://www.cncf.io/reports/cncf-annual-survey-2023/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Cloud Native Computing Foundation</a> shows that security and compliance drive 60% of cloud architecture decisions. Companies need fractional CISOs and CTOs who've actually implemented these frameworks at scale, not consultants who've read about them.
+            </p>
+            <p className="text-gray-700">
+              Fractional tech executives solve multiple problems simultaneously. They provide current expertise in rapidly evolving technologies, bring pattern recognition from multiple companies facing similar challenges, and cost 50-60% less than full-time equivalents. For tech companies navigating cloud migration, AI implementation, or scaling from 10 to 100 engineers, this expertise at the critical moment prevents catastrophically expensive mistakes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* What Tech Fractional Executives Do Differently */}
+      <section className="py-24 md:py-32 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-gray-400 mb-4 block">Role Requirements</span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">What Tech Fractional Executives Do Differently</h2>
+          </div>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-xl text-gray-600 leading-relaxed mb-6">
+              Fractional technology executives operate differently than permanent CTOs or consultants. They combine hands-on technical depth with strategic vision, bringing current expertise from multiple parallel implementations.
+            </p>
+            <p className="text-gray-700 mb-6">
+              <strong>They make build-vs-buy decisions based on current reality, not past experience.</strong> The technology landscape shifts monthly. A fractional CTO evaluating whether to build a recommendation engine in-house or use a managed service has likely evaluated the same decision for 2-3 other clients in the past quarter. They know which vendors over-promise, which open-source projects have active communities vs abandoned codebases, and what truly costs in production vs marketing claims. This current, comparative knowledge prevents expensive wrong turns.
+            </p>
+            <p className="text-gray-700 mb-6">
+              <strong>They architect for the company you're becoming, not the company you are.</strong> Scaling from 1,000 to 100,000 users requires different architecture than scaling from 100,000 to 10 million. Fractional CTOs have seen these transitions and know which parts of the stack need over-engineering and which can stay simple. They prevent premature optimization (wasting engineering resources) and identify critical bottlenecks before they cause outages.
+            </p>
+            <p className="text-gray-700 mb-6">
+              <strong>They can still code—and that matters.</strong> According to <a href="https://insights.stackoverflow.com/survey/2023#technology-most-popular-technologies" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Stack Overflow data</a>, technology stacks are increasingly polyglot. The best fractional CTOs maintain hands-on coding skills, review architecture through pull requests, and can diagnose production issues by reading logs and metrics. They're not "retired" CTOs—they're actively practicing technologists who happen to work fractionally.
+            </p>
+            <p className="text-gray-700 mb-6">
+              <strong>They build teams, not just systems.</strong> Hiring technical talent is brutally competitive. Fractional CTOs leverage their networks to source hard-to-find specialists, know which technical interview questions actually predict performance, and understand compensation benchmarks across different company stages. They've built engineering teams 5-10 times and know the hiring mistakes that kill momentum.
+            </p>
+            <p className="text-gray-700">
+              <strong>They navigate vendor relationships strategically.</strong> Cloud spend can spiral from £5k to £50k monthly without architectural discipline. Fractional CTOs negotiate enterprise agreements, implement FinOps practices to control costs, and know when to challenge vendor pricing vs when you're getting fair value. This cost management often pays their fees multiple times over.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Hiring Guide */}
+      <section className="py-24 md:py-32 bg-white">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-gray-400 mb-4 block">Hiring Guide</span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Hiring Fractional Tech Executives: What to Look For</h2>
+          </div>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-xl text-gray-600 leading-relaxed mb-6">
+              The wrong fractional CTO can set your technical roadmap back 12-18 months. Here's how to identify truly exceptional technical leadership.
+            </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Green Flags: Technical Excellence</h3>
+            <ul className="space-y-3 text-gray-700 mb-6">
+              <li><strong>Recent hands-on experience:</strong> They can discuss technologies you use (or should use) with current, specific detail—not generic "cloud" references</li>
+              <li><strong>GitHub presence:</strong> Active contributions to open source or maintained personal projects show they're still coding, not just managing</li>
+              <li><strong>Scale experience:</strong> Ask: "What's the largest system you've scaled, from what baseline to what peak?" Specific numbers matter</li>
+              <li><strong>Disaster stories:</strong> Great CTOs have survived production outages, security incidents, and architectural mistakes. They learned from failures</li>
+              <li><strong>Hiring success:</strong> They can name 5+ exceptional engineers they've hired and what made each hire successful. Technical hiring is critical</li>
+            </ul>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Red Flags: Warning Signs</h3>
+            <ul className="space-y-3 text-gray-700 mb-6">
+              <li><strong>Tech buzzword bingo:</strong> If they mention AI, blockchain, microservices, and serverless in the first conversation without context, run</li>
+              <li><strong>Can't explain trade-offs:</strong> Every technical decision has trade-offs. If they can't articulate downsides of their recommendations, they lack depth</li>
+              <li><strong>No production war stories:</strong> Anyone who's run production systems has scars. No stories means no real operational experience</li>
+              <li><strong>Dismissive of existing codebase:</strong> "Rewrite everything" is rarely the answer. Great CTOs find incremental improvement paths</li>
+              <li><strong>Generic security answers:</strong> Security requires specific, current knowledge of threats and mitigations, not platitudes about "best practices"</li>
+            </ul>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Structuring Technical Engagements</h3>
+            <p className="text-gray-700 mb-4">
+              Start with a technical audit (1-2 weeks, fixed fee £3k-£8k). A good fractional CTO will review architecture, codebase, infrastructure, team structure, and technical debt—then provide a prioritized roadmap. This audit validates their expertise and gives you actionable insights even if you don't proceed with ongoing engagement.
+            </p>
+            <p className="text-gray-700 mb-4">
+              <strong>Ongoing engagement:</strong> Most technical fractional relationships run 2 days/week for 6-12 months. One day for architecture/strategy work, one day embedded with the engineering team for reviews, hiring, and technical decisions. This balance provides strategic direction without disconnecting from implementation reality.
+            </p>
+            <p className="text-gray-700 mb-4">
+              <strong>Day rates by specialization:</strong> General CTO/VP Engineering: £900-£1,200. Cloud architecture specialists: £1,000-£1,350. Security (CISO): £1,100-£1,400. AI/ML specialists: £1,200-£1,500. Rates reflect scarcity of genuine expertise.
+            </p>
+            <p className="text-gray-700">
+              <strong>Define technical outcomes upfront.</strong> For cloud migration: "Migrate 80% of workloads to AWS with <10% downtime, achieve £15k/month cost reduction." For scaling: "Support 10x traffic growth with <200ms p95 latency." For security: "Achieve SOC 2 Type II certification within 8 months." Measurable outcomes prevent endless architectural philosophy debates.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* IR35 Calculator */}
+      <section className="py-24 md:py-32 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-xs font-medium uppercase tracking-[0.3em] text-gray-400 mb-4 block">Tax Planning</span>
