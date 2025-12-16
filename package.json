@@ -19,6 +19,9 @@
   "dependencies": {
     "@ai-sdk/anthropic": "^2.0.56",
     "@ai-sdk/google": "^2.0.47",
+    "@copilotkit/react-core": "^1.50.0",
+    "@copilotkit/react-ui": "^1.50.0",
+    "@copilotkit/runtime": "^1.50.0",
     "@getzep/zep-cloud": "^3.13.0",
     "@humeai/voice-react": "^0.2.11",
     "@mux/mux-video-react": "^0.29.1",

@@ -4,8 +4,8 @@ import { StackClientApp } from "@stackframe/stack";
 export const stackClientApp = new StackClientApp({
   tokenStore: "nextjs-cookie",
   urls: {
-    afterSignIn: "/repo",
-    afterSignUp: "/onboarding",
+    afterSignIn: "/frac",
+    afterSignUp: "/frac",
     afterSignOut: "/",
   },
 });

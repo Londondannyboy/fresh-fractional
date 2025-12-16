@@ -6,6 +6,7 @@ import { VoiceProvider, useVoice } from '@humeai/voice-react'
 import Link from 'next/link'
 import { UserGraph } from '@/components/UserGraph'
 import { JobCard } from '@/components/JobCard'
+import { FracConfirmations } from '@/components/FracConfirmations'
 
 const CONFIG_ID = 'd57ceb71-4cf5-47e9-87cd-6052445a031c'
 
@@ -136,29 +137,35 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
     }
   }, [userId, addDebugLog])
 
-  // Method C: Analyze with Pydantic AI (Python)
+  // Method C: Analyze with Pydantic AI (Python) + CopilotKit Confirmations
   const analyzePydanticAI = useCallback(async (transcript: string) => {
     if (!transcript || transcript.length < 10) return
 
     addDebugLog('🐍 Method C: Pydantic AI analyzing...', 'tool')
 
     try {
-      const response = await fetch('/api/pydantic-analyzer', {
+      const response = await fetch('/api/copilot-agent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ transcript, userId })
+        body: JSON.stringify({ transcript, user_id: userId })
       })
 
       const result = await response.json()
-      addDebugLog(`📊 Method C result: ${result.status}`, 'info')
+      addDebugLog(`📊 Method C result: ${result.type || 'unknown'}`, 'info')
 
+      // Check if it's a confirmation request
+      if (result.type === 'confirmation_required') {
+        addDebugLog(`✋ Method C: Confirmation requested - ${result.action}`, 'success')
+        setPydanticConfirmation({
+          ...result,
+          user_id: userId
+        })
+      }
+
+      // Check if it's job results
       if (result.data?.type === 'job_results') {
         addDebugLog(`🎯 Method C found ${result.data.jobs.length} jobs!`, 'success')
         setPydanticJobs(result.data.jobs)
-      }
-
-      if (result.data?.type === 'confirmation') {
-        setPydanticConfirmation({ ...result.data, user_id: userId })
       }
     } catch (e) {
       addDebugLog(`❌ Method C failed: ${e}`, 'error')
@@ -694,6 +701,18 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
             </div>
           </div>
         </div>
+      )}
+
+      {/* Confirmation Modal - Pydantic AI + CopilotKit (Method C) */}
+      {pydanticConfirmation && (
+        <FracConfirmations
+          confirmation={pydanticConfirmation}
+          onClose={() => setPydanticConfirmation(null)}
+          onConfirm={async (data) => {
+            addDebugLog('✅ User confirmed action', 'success')
+            setPydanticConfirmation(null)
+          }}
+        />
       )}
 
       {/* Debug Panel */}
