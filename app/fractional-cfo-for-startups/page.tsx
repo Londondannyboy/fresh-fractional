@@ -543,7 +543,7 @@ export default function FractionalCFOForStartupsPage() {
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-2 block">FAQ</span>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900">Frequently Asked Questions</h2>
           </div>
-          <FAQ faqs={STARTUP_CFO_FAQS} />
+          <FAQ items={STARTUP_CFO_FAQS} title="" />
         </div>
       </section>
 
