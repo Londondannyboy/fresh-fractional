@@ -822,7 +822,7 @@ export default async function Home() {
                 <span className="text-gray-700 group-open:rotate-180 transition-transform">▼</span>
               </summary>
               <p className="mt-4 text-gray-600 leading-relaxed">
-                No, while London has the most fractional opportunities ({detailedStats.londonJobs}+ roles currently), many fractional positions are remote or hybrid. Birmingham, Manchester, Edinburgh, and Bristol all have growing fractional markets. Currently, we have {detailedStats.remoteJobs}+ remote fractional positions available across the UK.
+                No, many fractional positions are remote or hybrid. Fractional executives work with clients globally, with flexible arrangements that typically involve 1-3 days per week commitment.
               </p>
             </details>
 
