@@ -41,8 +41,9 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
   const [displayedJobs, setDisplayedJobs] = useState<any[]>([])
   const [transcriptJobs, setTranscriptJobs] = useState<any[]>([])  // NEW: From transcript analyzer
   const [confirmation, setConfirmation] = useState<any | null>(null)
+  const [transcriptConfirmation, setTranscriptConfirmation] = useState<any | null>(null)  // NEW: From transcript
   const [debugMode, setDebugMode] = useState(true)  // Enable debug by default
-  const [debugLogs, setDebugLogs] = useState<string[]>([])
+  const [debugLogs, setDebugLogs] = useState<Array<{timestamp: string; message: string; type: string}>>([])
   const [toolCalls, setToolCalls] = useState<any[]>([])
 
   // Helper to add debug logs
@@ -74,6 +75,14 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
       if (result.data?.type === 'job_results') {
         addDebugLog(`🎯 Transcript found ${result.data.jobs.length} jobs!`, 'success')
         setTranscriptJobs(result.data.jobs)
+      }
+
+      if (result.data?.type === 'confirmation') {
+        addDebugLog(`✋ Transcript detected preference confirmation`, 'success')
+        setTranscriptConfirmation({
+          ...result.data,
+          user_id: userId
+        })
       }
     } catch (e) {
       addDebugLog(`❌ Transcript analysis failed: ${e}`, 'error')
