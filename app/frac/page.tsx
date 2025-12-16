@@ -39,9 +39,11 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
 
   // State for visual displays
   const [displayedJobs, setDisplayedJobs] = useState<any[]>([])
-  const [transcriptJobs, setTranscriptJobs] = useState<any[]>([])  // NEW: From transcript analyzer
+  const [transcriptJobs, setTranscriptJobs] = useState<any[]>([])  // Method B: Vercel AI SDK
+  const [pydanticJobs, setPydanticJobs] = useState<any[]>([])  // Method C: Pydantic AI (Python)
   const [confirmation, setConfirmation] = useState<any | null>(null)
-  const [transcriptConfirmation, setTranscriptConfirmation] = useState<any | null>(null)  // NEW: From transcript
+  const [transcriptConfirmation, setTranscriptConfirmation] = useState<any | null>(null)
+  const [pydanticConfirmation, setPydanticConfirmation] = useState<any | null>(null)  // Method C confirmations
   const [debugMode, setDebugMode] = useState(true)  // Enable debug by default
   const [debugLogs, setDebugLogs] = useState<Array<{timestamp: string; message: string; type: string}>>([])
   const [toolCalls, setToolCalls] = useState<any[]>([])
@@ -53,39 +55,61 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
     console.log(`[${timestamp}] ${message}`)
   }, [])
 
-  // NEW: Analyze transcript with Pydantic AI layer
+  // Method B: Analyze with Vercel AI SDK + Gemini (TypeScript)
   const analyzeTranscript = useCallback(async (transcript: string) => {
     if (!transcript || transcript.length < 10) return
 
-    addDebugLog('🔬 Analyzing transcript with Pydantic AI layer...', 'tool')
+    addDebugLog('🔬 Method B: Vercel AI SDK analyzing...', 'tool')
 
     try {
       const response = await fetch('/api/transcript-analyzer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          transcript,
-          userId
-        })
+        body: JSON.stringify({ transcript, userId })
       })
 
       const result = await response.json()
-      addDebugLog(`📊 Transcript analysis: ${result.status}`, 'info')
+      addDebugLog(`📊 Method B result: ${result.status}`, 'info')
 
       if (result.data?.type === 'job_results') {
-        addDebugLog(`🎯 Transcript found ${result.data.jobs.length} jobs!`, 'success')
+        addDebugLog(`🎯 Method B found ${result.data.jobs.length} jobs!`, 'success')
         setTranscriptJobs(result.data.jobs)
       }
 
       if (result.data?.type === 'confirmation') {
-        addDebugLog(`✋ Transcript detected preference confirmation`, 'success')
-        setTranscriptConfirmation({
-          ...result.data,
-          user_id: userId
-        })
+        setTranscriptConfirmation({ ...result.data, user_id: userId })
       }
     } catch (e) {
-      addDebugLog(`❌ Transcript analysis failed: ${e}`, 'error')
+      addDebugLog(`❌ Method B failed: ${e}`, 'error')
+    }
+  }, [userId, addDebugLog])
+
+  // Method C: Analyze with Pydantic AI (Python)
+  const analyzePydanticAI = useCallback(async (transcript: string) => {
+    if (!transcript || transcript.length < 10) return
+
+    addDebugLog('🐍 Method C: Pydantic AI analyzing...', 'tool')
+
+    try {
+      const response = await fetch('/api/pydantic-analyzer', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ transcript, userId })
+      })
+
+      const result = await response.json()
+      addDebugLog(`📊 Method C result: ${result.status}`, 'info')
+
+      if (result.data?.type === 'job_results') {
+        addDebugLog(`🎯 Method C found ${result.data.jobs.length} jobs!`, 'success')
+        setPydanticJobs(result.data.jobs)
+      }
+
+      if (result.data?.type === 'confirmation') {
+        setPydanticConfirmation({ ...result.data, user_id: userId })
+      }
+    } catch (e) {
+      addDebugLog(`❌ Method C failed: ${e}`, 'error')
     }
   }, [userId, addDebugLog])
 
@@ -226,12 +250,13 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
         .filter(Boolean)
         .join(' ')
 
-      // Analyze transcript (debounced to avoid excessive calls)
+      // Analyze transcript with BOTH Method B and Method C in parallel
       if (transcript.length > 20) {
-        analyzeTranscript(transcript)
+        analyzeTranscript(transcript)  // Method B: Vercel AI SDK
+        analyzePydanticAI(transcript)   // Method C: Pydantic AI (Python)
       }
     }
-  }, [messages, addDebugLog, analyzeTranscript])
+  }, [messages, addDebugLog, analyzeTranscript, analyzePydanticAI])
 
   const handleConnect = useCallback(async () => {
     // Pass user_id and profile data to Hume
@@ -482,6 +507,41 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
         </div>
       )}
 
+      {/* Visual Job Display - Pydantic AI (Python) */}
+      {pydanticJobs.length > 0 && (
+        <div className="w-full max-w-4xl mt-8 animate-fade-in">
+          <div className="flex items-center gap-2 mb-4">
+            <svg className="w-5 h-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            <h3 className="text-lg font-semibold text-gray-900">
+              Jobs Found - Pydantic AI ({pydanticJobs.length})
+            </h3>
+            <span className="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs rounded-full font-medium">
+              Method C
+            </span>
+          </div>
+          <p className="text-sm text-gray-600 mb-4 italic">
+            🐍 Python Pydantic AI framework with structured outputs
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {pydanticJobs.map((job) => (
+              <JobCard
+                key={job.id}
+                jobId={job.id}
+                title={job.title}
+                company={job.company}
+                location={job.location}
+                isRemote={job.isRemote}
+                dayRate={job.dayRate}
+                currency={job.currency}
+                onClick={() => window.location.href = `/fractional-job/${job.slug}`}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Confirmation Modal - Hume Tools (Human-in-the-loop) */}
       {confirmation && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
@@ -562,8 +622,9 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
               <div className={`px-2 py-1 rounded text-xs font-bold ${isConnected ? 'bg-green-600' : 'bg-red-600'}`}>
                 {status.value}
               </div>
-              <div className="text-gray-400">Hume Jobs: {displayedJobs.length}</div>
-              <div className="text-green-400">Transcript Jobs: {transcriptJobs.length}</div>
+              <div className="text-purple-400">Method A (Hume): {displayedJobs.length}</div>
+              <div className="text-blue-400">Method B (Vercel AI): {transcriptJobs.length}</div>
+              <div className="text-yellow-400">Method C (Pydantic AI): {pydanticJobs.length}</div>
               <div className="text-gray-400">Messages: {messages.length}</div>
             </div>
             <button
