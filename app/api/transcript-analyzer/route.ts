@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { neon } from '@neondatabase/serverless'
+import { z } from 'zod'
 
 const sql = neon(process.env.DATABASE_URL!)
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY
 
 /**
  * Transcript Analyzer - Pydantic AI Alternative
@@ -15,14 +17,18 @@ interface TranscriptAnalyzerRequest {
   userId?: string
 }
 
-interface ExtractedIntent {
-  action: 'search_jobs' | 'confirm_preference' | 'unknown'
-  roleType?: string
-  location?: string
-  preferenceType?: string
-  values?: string[]
-  confidence: number
-}
+// Zod schema for structured intent extraction (like Pydantic but for TypeScript)
+const ExtractedIntentSchema = z.object({
+  action: z.enum(['search_jobs', 'confirm_preference', 'unknown']),
+  roleType: z.string().optional().describe('Executive title like CFO, CMO, CTO, Finance Director, Marketing Director'),
+  location: z.string().optional().describe('City or country like London, Manchester, UK'),
+  preferenceType: z.string().optional(),
+  values: z.array(z.string()).optional(),
+  confidence: z.number().min(0).max(1),
+  reasoning: z.string().describe('Brief explanation of why this intent was detected')
+})
+
+type ExtractedIntent = z.infer<typeof ExtractedIntentSchema>
 
 export async function POST(request: NextRequest) {
   try {
@@ -32,8 +38,8 @@ export async function POST(request: NextRequest) {
     console.log('[Transcript Analyzer] Analyzing:', transcript.substring(0, 200))
     console.log('[Transcript Analyzer] Full transcript:', transcript)
 
-    // Extract intent from transcript
-    const intent = extractIntent(transcript)
+    // Extract intent from transcript using AI
+    const intent = await extractIntent(transcript)
     console.log('[Transcript Analyzer] Intent:', JSON.stringify(intent, null, 2))
 
     if (intent.action === 'search_jobs') {
@@ -92,83 +98,112 @@ export async function POST(request: NextRequest) {
 }
 
 /**
- * Extract intent from conversation transcript using pattern matching
+ * Extract intent from conversation transcript using Claude AI
+ * This replaces dumb keyword matching with actual AI understanding
  */
-function extractIntent(transcript: string): ExtractedIntent {
-  const lowerText = transcript.toLowerCase()
-
-  // Job search patterns
-  const jobSearchKeywords = ['show', 'find', 'search', 'looking for', 'interested in', 'want', 'need']
-  const roleKeywords = {
-    'cfo': ['cfo', 'chief financial', 'finance director', 'financial officer'],
-    'cmo': ['cmo', 'chief marketing', 'marketing director', 'marketing officer'],
-    'cto': ['cto', 'chief technology', 'technology director', 'cto'],
-    'coo': ['coo', 'chief operating', 'operations director', 'operating officer'],
-    'hr': ['hr director', 'chief human', 'people director', 'chro']
-  }
-  const locationKeywords = ['in london', 'in manchester', 'in birmingham', 'london', 'manchester', 'uk']
-
-  // Check for job search intent
-  const hasJobSearchKeyword = jobSearchKeywords.some(kw => lowerText.includes(kw))
-  const hasJobWord = lowerText.includes('job') || lowerText.includes('role') || lowerText.includes('position')
-  const hasFractionalJob = lowerText.includes('fractional job') || lowerText.includes('fractional role')
-
-  if ((hasJobSearchKeyword && hasJobWord) || hasFractionalJob) {
-    // Extract role type
-    let roleType: string | undefined
-    let maxMatches = 0
-
-    for (const [role, keywords] of Object.entries(roleKeywords)) {
-      const matches = keywords.filter(kw => lowerText.includes(kw)).length
-      if (matches > maxMatches) {
-        maxMatches = matches
-        roleType = role.toUpperCase()
-      }
-    }
-
-    // Extract location
-    let location: string | undefined
-    if (lowerText.includes('london')) location = 'London'
-    else if (lowerText.includes('manchester')) location = 'Manchester'
-    else if (lowerText.includes('birmingham')) location = 'Birmingham'
-    else if (lowerText.includes('uk') || lowerText.includes('united kingdom')) location = 'UK'
-
+async function extractIntent(transcript: string): Promise<ExtractedIntent> {
+  // Skip if transcript is too short
+  if (!transcript || transcript.length < 10) {
     return {
-      action: 'search_jobs',
-      roleType: roleType || undefined,  // Can be undefined for general search
-      location,
-      confidence: roleType ? 0.8 : 0.6
+      action: 'unknown',
+      confidence: 0,
+      reasoning: 'Transcript too short to analyze'
     }
   }
 
-  // Check for preference confirmation intent
-  const hasInterestKeyword = lowerText.includes('interested in') ||
-                            lowerText.includes('looking for') ||
-                            lowerText.includes('want to work')
+  try {
+    const prompt = `Analyze this conversation transcript and extract the user's intent.
 
-  if (hasInterestKeyword) {
-    const values: string[] = []
+Transcript: "${transcript}"
 
-    // Extract role preferences
-    for (const [role, keywords] of Object.entries(roleKeywords)) {
-      if (keywords.some(kw => lowerText.includes(kw))) {
-        values.push(role.toUpperCase())
-      }
+Determine if the user is:
+
+1. **search_jobs**: User wants to SEE jobs NOW
+   - "Show me...", "Find...", "What jobs...", "I want to see..."
+   - Action: Query database and display jobs immediately
+
+2. **confirm_preference**: User is STATING a preference that needs HUMAN confirmation (HITL)
+   - "I'm interested in...", "I prefer...", "I like...", "My background is..."
+   - Action: Show confirmation modal asking "You're interested in X. Confirm?"
+   - ONLY use this if user is stating a lasting preference, not a one-time search
+
+3. **unknown**: Neither of the above
+
+IMPORTANT:
+- "I'm interested in fractional jobs in the UK" → Most likely search_jobs (wants to see jobs)
+- "I'm interested in CMO and CFO roles going forward" → confirm_preference (stating preference to save)
+- When in doubt, prefer search_jobs (users want results, not confirmation dialogs)
+
+If search_jobs, extract:
+- roleType: Executive title (CFO, CMO, CTO, Finance Director, Marketing Director, VP Finance, etc.) or null
+- location: City (London, Manchester, Birmingham, etc.) or country (UK, USA) or null
+
+If confirm_preference, extract:
+- preferenceType: What kind of preference (role, industry, location, etc.)
+- values: List of values they're confirming
+
+Examples:
+"Show me CFO jobs in London" → search_jobs, roleType: "CFO", location: "London"
+"I'm interested in fractional jobs in the UK" → search_jobs, roleType: null, location: "UK" (user wants to see jobs)
+"I'm looking for Marketing Director positions" → search_jobs, roleType: "Marketing Director", location: null
+"What jobs do you have?" → search_jobs, roleType: null, location: null
+"I'm interested in CMO and CFO roles for my career" → confirm_preference, preferenceType: "role", values: ["CMO", "CFO"]
+
+Respond with ONLY valid JSON matching this structure:
+{
+  "action": "search_jobs" | "confirm_preference" | "unknown",
+  "roleType": "CFO" or null,
+  "location": "London" or null,
+  "preferenceType": "role" or null,
+  "values": ["CFO", "CMO"] or null,
+  "confidence": 0.85,
+  "reasoning": "User asking about fractional jobs in UK"
+}`
+
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_API_KEY!,
+        'anthropic-version': '2023-06-01'
+      },
+      body: JSON.stringify({
+        model: 'claude-3-5-haiku-20241022',
+        max_tokens: 512,
+        temperature: 0.1,
+        messages: [{
+          role: 'user',
+          content: prompt
+        }]
+      })
+    })
+
+    if (!response.ok) {
+      throw new Error(`Claude API error: ${response.status}`)
     }
 
-    if (values.length > 0) {
-      return {
-        action: 'confirm_preference',
-        preferenceType: 'role',
-        values,
-        confidence: 0.7
-      }
-    }
-  }
+    const data = await response.json()
+    const text = data.content?.[0]?.text
 
-  return {
-    action: 'unknown',
-    confidence: 0
+    if (!text) {
+      throw new Error('No response from Claude')
+    }
+
+    // Parse and validate with Zod (like Pydantic for TypeScript)
+    const parsed = JSON.parse(text)
+    const validated = ExtractedIntentSchema.parse(parsed)
+
+    console.log('[Transcript Analyzer] AI extracted intent:', validated)
+    return validated
+
+  } catch (error) {
+    console.error('[Transcript Analyzer] AI extraction failed:', error)
+    // Fallback to unknown intent
+    return {
+      action: 'unknown',
+      confidence: 0,
+      reasoning: `Error extracting intent: ${error}`
+    }
   }
 }
 
