@@ -6,7 +6,6 @@ import { VoiceProvider, useVoice } from '@humeai/voice-react'
 import Link from 'next/link'
 import { UserGraph } from '@/components/UserGraph'
 import { JobCard } from '@/components/JobCard'
-import { FracConfirmations } from '@/components/FracConfirmations'
 
 const CONFIG_ID = 'd57ceb71-4cf5-47e9-87cd-6052445a031c'
 
@@ -608,14 +607,95 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
               )}
             </div>
 
-            {/* Pending Confirmation Indicator */}
+            {/* Inline Confirmation Card */}
             {pydanticConfirmation && (
-              <div className="mt-3 p-3 bg-white border-2 border-yellow-400 rounded-lg">
-                <div className="flex items-center gap-2 text-yellow-800 font-medium">
-                  <svg className="w-5 h-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              <div className="mt-3 bg-white border-2 border-yellow-400 rounded-xl p-4 shadow-lg animate-in slide-in-from-bottom-4 duration-300">
+                <div className="flex items-center gap-2 mb-3">
+                  <svg className="w-5 h-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span>Waiting for your confirmation!</span>
+                  <h4 className="font-bold text-gray-900">{pydanticConfirmation.message}</h4>
+                </div>
+
+                {/* Job Details */}
+                {pydanticConfirmation.action === 'save_job' && pydanticConfirmation.data && (
+                  <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-3 mb-3 space-y-1 text-sm">
+                    {pydanticConfirmation.data.title && (
+                      <div><span className="text-gray-500">Position:</span> <span className="font-semibold text-gray-900">{pydanticConfirmation.data.title}</span></div>
+                    )}
+                    {pydanticConfirmation.data.company && (
+                      <div><span className="text-gray-500">Company:</span> <span className="font-semibold text-gray-900">{pydanticConfirmation.data.company}</span></div>
+                    )}
+                  </div>
+                )}
+
+                {/* Preference Details */}
+                {pydanticConfirmation.action === 'update_preference' && pydanticConfirmation.data && (
+                  <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-3 mb-3">
+                    <div className="text-sm text-gray-500 mb-2">Updating {pydanticConfirmation.data.preference_type?.replace('_', ' ')}</div>
+                    <div className="flex flex-wrap gap-2">
+                      {Array.isArray(pydanticConfirmation.data.values) ? (
+                        pydanticConfirmation.data.values.map((value: string, i: number) => (
+                          <span key={i} className="px-2 py-1 bg-white rounded-full text-sm font-medium text-gray-700 border border-gray-200">
+                            {value}
+                          </span>
+                        ))
+                      ) : (
+                        <span className="px-2 py-1 bg-white rounded-full text-sm font-medium text-gray-700 border border-gray-200">
+                          {pydanticConfirmation.data.values}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {/* Action Buttons */}
+                <div className="flex gap-2">
+                  <button
+                    onClick={async () => {
+                      try {
+                        const response = await fetch('/api/confirm-action', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({
+                            action: pydanticConfirmation.action,
+                            approved: true,
+                            data: pydanticConfirmation.data,
+                            user_id: pydanticConfirmation.user_id || 'anonymous'
+                          })
+                        })
+                        const result = await response.json()
+                        if (result.success) {
+                          addDebugLog('✅ User confirmed action', 'success')
+                          setMethodCActivity(prev => [...prev.slice(-5), {
+                            timestamp: new Date().toLocaleTimeString(),
+                            status: 'confirmed',
+                            intent: pydanticConfirmation.action
+                          }])
+                        }
+                      } catch (err) {
+                        addDebugLog('❌ Confirmation failed', 'error')
+                      }
+                      setPydanticConfirmation(null)
+                    }}
+                    className="flex-1 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-medium hover:shadow-lg transition-all transform hover:scale-105"
+                  >
+                    ✓ Confirm
+                  </button>
+                  <button
+                    onClick={() => {
+                      addDebugLog('❌ User rejected action', 'info')
+                      setMethodCActivity(prev => [...prev.slice(-5), {
+                        timestamp: new Date().toLocaleTimeString(),
+                        status: 'rejected',
+                        intent: pydanticConfirmation.action
+                      }])
+                      setPydanticConfirmation(null)
+                    }}
+                    className="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition-colors"
+                  >
+                    ✗ Cancel
+                  </button>
                 </div>
               </div>
             )}
@@ -796,17 +876,6 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
         </div>
       )}
 
-      {/* Confirmation Modal - Pydantic AI + CopilotKit (Method C) */}
-      {pydanticConfirmation && (
-        <FracConfirmations
-          confirmation={pydanticConfirmation}
-          onClose={() => setPydanticConfirmation(null)}
-          onConfirm={async (data) => {
-            addDebugLog('✅ User confirmed action', 'success')
-            setPydanticConfirmation(null)
-          }}
-        />
-      )}
 
       {/* Debug Panel */}
       {debugMode && (
