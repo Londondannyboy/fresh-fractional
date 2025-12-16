@@ -72,7 +72,9 @@ Make links contextual and natural - don't force them.`
 
 // Base prompt for all content types
 const BASE_INSTRUCTIONS = `
-Format: JSON with fields: title, excerpt (max 200 chars), content (markdown with internal links), category, suggested_slug
+Format: JSON with ONLY these fields: title, excerpt, content, category, suggested_slug
+CRITICAL: Escape all quotes and newlines properly in the content field.
+Use \\n for newlines, \\" for quotes. Keep content under 500 words.
 Write for UK audience. Use £ for currency. Be factual and professional.`
 
 // Prompts for each content type
