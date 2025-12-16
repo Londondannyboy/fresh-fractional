@@ -5,7 +5,6 @@ Python serverless function using actual Pydantic AI framework
 
 import os
 import json
-from http.server import BaseHTTPRequestHandler
 from typing import Optional, Literal
 from pydantic import BaseModel, Field
 from pydantic_ai import Agent
@@ -62,13 +61,36 @@ DEFAULT TO search_jobs WHEN IN DOUBT!"""
 )
 
 
+# Map executive titles to role categories for better search
+def map_role_to_category(role_type: Optional[str]) -> str:
+    if not role_type:
+        return '%'
+
+    role_lower = role_type.lower()
+
+    # Map C-level titles to categories
+    if 'cmo' in role_lower or 'chief marketing' in role_lower:
+        return '%Marketing%'
+    if 'cfo' in role_lower or 'chief financial' in role_lower or 'finance director' in role_lower:
+        return '%Finance%'
+    if 'cto' in role_lower or 'chief technology' in role_lower or 'chief technical' in role_lower:
+        return '%Technology%'
+    if 'coo' in role_lower or 'chief operating' in role_lower:
+        return '%Operations%'
+    if 'ceo' in role_lower or 'chief executive' in role_lower:
+        return '%Executive%'
+
+    # Default: use the literal search term
+    return f'%{role_type}%'
+
+
 def query_jobs(role_type: Optional[str], location: Optional[str]) -> list[dict]:
     """Query Neon database for jobs"""
     try:
         conn = psycopg2.connect(os.environ.get('DATABASE_URL'))
         cursor = conn.cursor(cursor_factory=RealDictCursor)
 
-        role_pattern = f'%{role_type}%' if role_type else '%'
+        role_pattern = map_role_to_category(role_type)
         location_pattern = f'%{location}%' if location else '%'
 
         cursor.execute("""
@@ -108,23 +130,38 @@ def query_jobs(role_type: Optional[str], location: Optional[str]) -> list[dict]:
         return []
 
 
-class handler(BaseHTTPRequestHandler):
-    """Vercel serverless function handler"""
+def handler(request):
+    """Vercel serverless function handler - simplified for compatibility"""
 
-    def do_POST(self):
-        try:
-            # Read request body
-            content_length = int(self.headers.get('Content-Length', 0))
-            body_bytes = self.rfile.read(content_length)
-            body = json.loads(body_bytes.decode('utf-8'))
+    # Handle OPTIONS for CORS
+    if request.method == 'OPTIONS':
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'POST, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type'
+            },
+            'body': ''
+        }
 
-            transcript = body.get('transcript', '')
-            user_id = body.get('userId')
+    try:
+        # Parse request body
+        body = json.loads(request.body) if hasattr(request, 'body') else json.loads(request)
 
-            print(f'[Pydantic AI] Analyzing: {transcript[:100]}')
+        transcript = body.get('transcript', '')
+        user_id = body.get('userId')
 
-            if not transcript or len(transcript) < 10:
-                self._send_json_response(200, {
+        print(f'[Pydantic AI] Analyzing: {transcript[:100]}')
+
+        if not transcript or len(transcript) < 10:
+            return {
+                'statusCode': 200,
+                'headers': {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                'body': json.dumps({
                     'status': 'no_action',
                     'method': 'pydantic_ai',
                     'intent': {
@@ -133,19 +170,25 @@ class handler(BaseHTTPRequestHandler):
                         'reasoning': 'Transcript too short'
                     }
                 })
-                return
+            }
 
-            # Use Pydantic AI Agent for intent extraction
-            result = agent.run_sync(f'Analyze this transcript: "{transcript}"')
-            intent = result.data
+        # Use Pydantic AI Agent for intent extraction
+        result = agent.run_sync(f'Analyze this transcript: "{transcript}"')
+        intent = result.data
 
-            print(f'[Pydantic AI] Intent: {intent.model_dump()}')
+        print(f'[Pydantic AI] Intent: {intent.model_dump()}')
 
-            # If search_jobs, query database
-            if intent.action == 'search_jobs':
-                jobs = query_jobs(intent.role_type, intent.location)
+        # If search_jobs, query database
+        if intent.action == 'search_jobs':
+            jobs = query_jobs(intent.role_type, intent.location)
 
-                self._send_json_response(200, {
+            return {
+                'statusCode': 200,
+                'headers': {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                'body': json.dumps({
                     'status': 'success',
                     'method': 'pydantic_ai',
                     'intent': intent.model_dump(),
@@ -164,11 +207,17 @@ class handler(BaseHTTPRequestHandler):
                         } for j in jobs]
                     }
                 })
-                return
+            }
 
-            # If confirm_preference, return confirmation request
-            elif intent.action == 'confirm_preference':
-                self._send_json_response(200, {
+        # If confirm_preference, return confirmation request
+        elif intent.action == 'confirm_preference':
+            return {
+                'statusCode': 200,
+                'headers': {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                'body': json.dumps({
                     'status': 'success',
                     'method': 'pydantic_ai',
                     'intent': intent.model_dump(),
@@ -179,26 +228,35 @@ class handler(BaseHTTPRequestHandler):
                         'values': intent.values
                     }
                 })
-                return
+            }
 
-            # Unknown intent
-            self._send_json_response(200, {
+        # Unknown intent
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({
                 'status': 'no_action',
                 'method': 'pydantic_ai',
                 'intent': intent.model_dump()
             })
+        }
 
-        except Exception as e:
-            print(f'[Pydantic AI] Error: {e}')
-            self._send_json_response(500, {
+    except Exception as e:
+        print(f'[Pydantic AI] Error: {e}')
+        import traceback
+        traceback.print_exc()
+
+        return {
+            'statusCode': 500,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({
                 'error': 'Pydantic AI analysis failed',
                 'details': str(e)
             })
-
-    def _send_json_response(self, status_code, data):
-        """Helper to send JSON response"""
-        self.send_response(status_code)
-        self.send_header('Content-Type', 'application/json')
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.end_headers()
-        self.wfile.write(json.dumps(data).encode('utf-8'))
+        }
