@@ -399,7 +399,7 @@ export default async function FractionalJobsUKPage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 auto-rows-fr">
               {(ukJobs as any[]).slice(0, 15).map((job: any) => {
                 const postedDate = job.posted_date ? new Date(job.posted_date) : null
                 const postedDaysAgo = postedDate
@@ -410,7 +410,7 @@ export default async function FractionalJobsUKPage() {
                 const estimatedRate = !job.compensation ? estimateRateByRole(job.role_category) : undefined
 
                 return (
-                  <Link key={job.id} href={`/fractional-job/${job.slug}`}>
+                  <Link key={job.id} href={`/fractional-job/${job.slug}`} className="flex">
                     <JobCard
                       jobId={job.id}
                       title={job.normalized_title || job.title}

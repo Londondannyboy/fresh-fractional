@@ -137,31 +137,8 @@ export function JobCard({
       className={`group relative bg-gray-900 border-2 border-gray-800 rounded-2xl p-6
         hover:border-blue-600 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)]
         hover:-translate-y-1 transition-all duration-300 cursor-pointer
-        overflow-hidden flex flex-col min-h-[600px] ${className}`}
+        overflow-hidden flex flex-col h-full ${className}`}
     >
-      {/* Save button - only show if jobId is provided */}
-      {jobId && (
-        <button
-          onClick={handleSave}
-          disabled={isSaving}
-          className="absolute top-2 right-2 p-2 bg-gray-900/80 backdrop-blur rounded-lg
-            hover:bg-blue-600/20 border border-gray-700 hover:border-blue-500
-            transition-all duration-200 group/save z-20"
-          title={isSaved ? 'Remove from saved jobs' : 'Save job for later'}
-        >
-          <svg
-            className={`w-5 h-5 transition-all ${
-              isSaved
-                ? 'fill-blue-400 text-blue-400'
-                : 'fill-none text-gray-400 group-hover/save:text-blue-400'
-            } ${isSaving ? 'animate-pulse' : ''}`}
-            viewBox="0 0 20 20"
-          >
-            <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
-          </svg>
-        </button>
-      )}
-
       {/* Neon gradient overlay on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 via-blue-500/0 to-blue-600/0
         group-hover:from-blue-600/5 group-hover:via-blue-500/5 group-hover:to-blue-600/5
@@ -180,10 +157,10 @@ export function JobCard({
 
         {/* Title & Company - FIRST - Most Important */}
         <div className="mb-3">
-          <h3 className="text-xl md:text-2xl font-black text-white !text-white group-hover:text-blue-100 transition-colors mb-3 leading-tight min-h-[3.5rem] line-clamp-2">
-            {title}
+          <h3 className="text-xl md:text-2xl font-black text-white !text-white group-hover:text-blue-100 transition-colors mb-3 leading-tight h-[4rem] flex items-start">
+            <span className="line-clamp-2">{title}</span>
           </h3>
-          <p className="text-base md:text-lg font-bold text-white !text-white mb-3">{company}</p>
+          <p className="text-base md:text-lg font-bold text-white !text-white mb-3 h-[1.75rem]">{company}</p>
 
           {/* Compact Badges Row - Under Title/Company */}
           <div className="flex flex-wrap items-center gap-2">
@@ -220,13 +197,15 @@ export function JobCard({
           </div>
 
           {/* Why Apply - Prominent Appeal Summary */}
-          {appealSummary && (
-            <div className="mt-3 p-3 bg-gradient-to-r from-blue-600/20 to-blue-600/20 border-l-4 border-blue-600 rounded-lg">
-              <p className="text-sm font-semibold text-white leading-relaxed">
-                {appealSummary}
-              </p>
-            </div>
-          )}
+          <div className="mt-3 min-h-[5rem]">
+            {appealSummary && (
+              <div className="p-3 bg-gradient-to-r from-blue-600/20 to-blue-600/20 border-l-4 border-blue-600 rounded-lg">
+                <p className="text-sm font-semibold text-white leading-relaxed line-clamp-3">
+                  {appealSummary}
+                </p>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Company Summary - NEW */}
@@ -355,8 +334,8 @@ export function JobCard({
           </div>
         )}
 
-        {/* Enhanced Apply Button - Centered & Glowing */}
-        <div className="pt-4 border-t border-gray-800 mt-auto">
+        {/* Enhanced Apply Button & Save Button - Bottom */}
+        <div className="pt-4 border-t border-gray-800 mt-auto space-y-3">
           <button
             className="relative w-full px-8 py-4 bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500
               hover:from-blue-600 hover:via-blue-500 hover:to-blue-400
@@ -379,6 +358,32 @@ export function JobCard({
               </svg>
             </span>
           </button>
+
+          {/* Save Button - only show if jobId is provided */}
+          {jobId && (
+            <button
+              onClick={handleSave}
+              disabled={isSaving}
+              className={`w-full px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2 ${
+                isSaved
+                  ? 'bg-blue-600 text-white hover:bg-blue-700 border border-blue-500'
+                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700 hover:border-blue-500'
+              } ${isSaving ? 'opacity-50 cursor-not-allowed' : ''}`}
+              title={isSaved ? 'Remove from saved jobs' : 'Save job for later'}
+            >
+              <svg
+                className={`w-5 h-5 transition-all ${
+                  isSaved ? 'fill-white' : 'fill-none'
+                }`}
+                viewBox="0 0 20 20"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+              </svg>
+              {isSaving ? 'Saving...' : isSaved ? 'Saved' : 'Save Job'}
+            </button>
+          )}
         </div>
       </div>
     </div>
