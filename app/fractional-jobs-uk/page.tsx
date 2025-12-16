@@ -313,99 +313,59 @@ export default async function FractionalJobsUKPage() {
             UK's Fractional Executive Platform
           </span>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white !text-white mb-6 leading-[0.95] tracking-tight">
-            Fractional Jobs UK: CFO, CTO, CMO
-          </h1>
-
-          {/* Search Bar - Preset to UK */}
-          <div className="max-w-2xl mx-auto mb-6">
-            <form action="/fractional-jobs" method="GET" className="relative">
-              <input
-                type="text"
-                name="q"
-                defaultValue="UK"
-                placeholder="Search fractional jobs UK..."
-                className="w-full px-6 py-4 pr-32 bg-gray-900/80 backdrop-blur border-2 border-gray-700 rounded-xl text-white placeholder-gray-400 focus:border-blue-600 focus:outline-none transition-colors"
-              />
-              <button
-                type="submit"
-                className="absolute right-2 top-2 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
-              >
-                Search
-              </button>
-            </form>
-          </div>
-
-          <p className="text-base sm:text-lg md:text-xl text-white !text-white mb-4 max-w-3xl mx-auto leading-relaxed">
-            Find {stats.totalUK}+ fractional executive jobs across the UK. Part-time CFO, CTO, CMO, and COO opportunities with £800-£1,500 day rates.
-          </p>
-
-          <p className="text-sm sm:text-base text-gray-300 mb-8 max-w-2xl mx-auto">
-            Interactive tools, market insights, and real-time opportunities. Build your portfolio career with the UK's leading fractional jobs platform.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="#jobs"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-white text-black hover:bg-gray-100 transition-all duration-200 shadow-lg"
-            >
-              Browse Jobs &darr;
-            </Link>
-            <Link
-              href="#tools"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 shadow-lg shadow-blue-600/30"
-            >
-              Explore Tools
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Primary H1 Section - Fully Visible for Crawlers */}
-      <section className="py-12 bg-gray-950 border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white !text-white mb-6 text-center leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             Fractional Jobs UK
           </h1>
-          <div className="max-w-4xl mx-auto space-y-4 text-gray-300 leading-relaxed">
-            <p className="text-lg md:text-xl text-center mb-6">
-              Browse {stats.totalUK}+ fractional executive jobs across the United Kingdom. Find part-time CFO, CTO, CMO, and COO roles with
-              £700-£1,500 daily rates from London to Edinburgh.
-            </p>
-            <p>
-              The UK fractional jobs market has grown exponentially since 2020, with fractional executives now representing over 15% of
-              senior leadership appointments according to recent <a href="https://www.gov.uk/government/statistics" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">UK government employment statistics</a>.
-              This shift reflects fundamental changes in how businesses access executive talent and how experienced leaders structure their careers.
-            </p>
-            <p>
-              Fractional work differs from traditional interim management by emphasizing ongoing strategic partnerships rather than short-term crisis intervention.
-              A fractional CFO, CTO, or CMO typically works with 2-4 clients simultaneously, dedicating 1-3 days per week to each organization.
-              This model enables businesses to access C-level expertise at 40-60% lower cost than full-time employment, while executives earn premium
-              rates and enjoy portfolio career diversity.
-            </p>
-          </div>
+
+          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            {stats.totalUK}+ fractional CFO, CTO, CMO roles • £700-£1,500 day rates
+          </p>
+
+          <Link
+            href="#jobs"
+            className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 shadow-lg"
+          >
+            Browse Jobs ↓
+          </Link>
         </div>
       </section>
 
-      {/* Featured Jobs Section - IMMEDIATELY AFTER HERO */}
+      {/* Featured Jobs Section with Filters */}
       {(ukJobs as any[]).length > 0 && (
         <section id="jobs" className="py-12 md:py-16 bg-gray-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white !text-white mb-2">
-                  Featured Fractional Jobs UK
-                </h2>
-                <p className="text-gray-400 text-sm md:text-base">
-                  Updated hourly • {stats.totalUK} active opportunities
-                </p>
+            <div className="mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                Fractional Jobs UK
+              </h2>
+              <p className="text-gray-400 text-sm mb-6">
+                {stats.totalUK} active opportunities • Updated hourly
+              </p>
+
+              {/* Role Filters */}
+              <div className="flex flex-wrap gap-3">
+                {[
+                  { label: 'All Roles', href: '/fractional-jobs-uk', active: true },
+                  { label: 'CFO', href: '/fractional-cfo-jobs-uk' },
+                  { label: 'CTO', href: '/fractional-cto-jobs-uk' },
+                  { label: 'CMO', href: '/fractional-cmo-jobs-uk' },
+                  { label: 'COO', href: '/fractional-coo-jobs-uk' },
+                  { label: 'HR/CHRO', href: '/fractional-hr-jobs-uk' },
+                  { label: 'Remote', href: '/fractional-jobs?remote=true' },
+                ].map((filter) => (
+                  <Link
+                    key={filter.label}
+                    href={filter.href}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                      filter.active
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700'
+                    }`}
+                  >
+                    {filter.label}
+                  </Link>
+                ))}
               </div>
-              <Link
-                href="/fractional-jobs-uk"
-                className="text-blue-400 hover:text-blue-300 font-semibold transition-colors whitespace-nowrap"
-              >
-                View all &rarr;
-              </Link>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 auto-rows-fr">
@@ -447,6 +407,32 @@ export default async function FractionalJobsUKPage() {
           </div>
         </section>
       )}
+
+      {/* About Fractional Jobs UK - Moved Below Jobs */}
+      <section className="py-16 md:py-20 bg-gray-950">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+            About Fractional Jobs UK
+          </h2>
+          <div className="space-y-4 text-gray-300 leading-relaxed">
+            <p>
+              Browse {stats.totalUK}+ fractional executive jobs across the United Kingdom. Find part-time CFO, CTO, CMO, and COO roles with
+              £700-£1,500 daily rates from London to Edinburgh.
+            </p>
+            <p>
+              The UK fractional jobs market has grown exponentially since 2020, with fractional executives now representing over 15% of
+              senior leadership appointments according to recent <a href="https://www.gov.uk/government/statistics" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">UK government employment statistics</a>.
+              This shift reflects fundamental changes in how businesses access executive talent and how experienced leaders structure their careers.
+            </p>
+            <p>
+              Fractional work differs from traditional interim management by emphasizing ongoing strategic partnerships rather than short-term crisis intervention.
+              A fractional CFO, CTO, or CMO typically works with 2-4 clients simultaneously, dedicating 1-3 days per week to each organization.
+              This model enables businesses to access C-level expertise at 40-60% lower cost than full-time employment, while executives earn premium
+              rates and enjoy portfolio career diversity.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Rate Calculator Section */}
       <section id="rate-calculator" className="py-16 md:py-24 bg-gray-900">
