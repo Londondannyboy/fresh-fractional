@@ -210,15 +210,15 @@ export default async function BristolPage() {
             </div>
           </div>
         </div>
-          <div class="mt-12 max-w-4xl mx-auto">
-            <p class="text-gray-700 leading-relaxed mb-4">
-              Bristol's economy blends aerospace heritage with digital innovation. <a href="https://www.businesswest.co.uk/latest-news" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Business West</a> reports the Bristol city-region contributes £40bn+ GVA, with particular strength in creative, tech, and engineering sectors requiring fractional executive expertise to scale sustainably.
+          <div className="mt-12 max-w-4xl mx-auto">
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Bristol's economy blends aerospace heritage with digital innovation. <a href="https://www.businesswest.co.uk/latest-news" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Business West</a> reports the Bristol city-region contributes £40bn+ GVA, with particular strength in creative, tech, and engineering sectors requiring fractional executive expertise to scale sustainably.
             </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-              The city's tech cluster creates unique fractional opportunities. <a href="https://www.techspark.co/news/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">TechSPARK</a> data shows Bristol hosts over 3,500 digital companies, from early-stage startups to scale-ups requiring fractional CTO and product leadership. The aerospace and cleantech sectors also drive demand for operational and technical expertise.
+            <p className="text-gray-700 leading-relaxed mb-4">
+              The city's tech cluster creates unique fractional opportunities. <a href="https://www.techspark.co/news/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">TechSPARK</a> data shows Bristol hosts over 3,500 digital companies, from early-stage startups to scale-ups requiring fractional CTO and product leadership. The aerospace and cleantech sectors also drive demand for operational and technical expertise.
             </p>
-            <p class="text-gray-700 leading-relaxed">
-              Bristol offers excellent opportunities for portfolio careers: solid day rates (£700-£1,050) in one of the UK's most liveable cities. <a href="https://bristol.ac.uk/golding/news/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">University of Bristol research</a> highlights the region's business optimism and innovation culture—ideal conditions for fractional executives seeking engaged, growth-focused clients.
+            <p className="text-gray-700 leading-relaxed">
+              Bristol offers excellent opportunities for portfolio careers: solid day rates (£700-£1,050) in one of the UK's most liveable cities. <a href="https://bristol.ac.uk/golding/news/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">University of Bristol research</a> highlights the region's business optimism and innovation culture—ideal conditions for fractional executives seeking engaged, growth-focused clients.
             </p>
           </div>
       </section>

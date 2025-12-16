@@ -189,14 +189,14 @@ export default async function BelfastPage() {
             </div>
           </div>
         </div>
-          <div class="mt-12 max-w-4xl mx-auto">
-            <p class="text-gray-700 leading-relaxed mb-4">
-              Belfast's economy has transformed into a thriving tech and professional services hub. <a href="https://www.belfastchamber.com/insights/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Belfast Chamber of Trade and Commerce</a> reports significant growth in cybersecurity, fintech, and software development—sectors requiring fractional CTO and product leadership.
+          <div className="mt-12 max-w-4xl mx-auto">
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Belfast's economy has transformed into a thriving tech and professional services hub. <a href="https://www.belfastchamber.com/insights/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Belfast Chamber of Trade and Commerce</a> reports significant growth in cybersecurity, fintech, and software development—sectors requiring fractional CTO and product leadership.
             </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-              Northern Ireland's business environment offers unique advantages. <a href="https://www.investni.com/news" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Invest Northern Ireland</a> tracks inward investment and scale-up growth, with Belfast companies increasingly seeking fractional CFO expertise for expansion and fundraising.
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Northern Ireland's business environment offers unique advantages. <a href="https://www.investni.com/news" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Invest Northern Ireland</a> tracks inward investment and scale-up growth, with Belfast companies increasingly seeking fractional CFO expertise for expansion and fundraising.
             </p>
-            <p class="text-gray-700 leading-relaxed">
+            <p className="text-gray-700 leading-relaxed">
               Belfast offers excellent value: competitive rates (£600-£900) with the lowest living costs among major UK cities. The combination of R&D tax advantages, talented workforce, and growing startup ecosystem creates attractive opportunities for experienced fractional executives.
             </p>
           </div>
@@ -287,14 +287,14 @@ export default async function BelfastPage() {
             </details>
           </div>
         </div>
-          <div class="mt-12 max-w-4xl mx-auto">
-            <p class="text-gray-700 leading-relaxed mb-4">
-              Belfast's economy has transformed into a thriving tech and professional services hub. <a href="https://www.belfastchamber.com/insights/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Belfast Chamber of Trade and Commerce</a> reports significant growth in cybersecurity, fintech, and software development—sectors requiring fractional CTO and product leadership.
+          <div className="mt-12 max-w-4xl mx-auto">
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Belfast's economy has transformed into a thriving tech and professional services hub. <a href="https://www.belfastchamber.com/insights/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Belfast Chamber of Trade and Commerce</a> reports significant growth in cybersecurity, fintech, and software development—sectors requiring fractional CTO and product leadership.
             </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-              Northern Ireland's business environment offers unique advantages. <a href="https://www.investni.com/news" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Invest Northern Ireland</a> tracks inward investment and scale-up growth, with Belfast companies increasingly seeking fractional CFO expertise for expansion and fundraising.
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Northern Ireland's business environment offers unique advantages. <a href="https://www.investni.com/news" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Invest Northern Ireland</a> tracks inward investment and scale-up growth, with Belfast companies increasingly seeking fractional CFO expertise for expansion and fundraising.
             </p>
-            <p class="text-gray-700 leading-relaxed">
+            <p className="text-gray-700 leading-relaxed">
               Belfast offers excellent value: competitive rates (£600-£900) with the lowest living costs among major UK cities. The combination of R&D tax advantages, talented workforce, and growing startup ecosystem creates attractive opportunities for experienced fractional executives.
             </p>
           </div>

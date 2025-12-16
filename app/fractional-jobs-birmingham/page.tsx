@@ -235,15 +235,15 @@ export default async function BirminghamPage() {
             </div>
           </div>
         </div>
-          <div class="mt-12 max-w-4xl mx-auto">
-            <p class="text-gray-700 leading-relaxed mb-4">
-              Birmingham's economy is undergoing rapid transformation. <a href="https://www.greaterbirminghamchambers.com/research-campaigns/economic-intelligence/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Greater Birmingham Chambers of Commerce</a> reports the city-region economy has grown to over £34 billion GVA, with strength in professional services, manufacturing, and tech—sectors seeking fractional leadership.
+          <div className="mt-12 max-w-4xl mx-auto">
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Birmingham's economy is undergoing rapid transformation. <a href="https://www.greaterbirminghamchambers.com/research-campaigns/economic-intelligence/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Greater Birmingham Chambers of Commerce</a> reports the city-region economy has grown to over £34 billion GVA, with strength in professional services, manufacturing, and tech—sectors seeking fractional leadership.
             </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-              The <a href="https://www.midlandsengine.org/news/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Midlands Engine</a> tracks significant growth in Birmingham's scale-up ecosystem, with over 500 high-growth companies requiring fractional CFO, CMO, and CTO expertise. HS2 and major regeneration projects create demand for operational and financial leadership.
+            <p className="text-gray-700 leading-relaxed mb-4">
+              The <a href="https://www.midlandsengine.org/news/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Midlands Engine</a> tracks significant growth in Birmingham's scale-up ecosystem, with over 500 high-growth companies requiring fractional CFO, CMO, and CTO expertise. HS2 and major regeneration projects create demand for operational and financial leadership.
             </p>
-            <p class="text-gray-700 leading-relaxed">
-              For fractional executives, Birmingham offers day rates (£700-£1,050) with lower living costs than London. <a href="https://www.wmca.org.uk/what-we-do/economy-and-innovation/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">West Midlands Combined Authority</a> data shows consistent business confidence across manufacturing, logistics, and creative industries.
+            <p className="text-gray-700 leading-relaxed">
+              For fractional executives, Birmingham offers day rates (£700-£1,050) with lower living costs than London. <a href="https://www.wmca.org.uk/what-we-do/economy-and-innovation/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">West Midlands Combined Authority</a> data shows consistent business confidence across manufacturing, logistics, and creative industries.
             </p>
           </div>
       </section>
