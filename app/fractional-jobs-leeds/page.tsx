@@ -209,6 +209,17 @@ export default async function LeedsPage() {
             </div>
           </div>
         </div>
+          <div class="mt-12 max-w-4xl mx-auto">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Leeds has emerged as the UK's fastest-growing regional economy. <a href="https://www.the-lep.com/about/research-and-data/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Leeds City Region Enterprise Partnership</a> data shows GVA growth of 22% over five years, outpacing most UK cities. The concentration of legal, financial services, and digital firms creates exceptional demand for fractional CFO, COO, and compliance expertise.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The city's tech sector particularly drives fractional opportunities. <a href="https://leedsdigitalfestival.org/news/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Leeds Digital Festival</a> represents one of the UK's largest tech communities, with over 3,000 digital businesses requiring technical leadership. The rise of cyber security and fintech companies adds demand for fractional CTO and CISO roles.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Leeds offers strong value for fractional executives: competitive day rates (£700-£1,100) combined with Yorkshire's quality of life. <a href="https://www.yorkshirepost.co.uk/business" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Yorkshire Post business coverage</a> highlights continued investment in professional services and advanced manufacturing—sectors that value experienced fractional leadership.
+            </p>
+          </div>
       </section>
 
       {/* Jobs */}

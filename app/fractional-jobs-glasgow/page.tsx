@@ -293,6 +293,17 @@ export default async function GlasgowPage() {
             </div>
           </div>
         </div>
+          <div class="mt-12 max-w-4xl mx-auto">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Glasgow's economy is experiencing significant transformation. <a href="https://www.scottish-enterprise.com/support-for-businesses/develop-new-products-and-services/innovation-support/glasgow-city-innovation-district" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Scottish Enterprise's Glasgow Innovation District</a> initiative has catalyzed growth in life sciences, fintech, and creative industries—all requiring fractional leadership to navigate expansion.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The city's reputation as Scotland's commercial capital creates consistent fractional demand. With concentrations in financial services, engineering, and digital creative sectors, Glasgow companies seek fractional CFOs familiar with Scottish tax structures, CMOs understanding UK-wide campaigns, and CTOs scaling distributed teams.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              For fractional executives, Glasgow combines competitive rates (£650-£1,000) with Scotland's lower cost base and quality of life. The combination of established corporates, ambitious scale-ups, and public sector opportunities provides diverse portfolio options for experienced leaders.
+            </p>
+          </div>
       </section>
 
       {/* Glasgow Industries */}
