@@ -97,10 +97,10 @@ export default function FractionalCmoSalaryPage() {
           <div className="prose prose-lg prose-purple mb-12">
             <h2>Fractional CMO Salary Overview</h2>
             <p>
-              <strong>Fractional CMO salary</strong> in the UK varies based on experience, specialisation, location, and the types of clients you work with. Unlike traditional full-time CMO roles with annual salaries of £100,000-£180,000, fractional CMOs charge day rates—typically £700 to £1,400 per day in 2025.
+              <strong>Fractional CMO salary</strong> in the UK varies based on experience, specialisation, location, and the types of clients you work with. Unlike <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/latest" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">traditional full-time CMO roles</a> with annual salaries of £100,000-£180,000, fractional CMOs charge day rates—typically £700 to £1,400 per day in 2025.
             </p>
             <p>
-              The <strong>fractional CMO UK salary</strong> model often delivers higher total compensation than full-time equivalents. A fractional CMO working with 2-3 clients at 2 days each can earn £150,000-£200,000 annually while maintaining flexibility and variety that full-time roles don't offer.
+              The <strong>fractional CMO UK salary</strong> model often delivers higher total compensation than full-time equivalents. A fractional CMO working with 2-3 clients at 2 days each can earn £150,000-£200,000 annually while maintaining flexibility and variety that full-time roles don't offer. Most fractional CMOs operate as <a href="https://www.gov.uk/working-for-yourself" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">self-employed professionals</a> or through limited companies.
             </p>
           </div>
 

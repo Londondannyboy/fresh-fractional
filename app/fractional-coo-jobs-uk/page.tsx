@@ -185,7 +185,7 @@ export default async function FractionalCooJobsUkPage() {
               <strong className="font-semibold text-gray-900">Fractional COO jobs</strong> represent the new frontier of operations leadership. Part-time Chief Operating Officer positions where experienced leaders provide strategic operational guidance to multiple companies simultaneously—delivering world-class expertise at a fraction of the cost.
             </p>
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">The Rise of Fractional COO Jobs UK</h3>
-            <p>The demand for <strong>fractional COO jobs UK</strong> has grown substantially as companies recognise that world-class operations leadership doesn't require a full-time commitment. Startups scaling from founder-led to operationally mature, PE portfolio companies, and SMEs professionalising their operations all increasingly turn to fractional COOs.</p>
+            <p>The demand for <strong>fractional COO jobs UK</strong> has grown substantially as companies recognise that world-class operations leadership doesn't require a full-time commitment. <a href="https://www.gov.uk/government/organisations/department-for-business-and-trade" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">Startups scaling from founder-led to operationally mature</a>, PE portfolio companies, and SMEs professionalising their operations all increasingly turn to fractional COOs.</p>
             <div className="bg-gray-50 p-8 my-10 border-l-4 border-orange-500">
               <p className="text-xl font-semibold text-gray-900 mb-0">"Founders access operational expertise for £2,000-£4,000/week vs £150,000+ annually for full-time."</p>
             </div>
@@ -214,7 +214,7 @@ export default async function FractionalCooJobsUkPage() {
             </div>
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Requirements for Fractional COO Jobs</h3>
             <ul className="space-y-2">
-              <li>15+ years operations and general management experience</li>
+              <li>15+ years <a href="https://www.cmi.org.uk/professional-development/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">operations and general management experience</a></li>
               <li>5+ years in COO, VP Operations, or Operations Director roles</li>
               <li>Experience scaling operations from startup to mature business</li>
               <li>Strong process design and systems thinking</li>

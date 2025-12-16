@@ -97,10 +97,10 @@ export default function FractionalCfoSalaryPage() {
           <div className="prose prose-lg prose-emerald mb-12">
             <h2>Fractional CFO Salary Overview</h2>
             <p>
-              <strong>Fractional CFO salary</strong> in the UK varies significantly based on experience, location, industry specialisation, and client portfolio. Unlike full-time CFO roles with fixed annual salaries, fractional CFOs charge day rates—typically ranging from £800 to £1,500 per day in 2025.
+              <strong>Fractional CFO salary</strong> in the UK varies significantly based on experience, location, industry specialisation, and client portfolio. Unlike <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">full-time CFO roles with fixed annual salaries</a>, fractional CFOs charge day rates—typically ranging from £800 to £1,500 per day in 2025.
             </p>
             <p>
-              The <strong>fractional CFO pay</strong> model offers higher effective hourly earnings than most full-time positions. A fractional CFO working 3 days per week at £1,100/day earns approximately £170,000 annually—comparable to a full-time CFO at a Series B startup, but with significantly more flexibility.
+              The <strong>fractional CFO pay</strong> model offers higher effective hourly earnings than most full-time positions. A fractional CFO working 3 days per week at £1,100/day earns approximately £170,000 annually—comparable to a full-time CFO at a Series B startup, but with significantly more flexibility. Most fractional CFOs operate through <a href="https://www.gov.uk/set-up-business" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">limited companies for tax efficiency</a>.
             </p>
           </div>
 
@@ -186,7 +186,7 @@ export default function FractionalCfoSalaryPage() {
             <h2>Factors Affecting Fractional CFO Salary</h2>
             <p>Several factors influence <strong>fractional CFO earnings</strong>:</p>
             <ul>
-              <li><strong>Qualifications</strong> - ACA/ACCA/CIMA qualified CFOs command 10-15% higher rates</li>
+              <li><strong>Qualifications</strong> - <a href="https://www.icaew.com/membership/regulations-standards-and-guidance" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">ACA</a>/<a href="https://www.accaglobal.com/gb/en/member.html" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">ACCA</a>/<a href="https://www.cimaglobal.com/members/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">CIMA</a> qualified CFOs command 10-15% higher rates</li>
               <li><strong>Fundraising experience</strong> - Series A-C experience adds £100-200/day premium</li>
               <li><strong>Industry specialisation</strong> - Deep sector expertise (FinTech, PE) commands premium rates</li>
               <li><strong>Client portfolio</strong> - Established fractional CFOs with referral networks earn more</li>
@@ -195,7 +195,7 @@ export default function FractionalCfoSalaryPage() {
 
             <h2>Full-Time CFO vs Fractional CFO Salary</h2>
             <p>
-              Comparing <strong>fractional CFO salary</strong> to full-time equivalents requires considering total compensation and working patterns. A full-time CFO at a Series B startup might earn £150,000-£200,000 plus equity. A fractional CFO earning £1,100/day for 150 days achieves £165,000—similar cash compensation with more flexibility and typically better effective hourly rate.
+              Comparing <strong>fractional CFO salary</strong> to full-time equivalents requires considering total compensation and working patterns. A full-time CFO at a Series B startup might earn £150,000-£200,000 plus equity. A fractional CFO earning £1,100/day for 150 days achieves £165,000—similar cash compensation with more flexibility and typically better effective hourly rate. Understanding <a href="https://www.gov.uk/topic/business-tax/self-employed" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">self-employed tax obligations</a> is essential for maximizing net earnings.
             </p>
           </div>
         </div>
