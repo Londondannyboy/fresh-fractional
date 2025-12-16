@@ -208,6 +208,17 @@ export default async function NewcastlePage() {
             </div>
           </div>
         </div>
+          <div class="mt-12 max-w-4xl mx-auto">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Newcastle and the wider North East region offer unique opportunities. <a href="https://www.northeastengland.co.uk/insights/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Invest North East England</a> tracks growth in advanced manufacturing, digital, and energy sectors—areas requiring fractional leadership to scale operations and navigate complex technical challenges.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The region's universities and research base drive innovation demand. <a href="https://www.neechamber.co.uk/intelligence/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">North East England Chamber of Commerce</a> reports consistent business optimism, particularly in renewable energy and software development—sectors seeking fractional CTO and product expertise.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Newcastle offers excellent lifestyle with competitive rates (£600-£950). The combination of lower costs, strong quality of life, and access to both established corporates and innovative scale-ups creates attractive portfolio opportunities for experienced executives.
+            </p>
+          </div>
       </section>
 
       {/* Industries */}

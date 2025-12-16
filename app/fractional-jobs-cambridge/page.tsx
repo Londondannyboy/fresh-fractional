@@ -189,6 +189,17 @@ export default async function CambridgePage() {
             </div>
           </div>
         </div>
+          <div class="mt-12 max-w-4xl mx-auto">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Cambridge's innovation ecosystem is world-class. <a href="https://www.cambridgenetwork.co.uk/news/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Cambridge Network</a> data shows over 5,000 knowledge-intensive companies in the region, creating exceptional demand for fractional executives who understand deep tech, life sciences, and IP-led business models.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The concentration of spin-outs and venture-backed companies drives fractional opportunities. <a href="https://www.cambridgeahead.co.uk/insights/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Cambridge Ahead</a> research highlights consistent growth in biotech, quantum computing, and AI startups—all requiring fractional CFO expertise for fundraising and fractional CTO/CSO leadership for technical strategy.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Cambridge offers premium rates (£800-£1,200) reflecting the sophistication of clients and proximity to London. For executives with deep tech or life sciences experience, Cambridge represents one of the UK's most attractive markets for portfolio careers.
+            </p>
+          </div>
       </section>
 
       {/* Industries */}
@@ -276,6 +287,17 @@ export default async function CambridgePage() {
             </details>
           </div>
         </div>
+          <div class="mt-12 max-w-4xl mx-auto">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Cambridge's innovation ecosystem is world-class. <a href="https://www.cambridgenetwork.co.uk/news/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Cambridge Network</a> data shows over 5,000 knowledge-intensive companies in the region, creating exceptional demand for fractional executives who understand deep tech, life sciences, and IP-led business models.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The concentration of spin-outs and venture-backed companies drives fractional opportunities. <a href="https://www.cambridgeahead.co.uk/insights/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Cambridge Ahead</a> research highlights consistent growth in biotech, quantum computing, and AI startups—all requiring fractional CFO expertise for fundraising and fractional CTO/CSO leadership for technical strategy.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Cambridge offers premium rates (£800-£1,200) reflecting the sophistication of clients and proximity to London. For executives with deep tech or life sciences experience, Cambridge represents one of the UK's most attractive markets for portfolio careers.
+            </p>
+          </div>
       </section>
 
       {/* Internal Links */}

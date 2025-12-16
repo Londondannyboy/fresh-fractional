@@ -189,6 +189,17 @@ export default async function CardiffPage() {
             </div>
           </div>
         </div>
+          <div class="mt-12 max-w-4xl mx-auto">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Cardiff's economy is growing rapidly as Wales' capital. <a href="https://businesswales.gov.wales/news-and-blog" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Business Wales</a> reports significant expansion in professional services, media production, and fintech sectors, creating demand for fractional CFO, CMO, and operational leadership.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The city's media and creative sector particularly drives opportunities. <a href="https://www.cardiffchamber.co.uk/insights/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Cardiff and Vale Chamber of Commerce</a> tracks growth in TV production, digital agencies, and tech startups—all requiring marketing and creative leadership.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Cardiff offers strong value: competitive rates (£600-£950) with excellent quality of life and lower costs than English cities. The combination of Welsh Government support for business and proximity to Bristol/London makes Cardiff attractive for building portfolio careers.
+            </p>
+          </div>
       </section>
 
       {/* Industries */}
@@ -276,6 +287,17 @@ export default async function CardiffPage() {
             </details>
           </div>
         </div>
+          <div class="mt-12 max-w-4xl mx-auto">
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Cardiff's economy is growing rapidly as Wales' capital. <a href="https://businesswales.gov.wales/news-and-blog" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Business Wales</a> reports significant expansion in professional services, media production, and fintech sectors, creating demand for fractional CFO, CMO, and operational leadership.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The city's media and creative sector particularly drives opportunities. <a href="https://www.cardiffchamber.co.uk/insights/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 underline">Cardiff and Vale Chamber of Commerce</a> tracks growth in TV production, digital agencies, and tech startups—all requiring marketing and creative leadership.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              Cardiff offers strong value: competitive rates (£600-£950) with excellent quality of life and lower costs than English cities. The combination of Welsh Government support for business and proximity to Bristol/London makes Cardiff attractive for building portfolio careers.
+            </p>
+          </div>
       </section>
 
       {/* Internal Links */}
