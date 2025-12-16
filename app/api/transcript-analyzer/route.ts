@@ -197,7 +197,11 @@ async function searchJobsFromDB(roleType: string, location?: string) {
           OR LOWER(COALESCE(role_category::text, '')) LIKE LOWER(${rolePattern})
           OR LOWER(title) LIKE LOWER(${rolePattern})
         )
-        AND LOWER(COALESCE(city::text, location, '')) LIKE LOWER(${locationPattern})
+        AND (
+          LOWER(COALESCE(city::text, '')) LIKE LOWER(${locationPattern})
+          OR LOWER(COALESCE(country, '')) LIKE LOWER(${locationPattern})
+          OR LOWER(COALESCE(location, '')) LIKE LOWER(${locationPattern})
+        )
       ORDER BY priority ASC, posted_date DESC NULLS LAST
       LIMIT 5
     `
