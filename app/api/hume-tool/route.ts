@@ -229,10 +229,11 @@ async function searchJobs(params: {
       FROM jobs
       WHERE is_active = true
         AND (
-          LOWER(title) LIKE LOWER(${rolePattern})
-          OR LOWER(role_category) LIKE LOWER(${rolePattern})
+          LOWER(COALESCE(executive_title::text, '')) LIKE LOWER(${rolePattern})
+          OR LOWER(COALESCE(role_category::text, '')) LIKE LOWER(${rolePattern})
+          OR LOWER(title) LIKE LOWER(${rolePattern})
         )
-        AND LOWER(COALESCE(location, '')) LIKE LOWER(${locationPattern})
+        AND LOWER(COALESCE(city::text, location, '')) LIKE LOWER(${locationPattern})
       ORDER BY priority ASC, posted_date DESC NULLS LAST
       LIMIT ${limit}
     `
