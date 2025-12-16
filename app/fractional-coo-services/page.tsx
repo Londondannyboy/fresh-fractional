@@ -96,10 +96,10 @@ export default function FractionalCOOServicesPage() {
             </div>
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">When the CEO is Doing Too Much</h3>
             <p>
-              In many growing companies, the CEO is handling operations by default—managing projects, solving operational fires, and coordinating between teams. This takes time away from strategy, fundraising, and business development.
+              In many growing companies, the CEO is handling operations by default—managing projects, solving operational fires, and coordinating between teams. Research from the <a href="https://www.iod.com/news/news/articles/iod-research-reveals-business-leaders-priorities/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">Institute of Directors</a> shows this operational burden significantly impacts strategic decision-making time.
             </p>
             <p>
-              A fractional COO takes operational responsibility off the CEO's plate. They bring structure, systems, and accountability so the CEO can focus on what only they can do: leading the company's vision and growth.
+              A fractional COO takes operational responsibility off the CEO's plate. Working within <a href="https://www.gov.uk/employment-tribunal" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">UK employment frameworks</a> and following <a href="https://www.fsb.org.uk/resources-page/small-business-statistics.html" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">small business best practices</a>, they bring structure, systems, and accountability so the CEO can focus on leading the company's vision and growth.
             </p>
           </div>
         </div>
