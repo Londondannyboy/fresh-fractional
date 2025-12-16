@@ -290,61 +290,39 @@ export default async function Home() {
               {/* Left: Main content */}
               <div className="max-w-2xl">
                 <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 md:p-10 border border-white/10">
-                  <span className="inline-block bg-emerald-500/20 backdrop-blur text-emerald-300 px-4 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider mb-6">
-                    UK's Fractional Jobs & Services Platform
+                  <span className="inline-block bg-blue-500/20 backdrop-blur text-blue-300 px-4 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider mb-6">
+                    UK's Fractional Jobs Platform
                   </span>
 
                   <div className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 leading-[1.1]" role="heading" aria-level={1}>
                     Fractional Jobs UK
                   </div>
 
-                  <p className="text-xl md:text-2xl text-emerald-400 font-semibold mb-4">
-                    Executive Jobs & Fractional Services Marketplace
+                  <p className="text-xl md:text-2xl text-blue-400 font-semibold mb-4">
+                    Executive Jobs & Services Marketplace
                   </p>
 
                   <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                    Find fractional executive jobs or hire fractional CFO, CMO, CTO leadership.
-                    Browse roles or access services—start within days.
+                    Find fractional CFO, CMO, CTO roles. £600-£1,500/day.
                   </p>
 
                   <div className="flex flex-wrap gap-3">
                     <Link
                       href="/fractional-jobs"
-                      className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-emerald-500 text-black hover:bg-emerald-400 transition-all duration-200"
+                      className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-200"
                     >
-                      Browse Fractional Jobs →
+                      Browse Jobs →
                     </Link>
                     <Link
                       href="/fractional-services"
-                      className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-white/10 backdrop-blur border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
+                      className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-white/10 backdrop-blur border border-blue-500/50 text-white hover:bg-blue-500/20 hover:border-blue-500 transition-all duration-200"
                     >
-                      Hire Fractional Executives
+                      Hire Executives
                     </Link>
                   </div>
                 </div>
               </div>
 
-            </div>
-
-            {/* Legend & Instructions - Below content */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <div className="bg-black/60 backdrop-blur-sm px-5 py-3 rounded-xl text-sm flex items-center gap-6">
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded-full bg-amber-500" />
-                  <span className="text-white font-medium">Companies</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-blue-500" />
-                  <span className="text-gray-300">Jobs</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                  <span className="text-gray-400">Skills</span>
-                </div>
-              </div>
-              <div className="bg-black/60 backdrop-blur-sm px-5 py-3 rounded-xl text-sm text-gray-300">
-                <span className="text-white font-medium">Explore:</span> Click nodes to view • Drag to rotate • Scroll to zoom
-              </div>
             </div>
           </div>
         </div>
