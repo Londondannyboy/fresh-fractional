@@ -173,11 +173,11 @@ export async function shouldGenerateNews(): Promise<boolean> {
     return true
   }
 
-  // TEMPORARILY DISABLED FOR TESTING - Allow generation every 30 seconds
+  // Don't generate more than once per hour (safety margin for daily cron)
   const lastGenerated = new Date(state.last_generated_at)
-  const thirtySecondsAgo = new Date(Date.now() - 30 * 1000)
+  const hourAgo = new Date(Date.now() - 60 * 60 * 1000)
 
-  return lastGenerated < thirtySecondsAgo
+  return lastGenerated < hourAgo
 }
 
 /**
