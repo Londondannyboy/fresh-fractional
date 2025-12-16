@@ -1,12 +1,23 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { createDbQuery } from '@/lib/db'
 import { JobCard } from '@/components/JobCard'
 import { FAQ } from '@/components/FAQ'
-import { FractionalRateCalculatorUK } from '@/components/FractionalRateCalculatorUK'
-import { IR35Calculator } from '@/components/IR35Calculator'
-import { SkillsRadar } from '@/components/SkillsRadar'
-import { SavingsCalculator } from '@/components/SavingsCalculator'
+
+// Lazy load below-the-fold components for better initial load
+const FractionalRateCalculatorUK = dynamic(() => import('@/components/FractionalRateCalculatorUK').then(mod => ({ default: mod.FractionalRateCalculatorUK })), {
+  loading: () => <div className="animate-pulse bg-gray-800 h-96 rounded-xl" />
+})
+const SavingsCalculator = dynamic(() => import('@/components/SavingsCalculator').then(mod => ({ default: mod.SavingsCalculator })), {
+  loading: () => <div className="animate-pulse bg-gray-800 h-96 rounded-xl" />
+})
+const SkillsRadar = dynamic(() => import('@/components/SkillsRadar').then(mod => ({ default: mod.SkillsRadar })), {
+  loading: () => <div className="animate-pulse bg-gray-900 h-96 rounded-xl" />
+})
+const IR35Calculator = dynamic(() => import('@/components/IR35Calculator').then(mod => ({ default: mod.IR35Calculator })), {
+  loading: () => <div className="animate-pulse bg-white h-96 rounded-xl border border-gray-200" />
+})
 
 export const revalidate = 3600 // Revalidate every hour
 
@@ -27,6 +38,10 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  other: {
+    // Preconnect to Mux CDN for video streaming
+    'link': '<https://stream.mux.com>; rel=preconnect; crossorigin',
   },
   openGraph: {
     title: 'Fractional Jobs UK: CFO, CTO, CMO Executive Roles 2025',
@@ -207,15 +222,15 @@ export default async function FractionalJobsUKPage() {
   return (
     <div className="min-h-screen bg-gray-950">
       {/* Hero Section with Subtle Mux Video Background */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        {/* Mux Video Background */}
-        <div className="absolute inset-0">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-950 to-black">
+        {/* Mux Video Background - Desktop Only */}
+        <div className="absolute inset-0 hidden lg:block">
           <video
             autoPlay
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="none"
             className="w-full h-full object-cover opacity-30"
             aria-label="Background video showing fractional executives at work"
           >
@@ -224,8 +239,8 @@ export default async function FractionalJobsUKPage() {
           </video>
         </div>
 
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/60" />
+        {/* Dark overlay for readability - Desktop Only */}
+        <div className="absolute inset-0 bg-black/60 hidden lg:block" />
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
