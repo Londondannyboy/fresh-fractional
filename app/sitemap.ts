@@ -460,6 +460,49 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.85,
     },
+    // CFO Content Hub (high priority SEO cluster)
+    {
+      url: `${baseUrl}/fractional-cfo`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/what-is-fractional-cfo`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/fractional-cfo-near-me`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/fractional-cfo-hourly-rate`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/fractional-cfo-cost`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/fractional-cfo-for-startups`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/how-to-become-fractional-cfo`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
     // Short URL redirects (keep for backlinks)
     {
       url: `${baseUrl}/cfo`,
