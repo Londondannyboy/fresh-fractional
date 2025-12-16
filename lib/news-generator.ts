@@ -245,18 +245,17 @@ export function generateSlug(title: string): string {
 async function getUnsplashImage(category: ArticleCategory): Promise<string | null> {
   const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY
 
-  // Fallback to free Unsplash Source if no API key
   const categoryKeywords: Record<ArticleCategory, string> = {
-    Finance: 'business-finance',
-    Marketing: 'marketing-strategy',
-    Engineering: 'technology-coding',
-    Operations: 'business-office',
-    HR: 'team-people',
-    Sales: 'business-meeting',
-    General: 'business-executive'
+    Finance: 'business+finance',
+    Marketing: 'marketing+business',
+    Engineering: 'technology+office',
+    Operations: 'business+team',
+    HR: 'people+office',
+    Sales: 'business+meeting',
+    General: 'business+professional'
   }
 
-  const keyword = categoryKeywords[category] || 'business'
+  const keyword = categoryKeywords[category] || 'business+office'
 
   try {
     if (UNSPLASH_ACCESS_KEY) {
@@ -270,11 +269,23 @@ async function getUnsplashImage(category: ArticleCategory): Promise<string | nul
       const data = await response.json()
       return data.urls?.regular || null
     } else {
-      // Use Unsplash Source (no auth needed)
-      return `https://source.unsplash.com/1200x630/?${keyword}`
+      // Use Lorem Picsum as fallback (reliable placeholder service)
+      // Different seed per category to get variety
+      const seeds: Record<ArticleCategory, number> = {
+        Finance: 1001,
+        Marketing: 2002,
+        Engineering: 3003,
+        Operations: 4004,
+        HR: 5005,
+        Sales: 6006,
+        General: 7007
+      }
+      const seed = seeds[category] || 1000
+      return `https://picsum.photos/seed/${seed + Date.now()}/1200/630`
     }
   } catch {
-    return `https://source.unsplash.com/1200x630/?business`
+    // Absolute fallback
+    return `https://picsum.photos/seed/${Date.now()}/1200/630`
   }
 }
 
