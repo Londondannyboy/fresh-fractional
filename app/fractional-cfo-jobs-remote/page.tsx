@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import FAQ from '@/components/FAQ'
+import { FAQ } from '@/components/FAQ'
 
 export const metadata: Metadata = {
   title: 'Remote Fractional CFO Jobs UK: Find Remote CFO Opportunities 2025',

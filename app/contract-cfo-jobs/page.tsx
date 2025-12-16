@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import FAQ from '@/components/FAQ'
+import { FAQ } from '@/components/FAQ'
 
 export const metadata: Metadata = {
   title: 'Contract CFO Jobs UK: Fixed-Term CFO Opportunities 2025',
