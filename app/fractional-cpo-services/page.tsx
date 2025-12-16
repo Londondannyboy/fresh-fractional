@@ -114,7 +114,7 @@ export default function FractionalCPOServicesPage() {
               A <strong className="font-semibold text-gray-900">Fractional CPO</strong> is an experienced Chief Product Officer who works with your company on a part-time basis—typically 1-3 days per week. You get the product vision, strategic leadership, and team guidance of a senior CPO without the commitment and cost of a full-time hire.
             </p>
             <p>
-              Unlike product consultants who advise on specific features, a fractional CPO becomes your product leader. They own the product vision, build and lead your product team, set the roadmap, and take accountability for product outcomes—just not five days a week.
+              Unlike product consultants who advise on specific features, a fractional CPO becomes your product leader. They own the product vision, build and lead your product team, set the roadmap, and take accountability for product outcomes—just not five days a week. Drawing on insights from <a href="https://www.mindtheproduct.com/what-is-product-management/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Mind the Product</a> and frameworks from <a href="https://www.svpg.com/articles/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Silicon Valley Product Group</a>, they bring proven approaches to product excellence.
             </p>
             <div className="bg-gray-50 p-8 my-10 border-l-4 border-purple-500">
               <p className="text-xl font-semibold text-gray-900 mb-0">
@@ -123,7 +123,7 @@ export default function FractionalCPOServicesPage() {
             </div>
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">From Feature Factory to Product-Led</h3>
             <p>
-              Many growing companies are stuck in "feature factory" mode—building what customers ask for without a coherent product strategy. A fractional CPO brings structure: clear vision, prioritisation frameworks, and outcomes-focused thinking.
+              Many growing companies are stuck in "feature factory" mode—building what customers ask for without a coherent product strategy. A fractional CPO brings structure: clear vision, prioritisation frameworks, and outcomes-focused thinking. Following best practices from <a href="https://www.reforge.com/blog/product-management" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Reforge</a> and the <a href="https://www.productplan.com/learn/what-is-product-management/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">product management community</a>, they implement the systems that world-class product teams use.
             </p>
             <p>
               They help you transition from reactive development to proactive product leadership, building products that drive growth rather than just responding to requests.

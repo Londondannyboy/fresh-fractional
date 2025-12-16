@@ -114,7 +114,7 @@ export default function FractionalCISOServicesPage() {
               A <strong className="font-semibold text-gray-900">Fractional CISO</strong> (Chief Information Security Officer) is an experienced security executive who works with your company on a part-time basis—typically 1-3 days per week. You get strategic security leadership, compliance expertise, and risk management without the commitment and cost of a full-time hire.
             </p>
             <p>
-              Unlike security consultants who perform one-off assessments, a fractional CISO becomes your security leader. They build and own your security programme, manage risks, drive compliance, and ensure security enables your business rather than blocking it.
+              Unlike security consultants who perform one-off assessments, a fractional CISO becomes your security leader. They build and own your security programme, manage risks, drive compliance, and ensure security enables your business rather than blocking it. Following <a href="https://www.isc2.org/Certifications" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">(ISC)² professional standards</a> and <a href="https://www.isaca.org/credentialing" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">ISACA governance frameworks</a>, they bring enterprise-grade security practices to growing companies.
             </p>
             <div className="bg-gray-50 p-8 my-10 border-l-4 border-red-500">
               <p className="text-xl font-semibold text-gray-900 mb-0">
@@ -123,7 +123,7 @@ export default function FractionalCISOServicesPage() {
             </div>
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Security as a Business Enabler</h3>
             <p>
-              Many companies see security as a blocker—something that slows things down and adds cost. A good fractional CISO turns this around. They implement security that enables the business: winning enterprise deals, building customer trust, and protecting against real risks without unnecessary bureaucracy.
+              Many companies see security as a blocker—something that slows things down and adds cost. A good fractional CISO turns this around. They implement security that enables the business: winning enterprise deals, building customer trust, and protecting against real risks without unnecessary bureaucracy. Leveraging <a href="https://www.ncsc.gov.uk/collection/10-steps" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">NCSC guidance</a> and <a href="https://www.crest-approved.org/" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">CREST-accredited practices</a>, they build security programmes that scale with growth.
             </p>
           </div>
         </div>

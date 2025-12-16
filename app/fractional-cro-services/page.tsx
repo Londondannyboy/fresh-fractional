@@ -113,7 +113,7 @@ export default function FractionalCROServicesPage() {
               A <strong className="font-semibold text-gray-900">Fractional CRO</strong> (Chief Revenue Officer) is an experienced revenue executive who works with your company on a part-time basis—typically 1-3 days per week. You get strategic leadership across your entire revenue engine—sales, marketing, and customer success—without the commitment and cost of a full-time hire.
             </p>
             <p>
-              Unlike a VP of Sales who focuses only on selling, a fractional CRO takes a holistic view of revenue. They align all customer-facing functions, optimise the full buyer journey, and build the systems for predictable, scalable revenue growth.
+              Unlike a VP of Sales who focuses only on selling, a fractional CRO takes a holistic view of revenue. They align all customer-facing functions, optimise the full buyer journey, and build the systems for predictable, scalable revenue growth. Applying insights from <a href="https://www.salesmanagementstudy.com/" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 underline">Sales Management Association</a> research and <a href="https://www.pavilion.io/resources" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 underline">Pavilion frameworks</a>, they bring proven revenue methodologies to growing companies.
             </p>
             <div className="bg-gray-50 p-8 my-10 border-l-4 border-green-500">
               <p className="text-xl font-semibold text-gray-900 mb-0">
@@ -122,7 +122,7 @@ export default function FractionalCROServicesPage() {
             </div>
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Beyond Siloed Sales and Marketing</h3>
             <p>
-              In many companies, sales and marketing operate as separate functions with different goals and metrics. This creates friction, blame games, and leaked revenue. A fractional CRO breaks down these silos, creating unified revenue operations that drive predictable growth.
+              In many companies, sales and marketing operate as separate functions with different goals and metrics. This creates friction, blame games, and leaked revenue. A fractional CRO breaks down these silos, creating unified revenue operations that drive predictable growth. Using <a href="https://www.aa-isp.org/resources/" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 underline">AA-ISP best practices</a> and <a href="https://www.saastr.com/blog/" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 underline">SaaStr insights</a>, they implement the revenue operations that scale efficiently.
             </p>
           </div>
         </div>

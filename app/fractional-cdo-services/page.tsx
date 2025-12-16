@@ -113,7 +113,7 @@ export default function FractionalCDOServicesPage() {
               A <strong className="font-semibold text-gray-900">Fractional CDO</strong> (Chief Data Officer) is an experienced data executive who works with your company on a part-time basis—typically 1-3 days per week. You get strategic data leadership, analytics expertise, and data governance without the commitment and cost of a full-time hire.
             </p>
             <p>
-              Unlike data analysts who answer specific questions, a fractional CDO builds the entire data function. They create data strategy, build infrastructure, establish governance, and transform the organisation into one that uses data to drive decisions.
+              Unlike data analysts who answer specific questions, a fractional CDO builds the entire data function. They create data strategy, build infrastructure, establish governance, and transform the organisation into one that uses data to drive decisions. Following <a href="https://www.statisticsauthority.gov.uk/code-of-practice/" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:text-cyan-700 underline">UK Statistics Authority standards</a> and insights from the <a href="https://www.turing.ac.uk/research/research-programmes/data-science-scale" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:text-cyan-700 underline">Alan Turing Institute</a>, they bring rigorous data science practices to business contexts.
             </p>
             <div className="bg-gray-50 p-8 my-10 border-l-4 border-cyan-500">
               <p className="text-xl font-semibold text-gray-900 mb-0">
@@ -122,10 +122,10 @@ export default function FractionalCDOServicesPage() {
             </div>
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">From Data Rich to Data Driven</h3>
             <p>
-              Many companies are data rich but insight poor. They collect vast amounts of data but cannot use it effectively. Decisions are still made on gut feel, reports take weeks, and data quality is questionable.
+              Many companies are data rich but insight poor. They collect vast amounts of data but cannot use it effectively. Decisions are still made on gut feel, reports take weeks, and data quality is questionable. The <a href="https://www.opendatainstitute.org/what-is-data-infrastructure/" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:text-cyan-700 underline">Open Data Institute</a> highlights how proper data infrastructure enables innovation.
             </p>
             <p>
-              A fractional CDO bridges this gap. They build the systems, processes, and culture that turn data into competitive advantage—enabling faster decisions, better predictions, and AI-powered innovation.
+              A fractional CDO bridges this gap. They build the systems, processes, and culture that turn data into competitive advantage—enabling faster decisions, better predictions, and AI-powered innovation. Drawing on <a href="https://rss.org.uk/policy-campaigns/policy/data-science-and-ai/" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:text-cyan-700 underline">Royal Statistical Society guidance</a>, they ensure data practices are both sophisticated and trustworthy.
             </p>
           </div>
         </div>
