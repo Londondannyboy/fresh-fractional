@@ -262,8 +262,10 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
         combinedMessages.push({ type: 'assistant_message', content: currentAssistant.trim() })
       }
 
-      // Build transcript from the SAME text that's displayed on screen
+      // Build transcript from USER messages only (for intent extraction)
+      // Don't include assistant responses - they confuse the AI
       const transcript = combinedMessages
+        .filter((m: any) => m.type === 'user_message')
         .map((m: any) => m.content)
         .join(' ')
 
