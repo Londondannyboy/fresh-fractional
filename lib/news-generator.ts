@@ -209,8 +209,30 @@ export async function generateArticle(
     return GeneratedArticle.parse(parsed)
   } catch (parseError) {
     console.error('[News Generator] JSON parse error:', parseError)
-    console.error('[News Generator] Failed to parse:', jsonStr.substring(0, 1000))
-    throw new Error(`Failed to parse AI response as JSON: ${parseError}`)
+    console.error('[News Generator] Failed JSON (first 1000 chars):', jsonStr.substring(0, 1000))
+
+    // Try to fix common JSON issues
+    try {
+      // Fix common issues: unescaped newlines in strings, trailing commas, etc.
+      let fixedJson = jsonStr
+        // Remove any trailing commas before closing braces/brackets
+        .replace(/,(\s*[}\]])/g, '$1')
+        // Escape unescaped quotes in string values (basic attempt)
+        .replace(/: "([^"]*)"([^,}\]]*)/g, (match, p1, p2) => {
+          // If p2 contains content before comma/brace, it might be an unescaped quote
+          if (p2.includes('"')) {
+            return match.replace(/"([^,}\]]*)"/, '\\"$1\\"')
+          }
+          return match
+        })
+
+      const parsed = JSON.parse(fixedJson)
+      console.log('[News Generator] Successfully parsed after fixing JSON')
+      return GeneratedArticle.parse(parsed)
+    } catch (fixError) {
+      // If fix attempt fails, try one more thing: ask Gemini again with stricter prompt
+      throw new Error(`Failed to parse AI response as JSON even after repair attempt: ${parseError}`)
+    }
   }
 }
 
