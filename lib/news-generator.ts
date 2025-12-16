@@ -6,7 +6,7 @@
 import { z } from 'zod'
 import { createDbQuery } from '@/lib/db'
 
-const GATEWAY_URL = process.env.GATEWAY_URL || 'https://gateway.pydantic.dev/proxy/chat/'
+const GATEWAY_URL = 'https://gateway.pydantic.dev/v1/chat/completions'
 const GATEWAY_API_KEY = process.env.PYDANTIC_AI_GATEWAY_API_KEY
 
 // Article categories - matches job role_category
