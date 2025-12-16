@@ -116,6 +116,7 @@ async function extractIntent(transcript: string): Promise<ExtractedIntent> {
     const result = await generateObject({
       model: google('gemini-1.5-flash'),
       schema: ExtractedIntentSchema,
+      mode: 'json',
       prompt: `Analyze this conversation transcript and extract the user's intent.
 
 Transcript: "${transcript}"
@@ -151,9 +152,7 @@ Examples:
 "I'm interested in fractional jobs in the UK" → search_jobs, roleType: null, location: "UK" (user wants to see jobs)
 "I'm looking for Marketing Director positions" → search_jobs, roleType: "Marketing Director", location: null
 "What jobs do you have?" → search_jobs, roleType: null, location: null
-"I'm interested in CMO and CFO roles for my career" → confirm_preference, preferenceType: "role", values: ["CMO", "CFO"]`,
-      temperature: 0.1,
-      maxTokens: 512
+"I'm interested in CMO and CFO roles for my career" → confirm_preference, preferenceType: "role", values: ["CMO", "CFO"]`
     })
 
     console.log('[Transcript Analyzer] AI extracted intent:', result.object)
