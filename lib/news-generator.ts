@@ -134,7 +134,8 @@ export async function generateArticle(
   const articleCategory = targetCategory || mapRoleCategoryToArticleCategory(jobs[0]?.role_category || 'Other')
   const internalLinkInstructions = getInternalLinkingInstructions(articleCategory)
 
-  const systemPrompt = PROMPTS[contentType] + '\n' + internalLinkInstructions
+  // Temporarily skip internal links to avoid JSON parsing issues
+  const systemPrompt = PROMPTS[contentType]
 
   // Format job data for the prompt
   const jobsFormatted = jobs.map(job => ({
