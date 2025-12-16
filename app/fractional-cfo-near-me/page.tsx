@@ -40,8 +40,20 @@ const NEAR_ME_FAQS = [
 ]
 
 export default function FractionalCFONearMePage() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Fractional CFO Services Near Me | Local CFO Support',
+    description: 'Find Fractional CFO services in your area. Local CFO support in London, Manchester, Birmingham, Leeds, Edinburgh & across the UK.',
+    author: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest' },
+    publisher: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest' },
+    datePublished: '2025-01-16',
+    dateModified: '2025-01-16',
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       {/* Hero Section with Globe */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-gray-900">
         <div className="absolute inset-0">

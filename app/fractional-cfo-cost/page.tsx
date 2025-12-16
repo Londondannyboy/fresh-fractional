@@ -44,8 +44,20 @@ const COST_FAQS = [
 ]
 
 export default function FractionalCFOCostPage() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Fractional CFO Cost UK 2025 | Complete Pricing Guide',
+    description: 'How much does a fractional CFO cost? £3k-£10k/month (£36k-£120k annually) vs £150k-£250k+ for full-time.',
+    author: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest' },
+    publisher: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest' },
+    datePublished: '2025-01-16',
+    dateModified: '2025-01-16',
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       {/* Hero */}
       <section className="relative bg-gray-900 text-white py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -149,7 +161,7 @@ export default function FractionalCFOCostPage() {
 
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-gray-600 leading-relaxed mb-10">
-              Let's compare the TRUE all-in cost of fractional vs full-time, including hidden expenses most companies forget:
+              Let's compare the TRUE all-in cost of fractional vs full-time, including hidden expenses most companies forget. According to <a href="https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2024-to-2025" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">HMRC guidance</a>, employer costs extend well beyond salary:
             </p>
 
             <div className="bg-white p-8 border-2 border-gray-900 mb-10">

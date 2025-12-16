@@ -44,8 +44,20 @@ const STARTUP_CFO_FAQS = [
 ]
 
 export default function FractionalCFOForStartupsPage() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Fractional CFO for Startups | Expert Financial Leadership',
+    description: 'Fractional CFO services for startups. Get Series A-ready financials, fundraising support, and strategic CFO expertise without £150k+ full-time cost.',
+    author: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest' },
+    publisher: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest' },
+    datePublished: '2025-01-16',
+    dateModified: '2025-01-16',
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       {/* Hero */}
       <section className="relative bg-gray-900 text-white py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">

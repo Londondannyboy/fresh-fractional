@@ -49,8 +49,20 @@ const CFO_FAQS = [
 ]
 
 export default function FractionalCFOGuidePage() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Fractional CFO: The Complete Guide 2025',
+    description: 'The complete guide to Fractional CFOs. Learn what a fractional CFO does, pricing, how to hire one, and how to become a fractional CFO.',
+    author: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest' },
+    publisher: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest' },
+    datePublished: '2025-01-16',
+    dateModified: '2025-01-16',
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       {/* Hero Section with 3D Knowledge Graph Background */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">

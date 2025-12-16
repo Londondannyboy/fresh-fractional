@@ -44,8 +44,20 @@ const HOURLY_RATE_FAQS = [
 ]
 
 export default function FractionalCFOHourlyRatePage() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Fractional CFO Hourly Rate UK 2025 | £150-£500/Hour Benchmarks',
+    description: 'Fractional CFO hourly rates in the UK: £150-£500/hour depending on experience. Complete rate benchmarks by seniority, location, and industry.',
+    author: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest' },
+    publisher: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest' },
+    datePublished: '2025-01-16',
+    dateModified: '2025-01-16',
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       {/* Hero Section */}
       <section className="relative bg-gray-900 text-white py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">

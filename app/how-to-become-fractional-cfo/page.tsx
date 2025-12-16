@@ -43,8 +43,20 @@ const BECOME_CFO_FAQS = [
 ]
 
 export default function HowToBecomeFractionalCFOPage() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'How to Become a Fractional CFO UK 2025 | Step-by-Step Career Guide',
+    description: 'Learn how to become a fractional CFO. Required experience (15+ years), step-by-step career path, how to get your first client, and earn £100k-£300k+ annually.',
+    author: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest' },
+    publisher: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest' },
+    datePublished: '2025-01-16',
+    dateModified: '2025-01-16',
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       {/* Hero */}
       <section className="relative bg-gray-900 text-white py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -144,7 +156,7 @@ export default function HowToBecomeFractionalCFOPage() {
                     <li>• CPA, CMA (International)</li>
                     <li>• MBA from top school</li>
                   </ul>
-                  <p className="text-sm mt-3 mb-0">Adds credibility, especially early in fractional career, but experience &gt; qualifications.</p>
+                  <p className="text-sm mt-3 mb-0">Adds credibility, especially early in fractional career, but experience &gt; qualifications. Professional bodies like <a href="https://www.icaew.com" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">ICAEW</a> and <a href="https://www.accaglobal.com/gb/en.html" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">ACCA</a> provide ongoing CPD.</p>
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900 mb-3">Specialized Experience:</p>
