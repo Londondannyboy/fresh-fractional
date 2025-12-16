@@ -471,41 +471,63 @@ export default async function FractionalJobsUKPage() {
         </div>
       </section>
 
-      {/* Interactive Tools Section */}
-      <section id="tools" className="py-16 md:py-24 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 md:mb-16">
+      {/* Skills Demand Analysis Section */}
+      <section id="skills-demand" className="py-16 md:py-24 bg-gray-900">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
             <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider block mb-4">
-              Platform Tools
+              Market Analysis
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white !text-white mb-4">
-              Market Insights & Analysis
+            <h2 className="text-3xl md:text-4xl font-bold text-white !text-white mb-4">
+              Skills Demand by Fractional Role
             </h2>
-            <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
-              Interactive tools to help you understand UK fractional market trends
+            <p className="text-gray-300 text-base md:text-lg max-w-3xl mx-auto mb-6">
+              Discover which skills are most in-demand across fractional CFO, CTO, CMO, and COO positions in the UK market.
+              This radar chart shows the percentage of jobs requiring each skill category.
+            </p>
+            <p className="text-sm text-gray-400 max-w-2xl mx-auto">
+              💡 <strong>Tip:</strong> Click on any role button below the chart to view all available jobs for that position.
             </p>
           </div>
 
-          {/* Market Insights - 2 Column Grid */}
-          <div>
-            <div className="mb-6 text-center">
-              <h3 className="text-2xl font-bold text-white !text-white mb-2">Market Insights</h3>
-              <p className="text-gray-400 text-sm">
-                Understand UK market trends and tax implications
+          <div className="bg-gray-950 rounded-2xl p-6 md:p-8 border border-gray-800">
+            <SkillsRadar height="400px" roles={['CFO', 'CTO', 'CMO', 'COO']} />
+            <p className="text-xs text-gray-500 text-center mt-6 italic">
+              Click role buttons to explore {stats.totalUK}+ specific job opportunities
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* IR35 Calculator Section */}
+      <section id="ir35-calculator" className="py-16 md:py-24 bg-gray-950">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider">
+                Tax Planning Tool
+              </span>
+              <span className="px-3 py-1 bg-blue-600/20 text-blue-300 text-xs font-bold rounded-full border border-blue-600/30">
+                BETA
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white !text-white mb-4">
+              IR35 Tax Calculator
+            </h2>
+            <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-6">
+              Compare your take-home pay inside vs outside IR35. Understand the tax implications of different working arrangements
+              to make informed decisions about your fractional career structure.
+            </p>
+            <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 max-w-2xl mx-auto">
+              <p className="text-sm text-yellow-200 leading-relaxed">
+                ⚠️ <strong>Important:</strong> This calculator provides estimates only. Always consult a qualified accountant or tax professional
+                for actual IR35 status determination and tax advice specific to your circumstances.
               </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Skills Radar */}
-              <div className="bg-gray-900 rounded-2xl p-6 md:p-8 border border-gray-800 hover:border-blue-600/50 transition-colors">
-                <h4 className="text-xl font-bold text-white !text-white mb-4">Skills Demand by Role</h4>
-                <SkillsRadar height="350px" roles={['CFO', 'CTO', 'CMO', 'COO']} />
-              </div>
+          </div>
 
-              {/* IR35 Calculator */}
-              <div className="bg-gray-900 rounded-2xl p-6 md:p-8 border border-gray-800 hover:border-blue-600/50 transition-colors">
-                <IR35Calculator defaultDayRate={stats.avgDayRate} />
-              </div>
-            </div>
+          <div className="bg-gray-900 rounded-2xl p-6 md:p-8 border border-gray-800">
+            <IR35Calculator defaultDayRate={stats.avgDayRate} />
           </div>
         </div>
       </section>
@@ -642,6 +664,94 @@ export default async function FractionalJobsUKPage() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Editorial Content: Evolution of Fractional Jobs */}
+      <section className="py-16 md:py-20 bg-gray-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-white !text-white mb-6">
+            The Evolution of Fractional Jobs in the UK
+          </h2>
+          <div className="prose prose-invert prose-lg max-w-none">
+            <p className="text-gray-300 leading-relaxed mb-4">
+              The concept of fractional work has transformed dramatically over the past decade. What began as "interim management"
+              has evolved into a sophisticated ecosystem of fractional executives who provide strategic leadership to multiple
+              organizations simultaneously. This shift reflects fundamental changes in how businesses access talent and how
+              experienced executives structure their careers.
+            </p>
+            <p className="text-gray-300 leading-relaxed mb-4">
+              Today's fractional jobs UK market is characterized by highly specialized professionals—fractional CFOs managing
+              financial strategy for 3-4 companies, fractional CTOs architecting technology roadmaps, and fractional CMOs driving
+              growth initiatives. These roles offer businesses access to senior expertise without full-time employment costs, while
+              giving executives portfolio careers with diverse challenges and premium day rates.
+            </p>
+            <p className="text-gray-300 leading-relaxed">
+              The COVID-19 pandemic accelerated this transformation, normalizing remote work and demonstrating that strategic
+              leadership doesn't require physical presence five days per week. As a result, fractional jobs UK has grown by over
+              40% year-on-year, with London leading the market but opportunities expanding rapidly across Manchester, Birmingham,
+              and Edinburgh.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Editorial Content: Benefits of Fractional Jobs */}
+      <section className="py-16 md:py-20 bg-gray-950">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-white !text-white mb-6">
+            The Benefits of Fractional Jobs for Executives and Companies
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
+              <h3 className="text-xl font-bold text-white mb-4">For Executives</h3>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span><strong>Premium Earnings:</strong> £700-£1,500 daily rates enable £150,000-£300,000+ annual income</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span><strong>Portfolio Diversity:</strong> Work with 2-4 clients across different industries and growth stages</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span><strong>Flexibility:</strong> Design your own schedule and choose projects that align with your expertise</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span><strong>Continuous Learning:</strong> Exposure to multiple business models and challenges accelerates growth</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
+              <h3 className="text-xl font-bold text-white mb-4">For Companies</h3>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span><strong>Cost Efficiency:</strong> Save 40-60% versus full-time hire including salary, NI, benefits, and overhead</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span><strong>Immediate Impact:</strong> Access C-level expertise immediately without lengthy recruitment processes</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span><strong>Flexible Scaling:</strong> Increase or decrease fractional executive time as business needs change</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span><strong>Cross-Industry Insights:</strong> Fractional executives bring proven strategies from multiple sectors</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p className="text-gray-300 leading-relaxed">
+            The fractional model creates a win-win scenario. Companies gain access to seasoned leadership at a fraction of
+            full-time cost, while executives build rewarding portfolio careers with higher earnings and greater autonomy.
+            This alignment of interests explains why fractional jobs UK continues to be one of the fastest-growing segments
+            of the executive job market.
+          </p>
         </div>
       </section>
 

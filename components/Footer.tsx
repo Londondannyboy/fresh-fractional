@@ -57,7 +57,7 @@ export function Footer() {
                 </h2>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="/uk-fractional-jobs-uk-london-fractional-jobs-london" className="text-gray-400 hover:text-white text-sm transition-colors font-medium">
+                    <Link href="/fractional-jobs-uk" className="text-gray-400 hover:text-white text-sm transition-colors font-medium">
                       Fractional Jobs UK
                     </Link>
                   </li>
@@ -130,7 +130,7 @@ export function Footer() {
                 </h2>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="/uk-fractional-jobs-uk-london-fractional-jobs-london" className="text-gray-400 hover:text-white text-sm transition-colors font-medium">
+                    <Link href="/fractional-jobs?location=London" className="text-gray-400 hover:text-white text-sm transition-colors font-medium">
                       Fractional Jobs London
                     </Link>
                   </li>
