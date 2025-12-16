@@ -208,6 +208,7 @@ async function getUserSkills(userId: string): Promise<string> {
 async function searchJobs(params: {
   role_type?: string
   location?: string
+  job_type?: string  // 'fractional', 'contract', 'interim', 'part-time', 'permanent'
   remote?: boolean
   limit?: number
 }): Promise<string> {
@@ -216,10 +217,25 @@ async function searchJobs(params: {
     const locationPattern = params.location ? `%${params.location}%` : '%'
     const limit = params.limit || 5
 
+    // Build job type filter
+    let jobTypeCondition = ''
+    if (params.job_type) {
+      const type = params.job_type.toLowerCase()
+      if (type === 'fractional') {
+        jobTypeCondition = ` AND (is_fractional = true OR LOWER(title) LIKE '%fractional%')`
+      } else if (type === 'contract' || type === 'interim') {
+        jobTypeCondition = ` AND (LOWER(title) LIKE '%contract%' OR LOWER(title) LIKE '%interim%')`
+      } else if (type === 'part-time' || type === 'part time') {
+        jobTypeCondition = ` AND LOWER(title) LIKE '%part%time%'`
+      } else if (type === 'permanent' || type === 'full-time') {
+        jobTypeCondition = ` AND (is_fractional = false OR is_fractional IS NULL) AND LOWER(title) NOT LIKE '%fractional%' AND LOWER(title) NOT LIKE '%contract%' AND LOWER(title) NOT LIKE '%interim%'`
+      }
+    }
+
     const jobs = await sql`
       SELECT
         id, slug, title, company_name, location, is_remote,
-        salary_min, salary_max, salary_currency,
+        salary_min, salary_max, salary_currency, is_fractional,
         CASE
           WHEN is_fractional = true THEN 1
           WHEN LOWER(title) LIKE '%fractional%' THEN 2
@@ -238,6 +254,7 @@ async function searchJobs(params: {
           OR LOWER(COALESCE(country, '')) LIKE LOWER(${locationPattern})
           OR LOWER(COALESCE(location, '')) LIKE LOWER(${locationPattern})
         )
+        ${jobTypeCondition ? sql.unsafe(jobTypeCondition) : sql``}
       ORDER BY priority ASC, posted_date DESC NULLS LAST
       LIMIT ${limit}
     `
