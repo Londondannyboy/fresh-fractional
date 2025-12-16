@@ -72,10 +72,16 @@ Make links contextual and natural - don't force them.`
 
 // Base prompt for all content types
 const BASE_INSTRUCTIONS = `
-Format: JSON with ONLY these fields: title, excerpt, content, category, suggested_slug
-Content should be PLAIN TEXT (not markdown) - just paragraphs separated by newlines.
-Keep content under 500 words.
-Write for UK audience. Use £ for currency. Be factual and professional.`
+Return ONLY valid JSON in this EXACT format (no markdown, no code blocks):
+{
+  "title": "your title here",
+  "excerpt": "brief summary here",
+  "content": "Write content as a single string. Use space-space for paragraph breaks instead of newlines.",
+  "category": "Finance|Marketing|Engineering|Operations|HR|Sales|General",
+  "suggested_slug": "url-slug-here"
+}
+
+Keep content under 400 words. Write for UK audience. Use £ for currency.`
 
 // Prompts for each content type
 const PROMPTS: Record<ContentType, string> = {
@@ -193,24 +199,30 @@ export async function generateArticle(
   // Extract JSON from response (Claude sometimes wraps in markdown)
   let jsonStr = text.trim()
 
+  // Remove markdown code blocks if present
   if (jsonStr.startsWith('```')) {
-    const startIdx = jsonStr.indexOf('{')
-    const endIdx = jsonStr.lastIndexOf('}')
-    if (startIdx !== -1 && endIdx !== -1) {
-      jsonStr = jsonStr.substring(startIdx, endIdx + 1)
-    }
+    jsonStr = jsonStr.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/\s*```$/i, '')
   }
 
-  // Clean up control characters before parsing
-  jsonStr = jsonStr
-    .replace(/[\x00-\x1F\x7F]/g, '') // Remove control characters
-    .replace(/\n/g, '\\n') // Escape newlines if any remain
-    .replace(/\r/g, '\\r') // Escape carriage returns
-    .replace(/\t/g, '\\t') // Escape tabs
+  // Find JSON object boundaries
+  const startIdx = jsonStr.indexOf('{')
+  const endIdx = jsonStr.lastIndexOf('}')
+  if (startIdx !== -1 && endIdx !== -1) {
+    jsonStr = jsonStr.substring(startIdx, endIdx + 1)
+  }
 
   // Parse and validate with Zod
-  const parsed = JSON.parse(jsonStr)
-  return GeneratedArticle.parse(parsed)
+  try {
+    const parsed = JSON.parse(jsonStr)
+    // Convert space-space to actual newlines for paragraphs
+    if (parsed.content) {
+      parsed.content = parsed.content.replace(/  /g, '\n\n')
+    }
+    return GeneratedArticle.parse(parsed)
+  } catch (error) {
+    console.error('[News Generator] Parse failed. Raw JSON:', jsonStr)
+    throw new Error(`Failed to parse Claude response: ${error}`)
+  }
 }
 
 /**
