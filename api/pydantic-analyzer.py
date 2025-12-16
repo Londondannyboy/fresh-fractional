@@ -95,12 +95,12 @@ def query_jobs(role_type: Optional[str], location: Optional[str]) -> list[dict]:
         return []
 
 
-def handler(request):
+def handler(event, context=None):
     """Vercel serverless function handler"""
 
     # Parse request
     try:
-        body = json.loads(request.body) if hasattr(request, 'body') else request
+        body = json.loads(event.get('body', '{}')) if isinstance(event, dict) else json.loads(event)
         transcript = body.get('transcript', '')
         user_id = body.get('userId')
 
@@ -109,6 +109,7 @@ def handler(request):
         if not transcript or len(transcript) < 10:
             return {
                 'statusCode': 200,
+                'headers': {'Content-Type': 'application/json'},
                 'body': json.dumps({
                     'status': 'no_action',
                     'method': 'pydantic_ai',
@@ -132,6 +133,7 @@ def handler(request):
 
             return {
                 'statusCode': 200,
+                'headers': {'Content-Type': 'application/json'},
                 'body': json.dumps({
                     'status': 'success',
                     'method': 'pydantic_ai',
@@ -157,6 +159,7 @@ def handler(request):
         elif intent.action == 'confirm_preference':
             return {
                 'statusCode': 200,
+                'headers': {'Content-Type': 'application/json'},
                 'body': json.dumps({
                     'status': 'success',
                     'method': 'pydantic_ai',
@@ -173,6 +176,7 @@ def handler(request):
         # Unknown intent
         return {
             'statusCode': 200,
+            'headers': {'Content-Type': 'application/json'},
             'body': json.dumps({
                 'status': 'no_action',
                 'method': 'pydantic_ai',
@@ -184,6 +188,7 @@ def handler(request):
         print(f'[Pydantic AI] Error: {e}')
         return {
             'statusCode': 500,
+            'headers': {'Content-Type': 'application/json'},
             'body': json.dumps({
                 'error': 'Pydantic AI analysis failed',
                 'details': str(e)
