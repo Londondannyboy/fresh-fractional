@@ -6,8 +6,8 @@
 import { z } from 'zod'
 import { createDbQuery } from '@/lib/db'
 
-const GEMINI_API_KEY = process.env.GOOGLE_API_KEY || process.env.GEMINI_API_KEY
-const GEMINI_MODEL = 'gemini-2.5-flash' // Stable, best price-performance model
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY
+const CLAUDE_MODEL = 'claude-3-5-haiku-20241022' // Fast and cost-effective
 
 // Article categories - matches job role_category
 export type ArticleCategory = 'Finance' | 'Marketing' | 'Engineering' | 'Operations' | 'HR' | 'Sales' | 'General'
@@ -126,8 +126,8 @@ export async function generateArticle(
   jobs: JobData[],
   targetCategory?: ArticleCategory
 ): Promise<GeneratedArticle> {
-  if (!GEMINI_API_KEY) {
-    throw new Error('GEMINI_API_KEY is required')
+  if (!ANTHROPIC_API_KEY) {
+    throw new Error('ANTHROPIC_API_KEY is required')
   }
 
   // Determine the category for internal links
@@ -157,39 +157,22 @@ export async function generateArticle(
 
   const fullPrompt = `${systemPrompt}\n\n${userPrompt}`
 
-  // Use Google Gemini API (v1beta supports gemini-1.5-flash)
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`
-
-  const response = await fetch(url, {
+  // Use Anthropic Claude API with JSON mode
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      'x-api-key': ANTHROPIC_API_KEY,
+      'anthropic-version': '2023-06-01'
     },
     body: JSON.stringify({
-      contents: [{
-        parts: [{
-          text: fullPrompt
-        }]
-      }],
-      generationConfig: {
-        temperature: 0.7,
-        maxOutputTokens: 2000,
-        responseMimeType: 'application/json',
-        responseSchema: {
-          type: 'object',
-          properties: {
-            title: { type: 'string' },
-            excerpt: { type: 'string' },
-            content: { type: 'string' },
-            category: {
-              type: 'string',
-              enum: ['Finance', 'Marketing', 'Engineering', 'Operations', 'HR', 'Sales', 'General']
-            },
-            suggested_slug: { type: 'string' }
-          },
-          required: ['title', 'excerpt', 'content', 'category', 'suggested_slug']
-        }
-      }
+      model: CLAUDE_MODEL,
+      max_tokens: 2000,
+      temperature: 0.7,
+      messages: [{
+        role: 'user',
+        content: fullPrompt
+      }]
     })
   })
 
@@ -199,19 +182,17 @@ export async function generateArticle(
   }
 
   const data = await response.json()
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text
+  const text = data.content?.[0]?.text
 
   if (!text) {
-    throw new Error('No response from AI')
+    throw new Error('No response from Claude')
   }
 
-  // Log the raw response for debugging
-  console.log('[News Generator] Raw AI response (first 500 chars):', text.substring(0, 500))
+  console.log('[News Generator] Claude response (first 500 chars):', text.substring(0, 500))
 
-  // Extract JSON from response (handle markdown code blocks)
+  // Extract JSON from response (Claude sometimes wraps in markdown)
   let jsonStr = text.trim()
 
-  // Remove markdown code blocks if present
   if (jsonStr.startsWith('```')) {
     const startIdx = jsonStr.indexOf('{')
     const endIdx = jsonStr.lastIndexOf('}')
@@ -221,36 +202,8 @@ export async function generateArticle(
   }
 
   // Parse and validate with Zod
-  try {
-    const parsed = JSON.parse(jsonStr)
-    return GeneratedArticle.parse(parsed)
-  } catch (parseError) {
-    console.error('[News Generator] JSON parse error:', parseError)
-    console.error('[News Generator] Failed JSON (first 1000 chars):', jsonStr.substring(0, 1000))
-
-    // Try to fix common JSON issues
-    try {
-      // Fix common issues: unescaped newlines in strings, trailing commas, etc.
-      let fixedJson = jsonStr
-        // Remove any trailing commas before closing braces/brackets
-        .replace(/,(\s*[}\]])/g, '$1')
-        // Escape unescaped quotes in string values (basic attempt)
-        .replace(/: "([^"]*)"([^,}\]]*)/g, (match: string, p1: string, p2: string) => {
-          // If p2 contains content before comma/brace, it might be an unescaped quote
-          if (p2.includes('"')) {
-            return match.replace(/"([^,}\]]*)"/, '\\"$1\\"')
-          }
-          return match
-        })
-
-      const parsed = JSON.parse(fixedJson)
-      console.log('[News Generator] Successfully parsed after fixing JSON')
-      return GeneratedArticle.parse(parsed)
-    } catch (fixError) {
-      // If fix attempt fails, try one more thing: ask Gemini again with stricter prompt
-      throw new Error(`Failed to parse AI response as JSON even after repair attempt: ${parseError}`)
-    }
-  }
+  const parsed = JSON.parse(jsonStr)
+  return GeneratedArticle.parse(parsed)
 }
 
 /**
