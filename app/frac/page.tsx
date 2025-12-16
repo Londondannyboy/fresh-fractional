@@ -246,14 +246,25 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
       // Build full transcript from recent messages
       const transcript = messages
         .filter((m: any) => m.type === 'user_message' || m.type === 'assistant_message')
-        .map((m: any) => m.message?.content || '')
+        .map((m: any) => {
+          // DEBUG: Try multiple message properties
+          const text = m.message?.content || m.message?.text || m.content || ''
+          if (m.type === 'user_message') {
+            console.log('[DEBUG] User message:', { type: m.type, message: m.message, extracted: text })
+          }
+          return text
+        })
         .filter(Boolean)
         .join(' ')
+
+      addDebugLog(`📝 Transcript (${transcript.length} chars): "${transcript.substring(0, 80)}..."`, 'info')
 
       // Analyze transcript with BOTH Method B and Method C in parallel
       if (transcript.length > 20) {
         analyzeTranscript(transcript)  // Method B: Vercel AI SDK
         analyzePydanticAI(transcript)   // Method C: Pydantic AI (Python)
+      } else {
+        addDebugLog(`⚠️ Transcript too short: only ${transcript.length} chars`, 'error')
       }
     }
   }, [messages, addDebugLog, analyzeTranscript, analyzePydanticAI])
