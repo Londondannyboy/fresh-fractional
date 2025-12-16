@@ -31,7 +31,8 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
     isError,
     isAudioError,
     isMicrophoneError,
-    readyState
+    readyState,
+    sendToolMessage
   } = useVoice()
 
   // Track previous connection state to detect disconnections
@@ -54,6 +55,50 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
     setDebugLogs(prev => [...prev.slice(-30), { timestamp, message, type }])
     console.log(`[${timestamp}] ${message}`)
   }, [])
+
+  // Handle tool calls from Hume - call API and send response back via WebSocket
+  const handleToolCall = useCallback(async (toolName: string, toolCallId: string, parameters: string) => {
+    try {
+      addDebugLog(`🔄 Executing tool: ${toolName}`, 'tool')
+
+      // Call our API endpoint
+      const response = await fetch('/api/hume-tool', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'tool_call',
+          tool_call_id: toolCallId,
+          name: toolName,
+          parameters: parameters
+        })
+      })
+
+      const result = await response.json()
+      addDebugLog(`✅ Tool executed: ${toolName}`, 'success')
+
+      // Send tool response back to Hume via WebSocket
+      if (sendToolMessage && result.content) {
+        sendToolMessage({
+          type: 'tool_response',
+          toolCallId: toolCallId,
+          content: result.content
+        })
+        addDebugLog(`📤 Tool response sent to Hume`, 'success')
+      }
+    } catch (error) {
+      addDebugLog(`❌ Tool error: ${error}`, 'error')
+
+      // Send error response to Hume
+      if (sendToolMessage) {
+        sendToolMessage({
+          type: 'tool_error',
+          toolCallId: toolCallId,
+          error: 'Tool execution failed',
+          content: `Error executing ${toolName}: ${error}`
+        })
+      }
+    }
+  }, [sendToolMessage, addDebugLog])
 
   // Method B: Analyze with Vercel AI SDK + Gemini (TypeScript)
   const analyzeTranscript = useCallback(async (transcript: string) => {
@@ -200,15 +245,23 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
     // Log all message types for debugging
     addDebugLog(`Message type: ${latestMessage.type}`, 'info')
 
-    // Track tool calls
+    // Handle tool calls - call API and send response back via WebSocket
     if (latestMessage.type === 'tool_call') {
       const toolName = (latestMessage as any).tool_name || (latestMessage as any).name || 'unknown'
+      const toolCallId = (latestMessage as any).tool_call_id || (latestMessage as any).toolCallId
+      const parameters = (latestMessage as any).parameters
+
       addDebugLog(`🔧 Tool called: ${toolName}`, 'tool')
       setToolCalls(prev => [...prev.slice(-10), {
         name: toolName,
-        params: (latestMessage as any).parameters,
+        params: parameters,
         time: new Date().toLocaleTimeString()
       }])
+
+      // Call our API endpoint and send response back (don't await - let it run async)
+      handleToolCall(toolName, toolCallId, parameters).catch(err => {
+        addDebugLog(`❌ Tool call failed: ${err}`, 'error')
+      })
     }
 
     // Check for tool responses (these contain our structured data)
@@ -279,7 +332,7 @@ function VoiceInterface({ token, profile, userId, previousContext }: { token: st
         addDebugLog(`⚠️ Transcript too short: only ${transcript.length} chars`, 'error')
       }
     }
-  }, [messages, addDebugLog, analyzeTranscript, analyzePydanticAI])
+  }, [messages, addDebugLog, analyzeTranscript, analyzePydanticAI, handleToolCall])
 
   const handleConnect = useCallback(async () => {
     // Pass user_id and profile data to Hume
