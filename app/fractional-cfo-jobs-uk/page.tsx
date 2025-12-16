@@ -187,7 +187,7 @@ export default async function FractionalCfoJobsUkPage() {
           </figure>
           <article className="prose prose-lg prose-gray max-w-none">
             <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8 font-light">
-              <strong className="font-semibold text-gray-900">Fractional CFO jobs</strong> represent the new frontier of finance leadership. Part-time Chief Financial Officer positions where experienced leaders provide strategic financial guidance to multiple companies simultaneously—delivering world-class expertise at a fraction of the cost.
+              <strong className="font-semibold text-gray-900">Fractional CFO jobs</strong> represent the new frontier of finance leadership. Part-time Chief Financial Officer positions where experienced leaders provide strategic financial guidance to multiple companies simultaneously—delivering world-class expertise at a fraction of the cost. The growth of this sector is supported by <a href="https://www.ipse.co.uk/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">IPSE research on independent professionals</a> and <a href="https://www.britishbusinessbank.co.uk/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">British Business Bank data</a> showing SMEs increasingly leveraging flexible financial talent.
             </p>
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">The Rise of Fractional CFO Jobs UK</h3>
             <p>The UK market for <strong>fractional CFO jobs UK</strong> has grown by over 180% in the past three years. This surge reflects a fundamental shift in how companies access senior finance talent, particularly among <a href="https://www.gov.uk/business-finance-support" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">startups, scale-ups, and SMEs</a> that need experienced financial leadership but cannot justify a full-time CFO salary of £150,000-£300,000.</p>
@@ -218,12 +218,16 @@ export default async function FractionalCfoJobsUkPage() {
               ))}
             </div>
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Requirements for Fractional CFO Jobs</h3>
+            <p>
+              Most fractional CFO opportunities require extensive qualifications and experience. Professional bodies like <a href="https://www.icaew.com" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">ICAEW</a>, <a href="https://www.accaglobal.com" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">ACCA</a>, and <a href="https://www.cimaglobal.com" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">CIMA</a> provide the professional credibility essential for fractional work. Understanding <a href="https://www.gov.uk/guidance/understanding-off-payroll-working-ir35" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">IR35 regulations</a> is also critical for operating compliantly.
+            </p>
             <ul className="space-y-2">
               <li>15+ years finance experience, 5+ in CFO or Finance Director roles</li>
-              <li>Professional qualifications (<a href="https://www.icaew.com" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">ACA</a>, <a href="https://www.accaglobal.com" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">ACCA</a>, <a href="https://www.cimaglobal.com" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">CIMA</a>)</li>
+              <li>Professional qualifications (ACA, ACCA, CIMA)</li>
               <li>Fundraising experience (Series A-C, debt facilities)</li>
-              <li>M&A and <a href="https://www.frc.org.uk" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">due diligence expertise</a></li>
+              <li>M&A and <a href="https://www.frc.org.uk" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">due diligence expertise</a> compliant with UK standards</li>
               <li>Board-level communication skills</li>
+              <li>Knowledge of <a href="https://www.fca.org.uk/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">FCA regulations</a> for financial services clients</li>
             </ul>
           </article>
         </div>
@@ -383,6 +387,100 @@ export default async function FractionalCfoJobsUkPage() {
             <h2 className="text-3xl md:text-4xl font-black text-gray-900">Common Questions About Fractional CFO Jobs UK</h2>
           </div>
           <FAQ items={CFO_FAQS} title="" />
+        </div>
+      </section>
+
+      {/* Resources & Further Reading */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-2 block">Additional Resources</span>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Resources &amp; Further Reading</h2>
+            <p className="text-xl text-gray-500">Authoritative sources for fractional CFO professionals and finance leaders</p>
+          </div>
+
+          <div className="space-y-8">
+            {/* Professional Bodies & Finance Organizations */}
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-emerald-500">Professional Bodies &amp; Finance Organizations</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li>
+                  <a href="https://www.iod.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline font-medium">
+                    Institute of Directors (IoD)
+                  </a>
+                  {' '}&mdash; Professional development and networking for CFOs and C-level executives
+                </li>
+                <li>
+                  <a href="https://www.treasurers.org/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline font-medium">
+                    Association of Corporate Treasurers (ACT)
+                  </a>
+                  {' '}&mdash; Professional body for treasury and cash management expertise
+                </li>
+                <li>
+                  <a href="https://www.ukfinance.org.uk/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline font-medium">
+                    UK Finance
+                  </a>
+                  {' '}&mdash; Industry insights and regulatory guidance for financial services
+                </li>
+              </ul>
+            </div>
+
+            {/* Government & Regulation */}
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-emerald-500">Government Resources &amp; Regulation</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li>
+                  <a href="https://www.gov.uk/set-up-business" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline font-medium">
+                    Gov.uk Business Setup Guide
+                  </a>
+                  {' '}&mdash; Official guidance for setting up a limited company as a fractional CFO
+                </li>
+                <li>
+                  <a href="https://www.companieshouse.gov.uk/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline font-medium">
+                    Companies House
+                  </a>
+                  {' '}&mdash; UK company registration and compliance requirements
+                </li>
+                <li>
+                  <a href="https://www.ons.gov.uk/employmentandlabourmarket" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline font-medium">
+                    ONS Employment Statistics
+                  </a>
+                  {' '}&mdash; Official UK labour market data including self-employment trends
+                </li>
+              </ul>
+            </div>
+
+            {/* Industry Research & Market Data */}
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-emerald-500">Industry Research &amp; Market Data</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li>
+                  <a href="https://www.beauhurst.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline font-medium">
+                    Beauhurst
+                  </a>
+                  {' '}&mdash; UK high-growth company data and startup ecosystem insights
+                </li>
+                <li>
+                  <a href="https://technation.io/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline font-medium">
+                    Tech Nation
+                  </a>
+                  {' '}&mdash; Data and insights on the UK&apos;s digital economy and tech scaleups
+                </li>
+                <li>
+                  <a href="https://www.cipd.org/uk/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline font-medium">
+                    CIPD
+                  </a>
+                  {' '}&mdash; Research on flexible working and employment trends for executives
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-10 p-6 bg-white rounded-lg border-l-4 border-emerald-500">
+            <p className="text-gray-700 leading-relaxed">
+              <strong>Note:</strong> These resources provide valuable guidance for fractional CFO professionals, from regulatory compliance to professional development and market insights. All sources are official UK government, professional body, or recognized industry authorities.
+            </p>
+          </div>
         </div>
       </section>
 
