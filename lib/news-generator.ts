@@ -173,7 +173,21 @@ export async function generateArticle(
       generationConfig: {
         temperature: 0.7,
         maxOutputTokens: 2000,
-        responseMimeType: 'application/json'
+        responseMimeType: 'application/json',
+        responseSchema: {
+          type: 'object',
+          properties: {
+            title: { type: 'string' },
+            excerpt: { type: 'string' },
+            content: { type: 'string' },
+            category: {
+              type: 'string',
+              enum: ['Finance', 'Marketing', 'Engineering', 'Operations', 'HR', 'Sales', 'General']
+            },
+            suggested_slug: { type: 'string' }
+          },
+          required: ['title', 'excerpt', 'content', 'category', 'suggested_slug']
+        }
       }
     })
   })
