@@ -190,10 +190,58 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.95,
     },
     {
+      url: `${baseUrl}/fractional-coo`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/fractional-coo-services`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/fractional-coo-cost`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/fractional-coo-salary`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/fractional-coo-hourly-rate`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.84,
+    },
+    {
+      url: `${baseUrl}/fractional-coo-meaning`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.87,
+    },
+    {
+      url: `${baseUrl}/fractional-coo-vs-full-time`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/fractional-coo-for-startups`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.90,
+    },
+    {
+      url: `${baseUrl}/how-to-become-fractional-coo`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/fractional-cpo-services`,

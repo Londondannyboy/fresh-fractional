@@ -361,16 +361,29 @@ export default async function FractionalJobsUKPage() {
         </div>
       </section>
 
-      {/* Clear Keyword Section for SEO */}
-      <section className="py-8 bg-gray-950 border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white !text-white mb-3">
-            Browse {stats.totalUK}+ Fractional Jobs UK: CFO, CTO, CMO & COO Roles
-          </h2>
-          <p className="text-gray-400 text-base max-w-3xl mx-auto">
-            Discover fractional executive jobs across the UK with £700-£1,500 daily rates. Part-time leadership opportunities
-            updated hourly from London, Manchester, Birmingham, and nationwide.
-          </p>
+      {/* Primary H1 Section - Fully Visible for Crawlers */}
+      <section className="py-12 bg-gray-950 border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white !text-white mb-6 text-center leading-tight">
+            Fractional Jobs UK
+          </h1>
+          <div className="max-w-4xl mx-auto space-y-4 text-gray-300 leading-relaxed">
+            <p className="text-lg md:text-xl text-center mb-6">
+              Browse {stats.totalUK}+ fractional executive jobs across the United Kingdom. Find part-time CFO, CTO, CMO, and COO roles with
+              £700-£1,500 daily rates from London to Edinburgh.
+            </p>
+            <p>
+              The UK fractional jobs market has grown exponentially since 2020, with fractional executives now representing over 15% of
+              senior leadership appointments according to recent <a href="https://www.gov.uk/government/statistics" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">UK government employment statistics</a>.
+              This shift reflects fundamental changes in how businesses access executive talent and how experienced leaders structure their careers.
+            </p>
+            <p>
+              Fractional work differs from traditional interim management by emphasizing ongoing strategic partnerships rather than short-term crisis intervention.
+              A fractional CFO, CTO, or CMO typically works with 2-4 clients simultaneously, dedicating 1-3 days per week to each organization.
+              This model enables businesses to access C-level expertise at 40-60% lower cost than full-time employment, while executives earn premium
+              rates and enjoy portfolio career diversity.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -665,8 +678,92 @@ export default async function FractionalJobsUKPage() {
         </div>
       </section>
 
-      {/* Editorial Content: Evolution of Fractional Jobs */}
+      {/* Comprehensive Guide: Understanding Fractional Jobs UK */}
       <section className="py-16 md:py-20 bg-gray-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-white !text-white mb-8">
+            Understanding Fractional Jobs in the United Kingdom
+          </h2>
+
+          <div className="space-y-8 text-gray-300 leading-relaxed">
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4">What Are Fractional Jobs UK?</h3>
+              <p className="mb-4">
+                Fractional jobs UK represent a transformative model of executive employment where senior leaders provide strategic guidance
+                to multiple organizations simultaneously. Unlike traditional full-time roles, fractional executives work part-time—typically
+                1-3 days per week per client—enabling businesses to access C-suite expertise without bearing the full cost of permanent employment.
+              </p>
+              <p className="mb-4">
+                According to <a href="https://www.ons.gov.uk" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Office for National Statistics data</a>,
+                the UK has seen a 127% increase in fractional executive appointments since 2019. This growth spans all major business hubs including
+                London, Manchester, Birmingham, Edinburgh, and Bristol, with remote fractional arrangements becoming increasingly common.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Key Differences: Fractional vs Interim vs Part-Time</h3>
+              <div className="bg-gray-950 rounded-xl p-6 mb-4">
+                <h4 className="text-lg font-bold text-white mb-3">Fractional Executive</h4>
+                <p className="mb-2">Ongoing strategic partnership with multiple clients. Proactive, long-term relationship focused on growth and development.
+                Typical engagement: 12-36 months with 1-3 days per week per client.</p>
+              </div>
+              <div className="bg-gray-950 rounded-xl p-6 mb-4">
+                <h4 className="text-lg font-bold text-white mb-3">Interim Executive</h4>
+                <p className="mb-2">Temporary full-time role to address specific crisis or transition. Reactive, short-term assignment typically 3-6 months.
+                Often covering maternity leave, M&A transitions, or turnaround situations.</p>
+              </div>
+              <div className="bg-gray-950 rounded-xl p-6">
+                <h4 className="text-lg font-bold text-white mb-3">Part-Time Employee</h4>
+                <p>Permanent reduced-hours position with single employer. Benefits and employment rights under UK law per
+                <a href="https://www.gov.uk/part-time-worker-rights" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline ml-1">government part-time worker rights</a>.</p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Fractional Job Roles in High Demand</h3>
+              <p className="mb-4">
+                The UK fractional jobs market encompasses various C-suite functions, each with distinct characteristics and compensation ranges:
+              </p>
+              <div className="space-y-4">
+                <div className="border-l-4 border-blue-600 pl-4">
+                  <h4 className="text-lg font-bold text-white mb-2">Fractional CFO Jobs UK</h4>
+                  <p className="mb-2">
+                    Financial strategy, fundraising, cash flow management, financial modeling. Average day rate: £900-£1,500.
+                    Particularly sought after by scale-ups preparing for Series A/B funding rounds and PE-backed portfolio companies requiring
+                    financial rigor without full-time CFO expense.
+                  </p>
+                </div>
+                <div className="border-l-4 border-blue-600 pl-4">
+                  <h4 className="text-lg font-bold text-white mb-2">Fractional CTO Jobs UK</h4>
+                  <p className="mb-2">
+                    Technology roadmap, technical architecture, engineering team leadership, digital transformation. Average day rate: £850-£1,400.
+                    Essential for businesses undergoing cloud migration, building technical teams, or requiring strategic technology guidance
+                    without commitment to permanent CTO compensation packages exceeding £200,000 annually.
+                  </p>
+                </div>
+                <div className="border-l-4 border-blue-600 pl-4">
+                  <h4 className="text-lg font-bold text-white mb-2">Fractional CMO Jobs UK</h4>
+                  <p className="mb-2">
+                    Marketing strategy, brand development, demand generation, go-to-market planning. Average day rate: £800-£1,300.
+                    Particularly valuable for businesses launching new products, entering new markets, or pivoting positioning without
+                    resources for full marketing department leadership.
+                  </p>
+                </div>
+                <div className="border-l-4 border-blue-600 pl-4">
+                  <h4 className="text-lg font-bold text-white mb-2">Fractional COO Jobs UK</h4>
+                  <p className="mb-2">
+                    Operational excellence, process optimization, team scaling, systems implementation. Average day rate: £850-£1,400.
+                    Critical during rapid growth phases when operational complexity outpaces existing management capacity.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Editorial Content: Evolution of Fractional Jobs */}
+      <section className="py-16 md:py-20 bg-gray-950">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-bold text-white !text-white mb-6">
             The Evolution of Fractional Jobs in the UK
@@ -753,8 +850,127 @@ export default async function FractionalJobsUKPage() {
         </div>
       </section>
 
-      {/* Editorial Content: How to Succeed in Fractional Jobs UK */}
+      {/* Legal and Tax Considerations for Fractional Jobs UK */}
       <section className="py-16 md:py-20 bg-gray-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-white !text-white mb-8">
+            Legal and Tax Considerations for Fractional Jobs UK
+          </h2>
+
+          <div className="space-y-8 text-gray-300 leading-relaxed">
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4">IR35 and Fractional Executive Work</h3>
+              <p className="mb-4">
+                Understanding IR35 legislation is critical for fractional executives operating in the UK. The <a href="https://www.gov.uk/guidance/understanding-off-payroll-working-ir35" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">HMRC IR35 rules</a> determine
+                whether a contractor should be treated as an employee for tax purposes. Properly structured fractional arrangements typically fall
+                outside IR35 due to multiple concurrent clients, control over delivery methods, and genuine business-to-business relationships.
+              </p>
+
+              <div className="bg-gray-950 rounded-xl p-6 mb-4">
+                <h4 className="text-lg font-bold text-white mb-3">Key IR35 Factors for Fractional Jobs</h4>
+                <div className="space-y-3">
+                  <div>
+                    <h5 className="text-base font-semibold text-blue-400 mb-1">Multiple Clients</h5>
+                    <p className="text-sm">Working with 2-4 organizations simultaneously demonstrates genuine business operation rather than disguised employment.</p>
+                  </div>
+                  <div>
+                    <h5 className="text-base font-semibold text-blue-400 mb-1">Substitution Rights</h5>
+                    <p className="text-sm">Ability to send a substitute (even if not exercised) indicates contractor status per <a href="https://www.gov.uk/hmrc-internal-manuals/employment-status-manual" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">HMRC Employment Status Manual</a>.</p>
+                  </div>
+                  <div>
+                    <h5 className="text-base font-semibold text-blue-400 mb-1">Control and Autonomy</h5>
+                    <p className="text-sm">Fractional executives determine how work is delivered, contrasting with employees who receive detailed direction.</p>
+                  </div>
+                  <div>
+                    <h5 className="text-base font-semibold text-blue-400 mb-1">Financial Risk</h5>
+                    <p className="text-sm">Bearing business costs, using own equipment, and potential for profit/loss support outside IR35 status.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Structuring Your Fractional Practice</h3>
+              <p className="mb-4">
+                Most UK fractional executives operate through limited companies to optimize tax efficiency and maintain IR35 compliance.
+                According to <a href="https://www.gov.uk/set-up-limited-company" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Companies House guidance</a>,
+                forming a limited company provides professional credibility, tax planning opportunities, and clear separation between personal and business finances.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-4 mb-4">
+                <div className="bg-gray-950 rounded-xl p-5">
+                  <h4 className="text-base font-bold text-white mb-2">Limited Company Benefits</h4>
+                  <ul className="space-y-1 text-sm">
+                    <li>• Corporation tax at 19-25% vs income tax up to 45%</li>
+                    <li>• Dividend tax efficiency on profit extraction</li>
+                    <li>• VAT registration threshold flexibility</li>
+                    <li>• Professional indemnity insurance deductibility</li>
+                    <li>• Pension contributions up to £60,000 annually</li>
+                  </ul>
+                </div>
+                <div className="bg-gray-950 rounded-xl p-5">
+                  <h4 className="text-base font-bold text-white mb-2">Sole Trader Considerations</h4>
+                  <ul className="space-y-1 text-sm">
+                    <li>• Simpler administration and lower costs</li>
+                    <li>• All profits taxed as personal income</li>
+                    <li>• Unlimited personal liability</li>
+                    <li>• May appear less established to clients</li>
+                    <li>• Limited tax planning opportunities</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Employment Law and Fractional Contracts</h3>
+              <p className="mb-4">
+                Fractional executives should ensure contracts clearly establish contractor status rather than employment. Key contractual elements include
+                defined deliverables rather than time-based obligations, notice periods appropriate for business relationships (typically 30-90 days),
+                and explicit acknowledgment of the right to work for other clients. The <a href="https://www.acas.org.uk" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Advisory, Conciliation and Arbitration Service (ACAS)</a> provides
+                guidance on distinguishing contractors from employees.
+              </p>
+
+              <div className="bg-blue-950/30 border border-blue-800/30 rounded-xl p-6">
+                <h4 className="text-lg font-bold text-white mb-3">Essential Contract Clauses for Fractional Work</h4>
+                <div className="space-y-2 text-sm">
+                  <p><strong className="text-white">Scope of Services:</strong> Define specific deliverables and outcomes rather than hours worked</p>
+                  <p><strong className="text-white">Non-Exclusivity:</strong> Explicit confirmation of right to serve other clients</p>
+                  <p><strong className="text-white">Payment Terms:</strong> Day rate or project fee structure, typically net 30 days</p>
+                  <p><strong className="text-white">Intellectual Property:</strong> Clear ownership and licensing arrangements for work product</p>
+                  <p><strong className="text-white">Professional Indemnity:</strong> Specification of required insurance coverage (typically £1-2M)</p>
+                  <p><strong className="text-white">Data Protection:</strong> GDPR compliance obligations per <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">ICO guidance</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Insurance and Professional Protection</h3>
+              <p className="mb-4">
+                Fractional executives should maintain comprehensive insurance coverage to protect against professional risks. Most clients require
+                evidence of professional indemnity insurance before engagement commencement, with £1 million minimum coverage standard for
+                fractional CFO, CTO, and CMO roles, escalating to £2-5 million for larger client engagements or board-level appointments.
+              </p>
+              <div className="space-y-3">
+                <div className="border-l-4 border-blue-600 pl-4">
+                  <h4 className="text-base font-bold text-white mb-1">Professional Indemnity Insurance</h4>
+                  <p className="text-sm">Protects against claims of professional negligence, errors in advice, or breach of professional duty. Essential for all fractional executive work.</p>
+                </div>
+                <div className="border-l-4 border-blue-600 pl-4">
+                  <h4 className="text-base font-bold text-white mb-1">Public Liability Insurance</h4>
+                  <p className="text-sm">Covers third-party injury or property damage claims. Required for on-site client work and typically £2-5 million coverage.</p>
+                </div>
+                <div className="border-l-4 border-blue-600 pl-4">
+                  <h4 className="text-base font-bold text-white mb-1">Cyber Liability Insurance</h4>
+                  <p className="text-sm">Increasingly important for fractional CTOs and executives handling sensitive data. Covers data breach costs and regulatory fines.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Editorial Content: How to Succeed in Fractional Jobs UK */}
+      <section className="py-16 md:py-20 bg-gray-950">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-bold text-white !text-white mb-6">
             How to Get Started with Fractional Jobs UK
