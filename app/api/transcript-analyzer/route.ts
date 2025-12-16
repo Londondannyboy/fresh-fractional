@@ -173,12 +173,39 @@ DEFAULT TO search_jobs WHEN IN DOUBT!`
   }
 }
 
+// Map executive titles to role categories for better search
+function mapRoleToCategory(roleType?: string): string {
+  if (!roleType) return '%'
+
+  const roleLower = roleType.toLowerCase()
+
+  // Map C-level titles to categories
+  if (roleLower.includes('cmo') || roleLower.includes('chief marketing')) {
+    return '%Marketing%'
+  }
+  if (roleLower.includes('cfo') || roleLower.includes('chief financial') || roleLower.includes('finance director')) {
+    return '%Finance%'
+  }
+  if (roleLower.includes('cto') || roleLower.includes('chief technology') || roleLower.includes('chief technical')) {
+    return '%Technology%'
+  }
+  if (roleLower.includes('coo') || roleLower.includes('chief operating')) {
+    return '%Operations%'
+  }
+  if (roleLower.includes('ceo') || roleLower.includes('chief executive')) {
+    return '%Executive%'
+  }
+
+  // Default: use the literal search term
+  return `%${roleType}%`
+}
+
 /**
  * Query Neon DB directly for jobs
  */
 async function searchJobsFromDB(roleType?: string, location?: string) {
   try {
-    const rolePattern = roleType ? `%${roleType}%` : '%'
+    const rolePattern = mapRoleToCategory(roleType)
     const locationPattern = location ? `%${location}%` : '%'
 
     const jobs = await sql`

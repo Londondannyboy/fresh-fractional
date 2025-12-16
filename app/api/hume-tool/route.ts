@@ -205,6 +205,33 @@ async function getUserSkills(userId: string): Promise<string> {
   }
 }
 
+// Map executive titles to role categories for better search
+function mapRoleToCategory(roleType?: string): string {
+  if (!roleType) return '%'
+
+  const roleLower = roleType.toLowerCase()
+
+  // Map C-level titles to categories
+  if (roleLower.includes('cmo') || roleLower.includes('chief marketing')) {
+    return '%Marketing%'
+  }
+  if (roleLower.includes('cfo') || roleLower.includes('chief financial') || roleLower.includes('finance director')) {
+    return '%Finance%'
+  }
+  if (roleLower.includes('cto') || roleLower.includes('chief technology') || roleLower.includes('chief technical')) {
+    return '%Technology%'
+  }
+  if (roleLower.includes('coo') || roleLower.includes('chief operating')) {
+    return '%Operations%'
+  }
+  if (roleLower.includes('ceo') || roleLower.includes('chief executive')) {
+    return '%Executive%'
+  }
+
+  // Default: use the literal search term
+  return `%${roleType}%`
+}
+
 async function searchJobs(params: {
   role_type?: string
   location?: string
@@ -213,7 +240,7 @@ async function searchJobs(params: {
   limit?: number
 }): Promise<string> {
   try {
-    const rolePattern = params.role_type ? `%${params.role_type}%` : '%'
+    const rolePattern = mapRoleToCategory(params.role_type)
     const locationPattern = params.location ? `%${params.location}%` : '%'
     const limit = params.limit || 5
 
