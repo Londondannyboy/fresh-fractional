@@ -80,7 +80,7 @@ function VoiceInterface({ token, userId, userName }: VoiceInterfaceProps) {
     return () => {
       disconnect()
     }
-  }, [token, userId, connect, disconnect])
+  }, [token, userId, userName]) // Removed connect/disconnect to prevent loop
 
   // Track connection state
   useEffect(() => {
