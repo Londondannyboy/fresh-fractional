@@ -35,7 +35,11 @@ async function getHumeToken() {
     }
 
     const data = await response.json()
-    return NextResponse.json({ token: data.access_token })
+    // Return both formats for compatibility
+    return NextResponse.json({
+      token: data.access_token,
+      accessToken: data.access_token
+    })
   } catch (error) {
     console.error('Hume token error:', error)
     return NextResponse.json(
