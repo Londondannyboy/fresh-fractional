@@ -59,8 +59,11 @@ function VoiceInterface() {
       .then(() => console.log('[DEMO] Connected!'))
       .catch(err => console.error('[DEMO] Connection failed:', err))
 
-    return () => disconnect()
-  }, [token]) // Removed connect/disconnect to prevent infinite loop
+    return () => {
+      disconnect()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]) // Only depend on token to prevent reconnection loop
 
   // Process tools
   useEffect(() => {
