@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 
   return {
     title: `${article.title} | Fractional Quest`,
-    description: article.excerpt || 'Fractional executive article and career guide',
+    description: article.excerpt || 'Fractional executive job market news and insights',
     openGraph: {
       title: article.title,
       description: article.excerpt || undefined,
@@ -87,8 +87,49 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   const badge = typeBadges[article.article_type || 'manual']
 
+  // Generate JobPosting schema for SEO
+  const jobPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.title,
+    "description": article.excerpt || undefined,
+    "image": article.featured_asset_url || undefined,
+    "datePublished": article.published_at || undefined,
+    "author": {
+      "@type": "Organization",
+      "name": "Fractional Quest"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Fractional Quest",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://fractional.quest/logo.svg"
+      }
+    },
+    "about": {
+      "@type": "JobPosting",
+      "description": "Fractional executive job opportunities and market insights",
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": "Fractional Quest"
+      },
+      "jobLocationType": "TELECOMMUTE",
+      "applicantLocationRequirements": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      }
+    }
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }}
+      />
+
       {/* Header */}
       <div className="bg-gradient-to-br from-gray-900 via-slate-900 to-black py-16">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">

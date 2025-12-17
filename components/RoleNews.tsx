@@ -223,10 +223,10 @@ export async function LatestNews({ limit = 6 }: { limit?: number }) {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl font-bold text-gray-900">
-              Latest Fractional Executive News
+              Job Market News
             </h2>
             <p className="text-gray-600 mt-1">
-              Market insights, job updates, and industry trends
+              Market insights, job trends, and hiring intelligence
             </p>
           </div>
         </div>

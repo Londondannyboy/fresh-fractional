@@ -6,6 +6,7 @@ import { JobCard } from "@/components/JobCard";
 import { AuthAwareHumeWidget } from "@/components/AuthAwareHumeWidget";
 import { AnimatedStats } from "@/components/AnimatedStats";
 import { LatestNews } from "@/components/RoleNews";
+import { FreshJobs } from "@/components/FreshJobs";
 import { JobsGraph3D } from "@/components/JobsGraph3D";
 import { DesktopOnly } from "@/components/DesktopOnly";
 
@@ -780,8 +781,15 @@ export default async function Home() {
         </section>
       )}
 
-      {/* Latest News Section - Auto-generated + Manual Articles */}
+      {/* Fresh Jobs This Week - Latest Job Postings with Schema */}
       <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FreshJobs limit={6} />
+        </div>
+      </section>
+
+      {/* Job Market News - Auto-generated Articles About Jobs */}
+      <section className="py-20 md:py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <LatestNews limit={6} />
         </div>
