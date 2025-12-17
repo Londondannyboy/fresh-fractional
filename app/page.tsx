@@ -892,6 +892,7 @@ export default async function Home() {
                 <li><Link href="/fractional-cmo-jobs-uk" className="hover:text-black transition-colors">Fractional CMO Jobs UK</Link></li>
                 <li><Link href="/fractional-cto-jobs-uk" className="hover:text-black transition-colors">Fractional CTO Jobs UK</Link></li>
                 <li><Link href="/fractional-coo-jobs-uk" className="hover:text-black transition-colors">Fractional COO Jobs UK</Link></li>
+                <li><Link href="/fractional-project-manager" className="hover:text-black transition-colors">Fractional Project Manager UK</Link></li>
               </ul>
             </div>
 

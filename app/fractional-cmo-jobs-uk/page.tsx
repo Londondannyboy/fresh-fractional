@@ -500,6 +500,7 @@ export default async function FractionalCmoJobsUkPage() {
               <Link href="/fractional-cmo-salary" className="text-gray-600 hover:text-amber-600 font-medium transition-colors">CMO Salary Guide</Link>
               <Link href="/fractional-cfo-jobs-uk" className="text-gray-600 hover:text-amber-600 font-medium transition-colors">CFO Jobs UK</Link>
               <Link href="/fractional-cto-jobs-uk" className="text-gray-600 hover:text-amber-600 font-medium transition-colors">CTO Jobs UK</Link>
+              <Link href="/fractional-project-manager" className="text-gray-600 hover:text-amber-600 font-medium transition-colors">Project Manager UK</Link>
             </div>
           </div>
         </div>
