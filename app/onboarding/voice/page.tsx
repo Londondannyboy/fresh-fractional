@@ -44,6 +44,16 @@ function VoiceInterface({ token, userId, userName }: VoiceInterfaceProps) {
 
     const storedChatGroupId = getChatGroupId(userId)
 
+    // DEBUG: Log connection parameters
+    console.log('[ONBOARDING] Connecting to Hume:', {
+      hasToken: !!token,
+      tokenLength: token.length,
+      configId: CONFIG_ID,
+      userId: userId,
+      userIdType: typeof userId,
+      hasChatGroupId: !!storedChatGroupId
+    })
+
     connect({
       auth: { type: 'accessToken', value: token },
       configId: CONFIG_ID,
@@ -55,7 +65,8 @@ function VoiceInterface({ token, userId, userName }: VoiceInterfaceProps) {
         }
       }
     })
-      .catch(err => console.error('Failed to connect to Hume:', err))
+      .then(() => console.log('[ONBOARDING] Connected successfully!'))
+      .catch(err => console.error('[ONBOARDING] Failed to connect to Hume:', err))
 
     return () => {
       disconnect()
@@ -437,6 +448,15 @@ export default function VoiceOnboardingPage() {
   useEffect(() => {
     if (!user) return
 
+    // DEBUG: Log user object
+    console.log('[ONBOARDING] User object:', {
+      id: user.id,
+      displayName: user.displayName,
+      primaryEmail: user.primaryEmail,
+      hasId: !!user.id,
+      idType: typeof user.id
+    })
+
     fetch('/api/hume-token', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -444,6 +464,12 @@ export default function VoiceOnboardingPage() {
     })
       .then(res => res.json())
       .then(data => {
+        console.log('[ONBOARDING] Token response:', {
+          hasToken: !!data.token,
+          hasAccessToken: !!data.accessToken,
+          tokenLength: data.token?.length,
+          keys: Object.keys(data)
+        })
         if (data.token) {
           setToken(data.token)
         }
