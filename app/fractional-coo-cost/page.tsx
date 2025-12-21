@@ -59,7 +59,7 @@ export default function FractionalCOOCostPage() {
     <div className="min-h-screen bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       {/* Hero */}
-      <section className="relative bg-gray-50 text-white py-20 md:py-28">
+      <section className="relative bg-gray-50 text-gray-900 py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <Link href="/fractional-coo" className="inline-flex items-center text-white/60 hover:text-white mb-8 transition-colors text-sm tracking-wide">
             <span className="mr-2">←</span> Back to COO Hub
@@ -184,7 +184,7 @@ export default function FractionalCOOCostPage() {
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-gray-50 text-white">
+                <tr className="bg-gray-50 text-gray-900">
                   <th className="py-4 px-6 text-left">Cost Component</th>
                   <th className="py-4 px-6 text-left">Fractional COO (2 days/week)</th>
                   <th className="py-4 px-6 text-left">Full-Time COO</th>

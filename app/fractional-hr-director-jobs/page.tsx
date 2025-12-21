@@ -80,7 +80,7 @@ export default async function FractionalHRDirectorJobsPage() {
       </section>
 
       {/* Quick Stats */}
-      <section className="py-8 bg-gray-50 text-white">
+      <section className="py-8 bg-gray-50 text-gray-900">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-6 text-center">
             <div>
@@ -186,7 +186,7 @@ export default async function FractionalHRDirectorJobsPage() {
       </DesktopOnly>
 
       {/* CTA */}
-      <section className="py-16 bg-gray-50 text-white">
+      <section className="py-16 bg-gray-50 text-gray-900">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">Start Your Fractional HR Director Career</h2>
           <p className="text-gray-300 mb-8">Create your profile and get matched with companies seeking HR Directors.</p>

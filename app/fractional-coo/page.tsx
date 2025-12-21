@@ -199,7 +199,7 @@ export default function FractionalCOOPage() {
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-gray-50 text-white">
+                <tr className="bg-gray-50 text-gray-900">
                   <th className="py-4 px-6 text-left">Aspect</th>
                   <th className="py-4 px-6 text-left">Fractional COO</th>
                   <th className="py-4 px-6 text-left">Full-Time COO</th>

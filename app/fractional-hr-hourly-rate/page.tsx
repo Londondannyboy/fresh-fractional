@@ -68,7 +68,7 @@ export default function FractionalHRHourlyRatePage() {
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="bg-gray-50 text-white">
+                  <tr className="bg-gray-50 text-gray-900">
                     <th className="text-left p-4 font-semibold">Role</th>
                     <th className="text-left p-4 font-semibold">Hourly Rate</th>
                     <th className="text-left p-4 font-semibold">Day Rate</th>
@@ -148,7 +148,7 @@ export default function FractionalHRHourlyRatePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gray-50 text-white">
+      <section className="py-16 bg-gray-50 text-gray-900">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">Explore Fractional HR Opportunities</h2>
           <p className="text-gray-300 mb-8">Browse roles or learn more about fractional HR pricing.</p>

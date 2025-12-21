@@ -262,7 +262,7 @@ export default async function FractionalCHROJobsUKPage() {
 
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-6">Step 4: Find Your First Clients</h3>
 
-            <div className="bg-gray-50 text-white p-8 my-10">
+            <div className="bg-gray-50 text-gray-900 p-8 my-10">
               <h4 className="text-xl font-bold text-white mb-4">Top Client Sources for Fractional CHROs</h4>
               <div className="grid md:grid-cols-2 gap-6 text-gray-300">
                 <div>
@@ -291,7 +291,7 @@ export default async function FractionalCHROJobsUKPage() {
             <div className="overflow-x-auto my-10">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="bg-gray-50 text-white">
+                  <tr className="bg-gray-50 text-gray-900">
                     <th className="p-4 text-left">Experience Level</th>
                     <th className="p-4 text-left">Day Rate</th>
                     <th className="p-4 text-left">2-3 Clients Annual</th>

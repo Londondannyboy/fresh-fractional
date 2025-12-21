@@ -347,7 +347,7 @@ export default async function FractionalCmoJobsUkPage() {
               <li>Knowledge of <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline">data protection regulations (GDPR)</a> for marketing activities</li>
             </ul>
 
-            <div className="bg-gray-50 text-white p-6 rounded-lg my-10 not-prose">
+            <div className="bg-gray-50 text-gray-900 p-6 rounded-lg my-10 not-prose">
               <p className="text-gray-300 mb-3">Want to understand fractional CMO pricing?</p>
               <Link href="/fractional-cmo-cost" className="inline-flex items-center text-amber-400 font-bold hover:text-amber-300">
                 View Fractional CMO Cost Guide →

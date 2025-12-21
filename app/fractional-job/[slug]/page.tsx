@@ -681,7 +681,7 @@ export default async function JobDetailPage({ params }: PageProps) {
                 )}
 
                 {/* Quick Apply Card */}
-                <div className="bg-gray-50 text-white p-6 rounded-lg">
+                <div className="bg-gray-50 text-gray-900 p-6 rounded-lg">
                   <h3 className="text-lg font-bold mb-2">Ready to Apply?</h3>
                   <p className="text-gray-300 text-sm mb-4">
                     Apply for {job.title} at {job.company_name}

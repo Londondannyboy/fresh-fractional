@@ -159,7 +159,7 @@ export default async function RemoteHRJobsPage() {
       </DesktopOnly>
 
       {/* CTA */}
-      <section className="py-16 bg-gray-50 text-white">
+      <section className="py-16 bg-gray-50 text-gray-900">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">Find Your Remote HR Role</h2>
           <p className="text-gray-300 mb-8">Create your profile and get matched with remote-friendly companies.</p>

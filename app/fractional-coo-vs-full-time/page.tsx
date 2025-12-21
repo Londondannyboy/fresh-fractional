@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function FractionalVsFullTimeCOOPage() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="bg-gray-50 text-white py-20">
+      <section className="bg-gray-50 text-gray-900 py-20">
         <div className="max-w-4xl mx-auto px-4">
           <Link href="/fractional-coo" className="text-gray-400 hover:text-white mb-6 inline-block">← Back to COO Hub</Link>
           <h1 className="text-5xl font-black mb-6">Fractional COO vs Full-Time COO</h1>
@@ -27,7 +27,7 @@ export default function FractionalVsFullTimeCOOPage() {
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-gray-50 text-white">
+                <tr className="bg-gray-50 text-gray-900">
                   <th className="py-4 px-6 text-left">Factor</th>
                   <th className="py-4 px-6 text-left">Fractional COO</th>
                   <th className="py-4 px-6 text-left">Full-Time COO</th>
