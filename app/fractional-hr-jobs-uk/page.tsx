@@ -433,14 +433,16 @@ export default async function FractionalHrJobsUkPage() {
       <section className="py-12 bg-white border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <span className="text-sm font-bold uppercase tracking-wider text-gray-400">Related</span>
+            <span className="text-sm font-bold uppercase tracking-wider text-gray-400">HR Cluster</span>
             <div className="flex flex-wrap gap-4">
-              <Link href="/uk-fractional-jobs-uk-london-fractional-jobs-london" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">Fractional Jobs</Link>
               <Link href="/fractional-hr" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">Fractional HR Guide</Link>
-              <Link href="/fractional-hr-salary" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">HR Salary Guide</Link>
-              <Link href="/fractional-cfo-jobs-uk" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">CFO Jobs UK</Link>
-              <Link href="/fractional-cmo-jobs-uk" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">CMO Jobs UK</Link>
-              <Link href="/fractional-cto-jobs-uk" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">CTO Jobs UK</Link>
+              <Link href="/fractional-hr-salary" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">Salary Guide</Link>
+              <Link href="/fractional-hr-director" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">HR Director</Link>
+              <Link href="/fractional-chro" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">Fractional CHRO</Link>
+              <Link href="/fractional-hr-jobs-remote" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">Remote HR Jobs</Link>
+              <Link href="/part-time-hr-jobs-uk" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">Part-Time HR</Link>
+              <Link href="/fractional-hr-director-jobs" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">HR Director Jobs</Link>
+              <Link href="/fractional-hr-vs-full-time" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">Fractional vs Full-Time</Link>
             </div>
           </div>
         </div>

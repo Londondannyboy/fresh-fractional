@@ -1,690 +1,146 @@
 import { MetadataRoute } from 'next'
 import { createDbQuery } from '@/lib/db'
+import fs from 'fs'
+import path from 'path'
 
 export const revalidate = 3600 // Revalidate every hour
 
+// Directories to exclude from sitemap
+const EXCLUDED_DIRS = [
+  'api',
+  'handler',
+  'handlers',
+  '_components',
+  '_lib',
+  'components',
+  'lib',
+]
+
+// Dynamic route patterns to exclude (contain brackets)
+const isDynamicRoute = (dir: string) => dir.includes('[') && dir.includes(']')
+
+// Determine priority based on URL patterns
+function getPriority(slug: string): number {
+  // Homepage
+  if (slug === '') return 1
+
+  // High priority service pages
+  if (slug.endsWith('-services') || slug === 'fractional-services') return 0.95
+
+  // Primary content hubs
+  if (['fractional-hr', 'fractional-cfo', 'fractional-cto', 'fractional-cmo', 'fractional-coo'].includes(slug)) return 0.95
+
+  // Jobs pages (high priority)
+  if (slug.includes('-jobs-uk') || slug.includes('-jobs-remote')) return 0.9
+
+  // Definition/meaning pages
+  if (slug.startsWith('what-is-') || slug.includes('-meaning')) return 0.9
+
+  // For startups pages
+  if (slug.includes('-for-startups')) return 0.9
+
+  // Part-time pages
+  if (slug.startsWith('part-time-')) return 0.88
+
+  // VS comparison pages
+  if (slug.includes('-vs-')) return 0.88
+
+  // Cost and salary pages
+  if (slug.includes('-cost') || slug.includes('-salary') || slug.includes('-hourly-rate')) return 0.85
+
+  // Interim pages
+  if (slug.startsWith('interim-')) return 0.85
+
+  // How to become pages
+  if (slug.startsWith('how-to-become-')) return 0.85
+
+  // Location pages
+  if (slug.startsWith('fractional-jobs-')) return 0.8
+
+  // Consultant pages
+  if (slug.includes('-consultant')) return 0.8
+
+  // Short redirects
+  if (['cfo', 'cto', 'cmo', 'coo', 'hr', 'guide', 'contact'].includes(slug)) return 0.7
+
+  // Utility pages
+  if (['privacy', 'terms', 'voice', 'chat'].includes(slug)) return 0.3
+
+  // Default
+  return 0.8
+}
+
+// Determine change frequency based on URL patterns
+function getChangeFrequency(slug: string): 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never' {
+  // Jobs pages update frequently
+  if (slug.includes('-jobs')) return 'daily'
+
+  // Homepage and main listings
+  if (slug === '' || slug === 'fractional-jobs' || slug === 'fractionaljobsuk') return 'daily'
+
+  // Location pages
+  if (slug.startsWith('fractional-jobs-') || slug === 'london' || slug === 'remote') return 'daily'
+
+  // Articles hub
+  if (slug === 'fractional-jobs-articles') return 'daily'
+
+  // Salary and cost pages (update less frequently)
+  if (slug.includes('-salary') || slug.includes('-cost') || slug.includes('-hourly-rate')) return 'monthly'
+
+  // Legal pages
+  if (['privacy', 'terms'].includes(slug)) return 'yearly'
+
+  // Most content pages
+  return 'weekly'
+}
+
+// Recursively find all page.tsx files in the app directory
+function findAllPages(dir: string, baseDir: string): string[] {
+  const pages: string[] = []
+
+  try {
+    const entries = fs.readdirSync(dir, { withFileTypes: true })
+
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name)
+
+      if (entry.isDirectory()) {
+        // Skip excluded directories and dynamic routes
+        if (EXCLUDED_DIRS.includes(entry.name) || isDynamicRoute(entry.name)) {
+          continue
+        }
+
+        // Recurse into subdirectories
+        pages.push(...findAllPages(fullPath, baseDir))
+      } else if (entry.name === 'page.tsx' || entry.name === 'page.ts') {
+        // Found a page - extract the route
+        const relativePath = path.relative(baseDir, dir)
+        pages.push(relativePath)
+      }
+    }
+  } catch (error) {
+    console.error(`Error reading directory ${dir}:`, error)
+  }
+
+  return pages
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://fractional.quest'
+  const appDir = path.join(process.cwd(), 'app')
 
-  // Static pages
-  const staticPages: MetadataRoute.Sitemap = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/fractionaljobsuk`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-articles`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/top-fractional-recruitment-agencies-best-fractional-recruitment-agency-fractional-recruiter`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/london`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-london`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-birmingham`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-manchester`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-edinburgh`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-leeds`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-bristol`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-glasgow`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-liverpool`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-newcastle`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-cardiff`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-belfast`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-cambridge`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-oxford`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/remote`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-tech`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-finance`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-startups`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-healthcare`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-ecommerce`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-saas`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fractional-jobs-professional-services`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    // Service Pages (high priority - company-focused)
-    {
-      url: `${baseUrl}/fractional-cfo-services`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/fractional-cmo-services`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/fractional-cto-services`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/fractional-coo`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/fractional-coo-services`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/fractional-coo-cost`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.88,
-    },
-    {
-      url: `${baseUrl}/fractional-coo-salary`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-coo-hourly-rate`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.84,
-    },
-    {
-      url: `${baseUrl}/fractional-coo-meaning`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.87,
-    },
-    {
-      url: `${baseUrl}/fractional-coo-vs-full-time`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.88,
-    },
-    {
-      url: `${baseUrl}/fractional-coo-for-startups`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.90,
-    },
-    {
-      url: `${baseUrl}/how-to-become-fractional-coo`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-cpo-services`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/fractional-chro-services`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/fractional-cio-services`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/fractional-cdo-services`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/fractional-cro-services`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/fractional-ciso-services`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    // Interim Executive Pages
-    {
-      url: `${baseUrl}/interim-ceo`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/interim-cfo`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/interim-cmo`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/interim-cto`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/interim-coo`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/interim-cpo`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/interim-chro`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/interim-cio`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/interim-ciso`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/interim-cro`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    // Functional Leadership Pages
-    {
-      url: `${baseUrl}/fractional-marketing`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-finance`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-operations`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-product`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-hr`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-technology`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-data`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-revenue`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-security`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    // Consultant Role Pages
-    {
-      url: `${baseUrl}/cybersecurity-consultants`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/marketing-consultants`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/finance-consultants`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/technology-consultants`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/operations-consultants`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    // Service Category Pages
-    {
-      url: `${baseUrl}/fractional-services`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/fractional-consulting`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-agency`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-marketing-agency`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-finance-agency`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    // Role-specific job pages (high priority SEO pages)
-    {
-      url: `${baseUrl}/fractional-cfo-jobs-uk`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/fractional-cmo-jobs-uk`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/fractional-cto-jobs-uk`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/fractional-coo-jobs-uk`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    // Part-time job pages (high priority SEO pages)
-    {
-      url: `${baseUrl}/part-time-cfo-jobs-uk`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/part-time-cmo-jobs-uk`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    // Salary guides
-    {
-      url: `${baseUrl}/fractional-cfo-salary`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-cmo-salary`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    // CFO Content Hub (high priority SEO cluster)
-    {
-      url: `${baseUrl}/fractional-cfo`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/what-is-fractional-cfo`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/fractional-cfo-near-me`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.88,
-    },
-    {
-      url: `${baseUrl}/fractional-cfo-hourly-rate`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-cfo-cost`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-cfo-for-startups`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/how-to-become-fractional-cfo`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/fractional-cfo-vs-full-time`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.88,
-    },
-    {
-      url: `${baseUrl}/fractional-cfo-companies`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.87,
-    },
-    {
-      url: `${baseUrl}/fractional-cfo-training`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.84,
-    },
-    {
-      url: `${baseUrl}/fractional-cfo-jobs-remote`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/contract-cfo-jobs`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.83,
-    },
-    {
-      url: `${baseUrl}/fractional-controller-jobs`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.84,
-    },
-    {
-      url: `${baseUrl}/outsourced-cfo-services`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.86,
-    },
-    {
-      url: `${baseUrl}/virtual-cfo-services`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.86,
-    },
-    {
-      url: `${baseUrl}/cfo-community-reddit`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.82,
-    },
-    {
-      url: `${baseUrl}/fractional-cfo-salary-report-2025`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/state-fractional-cfo-market-2025`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    // Short URL redirects (keep for backlinks)
-    {
-      url: `${baseUrl}/cfo`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/cto`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/cmo`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/coo`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/hr`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/guide`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/voice`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/chat`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-  ]
+  // Auto-discover all static pages
+  const discoveredPages = findAllPages(appDir, appDir)
+
+  const staticPages: MetadataRoute.Sitemap = discoveredPages.map(slug => ({
+    url: slug === '' ? baseUrl : `${baseUrl}/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: getChangeFrequency(slug),
+    priority: getPriority(slug),
+  }))
+
+  // Sort by priority (highest first)
+  staticPages.sort((a, b) => (b.priority || 0) - (a.priority || 0))
 
   try {
     const sql = createDbQuery()

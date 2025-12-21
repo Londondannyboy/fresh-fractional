@@ -1,0 +1,180 @@
+import { Metadata } from 'next'
+import Link from 'next/link'
+import { Suspense } from 'react'
+import { createDbQuery } from '@/lib/db'
+import { EmbeddedJobBoard } from '@/components/EmbeddedJobBoard'
+import { JobsGraph3D } from '@/components/JobsGraph3D'
+import { DesktopOnly } from '@/components/DesktopOnly'
+
+export const revalidate = 3600
+
+export const metadata: Metadata = {
+  title: 'Part-Time HR Jobs UK 2025 | Flexible HR Director & CHRO Positions',
+  description: 'Browse part-time HR jobs in the UK. Flexible HR Director and CHRO roles paying £700-£1,300/day. Find roles working 1-3 days per week.',
+  keywords: 'part time hr jobs uk, part-time hr jobs, part time hr director jobs, part time chro jobs, flexible hr jobs uk',
+  alternates: {
+    canonical: 'https://fractional.quest/part-time-hr-jobs-uk',
+  },
+  openGraph: {
+    title: 'Part-Time HR Jobs UK 2025 | Flexible HR Positions',
+    description: 'Browse part-time HR jobs in the UK. Flexible positions paying £700-£1,300/day.',
+    images: ['/images/part-time-hr-jobs-uk.jpg'],
+    url: 'https://fractional.quest/part-time-hr-jobs-uk',
+  },
+}
+
+async function getHRStats() {
+  try {
+    const sql = createDbQuery()
+    const [totalResult, remoteResult] = await Promise.all([
+      sql`SELECT COUNT(*) as count FROM jobs WHERE is_active = true AND role_category = 'HR'`,
+      sql`SELECT COUNT(*) as count FROM jobs WHERE is_active = true AND role_category = 'HR' AND (is_remote = true OR workplace_type = 'Remote')`
+    ])
+    return {
+      total: parseInt((totalResult[0] as any)?.count || '0'),
+      remoteCount: parseInt((remoteResult[0] as any)?.count || '0')
+    }
+  } catch {
+    return { total: 32, remoteCount: 14 }
+  }
+}
+
+export default async function PartTimeHRJobsUKPage() {
+  const stats = await getHRStats()
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Hero */}
+      <section className="relative min-h-[50vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <JobsGraph3D categoryFilter="HR" limit={25} height="100%" isHero={true} showOverlay={true} />
+        </div>
+        <div className="relative z-10 w-full py-16">
+          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+            <Link href="/part-time-hr" className="inline-flex items-center text-white/60 hover:text-white mb-6 transition-colors text-sm">
+              <span className="mr-2">←</span> Back to Part-Time HR
+            </Link>
+            <div className="max-w-4xl">
+              <span className="inline-block bg-pink-500 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">
+                Job Board
+              </span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[0.9] tracking-tight">
+                Part-Time<br />
+                <span className="text-pink-400">HR Jobs UK</span>
+              </h1>
+              <p className="text-xl text-white/80 leading-relaxed max-w-2xl mb-8">
+                Browse <strong className="text-white">{stats.total}+ flexible HR opportunities</strong>. Work 1-3 days per week at £700-£1,300/day.
+              </p>
+              <div className="flex flex-wrap gap-8">
+                <div>
+                  <div className="text-4xl md:text-5xl font-black text-pink-400">{stats.total}+</div>
+                  <div className="text-white/60 text-sm uppercase tracking-wider">HR Roles</div>
+                </div>
+                <div>
+                  <div className="text-4xl md:text-5xl font-black text-white">{stats.remoteCount}</div>
+                  <div className="text-white/60 text-sm uppercase tracking-wider">Remote</div>
+                </div>
+                <div>
+                  <div className="text-4xl md:text-5xl font-black text-white">£950</div>
+                  <div className="text-white/60 text-sm uppercase tracking-wider">Avg Day Rate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Job Board */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-2 block">Browse</span>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900">Part-Time HR Opportunities</h2>
+            </div>
+            <p className="text-gray-500">Pre-filtered to HR roles. Adjust filters as needed.</p>
+          </div>
+          <Suspense fallback={<div className="bg-white rounded-2xl border border-gray-200 p-8"><div className="animate-pulse space-y-4"><div className="h-10 bg-gray-200 rounded w-1/3"></div><div className="grid grid-cols-2 gap-4"><div className="h-48 bg-gray-200 rounded"></div><div className="h-48 bg-gray-200 rounded"></div></div></div></div>}>
+            <EmbeddedJobBoard defaultDepartment="HR" pageSlug="part-time-hr-jobs-uk" jobsPerPage={12} title="Latest Part-Time HR Jobs" allJobsLinkText="View All HR Jobs" />
+          </Suspense>
+        </div>
+      </section>
+
+      {/* 3D Graph - Desktop Only */}
+      <DesktopOnly>
+        <section className="py-16 bg-gray-950">
+          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-2 block">Interactive Network</span>
+              <h2 className="text-3xl md:text-4xl font-black text-white">HR Jobs Knowledge Graph</h2>
+              <p className="text-gray-400 mt-2">Explore roles, skills, and companies in 3D</p>
+            </div>
+            <JobsGraph3D roleFilter="HR" limit={25} height="500px" />
+          </div>
+        </section>
+      </DesktopOnly>
+
+      {/* Content */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="prose prose-lg prose-pink max-w-none">
+            <h2>Finding Part-Time HR Jobs in the UK</h2>
+            <p>
+              The UK market for <strong>part-time HR jobs</strong> has grown significantly, with more experienced HR professionals choosing flexible working arrangements. Whether you're seeking a fractional HR Director role or a part-time CHRO position, the opportunities are increasingly diverse.
+            </p>
+
+            <h3>Types of Part-Time HR Roles Available</h3>
+            <ul>
+              <li><strong>Part-Time HR Director:</strong> 1-3 days/week, £900-£1,100/day, building and leading HR functions</li>
+              <li><strong>Part-Time CHRO:</strong> 2-3 days/week, £1,100-£1,300/day, board-level people leadership</li>
+              <li><strong>Part-Time People Partner:</strong> 1-2 days/week, £600-£850/day, hands-on HR support</li>
+              <li><strong>Part-Time HR Consultant:</strong> Project-based, £700-£950/day, specialist expertise</li>
+            </ul>
+
+            <h3>Industries Hiring Part-Time HR</h3>
+            <p>Part-time HR roles are particularly common in:</p>
+            <ul>
+              <li><strong>Tech & SaaS:</strong> Scale-ups needing senior HR for rapid growth</li>
+              <li><strong>VC/PE-backed companies:</strong> Portfolio companies with professional HR requirements</li>
+              <li><strong>Financial services:</strong> Regulated industries needing compliance expertise</li>
+              <li><strong>Healthcare:</strong> Growing sector with specific HR challenges</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 bg-gray-900 text-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Part-Time HR Career?</h2>
+          <p className="text-gray-300 mb-8">Create your profile and get matched with companies seeking flexible HR leadership.</p>
+          <div className="flex justify-center gap-4 flex-wrap">
+            <Link href="/handler/sign-up" className="px-8 py-4 bg-pink-500 text-white font-semibold hover:bg-pink-400 transition-colors">
+              Create Profile
+            </Link>
+            <Link href="/part-time-hr" className="px-8 py-4 border-2 border-white font-semibold hover:bg-white/10 transition-colors">
+              Part-Time HR Guide
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Related */}
+      <section className="py-12 bg-white border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <span className="text-sm font-bold uppercase tracking-wider text-gray-400">HR Cluster</span>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/fractional-hr" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">Complete HR Guide</Link>
+              <Link href="/fractional-hr-jobs-uk" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">All HR Jobs UK</Link>
+              <Link href="/part-time-hr" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">Part-Time HR Guide</Link>
+              <Link href="/fractional-hr-jobs-remote" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">Remote HR Jobs</Link>
+              <Link href="/fractional-hr-salary" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">Salary Guide</Link>
+              <Link href="/fractional-hr-director-jobs" className="text-gray-600 hover:text-pink-600 font-medium transition-colors">HR Director Jobs</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}

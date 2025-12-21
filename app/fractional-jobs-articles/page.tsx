@@ -348,6 +348,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                 { icon: '💰', title: 'Fractional CFO Guides', desc: 'Finance leadership, fundraising, and financial strategy', link: '/fractional-cfo-jobs-uk' },
                 { icon: '💻', title: 'Fractional CTO Guides', desc: 'Technology leadership, architecture, and team building', link: '/fractional-cto-jobs-uk' },
                 { icon: '📢', title: 'Fractional CMO Guides', desc: 'Marketing strategy, brand building, and growth', link: '/fractional-cmo-jobs-uk' },
+                { icon: '👥', title: 'Fractional HR Guides', desc: 'People strategy, HR leadership, and talent management', link: '/fractional-hr' },
                 { icon: '📊', title: 'Salary Guides', desc: 'Day rates, annual earnings, and market benchmarks', link: '/fractional-executive-salary-uk' },
                 { icon: '🚀', title: 'Career Transition', desc: 'How to go from full-time to fractional executive', link: '/how-to-become-a-fractional-executive' },
                 { icon: '🤝', title: 'Hiring Guides', desc: 'How companies hire fractional executives', link: '/top-fractional-recruitment-agencies-best-fractional-recruitment-agency-fractional-recruiter' },
