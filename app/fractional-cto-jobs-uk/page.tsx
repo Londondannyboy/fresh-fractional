@@ -79,7 +79,7 @@ export default async function FractionalCtoJobsUkPage() {
                 Technology Leadership
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                Fractional CTO Jobs
+                Fractional CTO Jobs UK
               </h1>
               <p className="text-xl text-white/90 leading-relaxed max-w-2xl mb-8">
                 Part-time Chief Technology Officer roles for experienced tech leaders.

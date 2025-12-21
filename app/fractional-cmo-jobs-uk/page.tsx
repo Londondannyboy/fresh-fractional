@@ -86,7 +86,7 @@ export default async function FractionalCmoJobsUkPage() {
                 Marketing Leadership
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                Fractional CMO Jobs
+                Fractional CMO Jobs UK
               </h1>
               <p className="text-xl text-white/90 leading-relaxed max-w-2xl mb-8">
                 Part-time Chief Marketing Officer roles for experienced marketing leaders.
