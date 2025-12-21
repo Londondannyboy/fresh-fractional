@@ -243,29 +243,45 @@ export function JobCard({
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent" />
+        {/* Stronger gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/30 to-gray-900/10" />
 
-        {/* Role category badge on image */}
-        {roleCategory && (
-          <div className="absolute top-3 left-3">
-            <span className="bg-white/90 backdrop-blur-sm text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
-              {roleCategory}
-            </span>
+        {/* Top badges row */}
+        <div className="absolute top-3 left-3 right-3 flex items-start justify-between">
+          <div className="flex items-center gap-2">
+            {/* Role category badge */}
+            {roleCategory && (
+              <span className="bg-white/95 backdrop-blur-sm text-gray-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                {roleCategory}
+              </span>
+            )}
+            {/* New badge for recent posts */}
+            {postedDaysAgo !== undefined && postedDaysAgo <= 2 && (
+              <span className="bg-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm animate-pulse">
+                New
+              </span>
+            )}
+            {/* Hot badge for posts 3-7 days old with good engagement */}
+            {postedDaysAgo !== undefined && postedDaysAgo > 2 && postedDaysAgo <= 7 && (
+              <span className="bg-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                Hot
+              </span>
+            )}
           </div>
-        )}
-
-        {/* Remote badge */}
-        {isRemote && (
-          <div className="absolute top-3 right-3">
-            <span className="bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+          {/* Remote badge */}
+          {isRemote && (
+            <span className="bg-teal-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
               Remote
             </span>
-          </div>
-        )}
+          )}
+        </div>
 
-        {/* Title overlay at bottom of image */}
-        <div className="absolute bottom-3 left-3 right-3">
-          <h3 className="font-bold text-white text-lg leading-tight line-clamp-2 drop-shadow-lg">
+        {/* Title overlay at bottom of image - with text shadow for readability */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-gray-900/90 to-transparent">
+          <h3
+            className="font-bold text-white text-lg leading-tight line-clamp-2"
+            style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.3)' }}
+          >
             {title}
           </h3>
         </div>
@@ -319,13 +335,16 @@ export function JobCard({
         {/* Footer */}
         <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
           {postedDisplay && (
-            <span className="text-xs text-gray-400">
+            <span className="text-xs text-gray-500 flex items-center gap-1">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               {postedDisplay}
             </span>
           )}
-          <span className="text-sm font-semibold text-gray-900 group-hover:text-teal-600 transition-colors flex items-center gap-1">
-            View Role
-            <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-teal-600 text-white text-sm font-semibold rounded-lg group-hover:bg-teal-700 transition-colors">
+            Apply Now
+            <svg className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </span>
