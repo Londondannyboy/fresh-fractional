@@ -127,7 +127,7 @@ export default function VisNetworkGraph({ data, height = 500 }: VisNetworkProps)
     try {
       networkRef.current = new Network(
         containerRef.current,
-        { nodes: visNodes, edges: visEdges },
+        { nodes: visNodes as any, edges: visEdges as any },
         options
       )
 
