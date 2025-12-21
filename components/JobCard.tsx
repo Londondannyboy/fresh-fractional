@@ -1,3 +1,2 @@
-// Re-export for backwards compatibility
-// DEPRECATED: New code should use: import { JobCard } from '@/components/job-card'
-export { JobCardLegacy as JobCard } from './JobCardLegacy'
+// New aspirational JobCard design
+export { JobCard } from './job-card/JobCard'
