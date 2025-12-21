@@ -163,7 +163,7 @@ async function writeToZepImmediate(
     const zepData = formatEntityForZep(entity)
 
     // Write to user's ZEP graph
-    await addToUserGraph(userId, zepData)
+    await addToUserGraph(userId, { text: zepData } as Record<string, unknown>, 'text')
 
     const duration = Date.now() - startTime
     console.log(`[voice-to-graph-sync] ZEP write successful (${duration}ms):`, entity.value)
