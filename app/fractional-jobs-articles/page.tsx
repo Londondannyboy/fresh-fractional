@@ -364,35 +364,99 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
           </div>
         </section>
 
-        {/* Popular Topics */}
+        {/* Executive Role Hubs */}
         <section className="py-20 md:py-28 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-16">
-              <span className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500 mb-4 block">Topics</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Popular Guide Topics</h2>
-              <p className="text-lg text-gray-600">Explore our most-read categories</p>
+              <span className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500 mb-4 block">Content Hubs</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Explore by Role</h2>
+              <p className="text-lg text-gray-600">Comprehensive guides for every fractional executive function</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { icon: '💰', title: 'Fractional CFO Guides', desc: 'Finance leadership, fundraising, and financial strategy', link: '/fractional-cfo-jobs-uk' },
-                { icon: '💻', title: 'Fractional CTO Guides', desc: 'Technology leadership, architecture, and team building', link: '/fractional-cto-jobs-uk' },
-                { icon: '📢', title: 'Fractional CMO Guides', desc: 'Marketing strategy, brand building, and growth', link: '/fractional-cmo-jobs-uk' },
-                { icon: '👥', title: 'Fractional HR Guides', desc: 'People strategy, HR leadership, and talent management', link: '/fractional-hr' },
-                { icon: '📊', title: 'Salary Guides', desc: 'Day rates, annual earnings, and market benchmarks', link: '/fractional-executive-salary-uk' },
-                { icon: '🚀', title: 'Career Transition', desc: 'How to go from full-time to fractional executive', link: '/how-to-become-a-fractional-executive' },
-                { icon: '🤝', title: 'Hiring Guides', desc: 'How companies hire fractional executives', link: '/top-fractional-recruitment-agencies-best-fractional-recruitment-agency-fractional-recruiter' },
-              ].map((topic) => (
-                <Link key={topic.title} href={topic.link} className="group">
-                  <article className="bg-white rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-600">
-                    <span className="text-4xl mb-6 block">{topic.icon}</span>
-                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">
-                      {topic.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm">{topic.desc}</p>
-                  </article>
-                </Link>
-              ))}
+            {/* C-Suite Roles */}
+            <div className="mb-12">
+              <h3 className="text-lg font-bold text-gray-700 mb-6 flex items-center gap-2">
+                <span className="w-8 h-0.5 bg-blue-600"></span>
+                C-Suite Executive Roles
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  { icon: '💰', title: 'Fractional CFO', desc: 'Finance leadership, fundraising, FP&A', link: '/fractional-cfo-jobs-uk' },
+                  { icon: '💻', title: 'Fractional CTO', desc: 'Technology strategy and engineering leadership', link: '/fractional-cto-jobs-uk' },
+                  { icon: '📢', title: 'Fractional CMO', desc: 'Marketing strategy and growth leadership', link: '/fractional-cmo-jobs-uk' },
+                  { icon: '⚙️', title: 'Fractional COO', desc: 'Operations, scaling, and process excellence', link: '/fractional-coo-jobs-uk' },
+                  { icon: '👔', title: 'Fractional CEO', desc: 'Executive leadership and strategic direction', link: '/fractional-ceo-jobs-uk' },
+                  { icon: '👥', title: 'Fractional CHRO', desc: 'People strategy, culture, and HR leadership', link: '/fractional-chro-jobs-uk' },
+                  { icon: '🔐', title: 'Fractional CISO', desc: 'Security strategy and risk management', link: '/fractional-ciso-jobs-uk' },
+                  { icon: '📦', title: 'Fractional CPO', desc: 'Product strategy and roadmap leadership', link: '/fractional-cpo-services' },
+                ].map((topic) => (
+                  <Link key={topic.title} href={topic.link} className="group">
+                    <article className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-600 h-full">
+                      <span className="text-3xl mb-4 block">{topic.icon}</span>
+                      <h4 className="text-base font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">
+                        {topic.title}
+                      </h4>
+                      <p className="text-gray-600 text-sm">{topic.desc}</p>
+                    </article>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Specialist Functions */}
+            <div className="mb-12">
+              <h3 className="text-lg font-bold text-gray-700 mb-6 flex items-center gap-2">
+                <span className="w-8 h-0.5 bg-teal-600"></span>
+                Specialist Functions
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  { icon: '👥', title: 'Fractional HR', desc: 'People strategy and talent management', link: '/fractional-hr' },
+                  { icon: '📋', title: 'Project Management', desc: 'Fractional PM roles and certifications', link: '/fractional-project-manager' },
+                  { icon: '🎯', title: 'Product Leadership', desc: 'Product strategy and team leadership', link: '/fractional-product' },
+                  { icon: '✅', title: 'Compliance', desc: 'Regulatory compliance and risk management', link: '/fractional-compliance-fintech' },
+                  { icon: '📊', title: 'Finance', desc: 'Financial operations and controller roles', link: '/fractional-finance' },
+                  { icon: '📈', title: 'Marketing', desc: 'Marketing strategy and growth', link: '/fractional-marketing' },
+                  { icon: '🔧', title: 'Operations', desc: 'Business operations and process improvement', link: '/fractional-coo' },
+                  { icon: '💼', title: 'Revenue', desc: 'Revenue operations and sales leadership', link: '/fractional-revenue' },
+                ].map((topic) => (
+                  <Link key={topic.title} href={topic.link} className="group">
+                    <article className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-teal-500 h-full">
+                      <span className="text-3xl mb-4 block">{topic.icon}</span>
+                      <h4 className="text-base font-bold text-gray-900 group-hover:text-teal-600 transition-colors mb-2">
+                        {topic.title}
+                      </h4>
+                      <p className="text-gray-600 text-sm">{topic.desc}</p>
+                    </article>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Career & Salary Guides */}
+            <div>
+              <h3 className="text-lg font-bold text-gray-700 mb-6 flex items-center gap-2">
+                <span className="w-8 h-0.5 bg-amber-600"></span>
+                Career & Salary Guides
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  { icon: '📊', title: 'Salary Guides', desc: 'Day rates and earnings benchmarks', link: '/fractional-executive-salary-uk' },
+                  { icon: '🚀', title: 'Career Transition', desc: 'Go from full-time to fractional', link: '/how-to-become-a-fractional-executive' },
+                  { icon: '🤝', title: 'Hiring Guides', desc: 'How companies hire fractional talent', link: '/top-fractional-recruitment-agencies-best-fractional-recruitment-agency-fractional-recruiter' },
+                  { icon: '🏠', title: 'Remote Work', desc: 'Work from anywhere as a fractional exec', link: '/fractional-jobs-remote' },
+                ].map((topic) => (
+                  <Link key={topic.title} href={topic.link} className="group">
+                    <article className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-amber-500 h-full">
+                      <span className="text-3xl mb-4 block">{topic.icon}</span>
+                      <h4 className="text-base font-bold text-gray-900 group-hover:text-amber-600 transition-colors mb-2">
+                        {topic.title}
+                      </h4>
+                      <p className="text-gray-600 text-sm">{topic.desc}</p>
+                    </article>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </section>
