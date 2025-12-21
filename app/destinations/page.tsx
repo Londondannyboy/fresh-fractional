@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { neon } from '@neondatabase/serverless'
 import { DestinationCard } from '@/components/DestinationCard'
+import { PropertyOverlay } from '@/components/PropertyOverlay'
 import type { Destination } from '@/lib/types'
 
 export const metadata: Metadata = {
@@ -35,27 +36,63 @@ export default async function DestinationsPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="bg-gradient-to-b from-teal-50 to-white py-16 md:py-24">
-        <div className="container-content">
-          <div className="max-w-3xl">
-            <span className="section-label text-teal-600 mb-4 block">
-              Work From Anywhere
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Your Next Base Awaits
-            </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Fractional work means freedom. Discover destinations loved by executives
-              who've traded the commute for adventure, sunshine, and a better quality of life.
-            </p>
+      {/* Hero with Background Image */}
+      <section className="relative min-h-[60vh] flex items-center">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-teal-900/90 via-teal-900/70 to-teal-900/50" />
+        </div>
+
+        <div className="relative z-10 w-full">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+              <div className="max-w-3xl">
+                <span className="inline-block bg-white/20 backdrop-blur text-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest mb-6 rounded-full">
+                  Work From Anywhere
+                </span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                  Your Next Base Awaits
+                </h1>
+                <p className="text-xl text-white/80 leading-relaxed max-w-2xl">
+                  Fractional work means freedom. Discover destinations loved by executives
+                  who've traded the commute for adventure, sunshine, and a better quality of life.
+                </p>
+                <div className="mt-10 flex flex-wrap gap-4">
+                  <a
+                    href="#destinations"
+                    className="inline-flex items-center px-8 py-4 bg-white text-teal-900 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    Explore Destinations
+                    <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </a>
+                  <a
+                    href="/fractional-jobs?remote=remote"
+                    className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur text-white font-semibold rounded-lg border border-white/30 hover:bg-white/20 transition-colors"
+                  >
+                    Remote Jobs
+                  </a>
+                </div>
+              </div>
+
+              {/* Property Overlay */}
+              <div className="hidden lg:block lg:w-80">
+                <PropertyOverlay variant="dark" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Same Timezone Section */}
       {sameTimezone.length > 0 && (
-        <section className="py-12 md:py-16">
+        <section id="destinations" className="py-12 md:py-16">
           <div className="container-content">
             <div className="mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">

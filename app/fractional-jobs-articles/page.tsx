@@ -156,7 +156,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       sort === 'recent' || !sort
                         ? 'bg-blue-600 text-white'
-                        : 'bg-gray-50 text-gray-300 hover:bg-gray-100 border border-gray-200'
+                        : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
                     }`}
                   >
                     Most Recent
@@ -166,7 +166,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       sort === 'oldest'
                         ? 'bg-blue-600 text-white'
-                        : 'bg-gray-50 text-gray-300 hover:bg-gray-100 border border-gray-200'
+                        : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
                     }`}
                   >
                     Oldest First
@@ -181,7 +181,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     !category
                       ? 'bg-purple-600 text-white'
-                      : 'bg-gray-50 text-gray-300 hover:bg-gray-100 border border-gray-200'
+                      : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
                   }`}
                 >
                   All
@@ -193,7 +193,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       category === cat
                         ? 'bg-purple-600 text-white'
-                        : 'bg-gray-50 text-gray-300 hover:bg-gray-100 border border-gray-200'
+                        : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
                     }`}
                   >
                     {cat}
@@ -208,15 +208,15 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
         <section className="py-16 bg-white">
           <div className="max-w-5xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-8">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-400 mb-2 block">Market Activity</span>
-              <h2 className="text-xl md:text-2xl font-bold text-white">Job Posting Trends</h2>
-              <p className="text-gray-400 mt-2 text-sm">When fractional jobs are posted throughout the year</p>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 mb-2 block">Market Activity</span>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Job Posting Trends</h2>
+              <p className="text-gray-600 mt-2 text-sm">When fractional jobs are posted throughout the year</p>
             </div>
             <Suspense fallback={
               <div className="flex items-center justify-center h-48 bg-gray-50 rounded-xl">
                 <div className="text-center">
                   <div className="w-8 h-8 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin mx-auto mb-3" />
-                  <p className="text-blue-300 text-xs">Loading calendar...</p>
+                  <p className="text-blue-600 text-xs">Loading calendar...</p>
                 </div>
               </div>
             }>
@@ -260,7 +260,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                           </div>
                         )}
                         <div className="p-6 flex-1 flex flex-col">
-                          <h2 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors mb-3 line-clamp-2">
+                          <h2 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-3 line-clamp-2">
                             {article.title}
                           </h2>
                           <p className="text-gray-600 text-sm line-clamp-3 flex-1">
@@ -293,7 +293,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                   <div className="flex justify-center items-center gap-2">
                     {page > 1 && (
                       <Link href={`/fractional-jobs-articles?page=${page - 1}`}>
-                        <button className="px-5 py-2.5 border border-gray-200 rounded-lg hover:bg-gray-100 text-sm font-medium text-gray-300">
+                        <button className="px-5 py-2.5 border border-gray-200 rounded-lg hover:bg-gray-100 text-sm font-medium text-gray-600">
                           ← Previous
                         </button>
                       </Link>
@@ -310,7 +310,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                               className={`w-10 h-10 rounded-lg text-sm font-medium ${
                                 pageNum === page
                                   ? 'bg-blue-600 text-white'
-                                  : 'border border-gray-200 hover:bg-gray-100 text-gray-300'
+                                  : 'border border-gray-200 hover:bg-gray-100 text-gray-600'
                               }`}
                             >
                               {pageNum}
@@ -322,7 +322,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
 
                     {page < totalPages && (
                       <Link href={`/fractional-jobs-articles?page=${page + 1}`}>
-                        <button className="px-5 py-2.5 border border-gray-200 rounded-lg hover:bg-gray-100 text-sm font-medium text-gray-300">
+                        <button className="px-5 py-2.5 border border-gray-200 rounded-lg hover:bg-gray-100 text-sm font-medium text-gray-600">
                           Next →
                         </button>
                       </Link>
@@ -340,7 +340,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
             <div className="text-center mb-16">
               <span className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500 mb-4 block">Topics</span>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Popular Guide Topics</h2>
-              <p className="text-lg text-gray-400">Explore our most-read categories</p>
+              <p className="text-lg text-gray-600">Explore our most-read categories</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -354,9 +354,9 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                 { icon: '🤝', title: 'Hiring Guides', desc: 'How companies hire fractional executives', link: '/top-fractional-recruitment-agencies-best-fractional-recruitment-agency-fractional-recruiter' },
               ].map((topic) => (
                 <Link key={topic.title} href={topic.link} className="group">
-                  <article className="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-600">
+                  <article className="bg-white rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-600">
                     <span className="text-4xl mb-6 block">{topic.icon}</span>
-                    <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors mb-2">
+                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">
                       {topic.title}
                     </h3>
                     <p className="text-gray-600 text-sm">{topic.desc}</p>
@@ -380,13 +380,13 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/handler/sign-up"
-                className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg bg-white text-gray-900 hover:bg-gray-100 transition-all duration-200"
+                className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200"
               >
                 Join the Platform
               </Link>
               <Link
                 href="/fractional-jobs-uk"
-                className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg border border-white/20 text-white hover:bg-white/10 transition-all duration-200"
+                className="inline-flex items-center justify-center px-10 py-5 text-lg font-semibold rounded-lg border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200"
               >
                 Browse Jobs
               </Link>

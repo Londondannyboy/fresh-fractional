@@ -4,12 +4,13 @@ import { neon } from "@neondatabase/serverless";
 import { JobCard } from "@/components/JobCard";
 import { DestinationCard } from "@/components/DestinationCard";
 import { ExecutiveCard } from "@/components/ExecutiveCard";
+import { PropertyOverlay } from "@/components/PropertyOverlay";
 import type { Destination, FeaturedExecutive } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Fractional Quest | Design Your Life as a Fractional Executive",
   description: "Join the fractional revolution. Work 2-3 days a week, earn £150-300k, and live anywhere. Browse fractional CFO, CMO, CTO roles or create your profile.",
-  keywords: "fractional executive, fractional cfo, fractional cmo, fractional cto, portfolio career, fractional jobs uk",
+  keywords: "fractional executive, fractional cfo, fractional cmo, fractional cto, portfolio career, fractional jobs, fractional ownership",
   alternates: {
     canonical: "https://fractional.quest",
   },
@@ -105,45 +106,52 @@ export default async function Home() {
 
         <div className="relative z-10 w-full">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="max-w-3xl">
-              <span className="inline-block bg-amber-500/90 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest mb-6 rounded-full">
-                The Fractional Revolution
-              </span>
-              <h1 className="font-editorial text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
-                Design Your Life.<br />
-                <span className="text-amber-400">Not Your Commute.</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-white/80 leading-relaxed mb-10 max-w-2xl">
-                Join thousands of executives who've traded the 9-5 grind for freedom,
-                flexibility, and a portfolio career. Work 2-3 days a week. Earn £150-300k. Live anywhere.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/fractional-jobs-uk"
-                  className="inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
-                >
-                  Browse {stats.jobs}+ Jobs
-                  <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-                <Link
-                  href="/profile/edit"
-                  className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur text-white font-semibold rounded-lg border border-white/30 hover:bg-white/20 transition-colors"
-                >
-                  Create Your Profile
-                </Link>
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+              <div className="max-w-3xl">
+                <span className="inline-block bg-amber-500/90 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest mb-6 rounded-full">
+                  The Fractional Revolution
+                </span>
+                <h1 className="font-editorial text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
+                  Design Your Life.<br />
+                  <span className="text-amber-400">Not Your Commute.</span>
+                </h1>
+                <p className="text-xl md:text-2xl text-white/80 leading-relaxed mb-10 max-w-2xl">
+                  Join thousands of executives who've traded the 9-5 grind for freedom,
+                  flexibility, and a portfolio career. Work 2-3 days a week. Earn £150-300k. Live anywhere.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Link
+                    href="/fractional-jobs-uk"
+                    className="inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    Browse {stats.jobs}+ Jobs
+                    <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                  <Link
+                    href="/profile/edit"
+                    className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur text-white font-semibold rounded-lg border border-white/30 hover:bg-white/20 transition-colors"
+                  >
+                    Create Your Profile
+                  </Link>
+                </div>
+
+                {/* Social proof */}
+                <div className="mt-12 flex items-center gap-4">
+                  <div className="flex -space-x-3">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="" className="w-10 h-10 rounded-full border-2 border-white" />
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="" className="w-10 h-10 rounded-full border-2 border-white" />
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop" alt="" className="w-10 h-10 rounded-full border-2 border-white" />
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop" alt="" className="w-10 h-10 rounded-full border-2 border-white" />
+                  </div>
+                  <p className="text-white/70 text-sm">Join fractional leaders globally</p>
+                </div>
               </div>
 
-              {/* Social proof */}
-              <div className="mt-12 flex items-center gap-4">
-                <div className="flex -space-x-3">
-                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="" className="w-10 h-10 rounded-full border-2 border-white" />
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="" className="w-10 h-10 rounded-full border-2 border-white" />
-                  <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop" alt="" className="w-10 h-10 rounded-full border-2 border-white" />
-                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop" alt="" className="w-10 h-10 rounded-full border-2 border-white" />
-                </div>
-                <p className="text-white/70 text-sm">Join fractional leaders across the UK</p>
+              {/* Property Overlay on right side */}
+              <div className="hidden lg:block lg:w-80">
+                <PropertyOverlay variant="dark" />
               </div>
             </div>
           </div>
@@ -450,6 +458,74 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* Fractional Ownership Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-amber-50 to-orange-50 border-b border-amber-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-2 block">
+                Beyond Work
+              </span>
+              <h2 className="font-editorial text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Fractional Ownership
+              </h2>
+              <p className="text-xl text-gray-600 mb-6">
+                Earning £150-300k as a fractional executive opens doors. Why buy one home when you could own a share of properties across the globe?
+              </p>
+              <p className="text-gray-600 mb-8">
+                Fractional ownership lets you invest in luxury properties, holiday homes, and prime real estate for a fraction of the cost. Perfect for executives who want flexibility in their lifestyle investments too.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/fractional-ownership-guide"
+                  className="inline-flex items-center px-6 py-3 bg-amber-600 text-white font-semibold rounded-lg hover:bg-amber-700 transition-colors"
+                >
+                  Learn About Fractional Ownership
+                  <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/fractional-ownership-for-executives"
+                  className="inline-flex items-center px-6 py-3 border-2 border-amber-600 text-amber-700 font-semibold rounded-lg hover:bg-amber-50 transition-colors"
+                >
+                  For Executives
+                </Link>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="aspect-[3/4] rounded-2xl overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80"
+                    alt="Luxury villa"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="aspect-[3/4] rounded-2xl overflow-hidden mt-8">
+                  <img
+                    src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80"
+                    alt="Modern property"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-lg">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">🏠</span>
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-gray-900">Own a Share</div>
+                    <div className="text-xs text-gray-500">From 1/8th to 1/4</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Destinations Section */}
       {featuredDestinations.length > 0 && (
         <section className="py-16 md:py-24 bg-white border-b border-gray-100">
@@ -510,7 +586,7 @@ export default async function Home() {
                     <JobCard
                       title={job.title}
                       company={job.company_name}
-                      location={job.location || 'UK'}
+                      location={job.location || 'Remote'}
                       isRemote={job.is_remote || job.workplace_type === 'Remote'}
                       compensation={job.compensation}
                       roleCategory={job.role_category}

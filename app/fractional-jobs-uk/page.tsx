@@ -5,6 +5,7 @@ import { createDbQuery } from '@/lib/db'
 import { JobCard } from '@/components/JobCard'
 import { FAQ } from '@/components/FAQ'
 import { RecommendedArticles } from '@/components/RecommendedArticles'
+import { PropertyOverlay } from '@/components/PropertyOverlay'
 
 // Aggressive lazy loading for mobile performance
 const FractionalRateCalculatorUK = dynamic(() => import('@/components/FractionalRateCalculatorUK').then(mod => ({ default: mod.FractionalRateCalculatorUK })), {
@@ -287,70 +288,77 @@ export default async function FractionalJobsUKPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingsSchema) }}
       />
 
-      {/* Hero Section with Aspirational Image */}
-      <section className="relative min-h-[50vh] flex items-center overflow-hidden">
-        {/* Background Image */}
+      {/* Hero Section with Colorful Aspirational Image */}
+      <section className="relative min-h-[55vh] flex items-center overflow-hidden">
+        {/* Background Image - Colorful and Global */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920&q=80')`,
+            backgroundImage: `url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=80')`,
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-teal-900/80 via-blue-900/70 to-purple-900/60" />
         </div>
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="max-w-2xl">
-            <span className="inline-block bg-amber-500/90 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-              {stats.totalUK}+ Live Roles
-            </span>
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+            <div className="max-w-2xl">
+              <span className="inline-block bg-white/20 backdrop-blur text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                {stats.totalUK}+ Live Opportunities
+              </span>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Fractional Jobs UK
-            </h1>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                Fractional Executive Jobs
+              </h1>
 
-            <p className="text-xl text-white/80 mb-8 max-w-xl">
-              CFO, CTO, CMO & executive roles with £700-£1,500 day rates. Work 2-3 days a week, live anywhere.
-            </p>
+              <p className="text-xl text-white/90 mb-8 max-w-xl">
+                CFO, CTO, CMO & senior leadership roles. Work 2-3 days a week with multiple clients. Live and work from anywhere.
+              </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="#jobs"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-white text-gray-900 hover:bg-gray-100 transition-all duration-200"
-              >
-                Browse Jobs ↓
-              </Link>
-              <Link
-                href="/profile/edit"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-white/10 backdrop-blur text-white border border-white/20 hover:bg-white/20 transition-all duration-200"
-              >
-                Create Profile
-              </Link>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="#jobs"
+                  className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-white text-gray-900 hover:bg-gray-100 transition-all duration-200 shadow-lg"
+                >
+                  Browse Jobs ↓
+                </Link>
+                <Link
+                  href="/profile/edit"
+                  className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-white/10 backdrop-blur text-white border border-white/30 hover:bg-white/20 transition-all duration-200"
+                >
+                  Create Profile
+                </Link>
+              </div>
+            </div>
+
+            {/* Property Overlay */}
+            <div className="hidden lg:block lg:w-72">
+              <PropertyOverlay variant="dark" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Stats Bar */}
-      <section className="bg-gray-900 py-4">
+      <section className="bg-gradient-to-r from-teal-600 via-blue-600 to-purple-600 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-8 text-center text-sm">
             <div>
               <span className="font-bold text-white">{stats.totalUK}+</span>
-              <span className="text-gray-400 ml-1">Live Jobs</span>
+              <span className="text-white/80 ml-1">Live Jobs</span>
             </div>
             <div>
               <span className="font-bold text-white">£700-1,500</span>
-              <span className="text-gray-400 ml-1">Day Rates</span>
+              <span className="text-white/80 ml-1">Day Rates</span>
             </div>
             <div>
               <span className="font-bold text-white">2-3 Days</span>
-              <span className="text-gray-400 ml-1">Per Week</span>
+              <span className="text-white/80 ml-1">Per Week</span>
             </div>
             <div>
-              <span className="font-bold text-white">Remote</span>
-              <span className="text-gray-400 ml-1">Options</span>
+              <span className="font-bold text-white">Global</span>
+              <span className="text-white/80 ml-1">Remote Options</span>
             </div>
           </div>
         </div>
