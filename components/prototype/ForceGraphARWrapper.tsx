@@ -20,7 +20,7 @@ export default function ForceGraphARWrapper({ graphData, width = 650, height = 7
 
     // Dynamically import the AR library
     import('3d-force-graph-ar').then((mod) => {
-      const ForceGraphAR = mod.default
+      const ForceGraphAR = mod.default as any
 
       if (!graphRef.current) {
         graphRef.current = ForceGraphAR()(containerRef.current!)
