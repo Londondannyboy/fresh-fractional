@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { FAQ } from '@/components/FAQ'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 
 export const revalidate = 3600
 
@@ -75,7 +74,12 @@ export default function FractionalCOOPage() {
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <JobsGraph3D roleFilter="COO" limit={25} height="100%" isHero={true} showOverlay={true} />
+          <img
+            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1920&q=80"
+            alt="Professional operations background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-900/90 via-orange-800/85 to-orange-950/90"></div>
         </div>
         <div className="relative z-10 w-full py-20">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -86,9 +90,9 @@ export default function FractionalCOOPage() {
               <span className="inline-block bg-white text-black px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">
                 1,600 searches/month • Growing +23% YoY
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-6 leading-[0.9] tracking-tight">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tight">
                 What is a<br />
-                <span className="text-gray-400">Fractional COO?</span>
+                <span className="text-white/80">Fractional COO?</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-2xl mb-8">
                 Part-time operational leadership that scales your business without full-time executive cost

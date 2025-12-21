@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { FAQ } from '@/components/FAQ'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { RoleCalculator } from '@/components/RoleCalculator'
 import { HireProcessStepper } from '@/components/HireProcessStepper'
 import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
@@ -53,10 +52,15 @@ export const metadata: Metadata = {
 export default function FractionalCPOServicesPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with 3D Knowledge Graph */}
+      {/* Hero Section with Unsplash Image */}
       <section className="relative min-h-[75vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <JobsGraph3D roleFilter="CPO" limit={25} height="100%" isHero={true} showOverlay={true} />
+          <img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80"
+            alt="Product team meeting"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-teal-900/95 via-teal-800/90 to-teal-700/85" />
         </div>
         <div className="relative z-10 w-full py-20">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -67,7 +71,7 @@ export default function FractionalCPOServicesPage() {
               <span className="inline-block bg-purple-500 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">
                 Product Leadership
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-6 leading-[0.9] tracking-tight">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tight">
                 Fractional CPO<br />
                 <span className="text-purple-400">Services UK</span>
               </h1>

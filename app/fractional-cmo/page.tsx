@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { FAQ, CMO_FAQS } from '@/components/FAQ'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { RoleCalculator } from '@/components/RoleCalculator'
 import { HireProcessStepper } from '@/components/HireProcessStepper'
 import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
@@ -26,10 +25,15 @@ export const metadata: Metadata = {
 export default function FractionalCMOPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with 3D Knowledge Graph Background */}
+      {/* Hero Section with Unsplash Background */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <JobsGraph3D roleFilter="CMO" limit={30} height="100%" isHero={true} showOverlay={true} />
+          <img
+            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=1920&q=80"
+            alt="Professional marketing background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-900/90 via-amber-800/85 to-amber-950/90"></div>
         </div>
         <div className="relative z-10 w-full py-24">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">

@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 
 export const revalidate = 3600
 
@@ -15,18 +14,23 @@ export default function InterimCEOPage() {
   return (
     <div className="min-h-screen bg-white">
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <JobsGraph3D roleFilter="CEO" limit={25} height="100%" isHero={true} showOverlay={true} />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=1920&q=80')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/80 to-blue-900/60" />
         </div>
         <div className="relative z-10 w-full py-20">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
             <Link href="/" className="inline-flex items-center text-white/60 hover:text-white mb-8 transition-colors text-sm"><span className="mr-2">←</span> Back to Home</Link>
             <div className="max-w-4xl">
-              <span className="inline-block bg-gray-800 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">Interim Leadership</span>
-              <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-[0.9]">Interim CEO<br /><span className="text-gray-400">Services UK</span></h1>
-              <p className="text-xl text-white/80 leading-relaxed max-w-2xl mb-8">Full-time temporary CEO leadership for transitions, turnarounds, and critical transformation periods. Experienced chief executives available to lead immediately.</p>
+              <span className="inline-block bg-white/20 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">Interim Leadership</span>
+              <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-[0.9]">Interim CEO<br /><span className="text-slate-300">Services UK</span></h1>
+              <p className="text-xl text-white/90 leading-relaxed max-w-2xl mb-8">Full-time temporary CEO leadership for transitions, turnarounds, and critical transformation periods. Experienced chief executives available to lead immediately.</p>
               <div className="flex flex-wrap gap-4">
-                <Link href="#contact" className="px-8 py-4 bg-white text-black font-bold uppercase tracking-wider hover:bg-gray-200 transition-colors">Hire an Interim CEO</Link>
+                <Link href="#contact" className="px-8 py-4 bg-white text-slate-900 font-bold uppercase tracking-wider hover:bg-slate-50 transition-colors">Hire an Interim CEO</Link>
               </div>
             </div>
           </div>

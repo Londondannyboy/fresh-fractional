@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { HireProcessStepper } from '@/components/HireProcessStepper'
 
 export const revalidate = 3600
@@ -16,20 +15,25 @@ export default function FractionalMarketingPage() {
   return (
     <div className="min-h-screen bg-white">
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
-        {/* 3D Knowledge Graph Background */}
+        {/* Unsplash Image Background with Amber Gradient */}
         <div className="absolute inset-0">
-          <JobsGraph3D categoryFilter="Marketing" limit={25} height="100%" isHero={true} showOverlay={true} />
+          <img
+            src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=1920&q=80"
+            alt="Marketing background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-900/80 via-amber-600/60 to-amber-900/80"></div>
         </div>
         <div className="relative z-10 w-full py-20">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
             <Link href="/" className="inline-flex items-center text-white/60 hover:text-white mb-8 transition-colors text-sm"><span className="mr-2">←</span> Back to Home</Link>
             <div className="max-w-4xl">
-              <span className="inline-block bg-amber-500 text-black px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">Functional Leadership</span>
-              <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-[0.9]">Fractional<br /><span className="text-amber-400">Marketing</span></h1>
-              <p className="text-xl text-white/80 leading-relaxed max-w-2xl mb-8">Access senior marketing leadership without the full-time commitment. From CMOs to VPs of Marketing, find the right level of expertise for your growth stage.</p>
+              <span className="inline-block bg-white/20 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">Functional Leadership</span>
+              <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-[0.9]">Fractional<br /><span className="text-amber-200">Marketing</span></h1>
+              <p className="text-xl text-white leading-relaxed max-w-2xl mb-8">Access senior marketing leadership without the full-time commitment. From CMOs to VPs of Marketing, find the right level of expertise for your growth stage.</p>
               <div className="flex flex-wrap gap-4">
-                <Link href="#contact" className="px-8 py-4 bg-amber-500 text-black font-bold uppercase tracking-wider hover:bg-amber-400 transition-colors">Find Marketing Leadership</Link>
-                <Link href="/fractional-cmo-services" className="px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">Fractional CMO Services</Link>
+                <Link href="#contact" className="px-8 py-4 bg-white/20 text-white font-bold uppercase tracking-wider hover:bg-white hover:text-amber-900 transition-colors">Find Marketing Leadership</Link>
+                <Link href="/fractional-cmo-services" className="px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-amber-900 transition-colors">Fractional CMO Services</Link>
               </div>
             </div>
           </div>

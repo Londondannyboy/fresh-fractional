@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 
 export const revalidate = 3600
 
@@ -15,17 +14,22 @@ export default function CybersecurityConsultantsPage() {
   return (
     <div className="min-h-screen bg-white">
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
-        {/* 3D Knowledge Graph */}
+        {/* Hero Image with Gradient Overlay */}
         <div className="absolute inset-0">
-          <JobsGraph3D categoryFilter="Security" limit={25} height="100%" isHero={true} showOverlay={true} />
+          <img
+            src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=1920&q=80"
+            alt="Cybersecurity professional"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-blue-950/90 to-slate-900/85"></div>
         </div>
         <div className="relative z-10 w-full py-20">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
             <Link href="/" className="inline-flex items-center text-white/60 hover:text-white mb-8 transition-colors text-sm"><span className="mr-2">←</span> Back to Home</Link>
             <div className="max-w-4xl">
               <span className="inline-block bg-red-500 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">Popular Roles</span>
-              <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-[0.9]">Cybersecurity<br /><span className="text-red-400">Consultants</span></h1>
-              <p className="text-xl text-white/80 leading-relaxed max-w-2xl mb-8">Hire experienced cybersecurity professionals on a fractional basis. Get expert security guidance without the cost of a full-time security team.</p>
+              <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-[0.9]">Cybersecurity<br /><span className="text-red-400">Consultants</span></h1>
+              <p className="text-xl text-white/90 leading-relaxed max-w-2xl mb-8">Hire experienced cybersecurity professionals on a fractional basis. Get expert security guidance without the cost of a full-time security team.</p>
               <div className="flex flex-wrap gap-4">
                 <Link href="#contact" className="px-8 py-4 bg-red-500 text-white font-bold uppercase tracking-wider hover:bg-red-400 transition-colors">Find a Consultant</Link>
                 <Link href="/fractional-ciso-services" className="px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">Fractional CISO</Link>

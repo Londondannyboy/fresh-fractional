@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { FAQ } from '@/components/FAQ'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { HireProcessStepper } from '@/components/HireProcessStepper'
 import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 
@@ -52,10 +51,15 @@ export const metadata: Metadata = {
 export default function FractionalCDOServicesPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with 3D Knowledge Graph */}
+      {/* Hero Section with Unsplash Image */}
       <section className="relative min-h-[75vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <JobsGraph3D roleFilter="CDO" limit={25} height="100%" isHero={true} showOverlay={true} />
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=80"
+            alt="Data analytics"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/95 via-purple-800/90 to-purple-700/85" />
         </div>
         <div className="relative z-10 w-full py-20">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -63,10 +67,10 @@ export default function FractionalCDOServicesPage() {
               <span className="mr-2">←</span> Back to Home
             </Link>
             <div className="max-w-4xl">
-              <span className="inline-block bg-cyan-500 text-black px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">
+              <span className="inline-block bg-cyan-500 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">
                 Data Leadership
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-6 leading-[0.9] tracking-tight">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tight">
                 Fractional CDO<br />
                 <span className="text-cyan-400">Services UK</span>
               </h1>
@@ -89,7 +93,7 @@ export default function FractionalCDOServicesPage() {
                 </div>
               </div>
               <div className="flex flex-wrap gap-4">
-                <Link href="#contact" className="px-8 py-4 bg-cyan-500 text-black font-bold uppercase tracking-wider hover:bg-cyan-400 transition-colors">
+                <Link href="#contact" className="px-8 py-4 bg-cyan-500 text-white font-bold uppercase tracking-wider hover:bg-cyan-400 transition-colors">
                   Hire a Fractional CDO
                 </Link>
                 <Link href="#responsibilities" className="px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">

@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 
 export const revalidate = 3600
@@ -21,8 +20,13 @@ export default function InterimCMOPage() {
   return (
     <div className="min-h-screen bg-white">
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <JobsGraph3D roleFilter="CMO" limit={25} height="100%" isHero={true} showOverlay={true} />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1580489944761-15a19d654956?w=1920&q=80')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-900/90 via-amber-800/80 to-amber-700/60" />
         </div>
         <div className="relative z-10 w-full py-20">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -30,16 +34,16 @@ export default function InterimCMOPage() {
               <span className="mr-2">←</span> Back to Home
             </Link>
             <div className="max-w-4xl">
-              <span className="inline-block bg-amber-500 text-black px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">Interim Leadership</span>
-              <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-[0.9]">
-                Interim CMO<br /><span className="text-amber-400">Services UK</span>
+              <span className="inline-block bg-white/20 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">Interim Leadership</span>
+              <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-[0.9]">
+                Interim CMO<br /><span className="text-amber-300">Services UK</span>
               </h1>
-              <p className="text-xl text-white/80 leading-relaxed max-w-2xl mb-8">
+              <p className="text-xl text-white/90 leading-relaxed max-w-2xl mb-8">
                 Full-time temporary CMO leadership for transitions, rebrands, and marketing transformations. Expert marketing executives available to start immediately.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="#contact" className="px-8 py-4 bg-amber-500 text-black font-bold uppercase tracking-wider hover:bg-amber-400 transition-colors">Hire an Interim CMO</Link>
-                <Link href="/fractional-cmo-services" className="px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">Consider Fractional Instead?</Link>
+                <Link href="#contact" className="px-8 py-4 bg-white text-amber-900 font-bold uppercase tracking-wider hover:bg-amber-50 transition-colors">Hire an Interim CMO</Link>
+                <Link href="/fractional-cmo-services" className="px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-amber-900 transition-colors">Consider Fractional Instead?</Link>
               </div>
             </div>
           </div>

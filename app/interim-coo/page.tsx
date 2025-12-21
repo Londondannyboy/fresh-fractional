@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 
 export const revalidate = 3600
@@ -16,19 +15,24 @@ export default function InterimCOOPage() {
   return (
     <div className="min-h-screen bg-white">
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <JobsGraph3D roleFilter="COO" limit={25} height="100%" isHero={true} showOverlay={true} />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1920&q=80')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-900/90 via-orange-800/80 to-orange-700/60" />
         </div>
         <div className="relative z-10 w-full py-20">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
             <Link href="/" className="inline-flex items-center text-white/60 hover:text-white mb-8 transition-colors text-sm"><span className="mr-2">←</span> Back to Home</Link>
             <div className="max-w-4xl">
-              <span className="inline-block bg-orange-500 text-black px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">Interim Leadership</span>
-              <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-[0.9]">Interim COO<br /><span className="text-orange-400">Services UK</span></h1>
-              <p className="text-xl text-white/80 leading-relaxed max-w-2xl mb-8">Full-time temporary COO leadership for operational transformations, restructuring, and scaling challenges. Expert operations executives available immediately.</p>
+              <span className="inline-block bg-white/20 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">Interim Leadership</span>
+              <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-[0.9]">Interim COO<br /><span className="text-orange-300">Services UK</span></h1>
+              <p className="text-xl text-white/90 leading-relaxed max-w-2xl mb-8">Full-time temporary COO leadership for operational transformations, restructuring, and scaling challenges. Expert operations executives available immediately.</p>
               <div className="flex flex-wrap gap-4">
-                <Link href="#contact" className="px-8 py-4 bg-orange-500 text-black font-bold uppercase tracking-wider hover:bg-orange-400 transition-colors">Hire an Interim COO</Link>
-                <Link href="/fractional-coo-services" className="px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">Consider Fractional Instead?</Link>
+                <Link href="#contact" className="px-8 py-4 bg-white text-orange-900 font-bold uppercase tracking-wider hover:bg-orange-50 transition-colors">Hire an Interim COO</Link>
+                <Link href="/fractional-coo-services" className="px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-orange-900 transition-colors">Consider Fractional Instead?</Link>
               </div>
             </div>
           </div>

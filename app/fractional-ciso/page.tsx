@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { FAQ } from '@/components/FAQ'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { RoleCalculator } from '@/components/RoleCalculator'
 
 export const revalidate = 3600
@@ -63,10 +62,15 @@ export default function FractionalCISOGuidePage() {
   return (
     <div className="min-h-screen bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      {/* Hero Section with 3D Knowledge Graph Background */}
+      {/* Hero Section with Unsplash Background */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <JobsGraph3D roleFilter="CISO" limit={30} height="100%" isHero={true} showOverlay={true} />
+          <img
+            src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=1920&q=80"
+            alt="Professional security background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/95 via-slate-900/90 to-blue-900/95"></div>
         </div>
         <div className="relative z-10 w-full py-20">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -77,9 +81,9 @@ export default function FractionalCISOGuidePage() {
               <span className="inline-block bg-white text-black px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">
                 Complete Guide 2025
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-6 leading-[0.9] tracking-tight">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tight">
                 Fractional CISO:<br />
-                <span className="text-gray-400">Security Leadership On Demand</span>
+                <span className="text-white/80">Security Leadership On Demand</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-2xl mb-8">
                 The definitive guide to <strong className="text-white">Fractional CISOs & vCISO Services</strong>. Whether you're looking to hire security leadership, become a fractional CISO, or understand compliance—this guide covers it all.

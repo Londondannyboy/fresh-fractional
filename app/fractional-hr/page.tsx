@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import { createDbQuery } from '@/lib/db'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { HireProcessStepper } from '@/components/HireProcessStepper'
 import { FAQ } from '@/components/FAQ'
 import { RoleCalculator } from '@/components/RoleCalculator'
@@ -83,10 +82,15 @@ export default async function FractionalHRGuidePage() {
     <div className="min-h-screen bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
-      {/* Hero Section with 3D Background */}
+      {/* Hero Section with Unsplash Background and Purple Gradient */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <JobsGraph3D categoryFilter="HR" limit={25} height="100%" isHero={true} showOverlay={true} />
+          <img
+            src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1920&q=80"
+            alt="HR background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-purple-600/60 to-purple-900/80"></div>
         </div>
         <div className="relative z-10 w-full py-20">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -94,19 +98,19 @@ export default async function FractionalHRGuidePage() {
               <span className="mr-2">←</span> Back to Home
             </Link>
             <div className="max-w-4xl">
-              <span className="inline-block bg-pink-500 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">
+              <span className="inline-block bg-white/20 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">
                 Complete Guide 2025
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-6 leading-[0.9] tracking-tight">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tight">
                 Fractional<br />
-                <span className="text-pink-400">HR</span>
+                <span className="text-purple-200">HR</span>
               </h1>
-              <p className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-2xl mb-8">
+              <p className="text-xl md:text-2xl text-white leading-relaxed max-w-2xl mb-8">
                 The definitive UK guide to <strong className="text-white">fractional HR</strong>. What it means, what it costs, and how to access senior people leadership without full-time commitment.
               </p>
               <div className="flex flex-wrap gap-8 mb-10">
                 <div>
-                  <div className="text-4xl md:text-5xl font-black text-pink-400">{stats.total}+</div>
+                  <div className="text-4xl md:text-5xl font-black text-purple-200">{stats.total}+</div>
                   <div className="text-white/60 text-sm uppercase tracking-wider">Live HR Roles</div>
                 </div>
                 <div>
@@ -119,10 +123,10 @@ export default async function FractionalHRGuidePage() {
                 </div>
               </div>
               <div className="flex flex-wrap gap-4">
-                <Link href="#what-is" className="px-8 py-4 bg-pink-500 text-white font-bold uppercase tracking-wider hover:bg-pink-400 transition-colors">
+                <Link href="#what-is" className="px-8 py-4 bg-white/20 text-white font-bold uppercase tracking-wider hover:bg-white hover:text-purple-900 transition-colors">
                   Read the Guide
                 </Link>
-                <Link href="/fractional-hr-jobs-uk" className="px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
+                <Link href="/fractional-hr-jobs-uk" className="px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-purple-900 transition-colors">
                   Browse HR Jobs
                 </Link>
               </div>

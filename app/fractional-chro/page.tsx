@@ -4,7 +4,6 @@ import { Suspense } from 'react'
 import { createDbQuery } from '@/lib/db'
 import { FAQ } from '@/components/FAQ'
 import { RoleCalculator } from '@/components/RoleCalculator'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 
 export const revalidate = 3600
 
@@ -79,7 +78,12 @@ export default async function FractionalCHROPage() {
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <JobsGraph3D categoryFilter="HR" limit={25} height="100%" isHero={true} showOverlay={true} />
+          <img
+            src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1920&q=80"
+            alt="Professional HR background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/90 via-purple-800/85 to-purple-950/90"></div>
         </div>
         <div className="relative z-10 w-full py-20">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
@@ -90,7 +94,7 @@ export default async function FractionalCHROPage() {
               <span className="inline-block bg-pink-500 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">
                 Executive Guide
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-6 leading-[0.9] tracking-tight">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[0.9] tracking-tight">
                 Fractional<br />
                 <span className="text-pink-400">CHRO</span>
               </h1>

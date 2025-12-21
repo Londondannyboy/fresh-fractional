@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { HireProcessStepper } from '@/components/HireProcessStepper'
 
 export const revalidate = 3600
@@ -16,20 +15,25 @@ export default function FractionalTechnologyPage() {
   return (
     <div className="min-h-screen bg-white">
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
-        {/* 3D Knowledge Graph Background */}
+        {/* Unsplash Image Background with Purple Gradient */}
         <div className="absolute inset-0">
-          <JobsGraph3D categoryFilter="Technology" limit={25} height="100%" isHero={true} showOverlay={true} />
+          <img
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80"
+            alt="Technology background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-purple-600/60 to-purple-900/80"></div>
         </div>
         <div className="relative z-10 w-full py-20">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
             <Link href="/" className="inline-flex items-center text-white/60 hover:text-white mb-8 transition-colors text-sm"><span className="mr-2">←</span> Back to Home</Link>
             <div className="max-w-4xl">
-              <span className="inline-block bg-blue-500 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">Functional Leadership</span>
-              <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-[0.9]">Fractional<br /><span className="text-blue-400">Technology</span></h1>
-              <p className="text-xl text-white/80 leading-relaxed max-w-2xl mb-8">Access senior technology leadership without the full-time commitment. From CTOs to VPs of Engineering, find the right level of technical expertise for your growth stage.</p>
+              <span className="inline-block bg-white/20 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">Functional Leadership</span>
+              <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-[0.9]">Fractional<br /><span className="text-purple-200">Technology</span></h1>
+              <p className="text-xl text-white leading-relaxed max-w-2xl mb-8">Access senior technology leadership without the full-time commitment. From CTOs to VPs of Engineering, find the right level of technical expertise for your growth stage.</p>
               <div className="flex flex-wrap gap-4">
-                <Link href="#contact" className="px-8 py-4 bg-blue-500 text-white font-bold uppercase tracking-wider hover:bg-blue-400 transition-colors">Find Tech Leadership</Link>
-                <Link href="/fractional-cto-services" className="px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">Fractional CTO Services</Link>
+                <Link href="#contact" className="px-8 py-4 bg-white/20 text-white font-bold uppercase tracking-wider hover:bg-white hover:text-purple-900 transition-colors">Find Tech Leadership</Link>
+                <Link href="/fractional-cto-services" className="px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-purple-900 transition-colors">Fractional CTO Services</Link>
               </div>
             </div>
           </div>
