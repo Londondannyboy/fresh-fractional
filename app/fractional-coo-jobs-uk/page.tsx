@@ -5,6 +5,7 @@ import { FAQ, COO_FAQS } from '@/components/FAQ'
 import { RoleCalculator } from '@/components/RoleCalculator'
 import { DesktopOnly } from '@/components/DesktopOnly'
 import { IR35Calculator } from '@/components/IR35Calculator'
+import { RoleContentHub } from '@/components/RoleContentHub'
 
 export const revalidate = 3600
 
@@ -448,6 +449,9 @@ export default async function FractionalCooJobsUkPage() {
           </div>
         </div>
       </section>
+
+      {/* Content Hub - Internal Linking */}
+      <RoleContentHub currentRole="coo" />
     </div>
   )
 }

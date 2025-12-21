@@ -5,6 +5,7 @@ import { FAQ } from '@/components/FAQ'
 import { RoleCalculator } from '@/components/RoleCalculator'
 import { IR35Calculator } from '@/components/IR35Calculator'
 import { RoleNews } from '@/components/RoleNews'
+import { RoleContentHub } from '@/components/RoleContentHub'
 
 export const revalidate = 3600
 
@@ -350,7 +351,7 @@ export default async function FractionalCisoJobsUkPage() {
             </div>
 
             <p>
-              UK startups, scale-ups, and mid-market companies can now access the same caliber of security leadership that was previously exclusive to FTSE 100 enterprises. A fractional CISO brings strategic security oversight, compliance management, incident response capabilities, and board-level reporting—without the six-figure salary commitment. For companies navigating <a href="https://www.ncsc.gov.uk/cyberessentials/overview" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">Cyber Essentials certification</a>, SOC 2 compliance, or ISO 27001 requirements, a fractional CISO provides the executive leadership essential for achieving certification while maintaining lean operational costs.
+              UK startups, scale-ups, and mid-market companies can now access the same caliber of security leadership that was previously exclusive to FTSE 100 enterprises. A fractional CISO brings strategic security oversight, compliance management, incident response capabilities, and board-level reporting—without the six-figure salary commitment. For companies navigating <a href="https://www.ncsc.gov.uk" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">Cyber Essentials certification</a>, SOC 2 compliance, or ISO 27001 requirements, a fractional CISO provides the executive leadership essential for achieving certification while maintaining lean operational costs.
             </p>
 
             <div className="bg-red-50 p-6 border border-red-200 rounded-lg my-8 not-prose">
@@ -362,7 +363,7 @@ export default async function FractionalCisoJobsUkPage() {
 
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Why Fractional CISO Jobs Are Booming</h3>
             <p>
-              Multiple macroeconomic and regulatory forces are driving unprecedented demand for fractional CISO roles across the UK. The <a href="https://www.ncsc.gov.uk/news/cyber-threat-uk-business" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">NCSC's Annual Review</a> highlights that 39% of UK businesses experienced a cyber attack in the past year, with the average cost of a data breach reaching £3.2 million. Meanwhile, regulatory pressure continues to intensify—the <a href="https://ico.org.uk/" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">Information Commissioner's Office (ICO)</a> issued over £42 million in GDPR fines in 2024, creating strong board-level demand for security governance.
+              Multiple macroeconomic and regulatory forces are driving unprecedented demand for fractional CISO roles across the UK. The <a href="https://www.ncsc.gov.uk" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">NCSC's Annual Review</a> highlights that 39% of UK businesses experienced a cyber attack in the past year, with the average cost of a data breach reaching £3.2 million. Meanwhile, regulatory pressure continues to intensify—the <a href="https://ico.org.uk/" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">Information Commissioner's Office (ICO)</a> issued over £42 million in GDPR fines in 2024, creating strong board-level demand for security governance.
             </p>
             <ul className="space-y-3">
               <li><strong>Escalating cyber threats:</strong> Ransomware, nation-state attacks, and supply chain compromises requiring executive security oversight</li>
@@ -525,7 +526,7 @@ export default async function FractionalCisoJobsUkPage() {
                   {' '}&mdash; UK data protection authority overseeing GDPR compliance and data security requirements
                 </li>
                 <li>
-                  <a href="https://www.ncsc.gov.uk/cyberessentials/overview" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline font-medium">
+                  <a href="https://www.ncsc.gov.uk" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline font-medium">
                     Cyber Essentials Scheme
                   </a>
                   {' '}&mdash; Government-backed certification scheme for basic cyber security controls
@@ -680,6 +681,9 @@ export default async function FractionalCisoJobsUkPage() {
           </div>
         </div>
       </section>
+
+      {/* Content Hub - Internal Linking */}
+      <RoleContentHub currentRole="ciso" />
     </div>
   )
 }

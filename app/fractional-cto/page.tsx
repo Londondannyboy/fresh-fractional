@@ -258,7 +258,7 @@ export default function FractionalCTOPage() {
               },
               {
                 title: 'Security & Compliance',
-                description: 'Implement security best practices, manage risks, prepare for audits. Navigate <a href="https://www.ncsc.gov.uk/cyberessentials/overview" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline">Cyber Essentials</a> and ISO 27001 requirements.',
+                description: 'Implement security best practices, manage risks, prepare for audits. Navigate <a href="https://www.ncsc.gov.uk" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 underline">Cyber Essentials</a> and ISO 27001 requirements.',
                 icon: '🔒',
               },
               {

@@ -40,7 +40,7 @@ const DESTINATION_IMAGES: Record<string, string> = {
   'tokyo': 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80',
   'sydney': 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=80',
   'vancouver': 'https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=800&q=80',
-  'split': 'https://images.unsplash.com/photo-1596295962611-de5f0a6c9f89?w=800&q=80',
+  'split': 'https://images.unsplash.com/photo-1555990538-1e0e0e6b0e5c?w=800&q=80',
   'athens': 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=800&q=80',
   'florence': 'https://images.unsplash.com/photo-1541370976299-4d24ebbc9077?w=800&q=80',
   // Countries as fallback
@@ -63,7 +63,7 @@ const DESTINATION_IMAGES: Record<string, string> = {
   'japan': 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80',
   'australia': 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=80',
   'canada': 'https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=800&q=80',
-  'croatia': 'https://images.unsplash.com/photo-1596295962611-de5f0a6c9f89?w=800&q=80',
+  'croatia': 'https://images.unsplash.com/photo-1555990538-1e0e0e6b0e5c?w=800&q=80',
   'greece': 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=800&q=80',
   'italy': 'https://images.unsplash.com/photo-1541370976299-4d24ebbc9077?w=800&q=80',
 }

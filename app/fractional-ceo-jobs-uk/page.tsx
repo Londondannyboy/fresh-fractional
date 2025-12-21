@@ -6,6 +6,7 @@ import { RoleCalculator } from '@/components/RoleCalculator'
 import { DesktopOnly } from '@/components/DesktopOnly'
 import { IR35Calculator } from '@/components/IR35Calculator'
 import { RoleNews } from '@/components/RoleNews'
+import { RoleContentHub } from '@/components/RoleContentHub'
 
 export const revalidate = 3600
 
@@ -699,6 +700,9 @@ export default async function FractionalCeoJobsUkPage() {
           </div>
         </div>
       </section>
+
+      {/* Content Hub - Internal Linking */}
+      <RoleContentHub currentRole="ceo" />
     </div>
   )
 }

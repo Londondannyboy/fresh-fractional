@@ -11,7 +11,7 @@ interface RoleLink {
   label: string;
 }
 
-const RoleContentHub: React.FC<RoleContentHubProps> = ({ currentRole }) => {
+export function RoleContentHub({ currentRole }: RoleContentHubProps) {
   const executiveRoles: RoleLink[] = [
     { role: 'cfo', path: '/fractional-cfo-jobs-uk', label: 'CFO Jobs' },
     { role: 'cto', path: '/fractional-cto-jobs-uk', label: 'CTO Jobs' },
@@ -143,6 +143,4 @@ const RoleContentHub: React.FC<RoleContentHubProps> = ({ currentRole }) => {
       </div>
     </section>
   );
-};
-
-export default RoleContentHub;
+}

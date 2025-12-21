@@ -228,7 +228,7 @@ export default function WhatIsFractionalCTOPage() {
                   <h4 className="text-lg font-bold text-gray-900 mb-2 flex items-center">
                     <span className="text-2xl mr-3">🔒</span> Security, Compliance & Risk Management
                   </h4>
-                  <p className="text-gray-700 ml-11 mb-0">Implement security best practices, manage technical risks, prepare for security audits. Navigate <a href="https://www.ncsc.gov.uk/cyberessentials/overview" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Cyber Essentials</a>, SOC 2, ISO 27001, and GDPR requirements.</p>
+                  <p className="text-gray-700 ml-11 mb-0">Implement security best practices, manage technical risks, prepare for security audits. Navigate <a href="https://www.ncsc.gov.uk" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Cyber Essentials</a>, SOC 2, ISO 27001, and GDPR requirements.</p>
                 </div>
 
                 <div className="border-t pt-6">

@@ -127,7 +127,7 @@ export default function FractionalCISOServicesPage() {
             </div>
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Security as a Business Enabler</h3>
             <p>
-              Many companies see security as a blocker—something that slows things down and adds cost. A good fractional CISO turns this around. They implement security that enables the business: winning enterprise deals, building customer trust, and protecting against real risks without unnecessary bureaucracy. Leveraging <a href="https://www.ncsc.gov.uk/collection/10-steps" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">NCSC guidance</a> and <a href="https://www.crest-approved.org/" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">CREST-accredited practices</a>, they build security programmes that scale with growth.
+              Many companies see security as a blocker—something that slows things down and adds cost. A good fractional CISO turns this around. They implement security that enables the business: winning enterprise deals, building customer trust, and protecting against real risks without unnecessary bureaucracy. Leveraging <a href="https://www.ncsc.gov.uk" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">NCSC guidance</a> and <a href="https://www.crest-approved.org/" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">CREST-accredited practices</a>, they build security programmes that scale with growth.
             </p>
           </div>
         </div>
