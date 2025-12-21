@@ -477,7 +477,7 @@ export default function FractionalCCOPage() {
             <h3 className="text-xl font-bold text-slate-900 mt-8 mb-4">4. FCA Approval (if required)</h3>
             <p>
               If your fractional CCO will hold SMF16, they'll need FCA approval at your firm (even if approved elsewhere).
-              This typically takes 8-12 weeks through the <a href="https://www.fca.org.uk/firms/senior-managers-certification-regime/applications" target="_blank" rel="noopener noreferrer" className="text-violet-600 hover:text-violet-700 underline">Form A process</a>.
+              This typically takes 8-12 weeks through the <a href="https://www.fca.org.uk/firms/approved-persons/applying" target="_blank" rel="noopener noreferrer" className="text-violet-600 hover:text-violet-700 underline">Form A process</a>.
               CCOs with existing approvals may benefit from faster processing.
             </p>
           </div>

@@ -18,7 +18,7 @@ interface NewsArticle {
 }
 
 interface RoleNewsProps {
-  category: 'Finance' | 'Marketing' | 'Engineering' | 'Operations' | 'HR' | 'Sales' | 'General'
+  category: 'Finance' | 'Marketing' | 'Engineering' | 'Operations' | 'HR' | 'Sales' | 'General' | 'Security' | 'Executive'
   limit?: number
   title?: string
   showViewAll?: boolean
@@ -32,7 +32,9 @@ const categoryDisplayNames: Record<string, string> = {
   Operations: 'Operations & COO',
   HR: 'People & HR',
   Sales: 'Sales & Revenue',
-  General: 'Executive'
+  General: 'Executive',
+  Security: 'Security & CISO',
+  Executive: 'CEO & Leadership'
 }
 
 // Map article_type to badge

@@ -75,6 +75,15 @@ const ROLE_DEFAULTS: Record<string, {
     color: 'purple',
     colorDark: 'purple-600',
   },
+  ceo: {
+    label: 'CEO',
+    avgDayRate: 1200,
+    avgSalary: 180000,
+    minDayRate: 900,
+    maxDayRate: 1800,
+    color: 'indigo',
+    colorDark: 'indigo-600',
+  },
 }
 
 interface RoleCalculatorProps {

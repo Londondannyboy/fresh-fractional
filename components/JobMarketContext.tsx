@@ -64,7 +64,7 @@ function getMarketInsight(
         text: 'London Tech City leads fractional CTO demand, with AI/ML integration projects driving 55% YoY growth. Technical leadership roles in London command £1,100-£1,600 daily rates reflecting the capital\'s tech ecosystem.',
         links: [
           { text: 'UK Digital Strategy', url: 'https://www.gov.uk/government/publications/uks-digital-strategy' },
-          { text: 'Tech UK Industry Data', url: 'https://www.techuk.org/resource/uk-tech-the-scorecard-2024.html' }
+          { text: 'Tech UK Industry Data', url: 'https://www.techuk.org' }
         ]
       }
     } else if (isManchester || isBirmingham) {
@@ -101,7 +101,7 @@ function getMarketInsight(
         text: 'London-based fractional CMO roles have grown 200% YoY, with B2B SaaS and DTC e-commerce leading demand. Marketing leadership in the capital commands premium rates of £900-£1,400 daily.',
         links: [
           { text: 'Chartered Institute of Marketing', url: 'https://www.cim.co.uk' },
-          { text: 'UK Business Support', url: 'https://www.gov.uk/topic/business-enterprise/business-support' }
+          { text: 'UK Business Support', url: 'https://www.gov.uk/browse/business' }
         ]
       }
     } else if (isRemote) {

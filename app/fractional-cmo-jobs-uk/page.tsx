@@ -314,7 +314,7 @@ export default async function FractionalCmoJobsUkPage() {
 
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">The Rise of Fractional CMO Jobs UK</h3>
             <p>
-              The UK market for <strong>fractional CMO jobs UK</strong> has exploded, with a 200% year-on-year increase in searches. <a href="https://www.gov.uk/topic/business-enterprise/business-support" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline">Startups, scale-ups, and SMEs</a> are accessing senior marketing talent without the £120,000-£200,000 annual cost of a full-time Chief Marketing Officer.
+              The UK market for <strong>fractional CMO jobs UK</strong> has exploded, with a 200% year-on-year increase in searches. Startups, scale-ups, and SMEs are accessing senior marketing talent without the £120,000-£200,000 annual cost of a full-time Chief Marketing Officer.
             </p>
 
             <div className="bg-gray-50 p-8 my-10 border-l-4 border-amber-500">
@@ -518,7 +518,7 @@ export default async function FractionalCmoJobsUkPage() {
               <h3 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-amber-500">Industry Research &amp; Market Data</h3>
               <ul className="space-y-3 text-gray-600">
                 <li>
-                  <a href="https://www.thinkbox.tv/research/" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline font-medium">
+                  <a href="https://www.thinkbox.tv" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline font-medium">
                     Thinkbox Marketing Research
                   </a>
                   {' '}&mdash; UK marketing effectiveness research and advertising insights

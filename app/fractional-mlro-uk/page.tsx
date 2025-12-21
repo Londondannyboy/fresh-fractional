@@ -330,7 +330,7 @@ export default function FractionalMLROUKPage() {
           <div className="mt-8 prose prose-lg prose-slate max-w-none">
             <h3 className="text-xl font-bold text-slate-900 mt-8 mb-4">Crypto and Digital Assets</h3>
             <p>
-              The <a href="https://www.fca.org.uk/firms/cryptoassets-aml-ctf-regime" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline">FCA crypto registration regime</a> has
+              The <a href="https://www.fca.org.uk/firms/cryptoassets" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline">FCA crypto registration regime</a> has
               created significant demand for MLROs with crypto-specific AML expertise. Crypto firms face unique challenges
               including Travel Rule implementation, on-chain monitoring, and rapidly evolving typologies.
             </p>

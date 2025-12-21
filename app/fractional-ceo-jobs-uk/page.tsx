@@ -507,7 +507,7 @@ export default async function FractionalCeoJobsUkPage() {
       {/* Executive News */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <RoleNews category="Executive" title="Latest UK CEO Jobs & Executive News" limit={3} />
+          <RoleNews category="General" title="Latest UK CEO Jobs & Executive News" limit={3} />
         </div>
       </section>
 

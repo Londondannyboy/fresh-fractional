@@ -186,7 +186,7 @@ export default async function FractionalCisoJobsUkPage() {
             </h2>
             <p className="text-gray-600 mt-2">Calculate your potential earnings from fractional CISO jobs in the UK market</p>
           </div>
-          <RoleCalculator role="CISO" />
+          <RoleCalculator role="ciso" />
         </div>
       </section>
 

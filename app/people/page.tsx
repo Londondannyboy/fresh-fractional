@@ -207,7 +207,7 @@ export default async function PeoplePage() {
           <div className="grid md:grid-cols-3 gap-4">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1531746790095-e6a4c9a4b6f3?w=800&q=80"
+                src="https://images.unsplash.com/photo-1585208798174-6cedd86e019a?w=800&q=80"
                 alt="Working from Lisbon"
                 className="w-full h-full object-cover"
               />

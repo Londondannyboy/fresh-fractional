@@ -25,13 +25,13 @@ const DESTINATION_IMAGES: Record<string, string> = {
   'dubai': 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1920&q=80',
   'singapore': 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1920&q=80',
   'cape town': 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1920&q=80',
-  'medellin': 'https://images.unsplash.com/photo-1599413987323-b2b8c0e99d09?w=1920&q=80',
+  'medellin': 'https://images.unsplash.com/photo-1568402102990-bc541580b59f?w=1920&q=80',
   'mexico city': 'https://images.unsplash.com/photo-1518659526054-190340b32735?w=1920&q=80',
   'tokyo': 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1920&q=80',
   'sydney': 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=1920&q=80',
-  'split': 'https://images.unsplash.com/photo-1555990538-a7d0c5b46f9e?w=1920&q=80',
+  'split': 'https://images.unsplash.com/photo-1596295962611-de5f0a6c9f89?w=1920&q=80',
   'athens': 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=1920&q=80',
-  'florence': 'https://images.unsplash.com/photo-1543429258-c5ca3e0c22a2?w=1920&q=80',
+  'florence': 'https://images.unsplash.com/photo-1541370976299-4d24ebbc9077?w=1920&q=80',
   // Countries as fallback
   'portugal': 'https://images.unsplash.com/photo-1585208798174-6cedd86e019a?w=1920&q=80',
   'spain': 'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=1920&q=80',
@@ -43,8 +43,8 @@ const DESTINATION_IMAGES: Record<string, string> = {
   'japan': 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1920&q=80',
   'australia': 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=1920&q=80',
   'greece': 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=1920&q=80',
-  'italy': 'https://images.unsplash.com/photo-1543429258-c5ca3e0c22a2?w=1920&q=80',
-  'croatia': 'https://images.unsplash.com/photo-1555990538-a7d0c5b46f9e?w=1920&q=80',
+  'italy': 'https://images.unsplash.com/photo-1541370976299-4d24ebbc9077?w=1920&q=80',
+  'croatia': 'https://images.unsplash.com/photo-1596295962611-de5f0a6c9f89?w=1920&q=80',
 }
 
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&q=80'

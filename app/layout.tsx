@@ -92,7 +92,7 @@ const organizationJsonLd = {
   foundingDate: "2024",
   sameAs: [
     "https://twitter.com/fractionalquest",
-    "https://linkedin.com/company/fractionalquest"
+    "https://www.linkedin.com/company/fractional-quest"
   ],
   contactPoint: {
     "@type": "ContactPoint",

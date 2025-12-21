@@ -196,7 +196,7 @@ export default function FractionalHRForStartupsPage() {
                 <h3 className="text-xl font-black text-gray-900 mt-0 mb-4">2. Ensure UK Employment Compliance</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li>• <a href="https://www.gov.uk/employment-contracts-and-conditions" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">Written statement of particulars</a> compliance</li>
-                  <li>• <a href="https://www.gov.uk/employers-right-to-work-checks" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">Right to work</a> checks and documentation</li>
+                  <li>• <a href="https://www.gov.uk/check-job-applicant-right-to-work" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">Right to work</a> checks and documentation</li>
                   <li>• Holiday and working time compliance</li>
                   <li>• GDPR and employee data protection</li>
                   <li>• Avoid common startup compliance mistakes</li>

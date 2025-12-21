@@ -300,7 +300,7 @@ export default function ComplianceOfficerSalaryUKPage() {
               </p>
               <p>
                 <strong>Crypto and FinTech</strong> have emerged as high-paying sectors, particularly for professionals
-                with <a href="https://www.fca.org.uk/firms/cryptoassets-aml-ctf-regime" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 underline">FCA crypto registration</a> experience.
+                with <a href="https://www.fca.org.uk/firms/cryptoassets" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:text-indigo-700 underline">FCA crypto registration</a> experience.
                 The talent shortage in crypto compliance drives salaries 20-30% above comparable FinTech roles.
               </p>
             </div>

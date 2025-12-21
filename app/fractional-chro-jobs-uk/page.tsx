@@ -88,27 +88,35 @@ function getDaysAgo(postedDate: string | null): number | undefined {
 const CHRO_CAREER_FAQS = [
   {
     question: 'How do I become a fractional CHRO?',
-    answer: 'To become a fractional CHRO, you typically need: 15-20+ years HR experience with 8+ years in senior roles (CHRO, CPO, HR Director); experience at scale (200+ employees); CIPD Level 7 qualification; and a network of potential clients. Most fractional CHROs transition after successful full-time CHRO careers.'
+    answer: 'To become a fractional CHRO, you typically need: 15-20+ years HR experience with 8+ years in senior roles (CHRO, CPO, HR Director); experience at scale (200+ employees); CIPD Level 7 qualification or Chartered CIPD status; and a network of potential clients. Most fractional CHROs transition after successful full-time CHRO careers. The transition typically involves: (1) building 1-2 initial clients through your network while still employed or shortly after leaving; (2) setting up a limited company structure for tax efficiency and IR35 compliance; (3) developing a clear value proposition and positioning (e.g., "I help SaaS scale-ups build people infrastructure for 50-500 employee growth"); (4) establishing day rates based on market benchmarks (£1,100-£1,300 for experienced practitioners); and (5) creating systems for managing multiple clients and deliverables simultaneously.'
   },
   {
     question: 'How much do fractional CHROs earn in the UK?',
-    answer: 'Fractional CHROs in the UK typically earn £1,100-£1,300 per day. Working 3-4 days per week across 2-3 clients, annual earnings range from £145,000 to £250,000+. This often exceeds full-time CHRO salary while offering more flexibility and variety.'
+    answer: 'Fractional CHROs in the UK typically earn £1,100-£1,300 per day, with premium specialists (M&A, PE portfolio work) commanding £1,300-£1,500/day. Working 3-4 days per week across 2-3 clients, annual earnings range from £145,000 to £250,000+. This often exceeds full-time CHRO salary while offering more flexibility and variety. Real-world example: A fractional CHRO working with 2 clients (8 days/month each at £1,200/day) earns £192,000 annually before expenses. At 60-70% utilisation (accounting for business development and admin time), typical annual earnings are £130,000-£210,000. The highest earners often work in specialist niches like M&A integration or PE portfolio work, where deep expertise commands significant premiums.'
   },
   {
     question: 'What qualifications do I need to be a fractional CHRO?',
-    answer: 'Essential: CIPD Level 7 (Advanced Diploma in Strategic People Management), 15+ years HR experience with 8+ years at CHRO/HR Director level, proven track record leading HR through growth or transformation. Valuable: MBA, coaching qualifications, M&A experience, international HR experience.'
+    answer: 'Essential: CIPD Level 7 (Advanced Diploma in Strategic People Management) or Chartered CIPD status (Chartered FCIPD/MCIPD), 15+ years HR experience with 8+ years at CHRO/HR Director level, proven track record leading HR through growth or transformation, and demonstrated outcomes (reduced attrition, successful fundraising support, cultural transformation, M&A integration). Valuable: MBA from recognised institution, professional coaching qualifications (ICF or EMCC), M&A and integration experience, international HR experience across multiple markets, expertise in specific sectors (tech, financial services, professional services), and deep knowledge of UK employment law including TUPE, redundancy processes, and tribunal experience. Many clients explicitly require Chartered status and sector-specific experience in their briefs.'
   },
   {
     question: 'How do I find fractional CHRO clients?',
-    answer: 'Key sources include: VC/PE firms seeking portfolio company CHROs; executive networks and referrals from other C-suite executives; fractional platforms like Fractional Quest; CIPD and HR Directors forums; LinkedIn thought leadership; and board/advisory positions leading to referrals.'
+    answer: 'Key sources include: VC/PE firms seeking portfolio company CHROs (often the highest-value channel); executive networks and referrals from other C-suite executives you\'ve worked with; fractional platforms like Fractional Quest; CIPD and HR Directors forums and networking events; LinkedIn thought leadership demonstrating your expertise; board and advisory positions that lead to referrals; and relationships with executive search firms who place fractional roles. The most successful fractional CHROs generate 70-80% of new business through referrals, making relationship building and delivering exceptional value to current clients critical. Many also publish thought leadership content, speak at HR conferences, and maintain high visibility within their target sectors (e.g., SaaS, fintech, professional services) to create inbound demand.'
   },
   {
     question: 'What IR35 considerations apply to fractional CHROs?',
-    answer: 'Most fractional CHROs operate outside IR35 by: working with multiple clients (not one exclusive client), using own equipment, having right of substitution, controlling how/when work is done, and bearing business risk. Use limited company structure and ensure contracts reflect genuine self-employment.'
+    answer: 'Most fractional CHROs operate outside IR35 by: working with multiple clients simultaneously (not one exclusive client), using their own equipment and tools, having genuine right of substitution in contracts, controlling how and when work is done, and bearing genuine business risk. Use a limited company structure and ensure contracts reflect genuine self-employment with no mutuality of obligation. Critical IR35 factors: no requirement to personally perform services, no exclusivity clauses, clear day rate billing (not salary-equivalent), provision of services to multiple clients, and control over how objectives are achieved. Consult an accountant specialising in contractor tax and use HMRC\'s IR35 assessment tool. Many fractional CHROs maintain professional indemnity insurance and clear contractual terms that support outside IR35 status. For more details, see Gov.uk guidance on off-payroll working rules.'
   },
   {
     question: 'Can I work as a fractional CHRO while still employed full-time?',
-    answer: 'Some HR leaders start fractional work alongside employment through advisory roles or small engagements (check employment contract restrictions). However, true fractional CHRO work requires significant time commitment. Most transition fully after building 1-2 initial clients through their network.'
+    answer: 'Some HR leaders start fractional work alongside employment through advisory roles or small engagements, but check employment contract restrictions carefully—many senior roles include non-compete and exclusivity clauses. However, true fractional CHRO work requires significant time commitment (typically 2-4 days per week minimum across clients), making it difficult to sustain alongside full-time employment. Most successful transitions follow this path: (1) build 1-2 initial clients through your network during notice period or immediately after leaving; (2) negotiate with your departing employer to continue on fractional basis during transition (providing immediate income and reference); (3) dedicate 1-2 days weekly to business development while building client base; (4) transition fully to fractional once you have 2+ clients providing adequate income coverage. Some professionals start with advisory board positions or 1-day-per-month consulting arrangements to test the market before committing fully.'
+  },
+  {
+    question: 'What\'s the difference between a fractional CHRO and an interim CHRO?',
+    answer: 'While often used interchangeably, there are subtle distinctions: Fractional CHROs typically work with multiple clients simultaneously on an ongoing basis (e.g., 2 days/week with Company A, 1.5 days/week with Company B), providing strategic guidance over extended periods (12+ months). Interim CHROs are usually single-client engagements for defined periods (3-18 months), providing full-time or near-full-time coverage during transitions, maternity leave, or while permanent recruitment is underway. Fractional roles emphasise strategic counsel and framework-building; interim roles often involve more operational execution and team management. Day rates are similar (£1,000-£1,500), but interim roles may offer longer single engagements while fractional provides more client diversity and flexibility. Many experienced CHROs do both types of work depending on opportunities and personal preferences.'
+  },
+  {
+    question: 'Do I need professional indemnity insurance as a fractional CHRO?',
+    answer: 'Yes, professional indemnity (PI) insurance is strongly recommended and often required by clients. As a fractional CHRO, you\'re providing strategic advice on people matters with significant financial and legal implications—employment tribunal claims, redundancy processes, TUPE transfers, discrimination cases. PI insurance protects you if a client alleges your advice caused them financial loss. Typical coverage: £1-2 million for individual practitioners, £2-5 million if working with larger organisations or PE portfolios. Annual premiums range from £800-£2,500 depending on coverage level and claims history. Many clients will not engage fractional executives without PI insurance, and it\'s essential for IR35 purposes (demonstrating genuine business risk). Speak with insurance brokers specialising in professional services—Qdos, Kingsbridge, or PolicyBee are common providers for fractional executives.'
   },
 ]
 
@@ -330,10 +338,16 @@ export default async function FractionalCHROJobsUKPage() {
 
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">The Rise of Fractional CHRO Jobs UK</h3>
             <p>
-              The UK market for <strong>fractional CHRO jobs UK</strong> has experienced remarkable growth over the past three years, driven by fundamental shifts in how companies build and scale their people functions. <a href="https://www.gov.uk/business-finance-support" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">Startups, scale-ups, and SMEs</a> are accessing senior HR leadership without the £100,000-£180,000 annual cost of a full-time Chief HR Officer.
+              The UK market for <strong>fractional CHRO jobs UK</strong> has experienced explosive growth over the past three years, driven by fundamental shifts in how companies build and scale their people functions. According to <a href="https://www.cipd.org/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">CIPD research</a>, the professional body for HR in the UK, organisations increasingly recognise the value of flexible senior HR leadership arrangements. <a href="https://www.gov.uk/business-finance-support" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">Startups, scale-ups, and SMEs</a> are accessing senior HR leadership without the £100,000-£180,000 annual cost of a full-time Chief HR Officer.
             </p>
             <p>
-              This transformation is particularly evident in the technology and professional services sectors, where companies need sophisticated people strategies but may not yet have the revenue to justify a full-time executive hire. The <a href="https://www.ipse.co.uk/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">IPSE (Association of Independent Professionals and the Self-Employed)</a> reports that senior HR contractors now represent one of the fastest-growing segments of the independent professional market, with fractional CHRO roles commanding premium day rates due to their strategic impact.
+              This transformation is particularly evident in the technology, professional services, and private equity sectors, where companies need sophisticated people strategies but may not yet have the revenue to justify a full-time executive hire. The <a href="https://www.ipse.co.uk/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">IPSE (Association of Independent Professionals and the Self-Employed)</a> reports that senior HR contractors now represent one of the fastest-growing segments of the independent professional market, with fractional CHRO roles commanding premium day rates due to their strategic impact on organisational performance.
+            </p>
+            <p>
+              The talent wars that began before the pandemic and accelerated dramatically during the Great Resignation have fundamentally changed the strategic importance of HR leadership. Companies face unprecedented challenges in attracting, retaining, and developing talent in a market where employees have more leverage than ever before. Fractional CHROs bring battle-tested strategies from multiple organisations, offering immediate impact without the months-long onboarding that traditional hires require.
+            </p>
+            <p>
+              The hybrid work revolution has created additional complexity. Organisations must redesign their entire people operating model—from performance management and employee engagement to compensation philosophy and culture—for a distributed workforce. Many companies recognise they need expert guidance to navigate this transformation but cannot justify a full-time CHRO salary when other functions also need investment. The fractional model solves this dilemma, providing access to senior HR expertise at exactly the point it's needed most.
             </p>
 
             <div className="bg-gray-50 p-8 my-10 border-l-4 border-emerald-500">
@@ -364,15 +378,77 @@ export default async function FractionalCHROJobsUKPage() {
 
             <h4 className="text-xl font-bold text-gray-900 mt-8 mb-4">PE/VC Portfolio Company Demand</h4>
             <p>
-              Private equity and venture capital firms increasingly mandate professional HR leadership across their portfolios. According to <a href="https://www.bvca.co.uk/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">British Private Equity & Venture Capital Association research</a>, portfolio companies with strong people strategies show significantly better growth and exit outcomes. A single fractional CHRO might work with 3-4 portfolio companies within the same fund, providing consistent people strategy frameworks while tailoring implementation to each business's stage and sector.
+              Private equity and venture capital firms increasingly mandate professional HR leadership across their portfolios. According to <a href="https://www.bvca.co.uk/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">British Private Equity & Venture Capital Association research</a>, portfolio companies with strong people strategies show significantly better growth and exit outcomes—typically 20-30% higher EBITDA growth and faster exits. A single fractional CHRO might work with 3-4 portfolio companies within the same fund, providing consistent people strategy frameworks while tailoring implementation to each business's stage and sector.
+            </p>
+            <p>
+              This model has proven particularly effective in PE-backed buy-and-build strategies, where portfolio companies are acquiring competitors or complementary businesses. Fractional CHROs bring expertise in post-merger integration, cultural alignment, and organisational design that can dramatically accelerate synergy realisation. They understand how to harmonise compensation structures, integrate HR systems, and manage redundancy processes compliantly—expertise that's invaluable during complex transactions but may not warrant a full-time role.
+            </p>
+
+            <h4 className="text-xl font-bold text-gray-900 mt-8 mb-4">Cost Comparison: Fractional vs Full-Time CHRO</h4>
+            <p>
+              The economics of fractional CHRO engagements are compelling for growing businesses. Let's examine the true cost comparison between a fractional CHRO working 2 days per week versus a full-time hire:
+            </p>
+
+            <div className="overflow-x-auto my-8 not-prose">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="bg-gray-50 text-gray-900">
+                    <th className="p-4 text-left">Cost Element</th>
+                    <th className="p-4 text-left">Full-Time CHRO</th>
+                    <th className="p-4 text-left">Fractional CHRO (2 days/week)</th>
+                  </tr>
+                </thead>
+                <tbody className="text-gray-700">
+                  <tr className="border-b">
+                    <td className="p-4">Base salary/fees</td>
+                    <td className="p-4">£130,000</td>
+                    <td className="p-4">£62,400 (£1,200 × 2 days × 26 weeks)</td>
+                  </tr>
+                  <tr className="border-b bg-gray-50">
+                    <td className="p-4">Employer NI (13.8%)</td>
+                    <td className="p-4">£17,940</td>
+                    <td className="p-4">£0 (contractor)</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4">Pension (5%)</td>
+                    <td className="p-4">£6,500</td>
+                    <td className="p-4">£0</td>
+                  </tr>
+                  <tr className="border-b bg-gray-50">
+                    <td className="p-4">Benefits & bonuses</td>
+                    <td className="p-4">£15,000</td>
+                    <td className="p-4">£0</td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="p-4">Recruitment fees</td>
+                    <td className="p-4">£26,000 (20% of salary)</td>
+                    <td className="p-4">£0</td>
+                  </tr>
+                  <tr className="border-b bg-emerald-50">
+                    <td className="p-4 font-semibold">Total annual cost</td>
+                    <td className="p-4 font-bold">£195,440</td>
+                    <td className="p-4 font-bold text-emerald-600">£62,400</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-semibold">Effective hourly rate</td>
+                    <td className="p-4">£100/hour</td>
+                    <td className="p-4 font-bold text-emerald-600">£150/hour (but 68% lower total cost)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>
+              Beyond direct cost savings, fractional CHROs offer additional financial advantages. There's no notice period risk—engagements can typically be terminated with 30 days' notice versus the 6-12 month notice periods common for C-suite roles. Companies avoid the sunk costs of unsuccessful hires, which for senior roles can easily exceed £300,000 when including recruitment, onboarding, and severance costs. And perhaps most importantly, fractional CHROs deliver value immediately rather than spending 3-6 months learning the business and building relationships.
             </p>
 
             <ul className="space-y-3 my-8">
-              <li><strong>Cost efficiency:</strong> Senior expertise at 40-50% of full-time cost</li>
-              <li><strong>Diverse experience:</strong> CHROs bringing insights from multiple industries and growth stages</li>
-              <li><strong>Immediate impact:</strong> No lengthy onboarding—strategic HR from day one</li>
-              <li><strong>Scalability:</strong> Flex engagement based on business needs and funding stages</li>
-              <li><strong>Regulatory expertise:</strong> Navigate complex <a href="https://www.gov.uk/browse/employing-people" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">UK employment law</a> and compliance requirements</li>
+              <li><strong>Cost efficiency:</strong> Senior expertise at 40-50% of full-time cost, with no employer NI, pension, or benefits burden</li>
+              <li><strong>Diverse experience:</strong> CHROs bringing insights from multiple industries and growth stages—most have worked across 10+ organisations</li>
+              <li><strong>Immediate impact:</strong> No lengthy onboarding—strategic HR from day one with frameworks and playbooks ready to deploy</li>
+              <li><strong>Scalability:</strong> Flex engagement based on business needs and funding stages—increase to 3 days during fundraising, reduce to 1 day during steady state</li>
+              <li><strong>Regulatory expertise:</strong> Navigate complex <a href="https://www.gov.uk/browse/employing-people" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">UK employment law</a> and compliance requirements without expensive legal fees</li>
+              <li><strong>Risk mitigation:</strong> No long notice periods or severance exposure—typically 30-day termination clauses versus 6-12 months for full-time</li>
             </ul>
 
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Types of Fractional CHRO Jobs</h3>
@@ -384,8 +460,10 @@ export default async function FractionalCHROJobsUKPage() {
               {[
                 { title: 'Scale-up CHRO', desc: 'Building people infrastructure for rapid growth (50-500 employees)', rate: '£1,100-£1,300/day' },
                 { title: 'Transformation CHRO', desc: 'Culture change, restructuring, and organisational redesign', rate: '£1,200-£1,400/day' },
+                { title: 'M&A CHRO', desc: 'Post-merger integration, cultural alignment, and redundancy management', rate: '£1,200-£1,500/day' },
                 { title: 'Interim CHRO', desc: 'Temporary executive cover during transitions or searches', rate: '£1,000-£1,250/day' },
                 { title: 'PE Portfolio CHRO', desc: 'Multi-company people strategy across VC/PE portfolios', rate: '£1,200-£1,500/day' },
+                { title: 'DEI CHRO', desc: 'Diversity, equity & inclusion transformation and reporting', rate: '£1,100-£1,350/day' },
               ].map((type, i) => (
                 <div key={i} className="bg-gray-50 p-6 border border-gray-200">
                   <h4 className="font-bold text-gray-900 mb-1">{type.title}</h4>
@@ -405,7 +483,13 @@ export default async function FractionalCHROJobsUKPage() {
               <strong>Interim CHROs</strong> provide executive-level HR leadership during transitions—covering maternity leave, filling gaps during recruitment, or stabilising teams after departures. While "interim" might suggest temporary, many interim CHRO engagements extend to 12-18 months, providing substantial income stability. The key skill is quickly assessing situations, prioritising ruthlessly, and delivering tangible improvements in constrained timeframes.
             </p>
             <p>
-              <strong>PE Portfolio CHROs</strong> represent the premium end of the market, working across multiple portfolio companies within a single fund. They bring a repeatable playbook for people excellence, typically focusing on talent density, leadership development, and building HR functions that scale. Many spend 1-2 days per month with each portfolio company, providing strategic guidance while empowering local HR teams to execute.
+              <strong>M&A CHROs</strong> specialise in the complex people challenges of mergers, acquisitions, and corporate restructuring. They're experts in post-merger integration (PMI), understanding how to assess cultural compatibility, harmonise compensation and benefits, integrate HR systems, and manage workforce planning during consolidation. These roles command premium rates because they require deep knowledge of <a href="https://www.gov.uk/business-transfers-takeovers" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">TUPE regulations</a>, redundancy processes, and the emotional intelligence to navigate sensitive people decisions during stressful transitions.
+            </p>
+            <p>
+              <strong>PE Portfolio CHROs</strong> represent the premium end of the market, working across multiple portfolio companies within a single fund. They bring a repeatable playbook for people excellence, typically focusing on talent density, leadership development, and building HR functions that scale. Many spend 1-2 days per month with each portfolio company, providing strategic guidance while empowering local HR teams to execute. This model allows PE firms to ensure consistent people strategy across their entire portfolio without the cost of individual CHROs at each company.
+            </p>
+            <p>
+              <strong>DEI CHROs</strong> focus specifically on diversity, equity, and inclusion transformation. With investors and regulators demanding greater transparency on diversity metrics, companies need expertise in DEI strategy, measurement, and authentic culture change. These fractional leaders help organisations move beyond performative DEI initiatives to create genuinely inclusive cultures with measurable improvements in representation, pay equity, employee engagement, and retention across diverse groups. They're skilled at building DEI frameworks, training senior leaders, and holding organisations accountable to commitments.
             </p>
 
             {/* Second SEO Image */}
@@ -482,7 +566,10 @@ export default async function FractionalCHROJobsUKPage() {
 
             <h4 className="text-xl font-bold text-gray-900 mt-8 mb-4">Pricing Your Services</h4>
             <p>
-              Pricing fractional CHRO services is as much art as science. The UK market typically operates on day rates rather than hourly rates, reflecting the strategic nature of the work. Your day rate should account for your experience, the value you deliver, your target earnings, and the inevitable non-billable time spent on business development and administration.
+              Pricing fractional CHRO services is as much art as science. The UK market typically operates on day rates rather than hourly rates, reflecting the strategic nature of the work. Your day rate should account for your experience, the value you deliver, your target earnings, and the inevitable non-billable time spent on business development and administration. Most fractional CHROs aim for a 60-70% utilisation rate—meaning if you work 200 billable days per year, you should expect 85-120 non-billable days for marketing, proposals, professional development, and administrative tasks.
+            </p>
+            <p>
+              When setting your rates, consider the value you create rather than just comparing to full-time salaries. If you help a scale-up reduce their regrettable attrition from 20% to 10%, saving them £500,000+ in recruitment and onboarding costs, your £60,000 annual fee represents a 8:1 ROI. Frame your pricing around the business outcomes you enable—successful fundraising, regulatory compliance, cultural transformation, talent density improvement—rather than the hours you work.
             </p>
 
             <div className="overflow-x-auto my-10 not-prose">
@@ -492,6 +579,7 @@ export default async function FractionalCHROJobsUKPage() {
                     <th className="p-4 text-left">Experience Level</th>
                     <th className="p-4 text-left">Day Rate</th>
                     <th className="p-4 text-left">2-3 Clients Annual</th>
+                    <th className="p-4 text-left">Typical Clients</th>
                   </tr>
                 </thead>
                 <tbody className="text-gray-700">
@@ -499,20 +587,50 @@ export default async function FractionalCHROJobsUKPage() {
                     <td className="p-4">First-time fractional CHRO</td>
                     <td className="p-4">£1,000-£1,100</td>
                     <td className="p-4">£130k-£175k</td>
+                    <td className="p-4 text-sm">Series A-B startups, SMEs</td>
                   </tr>
                   <tr className="border-b bg-emerald-50">
                     <td className="p-4 font-semibold">Established fractional CHRO</td>
                     <td className="p-4 font-bold text-emerald-600">£1,100-£1,300</td>
                     <td className="p-4 font-bold text-emerald-600">£145k-£210k</td>
+                    <td className="p-4 text-sm">Scale-ups, growth companies</td>
                   </tr>
                   <tr>
                     <td className="p-4">Premium fractional CHRO (M&A, PE specialist)</td>
                     <td className="p-4">£1,300-£1,500</td>
                     <td className="p-4">£170k-£250k+</td>
+                    <td className="p-4 text-sm">PE portfolios, exits, transformations</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
+            <h4 className="text-xl font-bold text-gray-900 mt-8 mb-4">Structuring Client Engagements</h4>
+            <p>
+              How you structure your fractional CHRO engagements significantly impacts both client satisfaction and your ability to manage multiple clients effectively. Most successful fractional CHROs use one of three engagement models:
+            </p>
+
+            <div className="bg-gray-50 p-6 rounded-lg my-6 not-prose">
+              <h5 className="font-bold text-gray-900 mb-3">Common Engagement Structures</h5>
+              <div className="space-y-4 text-sm text-gray-700">
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Fixed Days Per Week (Most Common)</p>
+                  <p>Work specific days each week (e.g., Tuesdays and Wednesdays with Client A). Provides predictability for both parties and makes calendar management simpler. Best for clients needing consistent, ongoing support.</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Days Per Month Retainer</p>
+                  <p>Commit to 8-12 days per month with flexibility on timing. Allows you to flex support based on client needs—more days during board prep, fewer during quieter periods. Requires strong relationship management.</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Project-Based Engagements</p>
+                  <p>Scope-specific work (e.g., "Design and implement new performance management system") with defined deliverables and timeline. Higher day rates (15-20% premium) but less relationship continuity.</p>
+                </div>
+              </div>
+            </div>
+
+            <p>
+              Most fractional CHROs find success with 2-3 simultaneous clients, each consuming 1-2 days per week. This provides income diversification without becoming overwhelming. A typical portfolio might include: a Series B SaaS company (2 days/week at £1,200/day), a PE portfolio company undergoing integration (1.5 days/week at £1,300/day), and an advisory role with a pre-seed startup (0.5 days/week at £1,100/day). This generates £155,000-£195,000 annually while leaving capacity for business development and professional development.
+            </p>
 
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Requirements for Fractional CHRO Jobs</h3>
             <p>

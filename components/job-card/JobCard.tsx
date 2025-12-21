@@ -14,7 +14,7 @@ const DREAM_DESTINATIONS = [
   { name: 'Bali', country: 'Indonesia', slug: 'bali', image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=80&h=80&fit=crop' },
   { name: 'Dubai', country: 'UAE', slug: 'dubai', image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=80&h=80&fit=crop' },
   { name: 'Albufeira', country: 'Portugal', slug: 'albufeira', image: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=80&h=80&fit=crop' },
-  { name: 'Split', country: 'Croatia', slug: 'split', image: 'https://images.unsplash.com/photo-1555990538-a7d0c5b46f9e?w=80&h=80&fit=crop' },
+  { name: 'Split', country: 'Croatia', slug: 'split', image: 'https://images.unsplash.com/photo-1596295962611-de5f0a6c9f89?w=80&h=80&fit=crop' },
 ]
 
 // Get a random dream destination for this job (consistent based on job ID)
