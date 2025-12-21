@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), { ssr: false })
@@ -9,6 +9,24 @@ const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), { ssr: false 
 // 3 graphs showing different aspects of hiring needs
 
 export default function MultiGraphClient() {
+  const [dimensions, setDimensions] = useState({ width: 400, height: 500 })
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setDimensions({
+        width: window.innerWidth / 3 - 50,
+        height: window.innerHeight - 260
+      })
+      const handleResize = () => {
+        setDimensions({
+          width: window.innerWidth / 3 - 50,
+          height: window.innerHeight - 260
+        })
+      }
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }
+  }, [])
   // GRAPH 1: Skills & Requirements Network
   const [skillsGraph, setSkillsGraph] = useState({
     nodes: [
@@ -180,8 +198,8 @@ export default function MultiGraphClient() {
               enableNodeDrag={true}
               enableZoomInteraction={true}
               enablePanInteraction={true}
-              width={window.innerWidth / 3 - 50}
-              height={window.innerHeight - 260}
+              width={dimensions.width}
+              height={dimensions.height}
               nodeCanvasObject={(node: any, ctx: any, globalScale: number) => {
                 ctx.beginPath()
                 ctx.arc(node.x, node.y, node.val / 2, 0, 2 * Math.PI)
@@ -219,8 +237,8 @@ export default function MultiGraphClient() {
               enableNodeDrag={true}
               enableZoomInteraction={true}
               enablePanInteraction={true}
-              width={window.innerWidth / 3 - 50}
-              height={window.innerHeight - 260}
+              width={dimensions.width}
+              height={dimensions.height}
               nodeCanvasObject={(node: any, ctx: any, globalScale: number) => {
                 ctx.beginPath()
                 ctx.arc(node.x, node.y, node.val / 2, 0, 2 * Math.PI)
@@ -267,8 +285,8 @@ export default function MultiGraphClient() {
               enableNodeDrag={true}
               enableZoomInteraction={true}
               enablePanInteraction={true}
-              width={window.innerWidth / 3 - 50}
-              height={window.innerHeight - 260}
+              width={dimensions.width}
+              height={dimensions.height}
               nodeCanvasObject={(node: any, ctx: any, globalScale: number) => {
                 ctx.beginPath()
                 ctx.arc(node.x, node.y, node.val / 2, 0, 2 * Math.PI)
