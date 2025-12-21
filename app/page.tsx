@@ -146,6 +146,20 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* Trusted By Section */}
+      <section className="py-8 bg-gray-50 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-sm text-gray-500 mb-6 uppercase tracking-wider font-medium">
+            Trusted by executives from leading companies
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60 grayscale">
+            {['Stripe', 'Monzo', 'Revolut', 'Wise', 'GoCardless', 'Checkout.com'].map((company) => (
+              <span key={company} className="text-xl font-bold text-gray-400">{company}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Stats Bar */}
       <section className="bg-gray-900 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -252,6 +266,87 @@ export default async function Home() {
               <p className="text-gray-600">
                 2-3 days per client means time for family, travel, hobbies, or building your own thing.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 md:py-24 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2 block">
+              Success Stories
+            </span>
+            <h2 className="font-editorial text-4xl font-bold text-gray-900">
+              What Executives Are Saying
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-xl p-8">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <blockquote className="text-gray-700 mb-6">
+                "Going fractional was the best career decision I've made. I work with three amazing startups, earn more than my old full-time role, and finally have time for my family."
+              </blockquote>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold">
+                  SC
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900">Sarah Chen</div>
+                  <div className="text-sm text-gray-500">Fractional CFO, ex-Stripe</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <blockquote className="text-gray-700 mb-6">
+                "The variety of work keeps me sharp. Every client brings different challenges. I'm learning more now than I did in 10 years at a single company."
+              </blockquote>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center text-white font-bold">
+                  MT
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900">Marcus Thompson</div>
+                  <div className="text-sm text-gray-500">Fractional CTO, 4 clients</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <blockquote className="text-gray-700 mb-6">
+                "I split my time between London and Lisbon now. My clients don't mind where I work from as long as I deliver results. That's the fractional promise."
+              </blockquote>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white font-bold">
+                  AP
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900">Aisha Patel</div>
+                  <div className="text-sm text-gray-500">Fractional CMO, remote from Portugal</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -447,14 +542,15 @@ export default async function Home() {
                 <li><Link href="/people" className="hover:text-gray-900">Meet Executives</Link></li>
                 <li><Link href="/destinations" className="hover:text-gray-900">Work From Anywhere</Link></li>
                 <li><Link href="/profile/edit" className="hover:text-gray-900">Create Profile</Link></li>
+                <li><Link href="/about" className="hover:text-gray-900">About Us</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="font-bold text-gray-900 mb-4">Guides</h3>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li><Link href="/what-is-fractional-work" className="hover:text-gray-900">What is Fractional Work?</Link></li>
-                <li><Link href="/fractional-cfo" className="hover:text-gray-900">Fractional CFO Guide</Link></li>
-                <li><Link href="/fractional-cmo" className="hover:text-gray-900">Fractional CMO Guide</Link></li>
+                <li><Link href="/how-it-works" className="hover:text-gray-900">How It Works</Link></li>
+                <li><Link href="/fractional-ownership-guide" className="hover:text-gray-900">Fractional Ownership</Link></li>
                 <li><Link href="/fractional-jobs-articles" className="hover:text-gray-900">All Guides</Link></li>
               </ul>
             </div>
