@@ -92,16 +92,16 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero with Background Image */}
+      {/* Hero with Sunny Background Image */}
       <section className="relative min-h-[85vh] flex items-center">
-        {/* Background Image */}
+        {/* Background Image - Beach/sunlight working */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80')`,
+            backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80')`,
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/80 to-gray-900/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-teal-700/85 via-blue-600/70 to-amber-500/50" />
         </div>
 
         <div className="relative z-10 w-full">

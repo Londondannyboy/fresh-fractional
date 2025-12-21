@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 import { createDbQuery } from '@/lib/db'
 import { ArticleCard } from '@/components/ArticleCard'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { JobsCalendarHeatmap } from '@/components/JobsCalendarHeatmap'
 
 export const revalidate = 14400 // Revalidate every 4 hours
@@ -95,48 +94,53 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
 
     return (
       <div className="min-h-screen bg-white">
-        {/* Hero Section with 3D Knowledge Graph Background */}
-        <section className="relative min-h-[60vh] flex items-end overflow-hidden">
-          <div className="absolute inset-0">
-            <JobsGraph3D limit={30} height="100%" isHero={true} showOverlay={true} />
+        {/* Hero Section with Aspirational Image */}
+        <section className="relative min-h-[55vh] flex items-center overflow-hidden">
+          {/* Background Image - Sunny workspace */}
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80')`,
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-600/80 via-orange-500/60 to-yellow-400/40" />
           </div>
 
-          {/* Bottom-aligned content with glass panel */}
-          <div className="relative z-10 w-full pb-16 md:pb-24">
+          <div className="relative z-10 w-full py-16">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
               <div className="max-w-2xl">
-                <div className="bg-gray-50/40 backdrop-blur-md rounded-2xl p-8 md:p-12 border border-white/10">
-                  <Link href="/" className="inline-flex items-center text-white/70 hover:text-gray-900 mb-6 transition-colors text-sm tracking-wide">
-                    <span className="mr-2">←</span> Back to Home
+                <Link href="/" className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors text-sm tracking-wide">
+                  <span className="mr-2">←</span> Back to Home
+                </Link>
+
+                <span className="inline-block bg-white/20 backdrop-blur text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                  {totalArticles}+ Expert Guides
+                </span>
+
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                  Articles & Resources
+                </h1>
+
+                <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-lg">
+                  Expert guides, case studies, and career tips for fractional executives. Learn how to build a successful portfolio career.
+                </p>
+
+                <div className="flex flex-wrap gap-4">
+                  <Link
+                    href="#articles"
+                    className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-white text-gray-900 hover:bg-gray-100 transition-all duration-200"
+                  >
+                    Browse Articles
+                    <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
                   </Link>
-
-                  <span className="inline-block bg-white/10 backdrop-blur text-white/90 px-4 py-1.5 rounded-full text-xs font-medium uppercase tracking-widest mb-6">
-                    {totalArticles}+ Expert Guides
-                  </span>
-
-                  <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-                    Articles &<br />
-                    <span className="text-white/90">Resources</span>
-                  </h1>
-
-                  <p className="text-lg text-white/70 mb-8 leading-relaxed max-w-lg">
-                    Expert guides, case studies, and career tips for fractional executives. Learn how to build a successful portfolio career.
-                  </p>
-
-                  <div className="flex flex-wrap gap-4">
-                    <Link
-                      href="#articles"
-                      className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-white text-black hover:bg-white/90 transition-all duration-200"
-                    >
-                      Browse Articles →
-                    </Link>
-                    <Link
-                      href="/handler/sign-up"
-                      className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-white/10 backdrop-blur border border-white/20 text-white hover:bg-white/20 transition-all duration-200"
-                    >
-                      Get Updates
-                    </Link>
-                  </div>
+                  <Link
+                    href="/handler/sign-up"
+                    className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-white/10 backdrop-blur border border-white/30 text-white hover:bg-white/20 transition-all duration-200"
+                  >
+                    Get Updates
+                  </Link>
                 </div>
               </div>
             </div>

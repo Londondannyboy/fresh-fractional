@@ -5,7 +5,6 @@ import { createDbQuery } from '@/lib/db'
 import { EmbeddedJobBoard } from '@/components/EmbeddedJobBoard'
 import { FAQ, CTO_FAQS } from '@/components/FAQ'
 import { RoleCalculator } from '@/components/RoleCalculator'
-import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { DesktopOnly } from '@/components/DesktopOnly'
 import { IR35Calculator } from '@/components/IR35Calculator'
 
@@ -59,47 +58,52 @@ export default async function FractionalCtoJobsUkPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Editorial Hero with 3D Knowledge Graph */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <JobsGraph3D roleFilter="CTO" limit={25} height="100%" isHero={true} showOverlay={true} />
+      {/* Hero with Aspirational Image */}
+      <section className="relative min-h-[55vh] flex items-center overflow-hidden">
+        {/* Background Image - Tech professional */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&q=80')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-700/85 via-blue-600/70 to-teal-500/50" />
         </div>
-        <div className="relative z-10 w-full py-20">
+        <div className="relative z-10 w-full py-16">
           <div className="max-w-6xl mx-auto px-6 lg:px-8">
-            <Link href="/" className="inline-flex items-center text-white/60 hover:text-white mb-8 transition-colors text-sm tracking-wide">
+            <Link href="/" className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors text-sm tracking-wide">
               <span className="mr-2">←</span> Back to Home
             </Link>
             <div className="max-w-4xl">
-              <span className="inline-block bg-blue-500 text-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] mb-6">
+              <span className="inline-block bg-white/20 backdrop-blur text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
                 Technology Leadership
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-6 leading-[0.9] tracking-tight">
-                Fractional CTO<br />
-                <span className="text-blue-400">Jobs UK</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                Fractional CTO Jobs
               </h1>
-              <p className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-2xl mb-8">
-                <strong className="text-white">Fractional CTO jobs UK</strong> for experienced technology leaders.
-                Part-time Chief Technology Officer roles paying £850-£1,600/day.
+              <p className="text-xl text-white/90 leading-relaxed max-w-2xl mb-8">
+                Part-time Chief Technology Officer roles for experienced tech leaders.
+                Work 2-3 days a week at £850-£1,600/day.
               </p>
-              <div className="flex flex-wrap gap-8 mb-10">
-                <div>
-                  <div className="text-4xl md:text-5xl font-black text-blue-400">{stats.total}+</div>
-                  <div className="text-white/60 text-sm uppercase tracking-wider">Live Roles</div>
+              <div className="flex flex-wrap gap-4 mb-10">
+                <div className="bg-white/10 backdrop-blur rounded-xl px-6 py-4">
+                  <div className="text-3xl font-bold text-white">{stats.total}+</div>
+                  <div className="text-white/80 text-sm">Live Roles</div>
                 </div>
-                <div>
-                  <div className="text-4xl md:text-5xl font-black text-white">£1,100</div>
-                  <div className="text-white/60 text-sm uppercase tracking-wider">Avg Day Rate</div>
+                <div className="bg-white/10 backdrop-blur rounded-xl px-6 py-4">
+                  <div className="text-3xl font-bold text-white">£1,100</div>
+                  <div className="text-white/80 text-sm">Avg Day Rate</div>
                 </div>
-                <div>
-                  <div className="text-4xl md:text-5xl font-black text-white">{stats.remoteCount}</div>
-                  <div className="text-white/60 text-sm uppercase tracking-wider">Remote</div>
+                <div className="bg-white/10 backdrop-blur rounded-xl px-6 py-4">
+                  <div className="text-3xl font-bold text-white">{stats.remoteCount}</div>
+                  <div className="text-white/80 text-sm">Remote</div>
                 </div>
               </div>
               <div className="flex flex-wrap gap-4">
-                <Link href="#jobs" className="px-8 py-4 bg-blue-500 text-white font-bold uppercase tracking-wider hover:bg-blue-400 transition-colors">
-                  Browse Jobs Now
+                <Link href="#jobs" className="px-8 py-4 bg-white text-purple-700 font-bold rounded-lg hover:bg-gray-100 transition-colors">
+                  Browse Jobs
                 </Link>
-                <Link href="/fractional-jobs-tech" className="px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
+                <Link href="/fractional-jobs-tech" className="px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-colors">
                   Tech Industry Jobs
                 </Link>
               </div>
@@ -135,19 +139,6 @@ export default async function FractionalCtoJobsUkPage() {
         </div>
       </section>
 
-      {/* CTO Jobs Knowledge Graph - Desktop Only */}
-      <DesktopOnly>
-        <section className="py-16 bg-white">
-          <div className="max-w-6xl mx-auto px-6 lg:px-8">
-            <div className="mb-10 text-center">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-2 block">Interactive Network</span>
-              <h2 className="text-3xl md:text-4xl font-black text-white">CTO Jobs Knowledge Graph</h2>
-              <p className="text-gray-400 mt-2">Explore CTO roles, skills, and companies in 3D</p>
-            </div>
-            <JobsGraph3D roleFilter="CTO" limit={25} height="500px" />
-          </div>
-        </section>
-      </DesktopOnly>
 
       {/* Companies Hiring */}
       {companies.length > 0 && (

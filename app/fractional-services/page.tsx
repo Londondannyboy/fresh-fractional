@@ -13,16 +13,16 @@ export const metadata: Metadata = {
 export default function FractionalServicesPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero with Background Image */}
-      <section className="relative min-h-[70vh] flex items-center">
-        {/* Background Image */}
+      {/* Hero with Sunny Background Image */}
+      <section className="relative min-h-[60vh] flex items-center">
+        {/* Background Image - Bright and aspirational */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&q=80')`,
+            backgroundImage: `url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=80')`,
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/80 via-teal-500/60 to-amber-400/40" />
         </div>
 
         <div className="relative z-10 w-full py-20">
@@ -146,21 +146,38 @@ export default function FractionalServicesPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: 'Fractional CFO', description: 'Financial strategy, fundraising, and FP&A leadership.', link: '/fractional-cfo-services', icon: '💰' },
-              { title: 'Fractional CMO', description: 'Marketing strategy, brand, and growth leadership.', link: '/fractional-cmo-services', icon: '📢' },
-              { title: 'Fractional CTO', description: 'Technical strategy, architecture, and engineering leadership.', link: '/fractional-cto-services', icon: '💻' },
-              { title: 'Fractional COO', description: 'Operations, scaling, and process leadership.', link: '/fractional-coo-services', icon: '⚙️' },
-              { title: 'Fractional CPO', description: 'Product strategy, roadmap, and team leadership.', link: '/fractional-cpo-services', icon: '🎯' },
-              { title: 'Fractional CHRO', description: 'People strategy, culture, and HR leadership.', link: '/fractional-chro-services', icon: '👥' },
-              { title: 'Fractional CRO', description: 'Revenue strategy, sales, and GTM leadership.', link: '/fractional-cro-services', icon: '📈' },
-              { title: 'Fractional CISO', description: 'Security strategy, compliance, and risk leadership.', link: '/fractional-ciso-services', icon: '🔐' },
-              { title: 'Fractional CDO', description: 'Data strategy, analytics, and AI leadership.', link: '/fractional-cdo-services', icon: '📊' },
+              { title: 'Fractional CFO', description: 'Financial strategy, fundraising, and FP&A leadership.', link: '/fractional-cfo-services', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop' },
+              { title: 'Fractional CMO', description: 'Marketing strategy, brand, and growth leadership.', link: '/fractional-cmo-services', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=300&fit=crop' },
+              { title: 'Fractional CTO', description: 'Technical strategy, architecture, and engineering leadership.', link: '/fractional-cto-services', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop' },
+              { title: 'Fractional COO', description: 'Operations, scaling, and process leadership.', link: '/fractional-coo-services', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=300&fit=crop' },
+              { title: 'Fractional CPO', description: 'Product strategy, roadmap, and team leadership.', link: '/fractional-cpo-services', image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=300&fit=crop' },
+              { title: 'Fractional CHRO', description: 'People strategy, culture, and HR leadership.', link: '/fractional-chro-services', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop' },
+              { title: 'Fractional CRO', description: 'Revenue strategy, sales, and GTM leadership.', link: '/fractional-cro-services', image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=300&fit=crop' },
+              { title: 'Fractional CISO', description: 'Security strategy, compliance, and risk leadership.', link: '/fractional-ciso-services', image: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=400&h=300&fit=crop' },
+              { title: 'Fractional CDO', description: 'Data strategy, analytics, and AI leadership.', link: '/fractional-cdo-services', image: 'https://images.unsplash.com/photo-1573497019236-17f8177b81e8?w=400&h=300&fit=crop' },
             ].map((item, i) => (
               <Link key={i} href={item.link} className="group">
-                <div className="p-6 bg-white rounded-xl border border-gray-200 hover:border-amber-400 hover:shadow-lg transition-all h-full">
-                  <span className="text-3xl mb-4 block">{item.icon}</span>
-                  <h3 className="font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.description}</p>
+                <div className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-teal-400 hover:shadow-xl transition-all h-full">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-gray-900/20 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="font-bold text-white text-lg">{item.title}</h3>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <p className="text-gray-600 text-sm">{item.description}</p>
+                    <span className="inline-flex items-center mt-3 text-teal-600 font-semibold text-sm group-hover:text-teal-700">
+                      Learn more
+                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
               </Link>
             ))}
