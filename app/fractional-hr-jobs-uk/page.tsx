@@ -217,7 +217,7 @@ export default async function FractionalHrJobsUkPage() {
               <strong className="font-semibold text-gray-900">Fractional HR jobs</strong> represent a paradigm shift in how companies access senior people leadership. Part-time Chief Human Resources Officer and HR Director positions where experienced leaders provide strategic HR guidance to multiple organisations—delivering expert capability without the £120k-£250k full-time salary commitment.
             </p>
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">The Rise of Fractional HR Jobs UK</h3>
-            <p>The UK market for <strong>fractional HR jobs UK</strong> has experienced 150% growth since 2021. This expansion reflects fundamental changes in how <a href="https://www.cipd.org/uk/knowledge/reports/health-well-being-work/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">organisations approach people strategy</a>, particularly among high-growth startups, scale-ups, and PE-backed portfolio companies that require senior HR expertise but lack the scale to justify a full-time CHRO.</p>
+            <p>The UK market for <strong>fractional HR jobs UK</strong> has experienced 150% growth since 2021. This expansion reflects fundamental changes in how <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">organisations approach people strategy</a>, particularly among high-growth startups, scale-ups, and PE-backed portfolio companies that require senior HR expertise but lack the scale to justify a full-time CHRO.</p>
             <div className="bg-gray-50 p-8 my-10 border-l-4 border-pink-500">
               <p className="text-xl font-semibold text-gray-900 mb-0">"Companies access CHRO-level expertise for £2,000-£4,000/week instead of £10,000+ monthly for full-time."</p>
             </div>
@@ -225,7 +225,7 @@ export default async function FractionalHrJobsUkPage() {
             <ul className="space-y-3">
               <li><strong>Post-pandemic flexibility:</strong> <a href="https://www.acas.org.uk/flexible-working" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">Flexible working arrangements</a> normalised part-time executive roles</li>
               <li><strong>PE/VC influence:</strong> Private equity firms mandate fractional HR across portfolio companies</li>
-              <li><strong>Skills shortage:</strong> <a href="https://www.cipd.org/uk/labour-market-economics/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD research</a> shows acute shortage of senior HR talent in UK</li>
+              <li><strong>Skills shortage:</strong> <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD research</a> shows acute shortage of senior HR talent in UK</li>
               <li><strong>Cost efficiency:</strong> Strategic HR leadership at 20-40% of full-time cost</li>
               <li><strong>Rapid deployment:</strong> Start driving culture and talent strategy within days, not months</li>
             </ul>
@@ -247,7 +247,7 @@ export default async function FractionalHrJobsUkPage() {
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Requirements for Fractional HR Jobs</h3>
             <ul className="space-y-2">
               <li>12+ years HR experience, including 3-5+ years at CHRO/HR Director level</li>
-              <li><a href="https://www.cipd.org/uk/learn/qualifications/level7-advanced-diploma/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD Level 7 qualification</a> (Advanced Diploma in Strategic People Management)</li>
+              <li><a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD Level 7 qualification</a> (Advanced Diploma in Strategic People Management)</li>
               <li>Proven experience building HR functions from 0-200+ employees</li>
               <li>Expertise in <a href="https://www.gov.uk/employment-tribunal-decisions" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">UK employment law</a>, ER case management, and tribunal experience</li>
               <li>Change management and organisational design capabilities</li>
@@ -360,7 +360,7 @@ export default async function FractionalHrJobsUkPage() {
 
           <div className="prose prose-lg prose-gray max-w-none">
             <p>
-              <strong>Remote fractional HR</strong> roles have grown exponentially since 2020. Research from <a href="https://www.cipd.org/uk/knowledge/reports/future-work/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD's Future of Work report</a> shows that 67% of HR professionals now work remotely at least part of the time. Many companies now offer fully remote or hybrid fractional HR positions, enabling experienced people leaders to work with businesses across the UK without geographical constraints.
+              <strong>Remote fractional HR</strong> roles have grown exponentially since 2020. Research from <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD's Future of Work report</a> shows that 67% of HR professionals now work remotely at least part of the time. Many companies now offer fully remote or hybrid fractional HR positions, enabling experienced people leaders to work with businesses across the UK without geographical constraints.
             </p>
 
             <h3 className="text-xl font-black text-gray-900 mt-8 mb-4">Benefits of Remote Fractional HR Work</h3>

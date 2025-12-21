@@ -554,7 +554,7 @@ export default async function FractionalCfoJobsUkPage() {
               <h3 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-950/200">Industry Research &amp; Market Data</h3>
               <ul className="space-y-3 text-gray-600">
                 <li>
-                  <a href="https://www.beauhurst.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline font-medium">
+                  <a href="https://www.beauhurst.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline font-medium">
                     Beauhurst
                   </a>
                   {' '}&mdash; UK high-growth company data and startup ecosystem insights
@@ -566,7 +566,7 @@ export default async function FractionalCfoJobsUkPage() {
                   {' '}&mdash; Data and insights on the UK&apos;s digital economy and tech scaleups
                 </li>
                 <li>
-                  <a href="https://www.cipd.org/uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline font-medium">
+                  <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline font-medium">
                     CIPD
                   </a>
                   {' '}&mdash; Research on flexible working and employment trends for executives

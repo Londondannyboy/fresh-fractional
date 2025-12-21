@@ -191,7 +191,7 @@ export default async function BelfastPage() {
         </div>
           <div className="mt-12 max-w-4xl mx-auto">
             <p className="text-gray-700 leading-relaxed mb-4">
-              Belfast's economy has transformed into a thriving tech and professional services hub. <a href="https://www.belfastchamber.com/insights/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Belfast Chamber of Trade and Commerce</a> reports significant growth in cybersecurity, fintech, and software development—sectors requiring fractional CTO and product leadership.
+              Belfast's economy has transformed into a thriving tech and professional services hub. <a href="https://www.belfastchamber.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Belfast Chamber of Trade and Commerce</a> reports significant growth in cybersecurity, fintech, and software development—sectors requiring fractional CTO and product leadership.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
               Northern Ireland's business environment offers unique advantages. <a href="https://www.investni.com/news" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Invest Northern Ireland</a> tracks inward investment and scale-up growth, with Belfast companies increasingly seeking fractional CFO expertise for expansion and fundraising.
@@ -289,7 +289,7 @@ export default async function BelfastPage() {
         </div>
           <div className="mt-12 max-w-4xl mx-auto">
             <p className="text-gray-700 leading-relaxed mb-4">
-              Belfast's economy has transformed into a thriving tech and professional services hub. <a href="https://www.belfastchamber.com/insights/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Belfast Chamber of Trade and Commerce</a> reports significant growth in cybersecurity, fintech, and software development—sectors requiring fractional CTO and product leadership.
+              Belfast's economy has transformed into a thriving tech and professional services hub. <a href="https://www.belfastchamber.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Belfast Chamber of Trade and Commerce</a> reports significant growth in cybersecurity, fintech, and software development—sectors requiring fractional CTO and product leadership.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
               Northern Ireland's business environment offers unique advantages. <a href="https://www.investni.com/news" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Invest Northern Ireland</a> tracks inward investment and scale-up growth, with Belfast companies increasingly seeking fractional CFO expertise for expansion and fundraising.

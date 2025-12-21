@@ -107,7 +107,7 @@ export default async function RemoteHRJobsPage() {
           <div className="prose prose-lg prose-pink max-w-none">
             <h2>Remote Fractional HR: How It Works</h2>
             <p>
-              <strong>Remote fractional HR</strong> has become increasingly common since 2020. Many HR leadership activities—strategy development, policy creation, HRIS implementation, and even complex ER—can be done effectively from home. According to <a href="https://www.cipd.org/uk/knowledge/reports/flexible-working/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD research</a>, flexible working is now standard for senior HR roles.
+              <strong>Remote fractional HR</strong> has become increasingly common since 2020. Many HR leadership activities—strategy development, policy creation, HRIS implementation, and even complex ER—can be done effectively from home. According to <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD research</a>, flexible working is now standard for senior HR roles.
             </p>
 
             <h3>What Works Remotely</h3>

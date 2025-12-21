@@ -105,7 +105,7 @@ export default function FractionalHRSalaryPage() {
           <div className="prose prose-lg prose-pink mb-12 max-w-none">
             <h2>Fractional HR Salary Overview</h2>
             <p>
-              <strong>Fractional HR salary</strong> in the UK varies significantly based on seniority, location, industry, and client portfolio. Unlike <a href="https://www.cipd.org/uk/knowledge/reports/reward-management-survey/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">full-time HR roles with fixed annual salaries</a>, fractional HR professionals charge day rates—typically ranging from £700 to £1,300 per day in 2025.
+              <strong>Fractional HR salary</strong> in the UK varies significantly based on seniority, location, industry, and client portfolio. Unlike <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">full-time HR roles with fixed annual salaries</a>, fractional HR professionals charge day rates—typically ranging from £700 to £1,300 per day in 2025.
             </p>
             <p>
               The <strong>fractional HR pay</strong> model offers higher effective hourly earnings than most full-time positions. A fractional HR Director working 2-3 days per week at £1,000/day earns approximately £130,000 annually—often exceeding a full-time HR Director salary while offering more flexibility. Most fractional HR professionals operate through <a href="https://www.gov.uk/set-up-business" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">limited companies for tax efficiency</a>.
@@ -194,7 +194,7 @@ export default function FractionalHRSalaryPage() {
             <h2>Factors Affecting Fractional HR Salary</h2>
             <p>Several factors influence <strong>fractional HR earnings</strong>:</p>
             <ul>
-              <li><strong>Qualifications</strong> - <a href="https://www.cipd.org/uk/learn/qualifications/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD Level 7</a> qualified professionals command 10-15% higher rates</li>
+              <li><strong>Qualifications</strong> - <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD Level 7</a> qualified professionals command 10-15% higher rates</li>
               <li><strong>ER expertise</strong> - Tribunal experience and complex ER skills add £100-150/day premium</li>
               <li><strong>Industry specialisation</strong> - Deep sector expertise (FinTech, PE) commands premium rates</li>
               <li><strong>Scale experience</strong> - Having built HR functions at 100+ employee companies increases rates</li>

@@ -379,7 +379,7 @@ export default async function FractionalCisoJobsUkPage() {
 
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Types of Fractional CISO Jobs</h3>
             <p>
-              Fractional CISO roles in the UK span diverse specializations, each commanding different day rates based on complexity, regulatory requirements, and technical depth. FinTech and financial services CISO positions command the highest rates due to stringent FCA regulatory requirements and the sophisticated threat landscape. Healthcare CISO roles require deep knowledge of <a href="https://digital.nhs.uk/data-and-information/looking-after-information/data-security-and-information-governance/data-security-and-protection-toolkit" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">NHS Data Security and Protection Toolkit (DSPT)</a> and CQC compliance. Cloud security CISO roles appeal to organizations migrating to AWS, Azure, or GCP who need guidance on secure architecture and cloud compliance frameworks.
+              Fractional CISO roles in the UK span diverse specializations, each commanding different day rates based on complexity, regulatory requirements, and technical depth. FinTech and financial services CISO positions command the highest rates due to stringent FCA regulatory requirements and the sophisticated threat landscape. Healthcare CISO roles require deep knowledge of <a href="https://digital.nhs.uk" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">NHS Data Security and Protection Toolkit (DSPT)</a> and CQC compliance. Cloud security CISO roles appeal to organizations migrating to AWS, Azure, or GCP who need guidance on secure architecture and cloud compliance frameworks.
             </p>
             <div className="grid md:grid-cols-2 gap-6 not-prose my-8">
               {[
@@ -594,7 +594,7 @@ export default async function FractionalCisoJobsUkPage() {
                   {' '}&mdash; Comprehensive framework for managing cybersecurity risk
                 </li>
                 <li>
-                  <a href="https://digital.nhs.uk/data-and-information/looking-after-information/data-security-and-information-governance/data-security-and-protection-toolkit" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline font-medium">
+                  <a href="https://digital.nhs.uk" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline font-medium">
                     NHS Data Security and Protection Toolkit (DSPT)
                   </a>
                   {' '}&mdash; Security requirements for organizations accessing NHS patient data

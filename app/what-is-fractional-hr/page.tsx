@@ -135,7 +135,7 @@ export default function WhatIsFractionalHRPage() {
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-6">How Fractional HR Works</h3>
 
             <p>
-              When you engage a fractional HR professional, they become your senior people leader—but part-time. According to <a href="https://www.cipd.org/uk/knowledge/reports/future-work/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD research</a>, this model has grown 43% since 2020 as businesses seek flexible access to senior expertise.
+              When you engage a fractional HR professional, they become your senior people leader—but part-time. According to <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD research</a>, this model has grown 43% since 2020 as businesses seek flexible access to senior expertise.
             </p>
 
             <p>A typical engagement looks like this:</p>

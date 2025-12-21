@@ -361,7 +361,7 @@ export default async function FractionalCeoJobsUkPage() {
 
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Why Fractional CEO Jobs Are Booming</h3>
             <p>
-              The growth in fractional CEO demand reflects fundamental shifts in how businesses approach leadership. Research from the <a href="https://www.icaew.com/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Institute of Chartered Accountants in England and Wales (ICAEW)</a> shows that companies increasingly value agility and proven track records over traditional full-time executive structures. The <a href="https://www.frc.org.uk/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Financial Reporting Council</a> also notes the importance of experienced governance expertise, which fractional CEOs bring from their work across multiple boards.
+              The growth in fractional CEO demand reflects fundamental shifts in how businesses approach leadership. Research from the <a href="https://www.icaew.com/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Institute of Chartered Accountants in England and Wales (ICAEW)</a> shows that companies increasingly value agility and proven track records over traditional full-time executive structures. The <a href="https://www.frc.org.uk" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Financial Reporting Council</a> also notes the importance of experienced governance expertise, which fractional CEOs bring from their work across multiple boards.
             </p>
             <ul className="space-y-3">
               <li><strong>Proven leadership:</strong> Access to CEOs with 20+ years experience and multiple successful exits</li>
@@ -412,7 +412,7 @@ export default async function FractionalCeoJobsUkPage() {
 
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Fractional CEO Jobs by Location</h3>
             <p>
-              London dominates the fractional CEO market with approximately 50% of all roles, particularly in the financial services, technology, and private equity sectors documented by <a href="https://www.beauhurst.com/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Beauhurst</a>. However, strong regional hubs have emerged across the UK. Manchester has developed a thriving market for fractional CEOs, particularly in e-commerce, media, and manufacturing, supported by <a href="https://www.investinmanchester.com/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">MIDAS (Manchester's inward investment agency)</a>. Edinburgh and Scotland more broadly offer opportunities in financial services, energy, and technology, backed by <a href="https://www.scottish-enterprise.com/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Scottish Enterprise</a>. Birmingham and the Midlands provide access to manufacturing and industrial companies seeking executive leadership.
+              London dominates the fractional CEO market with approximately 50% of all roles, particularly in the financial services, technology, and private equity sectors documented by <a href="https://www.beauhurst.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Beauhurst</a>. However, strong regional hubs have emerged across the UK. Manchester has developed a thriving market for fractional CEOs, particularly in e-commerce, media, and manufacturing, supported by <a href="https://www.investinmanchester.com/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">MIDAS (Manchester's inward investment agency)</a>. Edinburgh and Scotland more broadly offer opportunities in financial services, energy, and technology, backed by <a href="https://www.scottish-enterprise.com/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">Scottish Enterprise</a>. Birmingham and the Midlands provide access to manufacturing and industrial companies seeking executive leadership.
             </p>
             <ul className="space-y-2">
               <li><strong>London (City &amp; Tech City):</strong> £1,200-£2,000/day</li>
@@ -444,7 +444,7 @@ export default async function FractionalCeoJobsUkPage() {
               <li>15-20+ years business experience, including 8-10+ years in CEO or MD roles</li>
               <li>Proven track record of P&amp;L management and business growth/turnaround</li>
               <li>Experience with fundraising, M&amp;A, or exits (demonstrable value creation)</li>
-              <li>Strong financial acumen and understanding of <a href="https://www.frc.org.uk/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">UK corporate governance standards</a></li>
+              <li>Strong financial acumen and understanding of <a href="https://www.frc.org.uk" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">UK corporate governance standards</a></li>
               <li>Executive team building and leadership experience</li>
               <li>Board-level communication and stakeholder management skills</li>
               <li>Industry-specific expertise (sector knowledge that transfers to clients)</li>
@@ -571,7 +571,7 @@ export default async function FractionalCeoJobsUkPage() {
                   {' '}&mdash; Official guidance for setting up a limited company as a fractional executive
                 </li>
                 <li>
-                  <a href="https://www.frc.org.uk/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline font-medium">
+                  <a href="https://www.frc.org.uk" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline font-medium">
                     Financial Reporting Council (FRC)
                   </a>
                   {' '}&mdash; UK corporate governance standards and reporting requirements
@@ -614,7 +614,7 @@ export default async function FractionalCeoJobsUkPage() {
                   {' '}&mdash; UK tech sector insights and growth company data
                 </li>
                 <li>
-                  <a href="https://www.beauhurst.com/" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline font-medium">
+                  <a href="https://www.beauhurst.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline font-medium">
                     Beauhurst
                   </a>
                   {' '}&mdash; Comprehensive data on UK high-growth companies and funding activity

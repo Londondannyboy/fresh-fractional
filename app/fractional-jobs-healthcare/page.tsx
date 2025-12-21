@@ -270,7 +270,7 @@ export default async function HealthcarePage() {
               Digital health particularly drives fractional opportunities. <a href="https://www.health.org.uk/publications" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">The Health Foundation</a> tracks rapid growth in healthtech startups requiring fractional expertise in NHS commercialization, clinical validation, and MHRA/CE marking processes. Telehealth, remote monitoring, and AI diagnostics companies seek fractional CTOs and CMOs who bridge technical and clinical worlds.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              Healthcare fractional roles require specialized knowledge but offer strong rates (£800-£1,200) and meaningful impact. <a href="https://www.cqc.org.uk/about-us/our-strategy-plans" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">CQC regulatory frameworks</a> demand senior governance expertise—creating consistent demand for fractional COO and compliance leadership in care providers and healthtech companies.
+              Healthcare fractional roles require specialized knowledge but offer strong rates (£800-£1,200) and meaningful impact. <a href="https://www.cqc.org.uk" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">CQC regulatory frameworks</a> demand senior governance expertise—creating consistent demand for fractional COO and compliance leadership in care providers and healthtech companies.
             </p>
           </div>
         </div>

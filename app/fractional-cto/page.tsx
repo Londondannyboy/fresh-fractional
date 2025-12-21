@@ -230,7 +230,7 @@ export default function FractionalCTOPage() {
 
           <div className="prose prose-lg max-w-none mb-10">
             <p className="text-xl text-gray-600 leading-relaxed">
-              A fractional CTO handles <strong>strategic technical leadership</strong>—the high-value work that only a senior technology executive can do. According to the <a href="https://insights.stackoverflow.com/survey" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Stack Overflow Developer Survey</a>, technical leadership roles have evolved significantly, with CTOs increasingly focusing on architecture, team culture, and strategic alignment rather than hands-on coding.
+              A fractional CTO handles <strong>strategic technical leadership</strong>—the high-value work that only a senior technology executive can do. According to the <a href="https://stackoverflow.com/dev-survey" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Stack Overflow Developer Survey</a>, technical leadership roles have evolved significantly, with CTOs increasingly focusing on architecture, team culture, and strategic alignment rather than hands-on coding.
             </p>
           </div>
 

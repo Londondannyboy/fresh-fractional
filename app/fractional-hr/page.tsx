@@ -151,7 +151,7 @@ export default async function FractionalHRGuidePage() {
 
           <div className="prose prose-lg prose-gray max-w-none">
             <p className="text-xl text-gray-600 leading-relaxed">
-              The "fractional" model allows growing companies to access <strong>senior HR expertise and experience</strong> (typically 15-20+ years in people leadership roles) without the commitment, cost, and overhead of a full-time executive hire. According to <a href="https://www.cipd.org/uk/knowledge/reports/future-work/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD's Future of Work research</a>, part-time senior executive roles have grown 43% since 2020, reflecting the shift toward flexible leadership models across all functions.
+              The "fractional" model allows growing companies to access <strong>senior HR expertise and experience</strong> (typically 15-20+ years in people leadership roles) without the commitment, cost, and overhead of a full-time executive hire. According to <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD's Future of Work research</a>, part-time senior executive roles have grown 43% since 2020, reflecting the shift toward flexible leadership models across all functions.
             </p>
 
             <p>
@@ -555,7 +555,7 @@ export default async function FractionalHRGuidePage() {
             <div className="bg-gray-50 text-gray-900 p-8 my-10">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Why Senior ER Experience Matters</h4>
               <p className="text-gray-600 mb-0">
-                <a href="https://www.gov.uk/government/collections/employment-tribunal-media-reports" target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:text-pink-300 underline">Employment tribunal claims</a> cost UK businesses an average of £8,500 in legal fees even when successful, and £25,000+ when claims succeed. Fractional HR leaders with tribunal experience can identify risks early, manage processes correctly, and often avoid litigation entirely. This expertise pays for itself many times over.
+                <a href="https://www.gov.uk/employment-tribunals" target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:text-pink-300 underline">Employment tribunal claims</a> cost UK businesses an average of £8,500 in legal fees even when successful, and £25,000+ when claims succeed. Fractional HR leaders with tribunal experience can identify risks early, manage processes correctly, and often avoid litigation entirely. This expertise pays for itself many times over.
               </p>
             </div>
           </div>
@@ -611,7 +611,7 @@ export default async function FractionalHRGuidePage() {
                       <li>• Prior HR Director or above role</li>
                       <li>• Experience at your company stage</li>
                       <li>• Strong UK employment law knowledge</li>
-                      <li>• <a href="https://www.cipd.org/uk/learn/qualifications/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD qualification</a> (Level 7 preferred)</li>
+                      <li>• <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD qualification</a> (Level 7 preferred)</li>
                     </ul>
                   </div>
                   <div>

@@ -148,7 +148,7 @@ export default async function FractionalHRDirectorPage() {
             </p>
 
             <p>
-              According to <a href="https://www.cipd.org/uk/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD research</a>, the demand for flexible senior HR leadership has grown significantly as UK businesses seek expertise without full-time overhead. Fractional HR Directors fill this gap for companies with 30-150 employees.
+              According to <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD research</a>, the demand for flexible senior HR leadership has grown significantly as UK businesses seek expertise without full-time overhead. Fractional HR Directors fill this gap for companies with 30-150 employees.
             </p>
 
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-6">Key Characteristics</h3>

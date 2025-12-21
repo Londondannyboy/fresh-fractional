@@ -91,7 +91,7 @@ const organizationJsonLd = {
   description: "UK marketplace for fractional jobs and executive services. Browse fractional CFO, CTO, CMO roles or hire fractional executives.",
   foundingDate: "2024",
   sameAs: [
-    "https://twitter.com/fractionalquest",
+    "https://x.com/fractionalquest",
     "https://www.linkedin.com/company/fractional-quest"
   ],
   contactPoint: {

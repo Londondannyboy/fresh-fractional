@@ -82,7 +82,7 @@ export default async function PartTimeHRPage() {
             A <strong>part-time HR</strong> role (also known as a fractional HR role) is a senior HR position where an experienced HR Director, CHRO, or People Partner provides strategic people leadership to companies on a flexible, part-time basis. Rather than committing to a single full-time role, part-time HR professionals typically work with multiple clients, dedicating 1-3 days per week to each engagement.
           </p>
           <p>
-            The demand for <strong>part-time HR jobs</strong> in the UK has grown significantly, driven by scale-ups, SMEs, and PE-backed companies that need senior HR expertise but cannot justify or afford a full-time hire. According to <a href="https://www.cipd.org/uk/knowledge/reports/future-work/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD research</a>, part-time senior roles have grown 43% since 2020.
+            The demand for <strong>part-time HR jobs</strong> in the UK has grown significantly, driven by scale-ups, SMEs, and PE-backed companies that need senior HR expertise but cannot justify or afford a full-time hire. According to <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD research</a>, part-time senior roles have grown 43% since 2020.
           </p>
 
           <h2>Part-Time HR vs Full-Time HR</h2>
@@ -133,7 +133,7 @@ export default async function PartTimeHRPage() {
           <ul>
             <li><strong>Specialist platforms:</strong> <Link href="/fractional-hr-jobs-uk" className="text-pink-600 hover:text-pink-700">Fractional Quest</Link>, interim HR networks</li>
             <li><strong>VC/PE networks:</strong> Portfolio company HR referrals</li>
-            <li><strong>Professional networks:</strong> <a href="https://www.cipd.org/uk/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD</a>, HR Directors forums, LinkedIn</li>
+            <li><strong>Professional networks:</strong> <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD</a>, HR Directors forums, LinkedIn</li>
             <li><strong>Referrals:</strong> Other founders, CEOs, and fractional executives</li>
           </ul>
         </div>

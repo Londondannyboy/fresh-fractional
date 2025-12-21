@@ -329,7 +329,7 @@ export default async function TopFractionalRecruitmentAgenciesPage() {
             </p>
 
             <p className="text-gray-600 mb-6">
-              Research from the <a href="https://www.cipd.org/uk/topics/flexible-hybrid-working/" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300 underline">Chartered Institute of Personnel and Development (CIPD)</a> confirms that flexible working arrangements, including fractional executive roles, improve both employee satisfaction and business outcomes. Meanwhile, the <a href="https://www.cbi.org.uk/" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300 underline">Confederation of British Industry (CBI)</a> advocates for greater workplace flexibility as essential for UK competitiveness.
+              Research from the <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300 underline">Chartered Institute of Personnel and Development (CIPD)</a> confirms that flexible working arrangements, including fractional executive roles, improve both employee satisfaction and business outcomes. Meanwhile, the <a href="https://www.cbi.org.uk/" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300 underline">Confederation of British Industry (CBI)</a> advocates for greater workplace flexibility as essential for UK competitiveness.
             </p>
 
             <p className="text-gray-300">

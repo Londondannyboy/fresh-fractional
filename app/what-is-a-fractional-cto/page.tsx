@@ -207,7 +207,7 @@ export default function WhatIsFractionalCTOPage() {
                   <h4 className="text-lg font-bold text-gray-900 mb-2 flex items-center">
                     <span className="text-2xl mr-3">🏗️</span> Architecture & Technical Strategy
                   </h4>
-                  <p className="text-gray-700 ml-11 mb-0">Design scalable, maintainable system architecture. Make build vs buy decisions, choose technology stack, plan for 10x scale. According to <a href="https://insights.stackoverflow.com/survey" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Stack Overflow's Developer Survey</a>, architecture decisions have become more critical as systems grow in complexity.</p>
+                  <p className="text-gray-700 ml-11 mb-0">Design scalable, maintainable system architecture. Make build vs buy decisions, choose technology stack, plan for 10x scale. According to <a href="https://stackoverflow.com/dev-survey" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Stack Overflow's Developer Survey</a>, architecture decisions have become more critical as systems grow in complexity.</p>
                 </div>
 
                 <div className="border-t pt-6">

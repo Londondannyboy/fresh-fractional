@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import { createDbQuery } from '@/lib/db'
 import { ArticleCard } from '@/components/ArticleCard'
 import { JobsCalendarHeatmap } from '@/components/JobsCalendarHeatmap'
+import { ArticleSearch } from '@/components/ArticleSearch'
 
 export const revalidate = 14400 // Revalidate every 4 hours
 
@@ -23,6 +24,7 @@ interface ArticlesPageProps {
     sort?: string
     category?: string
     type?: string
+    q?: string
   }>
 }
 
@@ -49,6 +51,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
   const sort = params.sort || 'recent'
   const category = params.category
   const type = params.type
+  const searchQuery = params.q
 
   try {
     const sql = createDbQuery()
@@ -60,6 +63,11 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
     }
     if (type) {
       whereConditions.push(`article_type = '${type}'`)
+    }
+    if (searchQuery) {
+      // Search in title and excerpt (escape single quotes)
+      const escapedQuery = searchQuery.replace(/'/g, "''")
+      whereConditions.push(`(title ILIKE '%${escapedQuery}%' OR excerpt ILIKE '%${escapedQuery}%' OR meta_description ILIKE '%${escapedQuery}%')`)
     }
 
     // Build ORDER BY clause
@@ -150,13 +158,25 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
         {/* Filters & Sort */}
         <section className="py-8 bg-gray-50 border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            {/* Search Bar */}
+            <div className="mb-6">
+              <Suspense fallback={<div className="h-12 bg-gray-100 rounded-lg animate-pulse max-w-md" />}>
+                <ArticleSearch />
+              </Suspense>
+              {searchQuery && (
+                <p className="mt-3 text-sm text-gray-600">
+                  Showing results for "<span className="font-medium text-gray-900">{searchQuery}</span>"
+                </p>
+              )}
+            </div>
+
             <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
               {/* Sort */}
               <div className="flex items-center gap-3">
                 <span className="text-gray-600 text-sm font-medium">Sort by:</span>
                 <div className="flex gap-2">
                   <Link
-                    href={`/fractional-jobs-articles?sort=recent${category ? `&category=${category}` : ''}${type ? `&type=${type}` : ''}`}
+                    href={`/fractional-jobs-articles?sort=recent${category ? `&category=${category}` : ''}${type ? `&type=${type}` : ''}${searchQuery ? `&q=${searchQuery}` : ''}`}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       sort === 'recent' || !sort
                         ? 'bg-blue-600 text-white'
@@ -166,7 +186,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                     Most Recent
                   </Link>
                   <Link
-                    href={`/fractional-jobs-articles?sort=oldest${category ? `&category=${category}` : ''}${type ? `&type=${type}` : ''}`}
+                    href={`/fractional-jobs-articles?sort=oldest${category ? `&category=${category}` : ''}${type ? `&type=${type}` : ''}${searchQuery ? `&q=${searchQuery}` : ''}`}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       sort === 'oldest'
                         ? 'bg-blue-600 text-white'
@@ -181,7 +201,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
               {/* Category Filter */}
               <div className="flex flex-wrap gap-2">
                 <Link
-                  href={`/fractional-jobs-articles?sort=${sort}${type ? `&type=${type}` : ''}`}
+                  href={`/fractional-jobs-articles?sort=${sort}${type ? `&type=${type}` : ''}${searchQuery ? `&q=${searchQuery}` : ''}`}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     !category
                       ? 'bg-purple-600 text-white'
@@ -193,7 +213,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                 {['Finance', 'Marketing', 'Engineering', 'Operations', 'HR', 'Sales'].map((cat) => (
                   <Link
                     key={cat}
-                    href={`/fractional-jobs-articles?sort=${sort}&category=${cat}${type ? `&type=${type}` : ''}`}
+                    href={`/fractional-jobs-articles?sort=${sort}&category=${cat}${type ? `&type=${type}` : ''}${searchQuery ? `&q=${searchQuery}` : ''}`}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       category === cat
                         ? 'bg-purple-600 text-white'
@@ -234,14 +254,20 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             {articles.length === 0 ? (
               <div className="text-center py-20">
-                <span className="text-6xl mb-6 block">📚</span>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">No articles found yet</h2>
-                <p className="text-gray-600 mb-8">We're working on creating expert guides for you.</p>
+                <span className="text-6xl mb-6 block">{searchQuery ? '🔍' : '📚'}</span>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  {searchQuery ? `No results for "${searchQuery}"` : 'No articles found yet'}
+                </h2>
+                <p className="text-gray-600 mb-8">
+                  {searchQuery
+                    ? 'Try a different search term or browse all articles.'
+                    : "We're working on creating expert guides for you."}
+                </p>
                 <Link
-                  href="/"
+                  href="/fractional-jobs-articles"
                   className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg bg-purple-700 text-white hover:bg-purple-800 transition-all"
                 >
-                  Back to Home
+                  {searchQuery ? 'Browse All Articles' : 'Back to Home'}
                 </Link>
               </div>
             ) : (
@@ -296,7 +322,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                 {totalPages > 1 && (
                   <div className="flex justify-center items-center gap-2">
                     {page > 1 && (
-                      <Link href={`/fractional-jobs-articles?page=${page - 1}`}>
+                      <Link href={`/fractional-jobs-articles?page=${page - 1}${sort ? `&sort=${sort}` : ''}${category ? `&category=${category}` : ''}${searchQuery ? `&q=${searchQuery}` : ''}`}>
                         <button className="px-5 py-2.5 border border-gray-200 rounded-lg hover:bg-gray-100 text-sm font-medium text-gray-600">
                           ← Previous
                         </button>
@@ -309,7 +335,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                         if (pageNum > totalPages) return null
 
                         return (
-                          <Link key={pageNum} href={`/fractional-jobs-articles?page=${pageNum}`}>
+                          <Link key={pageNum} href={`/fractional-jobs-articles?page=${pageNum}${sort ? `&sort=${sort}` : ''}${category ? `&category=${category}` : ''}${searchQuery ? `&q=${searchQuery}` : ''}`}>
                             <button
                               className={`w-10 h-10 rounded-lg text-sm font-medium ${
                                 pageNum === page
@@ -325,7 +351,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                     </div>
 
                     {page < totalPages && (
-                      <Link href={`/fractional-jobs-articles?page=${page + 1}`}>
+                      <Link href={`/fractional-jobs-articles?page=${page + 1}${sort ? `&sort=${sort}` : ''}${category ? `&category=${category}` : ''}${searchQuery ? `&q=${searchQuery}` : ''}`}>
                         <button className="px-5 py-2.5 border border-gray-200 rounded-lg hover:bg-gray-100 text-sm font-medium text-gray-600">
                           Next →
                         </button>

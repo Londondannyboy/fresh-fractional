@@ -383,7 +383,7 @@ export default async function FractionalCmoJobsUkPage() {
 
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Fractional CMO Jobs by Location</h3>
             <p>
-              London leads with 55% of roles, supported by the capital&apos;s thriving startup ecosystem documented by <a href="https://www.beauhurst.com/" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline">Beauhurst</a>, but opportunities exist nationwide. Regional hubs like Manchester (backed by <a href="https://www.investinmanchester.com/" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline">MIDAS</a>) and Edinburgh (supported by <a href="https://www.scottish-enterprise.com/" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline">Scottish Enterprise</a>) are rapidly expanding their fractional markets:
+              London leads with 55% of roles, supported by the capital&apos;s thriving startup ecosystem documented by <a href="https://www.beauhurst.com" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline">Beauhurst</a>, but opportunities exist nationwide. Regional hubs like Manchester (backed by <a href="https://www.investinmanchester.com/" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline">MIDAS</a>) and Edinburgh (supported by <a href="https://www.scottish-enterprise.com/" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline">Scottish Enterprise</a>) are rapidly expanding their fractional markets:
             </p>
             <ul className="space-y-2">
               <li><strong>London Tech City:</strong> £900-£1,400/day</li>
@@ -550,7 +550,7 @@ export default async function FractionalCmoJobsUkPage() {
                   {' '}&mdash; Platform for building your personal brand and connecting with potential clients
                 </li>
                 <li>
-                  <a href="https://www.cipd.org/uk/" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline font-medium">
+                  <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-700 underline font-medium">
                     CIPD (Chartered Institute of Personnel and Development)
                   </a>
                   {' '}&mdash; Research on flexible working and employment trends relevant to fractional executives
