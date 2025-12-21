@@ -72,8 +72,8 @@ export async function RecommendedArticles({
   }
 
   return (
-    <div className="bg-gray-950 rounded-xl border border-gray-800 p-6">
-      <h3 className="text-lg font-bold text-white mb-4">{title}</h3>
+    <div className="bg-white rounded-xl border border-gray-200 p-6">
+      <h3 className="text-lg font-bold text-gray-900 mb-4">{title}</h3>
       <ul className="space-y-4">
         {articles.map((article) => (
           <li key={article.id}>
@@ -83,7 +83,7 @@ export async function RecommendedArticles({
             >
               <div className="flex items-start gap-3">
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-sm font-medium text-gray-200 group-hover:text-blue-400 transition-colors line-clamp-2">
+                  <h4 className="text-sm font-medium text-gray-700 group-hover:text-blue-400 transition-colors line-clamp-2">
                     {article.title}
                   </h4>
                   <div className="flex items-center gap-2 mt-1">
