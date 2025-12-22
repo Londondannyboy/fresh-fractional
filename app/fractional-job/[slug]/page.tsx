@@ -374,8 +374,7 @@ export default async function JobDetailPage({ params }: PageProps) {
                 {/* Job Info */}
                 <div className="flex-1">
                   <h1
-                    className="text-2xl md:text-3xl lg:text-4xl font-black mb-2 leading-tight tracking-tight"
-                    style={{ color: colors.text }}
+                    className="text-2xl md:text-3xl lg:text-4xl font-black mb-2 leading-tight tracking-tight text-white"
                   >
                     {job.title}
                   </h1>
@@ -384,18 +383,17 @@ export default async function JobDetailPage({ params }: PageProps) {
                     {job.company_domain ? (
                       <Link
                         href={`/company/${job.company_domain}`}
-                        className="text-lg md:text-xl font-bold hover:opacity-80 transition-opacity"
-                        style={{ color: colors.text }}
+                        className="text-lg md:text-xl font-bold hover:opacity-80 transition-opacity text-white"
                       >
                         {job.company_name}
                       </Link>
                     ) : (
-                      <span className="text-lg md:text-xl font-bold" style={{ color: colors.text }}>
+                      <span className="text-lg md:text-xl font-bold text-white">
                         {job.company_name}
                       </span>
                     )}
-                    <span style={{ color: colors.text, opacity: 0.5 }}>•</span>
-                    <span className="flex items-center gap-1 text-sm" style={{ color: colors.text, opacity: 0.8 }}>
+                    <span className="text-white/50">•</span>
+                    <span className="flex items-center gap-1 text-sm text-white/80">
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />

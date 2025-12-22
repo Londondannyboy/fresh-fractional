@@ -298,8 +298,8 @@ export function JobCard({
   const cardContent = (
     <article
       className={`
-        overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm
-        hover:shadow-lg transition-all duration-300
+        overflow-hidden rounded-2xl bg-gray-900 border border-gray-800 shadow-sm
+        hover:shadow-lg hover:border-gray-700 transition-all duration-300
         cursor-pointer group flex flex-col h-full
         ${className}
       `}
@@ -313,14 +313,14 @@ export function JobCard({
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
         {/* Stronger gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/30 to-gray-900/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-gray-900/10" />
 
         {/* Top badges row */}
         <div className="absolute top-3 left-3 right-3 flex items-start justify-between">
           <div className="flex flex-wrap items-center gap-2">
             {/* Role category badge */}
             {roleCategory && (
-              <span className="bg-white/95 backdrop-blur-sm text-gray-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+              <span className="bg-gray-800/95 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm border border-gray-700">
                 {roleCategory}
               </span>
             )}
@@ -338,7 +338,7 @@ export function JobCard({
             )}
             {/* View count - social proof */}
             {viewCount && viewCount > 5 && (
-              <span className="bg-gray-900/70 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full flex items-center gap-1">
+              <span className="bg-gray-900/70 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full flex items-center gap-1 border border-gray-700">
                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                   <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
@@ -364,10 +364,9 @@ export function JobCard({
         </div>
 
         {/* Title overlay at bottom of image - with strong contrast for readability */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-black/80 to-transparent">
+        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-gray-900 via-gray-900/90 to-transparent">
           <h3
             className="font-bold text-white text-lg leading-tight line-clamp-2 drop-shadow-lg"
-            style={{ textShadow: '0 2px 8px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7), 0 0 2px rgba(0,0,0,0.5)' }}
           >
             {title}
           </h3>
@@ -377,38 +376,38 @@ export function JobCard({
       {/* Content */}
       <div className="p-5 flex flex-col flex-1">
         {/* Company */}
-        <p className="text-base font-medium text-gray-700 mb-2">
+        <p className="text-base font-medium text-gray-200 mb-2">
           {company}
         </p>
 
         {/* Job Description Snippet */}
         {description && (
-          <p className="text-sm text-gray-600 mb-3 line-clamp-2 leading-relaxed">
+          <p className="text-sm text-gray-400 mb-3 line-clamp-2 leading-relaxed">
             {description}
           </p>
         )}
 
         {/* Our Opinion / Appeal Summary */}
         {appealSummary && (
-          <div className="mb-3 p-2.5 bg-blue-50 border-l-3 border-blue-500 rounded-r-lg">
-            <p className="text-xs text-blue-800 leading-relaxed">
-              <span className="font-semibold text-blue-900">Why apply: </span>
+          <div className="mb-3 p-2.5 bg-blue-900/30 border-l-3 border-blue-500 rounded-r-lg">
+            <p className="text-xs text-blue-200 leading-relaxed">
+              <span className="font-semibold text-blue-300">Why apply: </span>
               {appealSummary}
             </p>
           </div>
         )}
 
         {/* Meta: Location + Compensation */}
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-600 mb-3">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-400 mb-3">
           <span className="flex items-center gap-1.5">
-            <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
             {locationDisplay}
           </span>
           {compensationDisplay && (
-            <span className="flex items-center gap-1.5 font-semibold text-gray-900">
+            <span className="flex items-center gap-1.5 font-semibold text-white">
               {compensationDisplay}
             </span>
           )}
@@ -420,13 +419,13 @@ export function JobCard({
             {skills.slice(0, 3).map((skill) => (
               <span
                 key={skill}
-                className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs rounded-md"
+                className="px-2.5 py-1 bg-gray-800 text-gray-300 text-xs rounded-md border border-gray-700"
               >
                 {skill}
               </span>
             ))}
             {skills.length > 3 && (
-              <span className="px-2.5 py-1 text-gray-400 text-xs">
+              <span className="px-2.5 py-1 text-gray-500 text-xs">
                 +{skills.length - 3}
               </span>
             )}
@@ -435,13 +434,13 @@ export function JobCard({
 
         {/* Dream destination suggestion for remote roles - sell the lifestyle */}
         {dreamDestination && flexibilityInfo && (
-          <div className="mb-3 p-3 bg-gradient-to-r from-teal-50 to-blue-50 rounded-lg border border-teal-100 flex items-center gap-3">
+          <div className="mb-3 p-3 bg-gradient-to-r from-teal-900/20 to-blue-900/20 rounded-lg border border-teal-800/50 flex items-center gap-3">
             <img
               src={dreamDestination.image}
               alt={dreamDestination.name}
-              className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+              className="w-10 h-10 rounded-full object-cover flex-shrink-0 ring-2 ring-gray-900"
             />
-            <p className="text-xs text-teal-800">
+            <p className="text-xs text-teal-200">
               <span className="font-semibold">{flexibilityInfo.days}?</span> Work from {dreamDestination.name}
             </p>
           </div>
@@ -449,13 +448,13 @@ export function JobCard({
 
         {/* Remote-only dream suggestion (when no flexibility info but is remote) */}
         {dreamDestination && !flexibilityInfo && (
-          <div className="mb-3 p-3 bg-gradient-to-r from-teal-50 to-blue-50 rounded-lg border border-teal-100 flex items-center gap-3">
+          <div className="mb-3 p-3 bg-gradient-to-r from-teal-900/20 to-blue-900/20 rounded-lg border border-teal-800/50 flex items-center gap-3">
             <img
               src={dreamDestination.image}
               alt={dreamDestination.name}
-              className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+              className="w-10 h-10 rounded-full object-cover flex-shrink-0 ring-2 ring-gray-900"
             />
-            <p className="text-xs text-teal-800">
+            <p className="text-xs text-teal-200">
               <span className="font-semibold">Work anywhere.</span> Why not {dreamDestination.name}?
             </p>
           </div>
@@ -475,7 +474,7 @@ export function JobCard({
         <div className="flex-grow" />
 
         {/* Footer */}
-        <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
+        <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-800">
           {postedDisplay && (
             <span className="text-xs text-gray-500 flex items-center gap-1">
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
