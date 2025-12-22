@@ -146,12 +146,21 @@ export default function VoicePage() {
     // Fetch access token from our API
     async function getAccessToken() {
       try {
-        const response = await fetch('/api/hume-token')
+        const response = await fetch('/api/hume-token', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId: 'anonymous' })
+        })
         if (!response.ok) {
           throw new Error('Failed to get access token')
         }
         const data = await response.json()
-        setAccessToken(data.accessToken)
+        const receivedToken = data.accessToken || data.token
+        if (receivedToken) {
+          setAccessToken(receivedToken)
+        } else {
+          throw new Error('No token in response')
+        }
       } catch (err) {
         setError('Voice service unavailable. Please try again later.')
         console.error('Error getting Hume token:', err)

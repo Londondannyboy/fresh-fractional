@@ -684,11 +684,22 @@ export default function RepoPage() {
 
   // Fetch Hume token
   useEffect(() => {
-    fetch('/api/hume-token')
+    fetch('/api/hume-token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: user?.id })
+    })
       .then(r => r.json())
-      .then(d => d.accessToken ? setToken(d.accessToken) : setError('No token'))
+      .then(d => {
+        const receivedToken = d.accessToken || d.token;
+        if (receivedToken) {
+          setToken(receivedToken);
+        } else {
+          setError('No token returned from server');
+        }
+      })
       .catch(e => setError(e.message))
-  }, [])
+  }, [user?.id])
 
   // Fetch profile from Neon
   useEffect(() => {

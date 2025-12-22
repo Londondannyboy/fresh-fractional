@@ -25,9 +25,18 @@ export default function LiveRepoBuilder() {
 
   // Fetch Hume access token
   useEffect(() => {
-    fetch('/api/hume-token')
-      .then(r => r.json())
-      .then(data => setAccessToken(data.token))
+    fetch('/api/hume-token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: 'anonymous' })
+    })
+      .then(res => res.json())
+      .then(data => {
+        const receivedToken = data.token || data.accessToken;
+        if (receivedToken) {
+          setAccessToken(receivedToken);
+        }
+      })
       .catch(err => console.error('Failed to get Hume token:', err))
   }, [])
 

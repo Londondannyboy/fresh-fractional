@@ -3,22 +3,24 @@ import { NextRequest, NextResponse } from 'next/server'
 const HUME_CONFIG_ID = process.env.NEXT_PUBLIC_HUME_CONFIG_ID || 'd57ceb71-4cf5-47e9-87cd-6052445a031c'
 
 async function getHumeAccessToken(): Promise<string | null> {
-  const apiKey = process.env.NEXT_PUBLIC_HUME_API_KEY || process.env.HUME_API_KEY
-  const secretKey = process.env.HUME_SECRET_KEY
+  const apiKey = (process.env.NEXT_PUBLIC_HUME_API_KEY || process.env.HUME_API_KEY || "").trim().replace(/^["']|["']$/g, '');
+  const secretKey = (process.env.HUME_SECRET_KEY || "").trim().replace(/^["']|["']$/g, '');
 
   if (!apiKey || !secretKey) {
-    console.error('Hume credentials missing')
-    return null
+    console.error('Hume credentials missing');
+    return null;
   }
 
   try {
+    const authString = Buffer.from(`${apiKey}:${secretKey}`).toString('base64');
     const response = await fetch('https://api.hume.ai/oauth2-cc/token', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      headers: { 
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': `Basic ${authString}`
+      },
       body: new URLSearchParams({
         grant_type: 'client_credentials',
-        client_id: apiKey,
-        client_secret: secretKey,
       }),
     })
 

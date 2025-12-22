@@ -998,23 +998,38 @@ export default function VoicePage() {
 
   // Fetch token
   useEffect(() => {
-    fetch('/api/hume-token')
-      .then(async r => {
-        const data = await r.json()
-        if (!r.ok) {
-          throw new Error(data.error || data.details || 'Failed to fetch token')
+    const fetchToken = async () => {
+      try {
+        console.log('[VoicePage] Fetching Hume token...');
+        const response = await fetch('/api/hume-token', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId: user?.id || 'anonymous' })
+        })
+
+        const data = await response.json()
+        
+        if (!response.ok) {
+          console.error('[VoicePage] Token API error:', data);
+          throw new Error(data.error || data.details || `Error ${response.status}: Failed to fetch token`)
         }
-        if (data.accessToken) {
-          setToken(data.accessToken)
+
+        if (data.accessToken || data.token) {
+          const receivedToken = data.accessToken || data.token;
+          console.log('[VoicePage] Token received successfully');
+          setToken(receivedToken)
         } else {
-          throw new Error('No access token returned')
+          console.error('[VoicePage] No token in response:', data);
+          throw new Error('No access token returned from server')
         }
-      })
-      .catch(e => {
+      } catch (e: any) {
         console.error('Token fetch error:', e)
-        setError(e.message)
-      })
-  }, [])
+        setError(e.message || 'Failed to initialize voice service')
+      }
+    }
+
+    fetchToken()
+  }, [user?.id])
 
   // Fetch profile if logged in
   useEffect(() => {

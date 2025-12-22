@@ -508,14 +508,15 @@ export default function VoiceOnboardingPage() {
     })
       .then(res => res.json())
       .then(data => {
+        const receivedToken = data.token || data.accessToken;
         console.log('[ONBOARDING] Token response:', {
           hasToken: !!data.token,
           hasAccessToken: !!data.accessToken,
-          tokenLength: data.token?.length,
+          tokenLength: receivedToken?.length,
           keys: Object.keys(data)
         })
-        if (data.token) {
-          setToken(data.token)
+        if (receivedToken) {
+          setToken(receivedToken)
         }
       })
       .catch(err => console.error('Failed to fetch Hume token:', err))
