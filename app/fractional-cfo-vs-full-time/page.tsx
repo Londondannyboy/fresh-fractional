@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { FAQ } from '@/components/FAQ'
+import { CfoComparisonInfographic } from '@/components/infographics/CfoComparisonInfographic'
 
 export const metadata: Metadata = {
   title: 'Fractional CFO vs Full-Time CFO: Complete Comparison Guide 2025',
@@ -149,6 +150,8 @@ export default function FractionalVsFullTimeCFOPage() {
               </table>
             </div>
           </div>
+
+          <CfoComparisonInfographic />
 
           {/* Cost Comparison */}
           <section className="prose prose-slate mb-12 max-w-none">
