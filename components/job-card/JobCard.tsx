@@ -363,11 +363,11 @@ export function JobCard({
           </div>
         </div>
 
-        {/* Title overlay at bottom of image - with text shadow for readability */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-gray-900/90 to-transparent">
+        {/* Title overlay at bottom of image - with strong contrast for readability */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-black/80 to-transparent">
           <h3
-            className="font-bold text-white text-lg leading-tight line-clamp-2"
-            style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.3)' }}
+            className="font-bold text-white text-lg leading-tight line-clamp-2 drop-shadow-lg"
+            style={{ textShadow: '0 2px 8px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7), 0 0 2px rgba(0,0,0,0.5)' }}
           >
             {title}
           </h3>
@@ -377,9 +377,26 @@ export function JobCard({
       {/* Content */}
       <div className="p-5 flex flex-col flex-1">
         {/* Company */}
-        <p className="text-base font-medium text-gray-700 mb-3">
+        <p className="text-base font-medium text-gray-700 mb-2">
           {company}
         </p>
+
+        {/* Job Description Snippet */}
+        {description && (
+          <p className="text-sm text-gray-600 mb-3 line-clamp-2 leading-relaxed">
+            {description}
+          </p>
+        )}
+
+        {/* Our Opinion / Appeal Summary */}
+        {appealSummary && (
+          <div className="mb-3 p-2.5 bg-blue-50 border-l-3 border-blue-500 rounded-r-lg">
+            <p className="text-xs text-blue-800 leading-relaxed">
+              <span className="font-semibold text-blue-900">Why apply: </span>
+              {appealSummary}
+            </p>
+          </div>
+        )}
 
         {/* Meta: Location + Compensation */}
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-600 mb-3">

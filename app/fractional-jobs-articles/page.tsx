@@ -388,7 +388,7 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                   { icon: '👔', title: 'Fractional CEO', desc: 'Executive leadership and strategic direction', link: '/fractional-ceo-jobs-uk' },
                   { icon: '👥', title: 'Fractional CHRO', desc: 'People strategy, culture, and HR leadership', link: '/fractional-chro-jobs-uk' },
                   { icon: '🔐', title: 'Fractional CISO', desc: 'Security strategy and risk management', link: '/fractional-ciso-jobs-uk' },
-                  { icon: '📦', title: 'Fractional CPO', desc: 'Product strategy and roadmap leadership', link: '/fractional-cpo-services' },
+                  { icon: '📦', title: 'Fractional CPO', desc: 'Product strategy and roadmap leadership', link: '/fractional-product-jobs-uk' },
                 ].map((topic) => (
                   <Link key={topic.title} href={topic.link} className="group">
                     <article className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-600 h-full">
@@ -411,10 +411,10 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
-                  { icon: '👥', title: 'Fractional HR', desc: 'People strategy and talent management', link: '/fractional-hr' },
-                  { icon: '📋', title: 'Project Management', desc: 'Fractional PM roles and certifications', link: '/fractional-project-manager' },
-                  { icon: '🎯', title: 'Product Leadership', desc: 'Product strategy and team leadership', link: '/fractional-product' },
-                  { icon: '✅', title: 'Compliance', desc: 'Regulatory compliance and risk management', link: '/fractional-compliance-fintech' },
+                  { icon: '👥', title: 'Fractional HR', desc: 'People strategy and talent management', link: '/fractional-hr-jobs-uk' },
+                  { icon: '📋', title: 'Project Management', desc: 'Fractional PM roles and certifications', link: '/fractional-project-manager-jobs-uk' },
+                  { icon: '🎯', title: 'Product Leadership', desc: 'Product strategy and team leadership', link: '/fractional-product-jobs-uk' },
+                  { icon: '✅', title: 'Compliance', desc: 'Regulatory compliance and risk management', link: '/fractional-compliance-jobs-uk' },
                   { icon: '📊', title: 'Finance', desc: 'Financial operations and controller roles', link: '/fractional-finance' },
                   { icon: '📈', title: 'Marketing', desc: 'Marketing strategy and growth', link: '/fractional-marketing' },
                   { icon: '🔧', title: 'Operations', desc: 'Business operations and process improvement', link: '/fractional-coo' },

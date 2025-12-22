@@ -8,14 +8,8 @@ import { RecommendedArticles } from '@/components/RecommendedArticles'
 import { PropertyOverlay } from '@/components/PropertyOverlay'
 import { JobSearch } from '@/components/JobSearch'
 
-// Aggressive lazy loading for mobile performance
+// Lazy loading for mobile performance
 const FractionalRateCalculatorUK = dynamic(() => import('@/components/FractionalRateCalculatorUK').then(mod => ({ default: mod.FractionalRateCalculatorUK })), {
-  loading: () => <div className="bg-gray-50 h-96 rounded-xl border border-gray-200" />,
-})
-const SavingsCalculator = dynamic(() => import('@/components/SavingsCalculator').then(mod => ({ default: mod.SavingsCalculator })), {
-  loading: () => <div className="bg-gray-50 h-96 rounded-xl border border-gray-200" />,
-})
-const SkillsRadar = dynamic(() => import('@/components/SkillsRadar').then(mod => ({ default: mod.SkillsRadar })), {
   loading: () => <div className="bg-gray-50 h-96 rounded-xl border border-gray-200" />,
 })
 const IR35Calculator = dynamic(() => import('@/components/IR35Calculator').then(mod => ({ default: mod.IR35Calculator })), {
@@ -488,39 +482,139 @@ export default async function FractionalJobsUKPage() {
                 })}
               </div>
 
-              {/* Right Sidebar - Simplified */}
-              <div className="lg:col-span-1 space-y-6">
+              {/* Right Sidebar - Content Hub */}
+              <div className="lg:col-span-1 space-y-5">
+                {/* Rate Calculator Card */}
+                <Link
+                  href="#rate-calculator"
+                  className="block bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl p-5 text-white hover:from-blue-700 hover:to-blue-900 transition-all group"
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                    <h3 className="text-base font-bold">Rate Calculator</h3>
+                  </div>
+                  <p className="text-sm text-blue-100 mb-3">
+                    Calculate your earning potential based on role, location and days worked.
+                  </p>
+                  <span className="text-xs font-medium text-blue-200 group-hover:text-white transition-colors flex items-center gap-1">
+                    Calculate now →
+                  </span>
+                </Link>
+
+                {/* IR35 Calculator Card */}
+                <Link
+                  href="#ir35-calculator"
+                  className="block bg-white rounded-xl border border-gray-200 p-5 hover:border-blue-300 hover:shadow-md transition-all group"
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <svg className="w-6 h-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z" />
+                    </svg>
+                    <h3 className="text-base font-bold text-gray-900">IR35 Tax Calculator</h3>
+                    <span className="px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-bold rounded-full">
+                      BETA
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Compare take-home pay inside vs outside IR35.
+                  </p>
+                  <span className="text-xs font-medium text-blue-600 group-hover:text-blue-700 transition-colors flex items-center gap-1">
+                    Calculate tax →
+                  </span>
+                </Link>
+
                 {/* CTA Card */}
-                <div className="bg-gray-900 rounded-xl p-6 text-center">
-                  <h3 className="text-lg font-bold text-white mb-2">Join the Platform</h3>
+                <div className="bg-gray-900 rounded-xl p-5 text-center">
+                  <h3 className="text-base font-bold text-white mb-2">Join the Platform</h3>
                   <p className="text-sm text-gray-300 mb-4">
                     Create your profile and get discovered by companies.
                   </p>
                   <Link
                     href="/profile/edit"
-                    className="block w-full text-center px-4 py-3 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+                    className="block w-full text-center px-4 py-2.5 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-colors text-sm"
                   >
                     Create Profile
                   </Link>
                 </div>
 
                 {/* Browse by Role */}
-                <div className="bg-white rounded-xl border border-gray-200 p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-4">Browse by Role</h3>
-                  <div className="space-y-2">
+                <div className="bg-white rounded-xl border border-gray-200 p-5">
+                  <h3 className="text-base font-bold text-gray-900 mb-3">Browse by Role</h3>
+                  <div className="space-y-1.5">
                     {[
                       { label: 'Fractional CFO', href: '/fractional-cfo-jobs-uk' },
                       { label: 'Fractional CTO', href: '/fractional-cto-jobs-uk' },
                       { label: 'Fractional CMO', href: '/fractional-cmo-jobs-uk' },
                       { label: 'Fractional COO', href: '/fractional-coo-jobs-uk' },
+                      { label: 'Fractional CHRO', href: '/fractional-hr-jobs-uk' },
+                      { label: 'Fractional CISO', href: '/fractional-ciso-jobs-uk' },
                     ].map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="flex items-center justify-between p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors text-sm"
+                        className="flex items-center justify-between p-2.5 rounded-lg bg-gray-50 hover:bg-blue-50 hover:text-blue-700 transition-colors text-sm"
                       >
-                        <span className="font-medium text-gray-900">{link.label}</span>
+                        <span className="font-medium text-gray-700 group-hover:text-blue-700">{link.label}</span>
                         <span className="text-gray-400">→</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Content Hub - Resources */}
+                <div className="bg-white rounded-xl border border-gray-200 p-5">
+                  <h3 className="text-base font-bold text-gray-900 mb-3">Resources</h3>
+                  <div className="space-y-2">
+                    <Link
+                      href="/how-to-become-a-fractional-executive"
+                      className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                      How to Go Fractional
+                    </Link>
+                    <Link
+                      href="/fractional-executive-salary-uk"
+                      className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                      UK Salary Guide
+                    </Link>
+                    <Link
+                      href="/what-is-a-fractional-executive"
+                      className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                      What is a Fractional Executive?
+                    </Link>
+                    <Link
+                      href="/fractional-jobs-articles"
+                      className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                      All Articles & Guides
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Location Quick Links */}
+                <div className="bg-white rounded-xl border border-gray-200 p-5">
+                  <h3 className="text-base font-bold text-gray-900 mb-3">Jobs by Location</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { label: 'London', href: '/fractional-jobs?location=London' },
+                      { label: 'Manchester', href: '/fractional-jobs-manchester' },
+                      { label: 'Birmingham', href: '/fractional-jobs-birmingham' },
+                      { label: 'Edinburgh', href: '/fractional-jobs-edinburgh' },
+                      { label: 'Remote', href: '/fractional-jobs?type=Remote' },
+                    ].map((loc) => (
+                      <Link
+                        key={loc.href}
+                        href={loc.href}
+                        className="px-3 py-1.5 bg-gray-100 text-gray-700 text-xs font-medium rounded-full hover:bg-blue-100 hover:text-blue-700 transition-colors"
+                      >
+                        {loc.label}
                       </Link>
                     ))}
                   </div>
@@ -574,50 +668,7 @@ export default async function FractionalJobsUKPage() {
         </div>
       </section>
 
-      {/* Savings Calculator Section */}
-      <section id="savings-calculator" className="py-16 md:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 !text-gray-900 mb-4">
-              Calculate Your Cost Savings
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Discover how much you can save by hiring fractional executives versus full-time. Compare total employment costs including salary, NI, benefits, and overhead against flexible fractional rates.
-            </p>
-          </div>
-          <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
-            <SavingsCalculator />
-          </div>
-        </div>
-      </section>
 
-      {/* Skills Demand Analysis Section */}
-      <section id="skills-demand" className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider block mb-4">
-              Market Analysis
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 !text-gray-900 mb-4">
-              Skills Demand by Fractional Role
-            </h2>
-            <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto mb-6">
-              Discover which skills are most in-demand across fractional CFO, CTO, CMO, and COO positions in the UK market.
-              This radar chart shows the percentage of jobs requiring each skill category.
-            </p>
-            <p className="text-sm text-gray-400 max-w-2xl mx-auto">
-              💡 <strong>Tip:</strong> Click on any role button below the chart to view all available jobs for that position.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-200">
-            <SkillsRadar height="400px" roles={['CFO', 'CTO', 'CMO', 'COO']} />
-            <p className="text-xs text-gray-400 text-center mt-6 italic">
-              Click role buttons to explore {stats.totalUK}+ specific job opportunities
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* IR35 Calculator Section */}
       <section id="ir35-calculator" className="py-16 md:py-24 bg-white">
@@ -638,9 +689,9 @@ export default async function FractionalJobsUKPage() {
               Compare your take-home pay inside vs outside IR35. Understand the tax implications of different working arrangements
               to make informed decisions about your fractional career structure.
             </p>
-            <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 max-w-2xl mx-auto">
-              <p className="text-sm text-yellow-200 leading-relaxed">
-                ⚠️ <strong>Important:</strong> This calculator provides estimates only. Always consult a qualified accountant or tax professional
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 max-w-2xl mx-auto">
+              <p className="text-sm text-amber-800 leading-relaxed">
+                <strong>Important:</strong> This calculator provides estimates only. Always consult a qualified accountant or tax professional
                 for actual IR35 status determination and tax advice specific to your circumstances.
               </p>
             </div>

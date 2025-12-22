@@ -18,7 +18,7 @@ interface NewsArticle {
 }
 
 interface RoleNewsProps {
-  category: 'Finance' | 'Marketing' | 'Engineering' | 'Operations' | 'HR' | 'Sales' | 'General' | 'Security' | 'Executive'
+  category: 'Finance' | 'Marketing' | 'Engineering' | 'Operations' | 'HR' | 'Sales' | 'General' | 'Security' | 'Executive' | 'Compliance' | 'Product'
   limit?: number
   title?: string
   showViewAll?: boolean
@@ -34,7 +34,9 @@ const categoryDisplayNames: Record<string, string> = {
   Sales: 'Sales & Revenue',
   General: 'Executive',
   Security: 'Security & CISO',
-  Executive: 'CEO & Leadership'
+  Executive: 'CEO & Leadership',
+  Compliance: 'Compliance & Regulatory',
+  Product: 'Product & CPO'
 }
 
 // Map article_type to badge

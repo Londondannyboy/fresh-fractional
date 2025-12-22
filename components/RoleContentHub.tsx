@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 interface RoleContentHubProps {
-  currentRole: 'cfo' | 'cto' | 'cmo' | 'coo' | 'ceo' | 'chro' | 'ciso';
+  currentRole: 'cfo' | 'cto' | 'cmo' | 'coo' | 'ceo' | 'chro' | 'ciso' | 'compliance' | 'product' | 'pm';
 }
 
 interface RoleLink {
@@ -20,6 +20,9 @@ export function RoleContentHub({ currentRole }: RoleContentHubProps) {
     { role: 'ceo', path: '/fractional-ceo-jobs-uk', label: 'CEO Jobs' },
     { role: 'chro', path: '/fractional-chro-jobs-uk', label: 'CHRO Jobs' },
     { role: 'ciso', path: '/fractional-ciso-jobs-uk', label: 'CISO Jobs' },
+    { role: 'compliance', path: '/fractional-compliance-jobs-uk', label: 'Compliance Jobs' },
+    { role: 'product', path: '/fractional-product-jobs-uk', label: 'Product Jobs' },
+    { role: 'pm', path: '/fractional-project-manager-jobs-uk', label: 'PM Jobs' },
   ];
 
   const roleGuides: RoleLink[] = [
@@ -45,6 +48,9 @@ export function RoleContentHub({ currentRole }: RoleContentHubProps) {
     { role: 'coo', path: '/fractional-coo-services', label: 'COO Services' },
     { role: 'chro', path: '/fractional-chro-services', label: 'CHRO Services' },
     { role: 'ciso', path: '/fractional-ciso-services', label: 'CISO Services' },
+    { role: 'ceo', path: '/fractional-ceo-services', label: 'CEO Services' },
+    { role: 'compliance', path: '/fractional-compliance-services', label: 'Compliance Services' },
+    { role: 'product', path: '/fractional-cpo-services', label: 'Product Services' },
   ];
 
   const interimRoles: RoleLink[] = [

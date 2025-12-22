@@ -64,17 +64,19 @@ async function getRelatedArticles(category: string | null, currentSlug: string, 
   }
 }
 
-// Get hub link for a category
+// Get hub link for a category - points to JOB HUBS for candidates
 function getCategoryHub(category: string | null): { label: string; href: string } | null {
   const hubs: Record<string, { label: string; href: string }> = {
-    Finance: { label: 'Finance Hub', href: '/fractional-cfo-jobs-uk' },
-    Marketing: { label: 'Marketing Hub', href: '/fractional-cmo-jobs-uk' },
-    Engineering: { label: 'Technology Hub', href: '/fractional-cto-jobs-uk' },
-    Operations: { label: 'Operations Hub', href: '/fractional-coo-jobs-uk' },
-    HR: { label: 'HR Hub', href: '/fractional-hr' },
-    'Project Management': { label: 'Project Management Hub', href: '/fractional-project-manager' },
-    Compliance: { label: 'Compliance Hub', href: '/fractional-compliance-fintech' },
-    Security: { label: 'Security Hub', href: '/fractional-ciso-jobs-uk' },
+    Finance: { label: 'Finance Jobs Hub', href: '/fractional-cfo-jobs-uk' },
+    Marketing: { label: 'Marketing Jobs Hub', href: '/fractional-cmo-jobs-uk' },
+    Engineering: { label: 'Technology Jobs Hub', href: '/fractional-cto-jobs-uk' },
+    Operations: { label: 'Operations Jobs Hub', href: '/fractional-coo-jobs-uk' },
+    HR: { label: 'HR Jobs Hub', href: '/fractional-hr-jobs-uk' },
+    'Project Management': { label: 'PM Jobs Hub', href: '/fractional-project-manager-jobs-uk' },
+    Compliance: { label: 'Compliance Jobs Hub', href: '/fractional-compliance-jobs-uk' },
+    Security: { label: 'Security Jobs Hub', href: '/fractional-ciso-jobs-uk' },
+    Product: { label: 'Product Jobs Hub', href: '/fractional-product-jobs-uk' },
+    Executive: { label: 'CEO Jobs Hub', href: '/fractional-ceo-jobs-uk' },
   }
   return category ? hubs[category] || null : null
 }
