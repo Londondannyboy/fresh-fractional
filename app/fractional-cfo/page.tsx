@@ -4,6 +4,8 @@ import { FAQ } from '@/components/FAQ'
 import { RoleCalculator } from '@/components/RoleCalculator'
 import { RoleNews } from '@/components/RoleNews'
 import { RoleHubHeader } from '@/components/RoleHubHeader'
+import { RoleSidebar } from '@/components/RoleSidebar'
+import { RoleContentHub } from '@/components/RoleContentHub'
 
 export const revalidate = 3600
 
@@ -68,850 +70,301 @@ export default function FractionalCFOGuidePage() {
       {/* Role Hub Header */}
       <RoleHubHeader role="cfo" />
 
-      {/* Table of Contents */}
-      <section className="py-16 bg-gray-50 border-y border-gray-200">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-8">In This Guide</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Link href="#guide" className="p-6 bg-white hover:bg-gray-100 hover:text-gray-900 transition-all group">
-              <div className="text-5xl font-black text-gray-200 group-hover:text-gray-700 mb-2">01</div>
-              <h3 className="text-lg font-bold mb-2">What is a Fractional CFO?</h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-300">Definition, responsibilities, and when to hire</p>
-            </Link>
-            <Link href="#vs-fulltime" className="p-6 bg-white hover:bg-gray-100 hover:text-gray-900 transition-all group">
-              <div className="text-5xl font-black text-gray-200 group-hover:text-gray-700 mb-2">02</div>
-              <h3 className="text-lg font-bold mb-2">Fractional vs Full-Time CFO</h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-300">Cost comparison and decision framework</p>
-            </Link>
-            <Link href="#when-to-hire" className="p-6 bg-white hover:bg-gray-100 hover:text-gray-900 transition-all group">
-              <div className="text-5xl font-black text-gray-200 group-hover:text-gray-700 mb-2">03</div>
-              <h3 className="text-lg font-bold mb-2">When to Hire</h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-300">8 scenarios where you need a fractional CFO</p>
-            </Link>
-            <Link href="#pricing" className="p-6 bg-white hover:bg-gray-100 hover:text-gray-900 transition-all group">
-              <div className="text-5xl font-black text-gray-200 group-hover:text-gray-700 mb-2">04</div>
-              <h3 className="text-lg font-bold mb-2">Pricing & Costs</h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-300">Day rates, retainers, and pricing models</p>
-            </Link>
-            <Link href="#become" className="p-6 bg-white hover:bg-gray-100 hover:text-gray-900 transition-all group">
-              <div className="text-5xl font-black text-gray-200 group-hover:text-gray-700 mb-2">05</div>
-              <h3 className="text-lg font-bold mb-2">How to Become One</h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-300">Career path and requirements</p>
-            </Link>
-            <Link href="#jobs" className="p-6 bg-white hover:bg-gray-100 hover:text-gray-900 transition-all group">
-              <div className="text-5xl font-black text-gray-200 group-hover:text-gray-700 mb-2">06</div>
-              <h3 className="text-lg font-bold mb-2">Find CFO Jobs</h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-300">Job boards and opportunities</p>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+        <div className="grid lg:grid-cols-4 gap-12">
+          {/* Main Content */}
+          <main className="lg:col-span-3 space-y-12">
+            
+            {/* Table of Contents */}
+            <section className="bg-gray-50 border border-gray-200 rounded-xl p-8">
+              <h2 className="text-2xl font-black text-gray-900 mb-6">In This Guide</h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                <Link href="#guide" className="flex items-center p-3 bg-white rounded-lg border border-gray-100 hover:border-blue-500 transition-colors group">
+                  <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold mr-3 text-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">1</span>
+                  <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900">What is a Fractional CFO?</span>
+                </Link>
+                <Link href="#vs-fulltime" className="flex items-center p-3 bg-white rounded-lg border border-gray-100 hover:border-blue-500 transition-colors group">
+                  <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold mr-3 text-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">2</span>
+                  <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900">Fractional vs Full-Time</span>
+                </Link>
+                <Link href="#when-to-hire" className="flex items-center p-3 bg-white rounded-lg border border-gray-100 hover:border-blue-500 transition-colors group">
+                  <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold mr-3 text-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">3</span>
+                  <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900">When to Hire</span>
+                </Link>
+                <Link href="#pricing" className="flex items-center p-3 bg-white rounded-lg border border-gray-100 hover:border-blue-500 transition-colors group">
+                  <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold mr-3 text-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">4</span>
+                  <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900">Pricing & Costs</span>
+                </Link>
+                <Link href="#become" className="flex items-center p-3 bg-white rounded-lg border border-gray-100 hover:border-blue-500 transition-colors group">
+                  <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold mr-3 text-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">5</span>
+                  <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900">How to Become One</span>
+                </Link>
+                <Link href="#jobs" className="flex items-center p-3 bg-white rounded-lg border border-gray-100 hover:border-blue-500 transition-colors group">
+                  <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold mr-3 text-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">6</span>
+                  <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900">Find CFO Jobs</span>
+                </Link>
+              </div>
+            </section>
 
-      {/* Latest News Section */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <RoleNews category="Finance" title="Latest CFO News & Insights" limit={3} />
+            {/* Latest News Section */}
+            <RoleNews category="Finance" title="Latest CFO News & Insights" limit={3} />
+
+            {/* Section 1: What is a Fractional CFO */}
+            <section id="guide" className="scroll-mt-24">
+              <div className="mb-8 pb-4 border-b border-gray-100">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 mb-2 block">Section 01</span>
+                <h2 className="text-3xl md:text-4xl font-black text-gray-900">What is a Fractional CFO?</h2>
+              </div>
+
+              <div className="prose prose-lg max-w-none text-gray-600">
+                <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8">
+                  <p className="text-xl font-semibold text-gray-900 mb-2">Definition</p>
+                  <p className="text-lg text-gray-700 mb-0">
+                    A <strong>Fractional CFO</strong> is an experienced Chief Financial Officer who provides strategic financial leadership to companies on a part-time basis—typically working 1-3 days per week. Unlike consultants, fractional CFOs become embedded members of your leadership team, managing your finance function and driving outcomes at 50-70% less cost than a full-time hire.
+                  </p>
+                </div>
+
+                <p className="leading-relaxed">
+                  Think of a fractional CFO as your company's senior financial leader—just not five days a week. They attend board meetings, manage your finance team, build investor relationships, oversee fundraising, and take full ownership of financial strategy and outcomes.
+                </p>
+
+                <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4">What Does a Fractional CFO Do?</h3>
+
+                <div className="grid md:grid-cols-2 gap-6 my-8 not-prose">
+                  <div className="bg-white border border-gray-200 p-6 rounded-lg">
+                    <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-center"><span className="text-blue-600 mr-2">✦</span> Strategic</h4>
+                    <ul className="space-y-2 text-gray-700 text-sm">
+                      <li>Financial strategy & planning</li>
+                      <li>Fundraising & investor relations</li>
+                      <li>Board reporting & governance</li>
+                      <li>M&A due diligence & integration</li>
+                    </ul>
+                  </div>
+                  <div className="bg-white border border-gray-200 p-6 rounded-lg">
+                    <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-center"><span className="text-green-600 mr-2">✦</span> Operational</h4>
+                    <ul className="space-y-2 text-gray-700 text-sm">
+                      <li>Cash flow management & forecasting</li>
+                      <li>Financial modeling & scenario planning</li>
+                      <li>Finance team leadership & hiring</li>
+                      <li>Systems implementation & process</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4">Typical Engagement Models</h3>
+
+                <div className="overflow-x-auto my-8 border rounded-lg">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="bg-gray-50 text-gray-900 border-b">
+                        <th className="p-4 text-left font-bold text-sm uppercase">Model</th>
+                        <th className="p-4 text-left font-bold text-sm uppercase">Time</th>
+                        <th className="p-4 text-left font-bold text-sm uppercase">Cost</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-gray-700 text-sm">
+                      <tr className="border-b">
+                        <td className="p-4 font-semibold">Day Rate</td>
+                        <td className="p-4">1-3 days/week</td>
+                        <td className="p-4">£700-£1,500/day</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-4 font-semibold">Retainer</td>
+                        <td className="p-4">Fixed monthly</td>
+                        <td className="p-4">£3k-£8k/month</td>
+                      </tr>
+                      <tr>
+                        <td className="p-4 font-semibold">Project</td>
+                        <td className="p-4">3-6 months</td>
+                        <td className="p-4">£15k-£50k</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            {/* Section 2: Fractional vs Full-Time CFO */}
+            <section id="vs-fulltime" className="scroll-mt-24">
+              <div className="mb-8 pb-4 border-b border-gray-100">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 mb-2 block">Section 02</span>
+                <h2 className="text-3xl md:text-4xl font-black text-gray-900">Fractional CFO vs Full-Time CFO</h2>
+              </div>
+
+              <div className="prose prose-lg max-w-none text-gray-600">
+                <p className="leading-relaxed">
+                  The choice between a fractional and full-time CFO comes down to three factors: <strong>time requirements, budget constraints, and business stage</strong>.
+                </p>
+
+                <div className="overflow-x-auto my-10 border rounded-lg shadow-sm">
+                  <table className="w-full border-collapse text-left">
+                    <thead>
+                      <tr className="bg-gray-900 text-white">
+                        <th className="p-4">Factor</th>
+                        <th className="p-4 bg-blue-600">Fractional CFO</th>
+                        <th className="p-4">Full-Time CFO</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white text-sm">
+                      <tr className="border-b">
+                        <td className="p-4 font-semibold">Annual Cost</td>
+                        <td className="p-4 text-blue-600 font-bold bg-blue-50">£36k-£120k</td>
+                        <td className="p-4 text-gray-600">£150k-£250k+</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-4 font-semibold">Commitment</td>
+                        <td className="p-4 bg-blue-50">1-3 days/week</td>
+                        <td className="p-4">5 days/week</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-4 font-semibold">Flexibility</td>
+                        <td className="p-4 bg-blue-50">High (Monthly)</td>
+                        <td className="p-4">Low (Permanent)</td>
+                      </tr>
+                      <tr>
+                        <td className="p-4 font-semibold">Experience</td>
+                        <td className="p-4 bg-blue-50">High (15+ yrs)</td>
+                        <td className="p-4">Varies</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-green-50 p-6 rounded-lg border border-green-100">
+                    <h4 className="font-bold text-green-800 mb-3">Choose Fractional If:</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>✓ Revenue is £1M-£20M</li>
+                      <li>✓ Pre-Series B funding</li>
+                      <li>✓ Need specific expertise (e.g. fundraising)</li>
+                      <li>✓ Want flexibility to scale</li>
+                    </ul>
+                  </div>
+                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h4 className="font-bold text-gray-800 mb-3">Choose Full-Time If:</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li>→ Revenue is £20M+</li>
+                      <li>→ Complex multi-entity / international</li>
+                      <li>→ Preparing for IPO</li>
+                      <li>→ Need 40+ hours/week coverage</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Section 3: When to Hire */}
+            <section id="when-to-hire" className="scroll-mt-24">
+              <div className="mb-8 pb-4 border-b border-gray-100">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 mb-2 block">Section 03</span>
+                <h2 className="text-3xl md:text-4xl font-black text-gray-900">When to Hire</h2>
+              </div>
+
+              <div className="prose prose-lg max-w-none text-gray-600">
+                <p className="leading-relaxed mb-8">
+                  Most companies hire a fractional CFO during critical growth phases or strategic events. Common scenarios include:
+                </p>
+
+                <div className="grid gap-4">
+                  {[
+                    { title: 'Fundraising', desc: 'Planning a seed or Series A round and need credible financials.' },
+                    { title: 'Rapid Growth', desc: 'Revenue growing 3x+ and founder finance can no longer keep up.' },
+                    { title: 'Cash Flow Issues', desc: 'Runway is <12 months or cash management needs discipline.' },
+                    { title: 'Board Demands', desc: 'Investors requiring professional reporting and strategic analysis.' },
+                    { title: 'M&A', desc: 'Buying a company or preparing to be acquired.' },
+                  ].map((item) => (
+                    <div key={item.title} className="flex gap-4 p-4 border rounded-lg bg-white hover:border-blue-300 transition-colors">
+                      <div className="w-1.5 bg-blue-500 rounded-full flex-shrink-0"></div>
+                      <div>
+                        <h4 className="font-bold text-gray-900">{item.title}</h4>
+                        <p className="text-sm text-gray-600 m-0">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Section 4: Pricing */}
+            <section id="pricing" className="scroll-mt-24">
+              <div className="mb-8 pb-4 border-b border-gray-100">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 mb-2 block">Section 04</span>
+                <h2 className="text-3xl md:text-4xl font-black text-gray-900">Pricing & Costs</h2>
+              </div>
+
+              <div className="prose prose-lg max-w-none text-gray-600">
+                <p>UK fractional CFO rates typically fall into these bands:</p>
+                
+                <div className="grid md:grid-cols-3 gap-4 my-8 not-prose">
+                  <div className="p-6 bg-white border border-gray-200 rounded-xl text-center">
+                    <div className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Junior</div>
+                    <div className="text-2xl font-black text-gray-900">£700-950</div>
+                    <div className="text-xs text-gray-500">per day</div>
+                  </div>
+                  <div className="p-6 bg-blue-50 border border-blue-200 rounded-xl text-center">
+                    <div className="text-sm font-bold text-blue-600 uppercase tracking-wider mb-2">Standard</div>
+                    <div className="text-2xl font-black text-gray-900">£950-1,250</div>
+                    <div className="text-xs text-gray-500">per day</div>
+                  </div>
+                  <div className="p-6 bg-white border border-gray-200 rounded-xl text-center">
+                    <div className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Senior</div>
+                    <div className="text-2xl font-black text-gray-900">£1,250+</div>
+                    <div className="text-xs text-gray-500">per day</div>
+                  </div>
+                </div>
+
+                <div className="bg-gray-900 text-white p-8 rounded-xl my-8 not-prose">
+                  <h3 className="text-xl font-bold mb-4">Calculate Your ROI</h3>
+                  <RoleCalculator role="cfo" className="bg-transparent p-0" />
+                </div>
+              </div>
+            </section>
+
+            {/* Section 5: Jobs & Hiring */}
+            <section id="jobs" className="scroll-mt-24">
+              <div className="mb-8 pb-4 border-b border-gray-100">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 mb-2 block">Section 05</span>
+                <h2 className="text-3xl md:text-4xl font-black text-gray-900">Find Jobs</h2>
+              </div>
+
+              <div className="bg-blue-50 p-8 rounded-xl border border-blue-100 mb-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Looking for a Fractional CFO?</h3>
+                <p className="text-gray-700 mb-6">Browse our curated list of opportunities or post a job to reach thousands of qualified experts.</p>
+                <div className="flex gap-4">
+                  <Link href="/fractional-cfo-jobs-uk" className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors">
+                    Browse Jobs
+                  </Link>
+                  <Link href="/handler/sign-up" className="px-6 py-3 bg-white text-blue-600 font-bold rounded-lg border border-blue-200 hover:bg-blue-50 transition-colors">
+                    Post a Job
+                  </Link>
+                </div>
+              </div>
+            </section>
+
+            <FAQ items={CFO_FAQS} title="Common Questions" />
+
+          </main>
+
+          {/* Sidebar */}
+          <aside className="lg:col-span-1 hidden lg:block">
+            <div className="sticky top-24 space-y-8">
+              <RoleSidebar role="cfo" relatedRoles={['FD', 'Controller', 'CEO']} />
+              
+              {/* Mini CTA */}
+              <div className="bg-gray-900 rounded-xl p-6 text-white text-center">
+                <div className="text-3xl mb-2">👋</div>
+                <h4 className="font-bold mb-2">Need help hiring?</h4>
+                <p className="text-sm text-gray-400 mb-4">We can match you with a vetted Fractional CFO in 48 hours.</p>
+                <Link href="/contact" className="block w-full py-2 bg-white text-gray-900 font-bold rounded hover:bg-gray-100 text-sm transition-colors">
+                  Get Matched
+                </Link>
+              </div>
+            </div>
+          </aside>
+        </div>
       </div>
 
-      {/* Section 1: What is a Fractional CFO */}
-      <section id="guide" className="py-20 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <div className="mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-2 block">Section 01</span>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900">What is a Fractional CFO?</h2>
-          </div>
-
-          <div className="prose prose-lg max-w-none">
-            <div className="bg-blue-950/20 border-l-4 border-blue-600 p-6 mb-8">
-              <p className="text-xl font-semibold text-gray-900 mb-2">Featured Snippet Definition</p>
-              <p className="text-lg text-gray-700 mb-0">
-                A <strong>Fractional CFO</strong> is an experienced Chief Financial Officer who provides strategic financial leadership to companies on a part-time basis—typically working 1-3 days per week. Unlike consultants, fractional CFOs become embedded members of your leadership team, managing your finance function and driving outcomes at 50-70% less cost than a full-time hire.
-              </p>
-            </div>
-
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Think of a fractional CFO as your company's senior financial leader—just not five days a week. They attend board meetings, manage your finance team, build investor relationships, oversee fundraising, and take full ownership of financial strategy and outcomes.
-            </p>
-
-            <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">What Does a Fractional CFO Do?</h3>
-
-            <div className="grid md:grid-cols-2 gap-6 my-8 not-prose">
-              <div className="bg-gray-50 p-6">
-                <h4 className="text-lg font-bold text-gray-900 mb-3">Strategic Responsibilities</h4>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Financial strategy & planning</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Fundraising & investor relations</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Board reporting & governance</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>M&A due diligence & integration</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="bg-gray-50 p-6">
-                <h4 className="text-lg font-bold text-gray-900 mb-3">Operational Responsibilities</h4>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Cash flow management & forecasting</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Financial modeling & scenario planning</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Finance team leadership & hiring</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Systems implementation & process improvement</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Typical Engagement Models</h3>
-
-            <div className="overflow-x-auto my-8">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-gray-50 text-gray-900">
-                    <th className="p-4 text-left">Model</th>
-                    <th className="p-4 text-left">Time Commitment</th>
-                    <th className="p-4 text-left">Typical Cost</th>
-                    <th className="p-4 text-left">Best For</th>
-                  </tr>
-                </thead>
-                <tbody className="text-gray-700">
-                  <tr className="border-b">
-                    <td className="p-4 font-semibold">Hourly</td>
-                    <td className="p-4">5-20 hours/month</td>
-                    <td className="p-4">£150-£500/hour</td>
-                    <td className="p-4">Advisory, specific projects</td>
-                  </tr>
-                  <tr className="border-b bg-gray-50">
-                    <td className="p-4 font-semibold">Day Rate</td>
-                    <td className="p-4">1-3 days/week</td>
-                    <td className="p-4">£700-£1,500/day</td>
-                    <td className="p-4">Ongoing strategic support</td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="p-4 font-semibold">Monthly Retainer</td>
-                    <td className="p-4">40-60 hours/month</td>
-                    <td className="p-4">£3,000-£8,000/month</td>
-                    <td className="p-4">Embedded leadership</td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="p-4 font-semibold">Project-Based</td>
-                    <td className="p-4">3-6 months</td>
-                    <td className="p-4">£15,000-£50,000</td>
-                    <td className="p-4">Fundraising, M&A, IPO prep</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="bg-gray-50 text-gray-900 p-8 my-10">
-              <p className="text-2xl font-bold mb-4">Want to learn more?</p>
-              <p className="text-lg text-gray-600 mb-6">Read our comprehensive guide on what fractional CFOs do, day-to-day responsibilities, and real-world examples.</p>
-              <Link href="/what-is-fractional-cfo" className="inline-block px-6 py-3 bg-white text-black font-bold uppercase tracking-wider hover:bg-gray-100 transition-colors">
-                Read Full Guide →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2: Fractional vs Full-Time CFO */}
-      <section id="vs-fulltime" className="py-20 md:py-28 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <div className="mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-2 block">Section 02</span>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900">Fractional CFO vs Full-Time CFO</h2>
-          </div>
-
-          <div className="prose prose-lg max-w-none">
-            <p className="text-xl text-gray-600 leading-relaxed">
-              The choice between a fractional and full-time CFO comes down to three factors: <strong>time requirements, budget constraints, and business stage</strong>. Here's how they compare.
-            </p>
-
-            <div className="overflow-x-auto my-10">
-              <table className="w-full border-collapse text-left">
-                <thead>
-                  <tr className="bg-gray-50 text-gray-900">
-                    <th className="p-4">Factor</th>
-                    <th className="p-4">Fractional CFO</th>
-                    <th className="p-4">Full-Time CFO</th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white">
-                  <tr className="border-b">
-                    <td className="p-4 font-semibold">Annual Cost</td>
-                    <td className="p-4 text-blue-600 font-bold">£36,000-£120,000</td>
-                    <td className="p-4 text-gray-600">£150,000-£250,000+</td>
-                  </tr>
-                  <tr className="border-b bg-gray-50">
-                    <td className="p-4 font-semibold">Time Commitment</td>
-                    <td className="p-4">1-3 days/week</td>
-                    <td className="p-4">5 days/week</td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="p-4 font-semibold">Flexibility</td>
-                    <td className="p-4 text-blue-600">Scale up/down monthly</td>
-                    <td className="p-4 text-gray-600">Fixed commitment</td>
-                  </tr>
-                  <tr className="border-b bg-gray-50">
-                    <td className="p-4 font-semibold">Notice Period</td>
-                    <td className="p-4 text-blue-600">30 days typical</td>
-                    <td className="p-4 text-gray-600">3-6 months</td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="p-4 font-semibold">Equity Required</td>
-                    <td className="p-4 text-blue-600">Rarely</td>
-                    <td className="p-4 text-gray-600">Often 0.5-2%</td>
-                  </tr>
-                  <tr className="border-b bg-gray-50">
-                    <td className="p-4 font-semibold">Start Timeline</td>
-                    <td className="p-4 text-blue-600">1-2 weeks</td>
-                    <td className="p-4 text-gray-600">3-6 months</td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="p-4 font-semibold">Experience Level</td>
-                    <td className="p-4 text-blue-600">Very senior (15+ years)</td>
-                    <td className="p-4">Varies (8+ years)</td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <td className="p-4 font-semibold">Best For</td>
-                    <td className="p-4">£1M-£20M revenue, project-based needs</td>
-                    <td className="p-4">£20M+ revenue, complex operations</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">When to Choose Fractional</h3>
-            <ul className="space-y-3 text-gray-700">
-              <li className="flex items-start">
-                <span className="mr-3 text-blue-600 font-bold">✓</span>
-                <span>You're pre-Series B or under £20M revenue</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-3 text-blue-600 font-bold">✓</span>
-                <span>You need CFO expertise for fundraising, M&A, or strategic projects</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-3 text-blue-600 font-bold">✓</span>
-                <span>Your finance function is relatively straightforward</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-3 text-blue-600 font-bold">✓</span>
-                <span>You want flexibility to scale up or down</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-3 text-blue-600 font-bold">✓</span>
-                <span>Budget constraints prevent full-time hire</span>
-              </li>
-            </ul>
-
-            <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">When to Choose Full-Time</h3>
-            <ul className="space-y-3 text-gray-700">
-              <li className="flex items-start">
-                <span className="mr-3 text-gray-400 font-bold">→</span>
-                <span>You're post-Series B or £20M+ revenue</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-3 text-gray-400 font-bold">→</span>
-                <span>You have complex multi-entity structures or international operations</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-3 text-gray-400 font-bold">→</span>
-                <span>You're preparing for IPO or require full-time governance</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-3 text-gray-400 font-bold">→</span>
-                <span>You need someone managing 40+ hours of operational finance work weekly</span>
-              </li>
-            </ul>
-
-            <div className="bg-gray-50 text-gray-900 p-8 my-10">
-              <p className="text-2xl font-bold mb-4">Need help deciding?</p>
-              <p className="text-lg text-gray-600 mb-6">Read our detailed comparison guide with real cost breakdowns and decision framework.</p>
-              <Link href="/fractional-cfo-vs-full-time" className="inline-block px-6 py-3 bg-white text-black font-bold uppercase tracking-wider hover:bg-gray-100 transition-colors">
-                Compare in Detail →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3: When to Hire */}
-      <section id="when-to-hire" className="py-20 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <div className="mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-2 block">Section 03</span>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900">When to Hire a Fractional CFO</h2>
-          </div>
-
-          <div className="prose prose-lg max-w-none">
-            <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              Most companies hire a fractional CFO during critical growth phases or strategic events. Here are the 8 most common scenarios:
-            </p>
-
-            <div className="grid gap-6 my-10">
-              <div className="bg-gray-50 p-8 border-l-4 border-gray-900">
-                <h3 className="text-xl font-black text-gray-900 mb-3 mt-0">1. Preparing for Fundraising</h3>
-                <p className="text-gray-700 mb-0">You're planning a seed, Series A, or growth round and need investor-ready financials, a compelling financial model, and someone who can speak credibly to VCs and angels.</p>
-              </div>
-
-              <div className="bg-gray-50 p-8 border-l-4 border-gray-900">
-                <h3 className="text-xl font-black text-gray-900 mb-3 mt-0">2. Rapid Growth Phase</h3>
-                <p className="text-gray-700 mb-0">Revenue is growing 3x+ year-over-year, you're hiring fast, and your founder-led finance function can't keep up. You need systems, processes, and strategic financial leadership.</p>
-              </div>
-
-              <div className="bg-gray-50 p-8 border-l-4 border-gray-900">
-                <h3 className="text-xl font-black text-gray-900 mb-3 mt-0">3. M&A Activity</h3>
-                <p className="text-gray-700 mb-0">You're acquiring companies, being acquired, or considering strategic partnerships. You need someone to lead due diligence, valuation, and integration.</p>
-              </div>
-
-              <div className="bg-gray-50 p-8 border-l-4 border-gray-900">
-                <h3 className="text-xl font-black text-gray-900 mb-3 mt-0">4. Cash Flow Crisis</h3>
-                <p className="text-gray-700 mb-0">Cash runway is &lt;12 months, you're burning faster than planned, or you need to extend your runway. A fractional CFO can implement cash management discipline and build credible forecasts.</p>
-              </div>
-
-              <div className="bg-gray-50 p-8 border-l-4 border-gray-900">
-                <h3 className="text-xl font-black text-gray-900 mb-3 mt-0">5. Board Demands Strategic Finance</h3>
-                <p className="text-gray-700 mb-0">Your investors want better reporting, unit economics analysis, scenario planning, or quarterly business reviews. You need someone who speaks their language.</p>
-              </div>
-
-              <div className="bg-gray-50 p-8 border-l-4 border-gray-900">
-                <h3 className="text-xl font-black text-gray-900 mb-3 mt-0">6. Scaling Finance Operations</h3>
-                <p className="text-gray-700 mb-0">You're moving from spreadsheets to proper FP&A, implementing NetSuite or Xero, building a finance team, or establishing financial controls and policies.</p>
-              </div>
-
-              <div className="bg-gray-50 p-8 border-l-4 border-gray-900">
-                <h3 className="text-xl font-black text-gray-900 mb-3 mt-0">7. International Expansion</h3>
-                <p className="text-gray-700 mb-0">You're opening in new markets, dealing with multi-currency complexity, international tax, transfer pricing, or setting up foreign entities.</p>
-              </div>
-
-              <div className="bg-gray-50 p-8 border-l-4 border-gray-900">
-                <h3 className="text-xl font-black text-gray-900 mb-3 mt-0">8. Temporary Gap Coverage</h3>
-                <p className="text-gray-700 mb-0">Your CFO left, is on leave, or you're in transition. You need immediate senior finance leadership while searching for the right full-time hire.</p>
-              </div>
-            </div>
-
-            <div className="bg-blue-950/20 border-l-4 border-blue-600 p-6 my-8">
-              <p className="text-lg font-semibold text-gray-900 mb-2">Quick Decision Framework</p>
-              <p className="text-gray-700 mb-0">If you answered "yes" to 2+ scenarios above, you likely need fractional CFO support. Most companies engage a fractional CFO for 6-18 months, then either transition to full-time or continue fractionally as needed.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 4: Pricing & Costs */}
-      <section id="pricing" className="py-20 md:py-28 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <div className="mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-2 block">Section 04</span>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900">Fractional CFO Pricing & Costs</h2>
-          </div>
-
-          <div className="prose prose-lg max-w-none">
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Fractional CFO pricing in the UK varies by experience level, industry complexity, and engagement model. Here's what to expect:
-            </p>
-
-            <h3 className="text-2xl font-black text-gray-900 mt-12 mb-6">Typical UK Pricing Ranges</h3>
-
-            <div className="grid md:grid-cols-3 gap-6 my-10 not-prose">
-              <div className="bg-white p-6 border-2 border-gray-200">
-                <div className="text-sm font-bold uppercase tracking-wider text-gray-600 mb-2">Junior CFO</div>
-                <div className="text-4xl font-black text-gray-900 mb-2">£700-£950</div>
-                <div className="text-sm text-gray-600 mb-4">per day</div>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• 8-12 years experience</li>
-                  <li>• Financial Controller background</li>
-                  <li>• Operational focus</li>
-                  <li>• Small companies (£1-5M)</li>
-                </ul>
-              </div>
-
-              <div className="bg-gray-50 text-gray-900 p-6 border-2 border-gray-900">
-                <div className="text-sm font-bold uppercase tracking-wider text-gray-600 mb-2">Mid-Level CFO</div>
-                <div className="text-4xl font-black mb-2">£950-£1,250</div>
-                <div className="text-sm text-gray-600 mb-4">per day</div>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li>• 12-18 years experience</li>
-                  <li>• Prior CFO role</li>
-                  <li>• Fundraising experience</li>
-                  <li>• Growing companies (£5-20M)</li>
-                </ul>
-              </div>
-
-              <div className="bg-white p-6 border-2 border-gray-200">
-                <div className="text-sm font-bold uppercase tracking-wider text-gray-600 mb-2">Senior CFO</div>
-                <div className="text-4xl font-black text-gray-900 mb-2">£1,250-£1,500+</div>
-                <div className="text-sm text-gray-600 mb-4">per day</div>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li>• 18+ years experience</li>
-                  <li>• Multiple CFO roles</li>
-                  <li>• IPO, PE, VC experience</li>
-                  <li>• Scale-ups (£20M+)</li>
-                </ul>
-              </div>
-            </div>
-
-            <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Cost Comparison: Real Numbers</h3>
-
-            <div className="bg-white p-8 my-8 border-2 border-gray-900">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-lg font-bold text-gray-900 mb-4">Fractional CFO (2 days/week)</h4>
-                  <div className="space-y-2 text-gray-700">
-                    <div className="flex justify-between">
-                      <span>Day rate (£1,050 avg)</span>
-                      <span className="font-semibold">£2,100/week</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Monthly cost (8-9 days)</span>
-                      <span className="font-semibold">£8,400-£9,450</span>
-                    </div>
-                    <div className="flex justify-between border-t pt-2">
-                      <span className="font-bold">Annual cost</span>
-                      <span className="font-bold text-blue-600">£100,800-£113,400</span>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-gray-900 mb-4">Full-Time CFO</h4>
-                  <div className="space-y-2 text-gray-700">
-                    <div className="flex justify-between">
-                      <span>Base salary</span>
-                      <span className="font-semibold">£150,000</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Bonus (20%)</span>
-                      <span className="font-semibold">£30,000</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Benefits & NI (15%)</span>
-                      <span className="font-semibold">£27,000</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Equity dilution</span>
-                      <span className="font-semibold">0.5-1.5%</span>
-                    </div>
-                    <div className="flex justify-between border-t pt-2">
-                      <span className="font-bold">Annual cost</span>
-                      <span className="font-bold text-gray-600">£207,000+</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-8 pt-8 border-t border-gray-200 text-center">
-                <div className="text-3xl font-black text-blue-600 mb-2">Save £93,600-£107,000 Annually</div>
-                <div className="text-gray-600">That's 45-52% cost reduction vs full-time</div>
-              </div>
-            </div>
-
-            <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Pricing Models Explained</h3>
-
-            <div className="space-y-4 my-8">
-              <details className="bg-white p-6 border border-gray-200">
-                <summary className="font-bold text-lg cursor-pointer">Hourly Rates (£150-£500/hour)</summary>
-                <p className="mt-4 text-gray-700">Best for ad-hoc advisory, board meeting attendance, or very small engagements. Less common for ongoing fractional work due to admin overhead.</p>
-              </details>
-
-              <details className="bg-white p-6 border border-gray-200">
-                <summary className="font-bold text-lg cursor-pointer">Day Rates (£700-£1,500/day) — Most Common</summary>
-                <p className="mt-4 text-gray-700">The standard model. You book 1-3 days per week, paying only for days worked. Provides predictability while allowing flexibility to scale up/down monthly.</p>
-              </details>
-
-              <details className="bg-white p-6 border border-gray-200">
-                <summary className="font-bold text-lg cursor-pointer">Monthly Retainers (£3,000-£10,000/month)</summary>
-                <p className="mt-4 text-gray-700">Fixed monthly fee for a defined scope (e.g., 40 hours, board reporting, fundraising support). Common for 6-12 month engagements with clear deliverables.</p>
-              </details>
-
-              <details className="bg-white p-6 border border-gray-200">
-                <summary className="font-bold text-lg cursor-pointer">Project-Based (£15,000-£75,000)</summary>
-                <p className="mt-4 text-gray-700">Fixed fee for specific projects like Series A raise (£25-50k), acquisition due diligence (£15-30k), or IPO readiness (£50-75k). Typically 3-6 month projects.</p>
-              </details>
-            </div>
-
-            <div className="bg-gray-50 text-gray-900 p-8 my-10">
-              <p className="text-2xl font-bold mb-4">Explore detailed pricing breakdowns</p>
-              <div className="space-y-4">
-                <Link href="/fractional-cfo-salary" className="block px-6 py-3 bg-white text-black font-bold text-center uppercase tracking-wider hover:bg-gray-100 transition-colors">
-                  Day Rates by Experience & Location →
-                </Link>
-                <Link href="/fractional-cfo-cost" className="block px-6 py-3 bg-white text-black font-bold text-center uppercase tracking-wider hover:bg-gray-100 transition-colors">
-                  Cost Calculator (Employer View) →
-                </Link>
-                <Link href="/fractional-cfo-hourly-rate" className="block px-6 py-3 bg-white text-black font-bold text-center uppercase tracking-wider hover:bg-gray-100 transition-colors">
-                  Hourly Rate Benchmarks →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Calculator Section */}
-      <section id="calculator" className="py-20 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <div className="mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-2 block">Interactive Tool</span>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900">Calculate Your Earnings or Savings</h2>
-          </div>
-          <RoleCalculator role="CFO" />
-        </div>
-      </section>
-
-      {/* Section 5: How to Become */}
-      <section id="become" className="py-20 md:py-28 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <div className="mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-2 block">Section 05</span>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900">How to Become a Fractional CFO</h2>
-          </div>
-
-          <div className="prose prose-lg max-w-none">
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Transitioning to fractional CFO work requires senior experience, a strong network, and the ability to sell and deliver results independently. Here's the typical path:
-            </p>
-
-            <h3 className="text-2xl font-black text-gray-900 mt-12 mb-6">Required Experience & Qualifications</h3>
-
-            <div className="bg-white p-8 my-8 border-l-4 border-gray-900">
-              <h4 className="text-xl font-bold text-gray-900 mb-4 mt-0">Minimum Requirements</h4>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="mr-3 text-blue-600 font-bold">✓</span>
-                  <span><strong>15+ years finance experience</strong> including senior leadership roles</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3 text-blue-600 font-bold">✓</span>
-                  <span><strong>Prior CFO or Finance Director role</strong> (or very senior Controller)</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3 text-blue-600 font-bold">✓</span>
-                  <span><strong>Track record in fundraising, M&A, or scaling</strong> companies</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3 text-blue-600 font-bold">✓</span>
-                  <span><strong>Strong communication skills</strong>—you'll pitch clients and present to boards</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3 text-blue-600 font-bold">✓</span>
-                  <span><strong>Self-starter mentality</strong>—you're running a solo business</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white p-8 my-8 border-l-4 border-blue-600">
-              <h4 className="text-xl font-bold text-gray-900 mb-4 mt-0">Helpful But Not Required</h4>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Professional qualifications (ACA, ACCA, CIMA, CPA, CMA)</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>VC, PE, or investment banking background</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Big 4 audit experience</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3">•</span>
-                  <span>Industry specialization (SaaS, FinTech, Healthcare, etc.)</span>
-                </li>
-              </ul>
-            </div>
-
-            <h3 className="text-2xl font-black text-gray-900 mt-12 mb-6">Step-by-Step Career Path</h3>
-
-            <div className="space-y-6 my-10">
-              <div className="flex gap-6">
-                <div className="flex-shrink-0 w-16 h-16 bg-gray-50 text-gray-900 flex items-center justify-center text-2xl font-black">1</div>
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Build Senior Finance Experience (10-15 years)</h4>
-                  <p className="text-gray-700">Start in audit, FP&A, or corporate finance. Progress to Finance Director or VP Finance. Get exposure to fundraising, M&A, board reporting, and strategic projects.</p>
-                </div>
-              </div>
-
-              <div className="flex gap-6">
-                <div className="flex-shrink-0 w-16 h-16 bg-gray-50 text-gray-900 flex items-center justify-center text-2xl font-black">2</div>
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Land Your First CFO Role</h4>
-                  <p className="text-gray-700">Join a startup, scale-up, or SME as CFO. Lead at least one major project (fundraise, acquisition, international expansion). Build credibility and a track record.</p>
-                </div>
-              </div>
-
-              <div className="flex gap-6">
-                <div className="flex-shrink-0 w-16 h-16 bg-gray-50 text-gray-900 flex items-center justify-center text-2xl font-black">3</div>
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Develop Specialized Expertise</h4>
-                  <p className="text-gray-700">Become known for something—SaaS metrics, fundraising, M&A, turnarounds, international expansion. This differentiates you in a crowded market.</p>
-                </div>
-              </div>
-
-              <div className="flex gap-6">
-                <div className="flex-shrink-0 w-16 h-16 bg-gray-50 text-gray-900 flex items-center justify-center text-2xl font-black">4</div>
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Build Your Network</h4>
-                  <p className="text-gray-700">Most fractional work comes through referrals. Cultivate relationships with VCs, PE firms, startup founders, recruiters, and other fractional executives who can refer overflow work.</p>
-                </div>
-              </div>
-
-              <div className="flex gap-6">
-                <div className="flex-shrink-0 w-16 h-16 bg-gray-50 text-gray-900 flex items-center justify-center text-2xl font-black">5</div>
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Land Your First Fractional Client</h4>
-                  <p className="text-gray-700">Start with one part-time client (often 1-2 days/week) while still employed, or take the leap full-time. Your first client typically comes from your network or a recruiter.</p>
-                </div>
-              </div>
-
-              <div className="flex gap-6">
-                <div className="flex-shrink-0 w-16 h-16 bg-gray-50 text-gray-900 flex items-center justify-center text-2xl font-black">6</div>
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">Build a Portfolio (2-4 clients)</h4>
-                  <p className="text-gray-700">Most fractional CFOs have 2-4 simultaneous clients. This diversifies income, spreads risk, and keeps work interesting. Each client gets 1-3 days/week.</p>
-                </div>
-              </div>
-            </div>
-
-            <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Typical Transition Timeline</h3>
-
-            <div className="bg-white p-8 my-8">
-              <div className="space-y-4 text-gray-700">
-                <div className="flex justify-between items-center pb-4 border-b">
-                  <span className="font-semibold">Years 0-10:</span>
-                  <span>Build foundation (Analyst → Manager → Senior Manager)</span>
-                </div>
-                <div className="flex justify-between items-center pb-4 border-b">
-                  <span className="font-semibold">Years 10-15:</span>
-                  <span>Finance Director / VP Finance roles</span>
-                </div>
-                <div className="flex justify-between items-center pb-4 border-b">
-                  <span className="font-semibold">Years 15-18:</span>
-                  <span>First CFO role at startup/SME</span>
-                </div>
-                <div className="flex justify-between items-center pb-4 border-b bg-blue-950/20 px-4 py-2">
-                  <span className="font-semibold">Year 18+:</span>
-                  <span className="font-bold">Transition to Fractional CFO</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 text-gray-900 p-8 my-10">
-              <p className="text-2xl font-bold mb-4">Ready to make the transition?</p>
-              <p className="text-lg text-gray-600 mb-6">Read our complete guide on becoming a fractional CFO, including how to price yourself, find clients, and build your practice.</p>
-              <Link href="/how-to-become-fractional-cfo" className="inline-block px-6 py-3 bg-white text-black font-bold uppercase tracking-wider hover:bg-gray-100 transition-colors">
-                Read Career Guide →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 6: Find Jobs */}
-      <section id="jobs" className="py-20 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <div className="mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-2 block">Section 06</span>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900">Find Fractional CFO Jobs</h2>
-          </div>
-
-          <div className="prose prose-lg max-w-none">
-            <p className="text-xl text-gray-600 leading-relaxed">
-              The fractional CFO job market is growing rapidly—up 50%+ year-over-year. Here's where to find opportunities and how to position yourself.
-            </p>
-
-            <h3 className="text-2xl font-black text-gray-900 mt-12 mb-6">Top Job Sources</h3>
-
-            <div className="grid gap-6 my-10 not-prose">
-              <div className="bg-gray-50 p-6 border-l-4 border-gray-900">
-                <h4 className="text-lg font-bold text-gray-900 mb-2">1. Fractional.Quest Job Board</h4>
-                <p className="text-gray-700 mb-4">720+ fractional CFO jobs updated daily. Filter by location, remote, experience level, and industry.</p>
-                <Link href="/fractional-cfo-jobs-uk" className="inline-block px-4 py-2 bg-gray-50 text-gray-900 font-bold text-sm uppercase tracking-wider hover:bg-gray-700">
-                  Browse CFO Jobs →
-                </Link>
-              </div>
-
-              <div className="bg-gray-50 p-6 border-l-4 border-blue-600">
-                <h4 className="text-lg font-bold text-gray-900 mb-2">2. Remote Fractional CFO Jobs</h4>
-                <p className="text-gray-700 mb-4">140+ remote fractional CFO roles—work from anywhere with UK, EU, or US companies.</p>
-                <Link href="/fractional-cfo-jobs-remote" className="inline-block px-4 py-2 bg-gray-50 text-gray-900 font-bold text-sm uppercase tracking-wider hover:bg-gray-700">
-                  View Remote Jobs →
-                </Link>
-              </div>
-
-              <div className="bg-gray-50 p-6">
-                <h4 className="text-lg font-bold text-gray-900 mb-3">3. Related Role Opportunities</h4>
-                <div className="space-y-3">
-                  <div>
-                    <Link href="/part-time-cfo-jobs-uk" className="font-semibold text-gray-900 hover:text-blue-600">Part-Time CFO Jobs (170/mo)</Link>
-                    <p className="text-sm text-gray-600">Similar to fractional but often W-2/PAYE employment</p>
-                  </div>
-                  <div>
-                    <Link href="/contract-cfo-jobs" className="font-semibold text-gray-900 hover:text-blue-600">Contract CFO Jobs (40/mo)</Link>
-                    <p className="text-sm text-gray-600">Fixed-term contracts, typically 6-18 months</p>
-                  </div>
-                  <div>
-                    <Link href="/fractional-controller-jobs" className="font-semibold text-gray-900 hover:text-blue-600">Fractional Controller Jobs (140/mo)</Link>
-                    <p className="text-sm text-gray-600">Step up from Controller to fractional CFO roles</p>
-                  </div>
-                  <div>
-                    <Link href="/interim-cfo" className="font-semibold text-gray-900 hover:text-blue-600">Interim CFO Jobs</Link>
-                    <p className="text-sm text-gray-600">Temporary full-time coverage during transitions</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <h3 className="text-2xl font-black text-gray-900 mt-12 mb-6">How to Stand Out</h3>
-
-            <div className="bg-white p-8 my-8 border-2 border-gray-900">
-              <ul className="space-y-4 text-gray-700">
-                <li className="flex items-start">
-                  <span className="mr-3 text-2xl">💼</span>
-                  <div>
-                    <strong className="text-gray-900">Specialize:</strong> "Fractional CFO for SaaS" beats "Fractional CFO" in a competitive market
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3 text-2xl">📊</span>
-                  <div>
-                    <strong className="text-gray-900">Quantify results:</strong> "Raised £15M Series B" &gt; "Supported fundraising"
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3 text-2xl">🎯</span>
-                  <div>
-                    <strong className="text-gray-900">Build thought leadership:</strong> LinkedIn posts, case studies, speaking at events
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3 text-2xl">🤝</span>
-                  <div>
-                    <strong className="text-gray-900">Network relentlessly:</strong> 80%+ of fractional work comes from referrals
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-3 text-2xl">⚡</span>
-                  <div>
-                    <strong className="text-gray-900">Move fast:</strong> Respond to opportunities within 24 hours—clients hire quickly
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Market Data: Fractional CFO Jobs</h3>
-
-            <div className="grid md:grid-cols-3 gap-6 my-8 not-prose">
-              <div className="bg-gray-50 p-6 text-center">
-                <div className="text-4xl font-black text-gray-900 mb-2">720/mo</div>
-                <div className="text-sm text-gray-600">Monthly job searches</div>
-              </div>
-              <div className="bg-gray-50 p-6 text-center">
-                <div className="text-4xl font-black text-blue-600 mb-2">+50%</div>
-                <div className="text-sm text-gray-600">YoY growth in "services"</div>
-              </div>
-              <div className="bg-gray-50 p-6 text-center">
-                <div className="text-4xl font-black text-gray-900 mb-2">140</div>
-                <div className="text-sm text-gray-600">Remote jobs monthly (+180% YoY)</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Resources & Tools Section */}
-      <section className="py-20 md:py-28 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-2 block">Resources</span>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900">Fractional CFO Tools & Resources</h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <Link href="/fractional-cfo-services" className="bg-white p-8 hover:bg-gray-100 hover:text-gray-900 transition-all group">
-              <h3 className="text-xl font-black mb-3">Hire a Fractional CFO</h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-600 mb-4">For companies looking to engage fractional CFO services</p>
-              <div className="text-sm font-bold uppercase tracking-wider">Learn More →</div>
-            </Link>
-
-            <Link href="/fractional-cfo-salary" className="bg-white p-8 hover:bg-gray-100 hover:text-gray-900 transition-all group">
-              <h3 className="text-xl font-black mb-3">Salary & Rates Guide</h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-600 mb-4">Comprehensive day rate and salary benchmarks by experience</p>
-              <div className="text-sm font-bold uppercase tracking-wider">View Rates →</div>
-            </Link>
-
-            <Link href="/2025-fractional-cfo-salary-report" className="bg-white p-8 hover:bg-gray-100 hover:text-gray-900 transition-all group">
-              <h3 className="text-xl font-black mb-3">2025 Salary Report</h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-600 mb-4">Annual market research and compensation trends</p>
-              <div className="text-sm font-bold uppercase tracking-wider">Download Report →</div>
-            </Link>
-
-            <Link href="/fractional-cfo-training" className="bg-white p-8 hover:bg-gray-100 hover:text-gray-900 transition-all group">
-              <h3 className="text-xl font-black mb-3">Training & Certification</h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-600 mb-4">Courses, programs, and skills development for aspiring fractionals</p>
-              <div className="text-sm font-bold uppercase tracking-wider">Explore Training →</div>
-            </Link>
-
-            <Link href="/fractional-cfo-community" className="bg-white p-8 hover:bg-gray-100 hover:text-gray-900 transition-all group">
-              <h3 className="text-xl font-black mb-3">Community & Reddit</h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-600 mb-4">Join discussions, share experiences, learn from peers</p>
-              <div className="text-sm font-bold uppercase tracking-wider">Join Community →</div>
-            </Link>
-
-            <Link href="/what-is-fractional-cfo" className="bg-white p-8 hover:bg-gray-100 hover:text-gray-900 transition-all group">
-              <h3 className="text-xl font-black mb-3">What is a Fractional CFO?</h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-600 mb-4">Comprehensive definition and role overview</p>
-              <div className="text-sm font-bold uppercase tracking-wider">Learn More →</div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <div className="mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-2 block">FAQ</span>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900">Frequently Asked Questions</h2>
-          </div>
-          <FAQ items={CFO_FAQS} title="" />
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-20 md:py-28 bg-gray-50 text-gray-900">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">Ready to Get Started?</h2>
-          <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-            Whether you're hiring a fractional CFO or becoming one, we have the resources and job board to help you succeed.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/fractional-cfo-services" className="px-8 py-4 bg-white text-black font-bold uppercase tracking-wider hover:bg-gray-100 transition-colors">
-              Hire a Fractional CFO
-            </Link>
-            <Link href="/fractional-cfo-jobs-uk" className="px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
-              Browse CFO Jobs
-            </Link>
-          </div>
-        </div>
-      </section>
+      <RoleContentHub currentRole="cfo" />
     </div>
   )
 }

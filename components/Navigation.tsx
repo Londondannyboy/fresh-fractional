@@ -1,29 +1,21 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AuthButtons } from './AuthButtons'
 
 export function Navigation() {
-  const [scrolled, setScrolled] = useState(false)
+  const scrolled = true
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
-    window.addEventListener('scroll', handleScroll)
-    handleScroll() // Set initial state
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   const navLinks = [
     { href: '/fractional-jobs-uk', label: 'Jobs' },
+    { href: '/destinations', label: 'Destinations' },
+    { href: '/fractional-property-ownership-uk', label: 'Property' },
     { href: '/frac', label: 'Talk to Frac' },
     { href: '/fractional-services', label: 'Services' },
-
     { href: '/fractional-jobs-articles', label: 'Resources' }
   ]
 
