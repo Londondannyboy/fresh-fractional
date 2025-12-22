@@ -8,12 +8,16 @@ import { RecommendedArticles } from '@/components/RecommendedArticles'
 import { PropertyOverlay } from '@/components/PropertyOverlay'
 import { JobSearch } from '@/components/JobSearch'
 
+import { CalculatorSkeleton } from '@/components/ui/Skeleton'
+import { SavedJobsCounter } from '@/components/SavedJobsCounter'
+import { JobPreviewTooltip } from '@/components/ui/JobPreviewTooltip'
+
 // Lazy loading for mobile performance
 const FractionalRateCalculatorUK = dynamic(() => import('@/components/FractionalRateCalculatorUK').then(mod => ({ default: mod.FractionalRateCalculatorUK })), {
-  loading: () => <div className="bg-gray-50 h-96 rounded-xl border border-gray-200" />,
+  loading: () => <CalculatorSkeleton />,
 })
 const IR35Calculator = dynamic(() => import('@/components/IR35Calculator').then(mod => ({ default: mod.IR35Calculator })), {
-  loading: () => <div className="bg-gray-50 h-96 rounded-xl border border-gray-200" />,
+  loading: () => <CalculatorSkeleton />,
 })
 
 export const revalidate = 3600 // Revalidate every hour
@@ -456,34 +460,44 @@ export default async function FractionalJobsUKPage() {
                   const estimatedRate = !job.compensation ? estimateRateByRole(job.role_category) : undefined
 
                   return (
-                    <Link key={job.id} href={`/fractional-job/${job.slug}`} className="flex">
-                      <JobCard
-                        jobId={job.id}
-                        title={job.normalized_title || job.title}
-                        company={job.company_name}
-                        location={job.location || 'UK'}
-                        isRemote={job.is_remote || job.workplace_type === 'Remote'}
-                        compensation={job.compensation}
-                        roleCategory={job.role_category}
-                        skills={job.skills_required || []}
-                        postedDaysAgo={postedDaysAgo}
-                        companyDomain={job.company_domain}
-                        description={job.description_snippet}
-                        jobSource={job.job_source || 'LinkedIn'}
-                        isSyndicated={job.is_syndicated ?? true}
-                        postedDate={postedDate || undefined}
-                        estimatedDayRate={estimatedRate}
-                        companyType={job.company_type as 'direct' | 'recruiter' | 'job_board' || 'recruiter'}
-                        appealSummary={job.appeal_summary}
-                        keyDeliverables={job.key_deliverables || []}
-                      />
-                    </Link>
+                    <JobPreviewTooltip
+                      key={job.id}
+                      title={job.normalized_title || job.title}
+                      company={job.company_name}
+                      keyDeliverables={job.key_deliverables || []}
+                      description={job.description_snippet}
+                      compensation={job.compensation || (estimatedRate ? `£${estimatedRate.min}-${estimatedRate.max}/day` : undefined)}
+                      isRemote={job.is_remote || job.workplace_type === 'Remote'}
+                    >
+                      <Link href={`/fractional-job/${job.slug}`} className="flex">
+                        <JobCard
+                          jobId={job.id}
+                          title={job.normalized_title || job.title}
+                          company={job.company_name}
+                          location={job.location || 'UK'}
+                          isRemote={job.is_remote || job.workplace_type === 'Remote'}
+                          compensation={job.compensation}
+                          roleCategory={job.role_category}
+                          skills={job.skills_required || []}
+                          postedDaysAgo={postedDaysAgo}
+                          companyDomain={job.company_domain}
+                          description={job.description_snippet}
+                          jobSource={job.job_source || 'LinkedIn'}
+                          isSyndicated={job.is_syndicated ?? true}
+                          postedDate={postedDate || undefined}
+                          estimatedDayRate={estimatedRate}
+                          companyType={job.company_type as 'direct' | 'recruiter' | 'job_board' || 'recruiter'}
+                          appealSummary={job.appeal_summary}
+                          keyDeliverables={job.key_deliverables || []}
+                        />
+                      </Link>
+                    </JobPreviewTooltip>
                   )
                 })}
               </div>
 
-              {/* Right Sidebar - Content Hub */}
-              <div className="lg:col-span-1 space-y-5">
+              {/* Right Sidebar - Content Hub (Sticky) */}
+              <div className="lg:col-span-1 space-y-5 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:scrollbar-thin">
                 {/* Rate Calculator Card */}
                 <Link
                   href="#rate-calculator"
@@ -524,6 +538,9 @@ export default async function FractionalJobsUKPage() {
                     Calculate tax →
                   </span>
                 </Link>
+
+                {/* Saved Jobs Counter */}
+                <SavedJobsCounter />
 
                 {/* CTA Card */}
                 <div className="bg-gray-900 rounded-xl p-5 text-center">
@@ -638,7 +655,7 @@ export default async function FractionalJobsUKPage() {
             </p>
             <p>
               The UK fractional jobs market has grown exponentially since 2020, with fractional executives now representing over 15% of
-              senior leadership appointments according to recent <a href="https://www.gov.uk/government/statistics" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">UK government employment statistics</a>.
+              senior leadership appointments according to recent <a href="https://www.gov.uk/government/statistics" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">UK government employment statistics</a>.
               This shift reflects fundamental changes in how businesses access executive talent and how experienced leaders structure their careers.
             </p>
             <p>
@@ -917,7 +934,7 @@ export default async function FractionalJobsUKPage() {
                 1-3 days per week per client—enabling businesses to access C-suite expertise without bearing the full cost of permanent employment.
               </p>
               <p className="mb-4">
-                According to <a href="https://www.ons.gov.uk" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Office for National Statistics data</a>,
+                According to <a href="https://www.ons.gov.uk" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Office for National Statistics data</a>,
                 the UK has seen a 127% increase in fractional executive appointments since 2019. This growth spans all major business hubs including
                 London, Manchester, Birmingham, Edinburgh, and Bristol, with remote fractional arrangements becoming increasingly common.
               </p>
@@ -938,7 +955,7 @@ export default async function FractionalJobsUKPage() {
               <div className="bg-white rounded-xl p-6">
                 <h4 className="text-lg font-bold text-gray-900 mb-3">Part-Time Employee</h4>
                 <p>Permanent reduced-hours position with single employer. Benefits and employment rights under UK law per
-                <a href="https://www.gov.uk/part-time-worker-rights" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline ml-1">government part-time worker rights</a>.</p>
+                <a href="https://www.gov.uk/part-time-worker-rights" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline ml-1">government part-time worker rights</a>.</p>
               </div>
             </div>
 
@@ -1084,7 +1101,7 @@ export default async function FractionalJobsUKPage() {
             <div>
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">IR35 and Fractional Executive Work</h3>
               <p className="mb-4">
-                Understanding IR35 legislation is critical for fractional executives operating in the UK. The <a href="https://www.gov.uk/guidance/understanding-off-payroll-working-ir35" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">HMRC IR35 rules</a> determine
+                Understanding IR35 legislation is critical for fractional executives operating in the UK. The <a href="https://www.gov.uk/guidance/understanding-off-payroll-working-ir35" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">HMRC IR35 rules</a> determine
                 whether a contractor should be treated as an employee for tax purposes. Properly structured fractional arrangements typically fall
                 outside IR35 due to multiple concurrent clients, control over delivery methods, and genuine business-to-business relationships.
               </p>
@@ -1116,7 +1133,7 @@ export default async function FractionalJobsUKPage() {
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Structuring Your Fractional Practice</h3>
               <p className="mb-4">
                 Most UK fractional executives operate through limited companies to optimize tax efficiency and maintain IR35 compliance.
-                According to <a href="https://www.gov.uk/set-up-limited-company" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Companies House guidance</a>,
+                According to <a href="https://www.gov.uk/set-up-limited-company" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Companies House guidance</a>,
                 forming a limited company provides professional credibility, tax planning opportunities, and clear separation between personal and business finances.
               </p>
 
@@ -1149,19 +1166,19 @@ export default async function FractionalJobsUKPage() {
               <p className="mb-4">
                 Fractional executives should ensure contracts clearly establish contractor status rather than employment. Key contractual elements include
                 defined deliverables rather than time-based obligations, notice periods appropriate for business relationships (typically 30-90 days),
-                and explicit acknowledgment of the right to work for other clients. The <a href="https://www.acas.org.uk" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Advisory, Conciliation and Arbitration Service (ACAS)</a> provides
+                and explicit acknowledgment of the right to work for other clients. The <a href="https://www.acas.org.uk" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Advisory, Conciliation and Arbitration Service (ACAS)</a> provides
                 guidance on distinguishing contractors from employees.
               </p>
 
-              <div className="bg-blue-950/30 border border-blue-800/30 rounded-xl p-6">
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
                 <h4 className="text-lg font-bold text-gray-900 mb-3">Essential Contract Clauses for Fractional Work</h4>
-                <div className="space-y-2 text-sm">
+                <div className="space-y-2 text-sm text-gray-700">
                   <p><strong className="text-gray-900">Scope of Services:</strong> Define specific deliverables and outcomes rather than hours worked</p>
                   <p><strong className="text-gray-900">Non-Exclusivity:</strong> Explicit confirmation of right to serve other clients</p>
                   <p><strong className="text-gray-900">Payment Terms:</strong> Day rate or project fee structure, typically net 30 days</p>
                   <p><strong className="text-gray-900">Intellectual Property:</strong> Clear ownership and licensing arrangements for work product</p>
                   <p><strong className="text-gray-900">Professional Indemnity:</strong> Specification of required insurance coverage (typically £1-2M)</p>
-                  <p><strong className="text-gray-900">Data Protection:</strong> GDPR compliance obligations per <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">ICO guidance</a></p>
+                  <p><strong className="text-gray-900">Data Protection:</strong> GDPR compliance obligations per <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">ICO guidance</a></p>
                 </div>
               </div>
             </div>
