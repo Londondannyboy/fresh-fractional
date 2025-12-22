@@ -6,6 +6,7 @@ import { RoleCalculator } from '@/components/RoleCalculator'
 import { DesktopOnly } from '@/components/DesktopOnly'
 import { IR35Calculator } from '@/components/IR35Calculator'
 import { RoleContentHub } from '@/components/RoleContentHub'
+import { RoleNews } from '@/components/RoleNews'
 import { FracSection } from '@/components/FracSection'
 import { EmbeddedJobBoard } from '@/components/EmbeddedJobBoard'
 
