@@ -285,7 +285,7 @@ export default function FractionalCDOServicesPage() {
             Tell us about your data challenges and we'll match you with pre-vetted fractional CDOs who have solved them before.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/handler/sign-up" className="px-10 py-5 bg-cyan-500 text-black font-bold uppercase tracking-wider hover:bg-cyan-400 transition-colors">
+            <Link href="/contact/companies" className="px-10 py-5 bg-cyan-500 text-black font-bold uppercase tracking-wider hover:bg-cyan-400 transition-colors">
               Find a Fractional CDO
             </Link>
             <Link href="/fractional-cdo-jobs-uk" className="px-10 py-5 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">

@@ -92,7 +92,7 @@ export default function FractionalMarketingAgencyPage() {
           <h2 className="text-4xl font-black mb-6">Get Fractional Marketing Support</h2>
           <p className="text-xl text-gray-600 mb-10">Tell us about your marketing needs and we'll match you with the right fractional marketing expertise.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/handler/sign-up" className="px-10 py-5 bg-amber-500 text-black font-bold uppercase tracking-wider hover:bg-amber-400 transition-colors">Get Started</Link>
+            <Link href="/contact/companies" className="px-10 py-5 bg-amber-500 text-black font-bold uppercase tracking-wider hover:bg-amber-400 transition-colors">Get Started</Link>
             <Link href="/fractional-marketing" className="px-10 py-5 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">Marketing Leadership</Link>
           </div>
         </div>

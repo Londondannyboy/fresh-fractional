@@ -75,7 +75,7 @@ export default function InterimCISOPage() {
           <h2 className="text-4xl font-black mb-6">Need an Interim CISO?</h2>
           <p className="text-xl text-gray-600 mb-10">Tell us about your security challenges and we'll help you find the right interim or fractional CISO.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/handler/sign-up" className="px-10 py-5 bg-red-500 text-white font-bold uppercase tracking-wider hover:bg-red-400 transition-colors">Find an Interim CISO</Link>
+            <Link href="/contact/companies" className="px-10 py-5 bg-red-500 text-white font-bold uppercase tracking-wider hover:bg-red-400 transition-colors">Find an Interim CISO</Link>
             <Link href="/fractional-ciso-services" className="px-10 py-5 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">Explore Fractional CISO</Link>
           </div>
         </div>

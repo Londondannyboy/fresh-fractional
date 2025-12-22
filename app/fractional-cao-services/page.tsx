@@ -199,7 +199,7 @@ export default function FractionalCAOServicesPage() {
             Find the right fractional analytics leader to transform your business with data.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/handler/sign-up" className="px-10 py-5 bg-white text-black font-bold uppercase tracking-wider hover:bg-gray-100 transition-colors">
+            <Link href="/contact/companies" className="px-10 py-5 bg-white text-black font-bold uppercase tracking-wider hover:bg-gray-100 transition-colors">
               Find a Fractional CAO
             </Link>
           </div>

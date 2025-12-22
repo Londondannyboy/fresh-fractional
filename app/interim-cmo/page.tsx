@@ -122,7 +122,7 @@ export default function InterimCMOPage() {
           <h2 className="text-4xl font-black mb-6">Need an Interim CMO?</h2>
           <p className="text-xl text-gray-600 mb-10">Tell us about your situation and we'll help you find the right interim or fractional CMO.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/handler/sign-up" className="px-10 py-5 bg-amber-500 text-black font-bold uppercase tracking-wider hover:bg-amber-400 transition-colors">Find an Interim CMO</Link>
+            <Link href="/contact/companies" className="px-10 py-5 bg-amber-500 text-black font-bold uppercase tracking-wider hover:bg-amber-400 transition-colors">Find an Interim CMO</Link>
             <Link href="/fractional-cmo-services" className="px-10 py-5 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">Explore Fractional CMO</Link>
           </div>
         </div>

@@ -795,7 +795,7 @@ export default async function InterimCeoPage() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              href="/handler/sign-up"
+              href="/contact/companies"
               className="px-10 py-5 bg-indigo-600 text-white font-bold uppercase tracking-wider hover:bg-indigo-700 transition-colors rounded-lg"
             >
               Create Profile

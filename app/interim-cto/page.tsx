@@ -122,7 +122,7 @@ export default function InterimCTOPage() {
           <h2 className="text-4xl font-black mb-6">Need an Interim CTO?</h2>
           <p className="text-xl text-gray-600 mb-10">Tell us about your situation and we'll help you find the right interim or fractional CTO.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/handler/sign-up" className="px-10 py-5 bg-blue-500 text-white font-bold uppercase tracking-wider hover:bg-blue-400 transition-colors">Find an Interim CTO</Link>
+            <Link href="/contact/companies" className="px-10 py-5 bg-blue-500 text-white font-bold uppercase tracking-wider hover:bg-blue-400 transition-colors">Find an Interim CTO</Link>
             <Link href="/fractional-cto-services" className="px-10 py-5 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">Explore Fractional CTO</Link>
           </div>
         </div>

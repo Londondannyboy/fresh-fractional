@@ -69,7 +69,7 @@ export function RoleSidebar({ role, relatedRoles = [] }: RoleSidebarProps) {
           We match companies with pre-vetted fractional {roleUpper}s.
         </p>
         <Link 
-          href="/contact" 
+          href="/contact/companies" 
           className="block w-full py-2.5 bg-white text-blue-600 text-center font-bold rounded-lg hover:bg-blue-50 transition-colors text-sm"
         >
           Contact Us

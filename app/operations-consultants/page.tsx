@@ -87,7 +87,7 @@ export default function OperationsConsultantsPage() {
           <h2 className="text-4xl font-black mb-6">Find an Operations Consultant</h2>
           <p className="text-xl text-gray-600 mb-10">Tell us about your operational needs and we'll match you with experienced operations professionals.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/handler/sign-up" className="px-10 py-5 bg-orange-500 text-black font-bold uppercase tracking-wider hover:bg-orange-400 transition-colors">Get Started</Link>
+            <Link href="/contact/companies" className="px-10 py-5 bg-orange-500 text-black font-bold uppercase tracking-wider hover:bg-orange-400 transition-colors">Get Started</Link>
             <Link href="/fractional-operations" className="px-10 py-5 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">Explore Operations Leadership</Link>
           </div>
         </div>

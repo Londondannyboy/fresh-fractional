@@ -292,7 +292,7 @@ export default function FractionalServicesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/handler/sign-up"
+              href="/contact/companies"
               className="px-10 py-5 bg-white text-gray-900 font-bold rounded-lg hover:bg-gray-100 transition-colors"
             >
               Get Started

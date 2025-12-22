@@ -86,7 +86,7 @@ export default function FractionalAgencyPage() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-black mb-6">Find Fractional Agency Support</h2>
           <p className="text-xl text-gray-600 mb-10">Tell us what agency expertise you need and we'll match you with the right fractional support.</p>
-          <Link href="/handler/sign-up" className="px-10 py-5 bg-violet-500 text-white font-bold uppercase tracking-wider hover:bg-violet-400 transition-colors inline-block">Get Started</Link>
+          <Link href="/contact/companies" className="px-10 py-5 bg-violet-500 text-white font-bold uppercase tracking-wider hover:bg-violet-400 transition-colors inline-block">Get Started</Link>
         </div>
       </section>
     </div>

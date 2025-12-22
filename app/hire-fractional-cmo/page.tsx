@@ -526,7 +526,7 @@ export default function HireFractionalCMOPage() {
             <Link href="/fractional-cmo-jobs-uk" className="px-10 py-5 bg-white text-blue-600 font-bold uppercase tracking-wider hover:bg-blue-50 transition-colors">
               Browse CMO Candidates
             </Link>
-            <Link href="/handler/sign-up" className="px-10 py-5 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-blue-600 transition-colors">
+            <Link href="/contact/companies" className="px-10 py-5 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-blue-600 transition-colors">
               Post Your Role
             </Link>
           </div>

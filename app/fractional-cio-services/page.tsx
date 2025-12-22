@@ -285,7 +285,7 @@ export default function FractionalCIOServicesPage() {
             Tell us about your IT challenges and we'll match you with pre-vetted fractional CIOs who have solved them before.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/handler/sign-up" className="px-10 py-5 bg-indigo-500 text-white font-bold uppercase tracking-wider hover:bg-indigo-400 transition-colors">
+            <Link href="/contact/companies" className="px-10 py-5 bg-indigo-500 text-white font-bold uppercase tracking-wider hover:bg-indigo-400 transition-colors">
               Find a Fractional CIO
             </Link>
             <Link href="/fractional-cio-jobs-uk" className="px-10 py-5 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">

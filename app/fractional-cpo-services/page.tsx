@@ -353,7 +353,7 @@ export default function FractionalCPOServicesPage() {
             Tell us about your product challenges and we'll match you with pre-vetted fractional CPOs who have solved them before.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/handler/sign-up" className="px-10 py-5 bg-purple-500 text-white font-bold uppercase tracking-wider hover:bg-purple-400 transition-colors">
+            <Link href="/contact/companies" className="px-10 py-5 bg-purple-500 text-white font-bold uppercase tracking-wider hover:bg-purple-400 transition-colors">
               Find a Fractional CPO
             </Link>
             <Link href="/fractional-cpo-jobs-uk" className="px-10 py-5 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">

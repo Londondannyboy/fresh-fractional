@@ -75,7 +75,7 @@ export default function InterimCHROPage() {
           <h2 className="text-4xl font-black mb-6">Need an Interim CHRO?</h2>
           <p className="text-xl text-gray-600 mb-10">Tell us about your situation and we'll help you find the right interim or fractional CHRO.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/handler/sign-up" className="px-10 py-5 bg-pink-500 text-white font-bold uppercase tracking-wider hover:bg-pink-400 transition-colors">Find an Interim CHRO</Link>
+            <Link href="/contact/companies" className="px-10 py-5 bg-pink-500 text-white font-bold uppercase tracking-wider hover:bg-pink-400 transition-colors">Find an Interim CHRO</Link>
             <Link href="/fractional-chro-services" className="px-10 py-5 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">Explore Fractional CHRO</Link>
           </div>
         </div>

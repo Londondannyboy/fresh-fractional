@@ -92,7 +92,7 @@ export default function FractionalFinanceAgencyPage() {
           <h2 className="text-4xl font-black mb-6">Get Fractional Finance Support</h2>
           <p className="text-xl text-gray-600 mb-10">Tell us about your financial needs and we'll match you with the right fractional finance expertise.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/handler/sign-up" className="px-10 py-5 bg-blue-950/200 text-white font-bold uppercase tracking-wider hover:bg-blue-400 transition-colors">Get Started</Link>
+            <Link href="/contact/companies" className="px-10 py-5 bg-blue-950/200 text-white font-bold uppercase tracking-wider hover:bg-blue-400 transition-colors">Get Started</Link>
             <Link href="/fractional-finance" className="px-10 py-5 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">Finance Leadership</Link>
           </div>
         </div>

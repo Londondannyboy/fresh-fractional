@@ -75,7 +75,7 @@ export default function InterimCPOPage() {
           <h2 className="text-4xl font-black mb-6">Need an Interim CPO?</h2>
           <p className="text-xl text-gray-600 mb-10">Tell us about your product challenges and we'll help you find the right interim or fractional CPO.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/handler/sign-up" className="px-10 py-5 bg-purple-500 text-white font-bold uppercase tracking-wider hover:bg-purple-400 transition-colors">Find an Interim CPO</Link>
+            <Link href="/contact/companies" className="px-10 py-5 bg-purple-500 text-white font-bold uppercase tracking-wider hover:bg-purple-400 transition-colors">Find an Interim CPO</Link>
             <Link href="/fractional-cpo-services" className="px-10 py-5 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">Explore Fractional CPO</Link>
           </div>
         </div>
