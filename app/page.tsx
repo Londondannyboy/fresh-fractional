@@ -373,6 +373,8 @@ export default async function Home() {
                 <li><Link href="/fractional-cto-jobs-uk" className="hover:text-gray-900 hover:underline">Fractional CTO Jobs</Link></li>
                 <li><Link href="/fractional-coo-jobs-uk" className="hover:text-gray-900 hover:underline">Fractional COO Jobs</Link></li>
                 <li><Link href="/fractional-cpo-jobs-uk" className="hover:text-gray-900 hover:underline">Fractional CPO Jobs</Link></li>
+                <li><Link href="/fractional-cro-jobs-uk" className="hover:text-gray-900 hover:underline">Fractional CRO Jobs</Link></li>
+                <li><Link href="/fractional-compliance-jobs-uk" className="hover:text-gray-900 hover:underline">Compliance Jobs</Link></li>
               </ul>
             </div>
             <div>
@@ -383,6 +385,8 @@ export default async function Home() {
                 <li><Link href="/fractional-cto-services" className="hover:text-gray-900 hover:underline">Hire a Fractional CTO</Link></li>
                 <li><Link href="/fractional-coo-services" className="hover:text-gray-900 hover:underline">Hire a Fractional COO</Link></li>
                 <li><Link href="/fractional-cpo-services" className="hover:text-gray-900 hover:underline">Hire a Fractional CPO</Link></li>
+                <li><Link href="/fractional-cro-services" className="hover:text-gray-900 hover:underline">Hire a Fractional CRO</Link></li>
+                <li><Link href="/fractional-compliance-services" className="hover:text-gray-900 hover:underline">Compliance Services</Link></li>
               </ul>
             </div>
             <div>

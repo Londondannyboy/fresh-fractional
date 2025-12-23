@@ -311,7 +311,47 @@ export default async function FractionalComplianceJobsUkPage() {
         </div>
       </section>
 
-      <RoleContentHub currentRole="compliance" /> 
+      {/* Compliance Cluster Links */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="mb-10">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-2 block">Explore More</span>
+            <h2 className="text-3xl font-black text-gray-900">Compliance Resources</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/compliance" className="group bg-white p-6 border border-gray-200 hover:border-slate-500 transition-colors rounded-xl">
+              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-slate-600">Compliance Hub</h3>
+              <p className="text-gray-600 text-sm">Everything about compliance careers and opportunities.</p>
+            </Link>
+            <Link href="/fractional-compliance-services" className="group bg-white p-6 border border-gray-200 hover:border-slate-500 transition-colors rounded-xl">
+              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-slate-600">Hire a Compliance Officer</h3>
+              <p className="text-gray-600 text-sm">Find vetted fractional compliance professionals.</p>
+            </Link>
+            <Link href="/interim-compliance-officer" className="group bg-white p-6 border border-gray-200 hover:border-slate-500 transition-colors rounded-xl">
+              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-slate-600">Interim Compliance</h3>
+              <p className="text-gray-600 text-sm">Full-time temporary compliance leadership.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Links */}
+      <section className="py-12 bg-white border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <span className="text-sm font-bold uppercase tracking-wider text-gray-400">Related</span>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/compliance" className="text-gray-700 hover:text-slate-600 font-medium transition-colors">Compliance Hub</Link>
+              <Link href="/fractional-compliance-services" className="text-gray-700 hover:text-slate-600 font-medium transition-colors">Compliance Services</Link>
+              <Link href="/part-time-compliance-jobs-uk" className="text-gray-700 hover:text-slate-600 font-medium transition-colors">Part-Time Compliance</Link>
+              <Link href="/fractional-compliance-fintech" className="text-gray-700 hover:text-slate-600 font-medium transition-colors">FinTech Compliance</Link>
+              <Link href="/fractional-mlro-uk" className="text-gray-700 hover:text-slate-600 font-medium transition-colors">MLRO Jobs</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <RoleContentHub currentRole="compliance" />
     </div>
   )
 }

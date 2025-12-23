@@ -311,8 +311,48 @@ export default async function FractionalCroJobsUkPage() {
         </div>
       </section>
 
-      <RoleContentHub currentRole="cmo" /> 
-      {/* Mapped to CMO for now as CRO isn't in role hub specifically, or I can add it later */}
+      {/* CRO Cluster Links */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="mb-10">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 mb-2 block">Explore More</span>
+            <h2 className="text-3xl font-black text-gray-900">Revenue & Sales Resources</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/cro" className="group bg-white p-6 border border-gray-200 hover:border-green-500 transition-colors rounded-xl">
+              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-green-600">CRO Hub</h3>
+              <p className="text-gray-600 text-sm">Everything about Chief Revenue Officer roles and careers.</p>
+            </Link>
+            <Link href="/fractional-cro-services" className="group bg-white p-6 border border-gray-200 hover:border-green-500 transition-colors rounded-xl">
+              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-green-600">Hire a Fractional CRO</h3>
+              <p className="text-gray-600 text-sm">Looking to hire? Find vetted fractional CROs for your revenue team.</p>
+            </Link>
+            <Link href="/sales" className="group bg-white p-6 border border-gray-200 hover:border-green-500 transition-colors rounded-xl">
+              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-green-600">All Sales Jobs</h3>
+              <p className="text-gray-600 text-sm">Browse all fractional sales and revenue leadership roles.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Links */}
+      <section className="py-12 bg-white border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <span className="text-sm font-bold uppercase tracking-wider text-gray-400">Related</span>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/cro" className="text-gray-700 hover:text-green-600 font-medium transition-colors">CRO Hub</Link>
+              <Link href="/fractional-cro-services" className="text-gray-700 hover:text-green-600 font-medium transition-colors">CRO Services</Link>
+              <Link href="/interim-cro" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Interim CRO</Link>
+              <Link href="/fractional-sales-director-jobs-uk" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Sales Director Jobs</Link>
+              <Link href="/sales" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Sales Hub</Link>
+              <Link href="/fractional-cmo-jobs-uk" className="text-gray-700 hover:text-green-600 font-medium transition-colors">CMO Jobs</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <RoleContentHub currentRole="cmo" />
     </div>
   )
 }
