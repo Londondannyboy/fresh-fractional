@@ -43,6 +43,7 @@ interface ClusteredForceGraphProps {
   userType: 'candidate' | 'client'
   initialData?: { nodes: ZepGraphNode[], edges: any[] }
   onNodeClick?: (node: GraphNode) => void
+  onAddNode?: (addFn: (node: GraphNode) => void) => void  // Expose addNode function to parent
   realtimeUpdates?: boolean
   className?: string
 }
@@ -108,6 +109,7 @@ export default function ClusteredForceGraph({
   userType,
   initialData,
   onNodeClick,
+  onAddNode,
   realtimeUpdates = true,
   className = ''
 }: ClusteredForceGraphProps) {
@@ -230,13 +232,12 @@ export default function ClusteredForceGraph({
     })
   }, [clusters])
 
-  // Expose addNode function to parent (via ref or callback)
+  // Expose addNode function to parent via callback prop
   useEffect(() => {
-    if (onNodeClick) {
-      // Store the addNode function for parent access
-      (window as any).addNodeToGraph = addNodeOptimistically
+    if (onAddNode) {
+      onAddNode(addNodeOptimistically)
     }
-  }, [addNodeOptimistically, onNodeClick])
+  }, [onAddNode, addNodeOptimistically])
 
   // ========================================================================
   // RENDER

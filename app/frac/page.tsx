@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { useUser } from '@stackframe/stack'
 import { VoiceProvider, useVoice } from '@humeai/voice-react'
 import Link from 'next/link'
-import { UserGraph } from '@/components/UserGraph'
+import ClusteredForceGraph from '@/components/ClusteredForceGraph'
 import { JobCard } from '@/components/JobCard'
 
 const CONFIG_ID = 'd57ceb71-4cf5-47e9-87cd-6052445a031c'
@@ -20,7 +20,7 @@ function setChatGroupId(userId: string, chatGroupId: string) {
   localStorage.setItem(`hume_chat_group_${userId}`, chatGroupId)
 }
 
-function VoiceInterface({ token, profile, userId, previousContext, isLoggedIn }: { token: string; profile: any; userId?: string; previousContext?: string; isLoggedIn: boolean }) {
+function VoiceInterface({ token, profile, userId, previousContext, isLoggedIn, onGraphRefresh, addNodeToGraph }: { token: string; profile: any; userId?: string; previousContext?: string; isLoggedIn: boolean; onGraphRefresh?: () => void; addNodeToGraph?: (node: any) => void }) {
   const {
     connect,
     disconnect,
@@ -50,6 +50,7 @@ function VoiceInterface({ token, profile, userId, previousContext, isLoggedIn }:
   const [toolCalls, setToolCalls] = useState<any[]>([])
   const [methodCActivity, setMethodCActivity] = useState<Array<{timestamp: string; status: string; intent?: string; confidence?: number}>>([])
   const [methodCAnalyzing, setMethodCAnalyzing] = useState(false)
+  const [confirmationSaving, setConfirmationSaving] = useState(false)  // Loading state for confirmation
 
   // Helper to add debug logs
   const addDebugLog = useCallback((message: string, type: 'info' | 'success' | 'error' | 'tool' = 'info') => {
@@ -138,73 +139,100 @@ function VoiceInterface({ token, profile, userId, previousContext, isLoggedIn }:
     }
   }, [userId, addDebugLog])
 
-  // Method C: Analyze with Pydantic AI (Python) + CopilotKit Confirmations
+  // Method C: Analyze with Pydantic AI via voice-to-graph coordinator
+  // This now uses the unified pipeline: Voice → Pydantic AI → ZEP (instant) → Confirmations
   const analyzePydanticAI = useCallback(async (transcript: string) => {
     if (!transcript || transcript.length < 10) return
 
     const timestamp = new Date().toLocaleTimeString()
     setMethodCAnalyzing(true)
     setMethodCActivity(prev => [...prev.slice(-5), { timestamp, status: 'analyzing' }])
-    addDebugLog('🐍 Method C: Pydantic AI analyzing...', 'tool')
+    addDebugLog('🐍 Voice-to-Graph: Processing transcript...', 'tool')
 
     try {
-      const response = await fetch('/api/copilot-agent', {
+      // Call the unified voice-to-graph coordinator (handles Pydantic AI + ZEP + confirmations)
+      const response = await fetch('/api/voice-to-graph', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ transcript, user_id: userId })
+        body: JSON.stringify({
+          userId: userId || 'anonymous',
+          transcript,
+          userType: 'candidate'
+        })
       })
 
-      // Check if response is OK before parsing JSON
       if (!response.ok) {
         setMethodCActivity(prev => [...prev.slice(-5), { timestamp, status: 'error' }])
         setMethodCAnalyzing(false)
-        addDebugLog(`⚠️ Method C: API error ${response.status}`, 'error')
+        addDebugLog(`⚠️ Voice-to-Graph: API error ${response.status}`, 'error')
         return
       }
 
-      // Check content-type to ensure it's JSON
       const contentType = response.headers.get('content-type')
       if (!contentType || !contentType.includes('application/json')) {
         setMethodCActivity(prev => [...prev.slice(-5), { timestamp, status: 'unavailable' }])
         setMethodCAnalyzing(false)
-        addDebugLog(`⚠️ Method C: Got ${contentType || 'HTML'} instead of JSON (endpoint may not be deployed)`, 'error')
+        addDebugLog(`⚠️ Voice-to-Graph: Got ${contentType || 'HTML'} instead of JSON`, 'error')
         return
       }
 
       const result = await response.json()
-      addDebugLog(`📊 Method C result: ${result.type || 'unknown'}`, 'info')
+      addDebugLog(`📊 Voice-to-Graph: extracted ${result.stats?.extracted || 0} entities`, 'info')
 
-      // Check if it's a confirmation request
-      if (result.type === 'confirmation_required') {
+      // Handle immediate nodes (high confidence, already written to ZEP)
+      if (result.immediateNodes?.length > 0) {
+        addDebugLog(`✅ Auto-added ${result.immediateNodes.length} items to graph`, 'success')
+        setMethodCActivity(prev => [...prev.slice(-5), {
+          timestamp,
+          status: 'nodes_added',
+          intent: `Added ${result.immediateNodes.length} items`
+        }])
+
+        // Trigger graph refresh since ZEP was updated
+        if (onGraphRefresh) {
+          onGraphRefresh()
+        }
+      }
+
+      // Handle confirmation requests (low confidence, need user approval)
+      if (result.confirmationRequests?.length > 0) {
+        const firstConfirmation = result.confirmationRequests[0]
+        addDebugLog(`✋ Confirmation needed: ${firstConfirmation.value}`, 'success')
+
+        setPydanticConfirmation({
+          type: 'confirmation_required',
+          action: 'update_preference',
+          message: firstConfirmation.reasoning,
+          data: {
+            preference_type: firstConfirmation.cluster,
+            values: [firstConfirmation.value]
+          },
+          user_id: userId,
+          confidence: firstConfirmation.confidence
+        })
+
         setMethodCActivity(prev => [...prev.slice(-5), {
           timestamp,
           status: 'confirmation_pending',
-          intent: result.action,
-          confidence: result.confidence || 0.95
+          intent: firstConfirmation.value,
+          confidence: firstConfirmation.confidence
         }])
-        addDebugLog(`✋ Method C: Confirmation requested - ${result.action}`, 'success')
-        setPydanticConfirmation({
-          ...result,
-          user_id: userId
-        })
-      } else {
-        setMethodCActivity(prev => [...prev.slice(-5), { timestamp, status: 'no_action_needed' }])
+      } else if (!result.immediateNodes?.length) {
+        setMethodCActivity(prev => [...prev.slice(-5), { timestamp, status: 'no_entities_found' }])
       }
 
-      // Check if it's job results
-      if (result.data?.type === 'job_results') {
-        addDebugLog(`🎯 Method C found ${result.data.jobs.length} jobs!`, 'success')
-        setPydanticJobs(result.data.jobs)
+      // Handle any errors from the pipeline
+      if (result.errors?.length > 0) {
+        addDebugLog(`⚠️ Pipeline errors: ${result.errors.join(', ')}`, 'error')
       }
 
       setMethodCAnalyzing(false)
     } catch (e: any) {
-      // Graceful failure - Methods A & B still work
       setMethodCActivity(prev => [...prev.slice(-5), { timestamp, status: 'error' }])
       setMethodCAnalyzing(false)
-      addDebugLog(`⚠️ Method C unavailable (${e.message || 'endpoint error'})`, 'error')
+      addDebugLog(`⚠️ Voice-to-Graph error: ${e.message || 'endpoint error'}`, 'error')
     }
-  }, [userId, addDebugLog])
+  }, [userId, addDebugLog, onGraphRefresh])
 
   // Debug: Log all status changes with timestamp
   useEffect(() => {
@@ -697,7 +725,9 @@ function VoiceInterface({ token, profile, userId, previousContext, isLoggedIn }:
                 {/* Action Buttons */}
                 <div className="flex gap-2">
                   <button
+                    disabled={confirmationSaving}
                     onClick={async () => {
+                      setConfirmationSaving(true)
                       try {
                         const response = await fetch('/api/confirm-action', {
                           method: 'POST',
@@ -711,23 +741,78 @@ function VoiceInterface({ token, profile, userId, previousContext, isLoggedIn }:
                         })
                         const result = await response.json()
                         if (result.success) {
-                          addDebugLog('✅ User confirmed action', 'success')
+                          addDebugLog('✅ Confirmed and saved to ZEP + Neon', 'success')
+
+                          // OPTIMISTIC UI: Add node to graph IMMEDIATELY
+                          if (addNodeToGraph && pydanticConfirmation.data) {
+                            const cluster = pydanticConfirmation.data.preference_type || 'preferences'
+                            const value = Array.isArray(pydanticConfirmation.data.values)
+                              ? pydanticConfirmation.data.values[0]
+                              : pydanticConfirmation.data.values
+
+                            // Map cluster to color
+                            const clusterColors: Record<string, string> = {
+                              skills: '#3B82F6',
+                              experience: '#10B981',
+                              career_interests: '#EC4899',
+                              preferences: '#F97316',
+                              locations: '#F97316',
+                              roles: '#EC4899',
+                              remote: '#F97316'
+                            }
+
+                            addNodeToGraph({
+                              id: `confirmed-${Date.now()}`,
+                              name: value,
+                              val: 20,
+                              color: clusterColors[cluster] || '#F97316',
+                              type: 'preference',
+                              cluster: cluster,
+                              pending: true,  // Shows yellow dashed border
+                              validated: false
+                            })
+                            addDebugLog(`✨ Added "${value}" to graph instantly!`, 'success')
+                          }
+
                           setMethodCActivity(prev => [...prev.slice(-5), {
                             timestamp: new Date().toLocaleTimeString(),
-                            status: 'confirmed',
+                            status: 'saved_to_graph',
                             intent: pydanticConfirmation.action
                           }])
+
+                          // Brief delay to show success state before dismissing
+                          setTimeout(() => {
+                            setPydanticConfirmation(null)
+                            setConfirmationSaving(false)
+                          }, 500)
+                        } else {
+                          addDebugLog('❌ Confirmation failed: ' + (result.error || result.message), 'error')
+                          setConfirmationSaving(false)
+                          // Don't dismiss on error - let user retry
                         }
                       } catch (err) {
-                        addDebugLog('❌ Confirmation failed', 'error')
+                        addDebugLog('❌ Confirmation error: ' + err, 'error')
+                        setConfirmationSaving(false)
                       }
-                      setPydanticConfirmation(null)
                     }}
-                    className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-medium hover:shadow-lg transition-all transform hover:scale-105"
+                    className={`flex-1 px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-medium transition-all transform ${
+                      confirmationSaving
+                        ? 'opacity-75 cursor-wait'
+                        : 'hover:shadow-lg hover:scale-105'
+                    }`}
                   >
-                    ✓ Confirm
+                    {confirmationSaving ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                        </svg>
+                        Saving...
+                      </span>
+                    ) : '✓ Confirm'}
                   </button>
                   <button
+                    disabled={confirmationSaving}
                     onClick={() => {
                       addDebugLog('❌ User rejected action', 'info')
                       setMethodCActivity(prev => [...prev.slice(-5), {
@@ -737,7 +822,9 @@ function VoiceInterface({ token, profile, userId, previousContext, isLoggedIn }:
                       }])
                       setPydanticConfirmation(null)
                     }}
-                    className="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition-colors"
+                    className={`flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium transition-colors ${
+                      confirmationSaving ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-300'
+                    }`}
                   >
                     ✗ Cancel
                   </button>
@@ -995,6 +1082,7 @@ export default function VoicePage() {
   const [profile, setProfile] = useState<any>(null)
   const [previousContext, setPreviousContext] = useState<string>('')
   const [error, setError] = useState<string | null>(null)
+  const [addNodeToGraph, setAddNodeToGraph] = useState<((node: any) => void) | null>(null)  // Function to add nodes optimistically
 
   // Fetch token
   useEffect(() => {
@@ -1131,26 +1219,50 @@ export default function VoicePage() {
               }}
               onMessage={handleHumeMessage}
             >
-              <VoiceInterface token={token} profile={profile} userId={user?.id} previousContext={previousContext} isLoggedIn={!!user} />
+              <VoiceInterface
+                token={token}
+                profile={profile}
+                userId={user?.id}
+                previousContext={previousContext}
+                isLoggedIn={!!user}
+                onGraphRefresh={() => {}}  // Kept for backwards compatibility
+                addNodeToGraph={addNodeToGraph || undefined}
+              />
             </VoiceProvider>
           )}
         </div>
 
-        {/* ZEP Knowledge Graph */}
+        {/* ZEP Knowledge Graph - Real-time updates with ClusteredForceGraph */}
         {user && (
-          <div className="bg-gray-50 rounded-2xl shadow-lg border border-gray-200 p-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-purple-900 rounded-lg flex items-center justify-center">
-                <svg className="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+          <div className="bg-black rounded-2xl shadow-lg border border-purple-500/30 overflow-hidden">
+            <div className="flex items-center justify-between gap-3 p-4 bg-gradient-to-r from-purple-900/50 to-pink-900/50 border-b border-purple-500/30">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center">
+                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-white">Your Knowledge Graph</h2>
+                  <p className="text-sm text-purple-300">Real-time skills, experience, and preferences from ZEP</p>
+                </div>
               </div>
-              <div>
-                <h2 className="text-xl font-bold text-white">Your Knowledge Graph</h2>
-                <p className="text-sm text-gray-400">Skills, experience, and connections from ZEP</p>
+              <div className="flex items-center gap-2 text-xs text-purple-300">
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span>Live • Real-time updates</span>
               </div>
             </div>
-            <UserGraph userId={user.id} />
+            <div className="h-[500px]">
+              <ClusteredForceGraph
+                userId={user.id}
+                userType="candidate"
+                realtimeUpdates={true}
+                onNodeClick={(node) => {
+                  console.log('[Graph] Clicked node:', node.name, node.type)
+                }}
+                onAddNode={(fn) => setAddNodeToGraph(() => fn)}
+              />
+            </div>
           </div>
         )}
 
