@@ -180,7 +180,7 @@ export default async function RemoteFractionalJobsPage() {
       <section id="jobs" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <EmbeddedJobBoard
-            defaultWorkplaceType="Remote"
+            defaultWorkType="Remote"
             title="Latest Remote Fractional Jobs"
             pageSlug="remote-fractional-jobs"
             jobsPerPage={12}
