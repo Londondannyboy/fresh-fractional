@@ -182,9 +182,15 @@ export default async function FractionalJobsLondonPage() {
     getLondonJobs()
   ])
 
-  // Generate fresh date for SEO - updates with each revalidation
-  const lastUpdated = new Date().toISOString()
-  const lastUpdatedDisplay = new Date().toLocaleDateString('en-GB', {
+  // Use the most recent job's posted date as "last updated"
+  // This reflects actual content freshness, not just render time
+  const mostRecentJob = (londonJobs as any[])[0]
+  const lastUpdatedDate = mostRecentJob?.posted_date
+    ? new Date(mostRecentJob.posted_date)
+    : new Date()
+
+  const lastUpdated = lastUpdatedDate.toISOString()
+  const lastUpdatedDisplay = lastUpdatedDate.toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
     year: 'numeric'
