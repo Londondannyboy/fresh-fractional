@@ -120,12 +120,12 @@ export default function FractionalCFOGuidePage() {
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8">
                   <p className="text-xl font-semibold text-gray-900 mb-2">Definition</p>
                   <p className="text-lg text-gray-700 mb-0">
-                    A <strong>Fractional CFO</strong> is an experienced Chief Financial Officer who provides strategic financial leadership to companies on a part-time basis—typically working 1-3 days per week. Unlike consultants, fractional CFOs become embedded members of your leadership team, managing your finance function and driving outcomes at 50-70% less cost than a full-time hire.
+                    A <strong>Fractional CFO</strong> is an experienced Chief Financial Officer who provides strategic financial leadership to companies on a part-time basis—typically working 1-3 days per week. According to <a href="https://www.scaleupinstitute.org.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">ScaleUp Institute research</a>, UK scale-ups increasingly rely on fractional executives for flexible access to senior expertise. Unlike consultants, fractional CFOs become embedded members of your leadership team, managing your finance function and driving outcomes at 50-70% less cost than a full-time hire.
                   </p>
                 </div>
 
                 <p className="leading-relaxed">
-                  Think of a fractional CFO as your company's senior financial leader—just not five days a week. They attend board meetings, manage your finance team, build investor relationships, oversee fundraising, and take full ownership of financial strategy and outcomes.
+                  Think of a fractional CFO as your company's senior financial leader—just not five days a week. As <a href="https://www.cipd.org/uk/knowledge/reports/flexible-working-trends/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CIPD flexible working research</a> shows, senior executives are increasingly embracing portfolio careers. They attend board meetings, manage your finance team, build investor relationships, oversee fundraising, and take full ownership of financial strategy and outcomes.
                 </p>
 
                 <h3 className="text-2xl font-bold text-gray-900 mt-12 mb-4">What Does a Fractional CFO Do?</h3>
@@ -262,7 +262,7 @@ export default function FractionalCFOGuidePage() {
 
               <div className="prose prose-lg max-w-none text-gray-600">
                 <p className="leading-relaxed mb-8">
-                  Most companies hire a fractional CFO during critical growth phases or strategic events. Common scenarios include:
+                  Most companies hire a fractional CFO during critical growth phases or strategic events. According to <a href="https://www.bvca.co.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">BVCA research</a>, PE-backed companies increasingly mandate fractional CFOs. The <a href="https://www.britishbusinessbank.co.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">British Business Bank</a> notes common scenarios include:
                 </p>
 
                 <div className="grid gap-4">
@@ -293,7 +293,7 @@ export default function FractionalCFOGuidePage() {
               </div>
 
               <div className="prose prose-lg max-w-none text-gray-600">
-                <p>UK fractional CFO rates typically fall into these bands:</p>
+                <p>UK fractional CFO rates typically fall into these bands. Professional bodies like <a href="https://www.icaew.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">ICAEW</a> and <a href="https://www.accaglobal.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">ACCA</a> qualified CFOs command premium rates. According to <a href="https://www.ons.gov.uk/employmentandlabourmarket" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">ONS data</a>, finance executives are among the highest-paid flexible workers:</p>
                 
                 <div className="grid md:grid-cols-3 gap-4 my-8 not-prose">
                   <div className="p-6 bg-white border border-gray-200 rounded-xl text-center">

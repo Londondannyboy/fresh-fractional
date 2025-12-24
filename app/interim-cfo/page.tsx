@@ -63,10 +63,10 @@ export default function InterimCFOPage() {
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">What is an Interim CFO?</h2>
           <div className="prose prose-lg prose-gray max-w-none">
             <p className="text-xl text-gray-600 leading-relaxed mb-6">
-              An <strong>Interim CFO</strong> is a temporary Chief Financial Officer who works full-time for a defined period—typically 3-12 months. Unlike fractional CFOs who work part-time across multiple companies, interim CFOs focus exclusively on one organisation during their engagement.
+              An <strong>Interim CFO</strong> is a temporary Chief Financial Officer who works full-time for a defined period—typically 3-12 months. According to <a href="https://www.cipd.org/uk/knowledge/reports/flexible-working-trends/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CIPD research</a>, interim executive appointments have grown significantly. Unlike fractional CFOs who work part-time across multiple companies, interim CFOs focus exclusively on one organisation during their engagement.
             </p>
             <p>
-              Interim CFOs are typically hired to fill leadership gaps, lead specific transformations, or navigate critical periods like M&A, restructuring, or CFO transitions.
+              Interim CFOs are typically hired to fill leadership gaps, lead specific transformations, or navigate critical periods like M&A, restructuring, or CFO transitions. The <a href="https://www.icaew.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">ICAEW</a> and <a href="https://www.accaglobal.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">ACCA</a> provide guidance on interim finance leadership standards. <a href="https://www.bvca.co.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">BVCA research</a> shows PE firms frequently deploy interim CFOs during portfolio company transitions.
             </p>
           </div>
         </div>
