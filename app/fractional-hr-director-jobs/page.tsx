@@ -7,6 +7,7 @@ import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { DesktopOnly } from '@/components/DesktopOnly'
 import { RoleCalculator } from '@/components/RoleCalculator'
 import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
+import { FAQ, HR_FAQS } from '@/components/FAQ'
 
 export const revalidate = 3600
 
@@ -224,8 +225,18 @@ export default async function FractionalHRDirectorJobsPage() {
         </section>
       </DesktopOnly>
 
+      {/* FAQ Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+          <FAQ faqs={HR_FAQS} title="" />
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-16 bg-gray-50 text-gray-900">
+      <section className="py-16 bg-white text-gray-900">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">Start Your Fractional HR Director Career</h2>
           <p className="text-gray-600 mb-8">Create your profile and get matched with companies seeking HR Directors.</p>
@@ -233,7 +244,7 @@ export default async function FractionalHRDirectorJobsPage() {
             <Link href="/handler/sign-up" className="px-8 py-4 bg-pink-500 text-white font-semibold hover:bg-pink-400 transition-colors">
               Create Profile
             </Link>
-            <Link href="/fractional-hr-director" className="px-8 py-4 border-2 border-white font-semibold hover:bg-white/10 transition-colors">
+            <Link href="/fractional-hr-director" className="px-8 py-4 border-2 border-gray-300 font-semibold hover:bg-gray-100 transition-colors">
               HR Director Guide
             </Link>
           </div>

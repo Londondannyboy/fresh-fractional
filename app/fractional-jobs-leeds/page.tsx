@@ -4,6 +4,7 @@ import { createDbQuery } from '@/lib/db'
 import { JobCard } from '@/components/JobCard'
 import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
+import { FAQ, LEEDS_FAQS } from '@/components/FAQ'
 
 export const revalidate = 3600
 
@@ -269,38 +270,12 @@ export default async function LeedsPage() {
       )}
 
       {/* FAQ */}
-      <section className="py-20 md:py-28 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Leeds FAQs</h2>
-          <div className="space-y-6">
-            <details className="group bg-white rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                How much do fractional executives earn in Leeds?
-                <span className="text-purple-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600">
-                Leeds fractional executives typically earn £600-£1,000 per day. Legal and financial services roles command premium rates, often comparable to Birmingham levels. The <a href="https://www.cipd.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CIPD</a> provides insights on executive compensation trends across the UK.
-              </p>
-            </details>
-            <details className="group bg-white rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                Is Leeds good for fractional tech roles?
-                <span className="text-purple-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600">
-                Yes - Leeds Digital Hub is thriving with 20% YoY growth in fractional tech positions. Companies like Sky Betting, NHS Digital, and numerous scale-ups hire fractional CTOs and tech leaders. The <a href="https://www.scaleupinstitute.org.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">ScaleUp Institute</a> highlights Yorkshire's strong scale-up community requiring flexible leadership.
-              </p>
-            </details>
-            <details className="group bg-white rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                Can I work with London clients from Leeds?
-                <span className="text-purple-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600">
-                Absolutely. Leeds is just 2hr 15min from London by train. Many fractional executives maintain a mixed client base, leveraging Leeds' lower costs while accessing London opportunities. The <a href="https://www.iod.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Institute of Directors</a> supports directors across Yorkshire with networking and professional development.
-              </p>
-            </details>
-          </div>
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Leeds Fractional Jobs FAQ
+          </h2>
+          <FAQ faqs={LEEDS_FAQS} title="" />
         </div>
       </section>
 

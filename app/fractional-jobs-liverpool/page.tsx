@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { createDbQuery } from '@/lib/db'
 import { JobCard } from '@/components/JobCard'
 import { JobsGraph3D } from '@/components/JobsGraph3D'
+import { FAQ, LIVERPOOL_FAQS } from '@/components/FAQ'
 
 export const revalidate = 3600
 
@@ -405,64 +406,12 @@ export default async function LiverpoolPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-600">Everything about fractional jobs in Liverpool</p>
-          </div>
-
-          <div className="space-y-6">
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                What is a fractional job in Liverpool?
-                <span className="text-red-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                A fractional job in Liverpool is a part-time executive role where you work with Liverpool-based companies 1-3 days per week. Liverpool's growing digital and creative sectors, supported by <a href="https://www.techuk.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">techUK</a>, make it an excellent market for fractional CFOs, CMOs, and CTOs.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                How much do fractional executives earn in Liverpool?
-                <span className="text-red-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Liverpool fractional executives typically earn £550-£1,000 per day. With the city's lower cost of living (40% less than London), take-home value is excellent. Most professionals earn £110,000-£180,000+ annually working with 2-4 clients, aligning with <a href="https://www.iod.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">IoD</a> guidance on executive portfolio careers.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                What's Baltic Triangle like for fractional work?
-                <span className="text-red-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Baltic Triangle is Liverpool's creative and tech hub with over 500 businesses. It's ideal for fractional CMOs and CTOs working with digital agencies, startups, and creative companies. The area has a vibrant, collaborative atmosphere, recognized by the <a href="https://www.britishchambers.org.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">British Chambers of Commerce</a> as a key innovation district.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                Can I combine Liverpool work with Manchester clients?
-                <span className="text-red-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Yes, many fractional executives work across the North West, combining Liverpool and Manchester clients. The cities are only 35 minutes apart by train, making it easy to serve both markets. The <a href="https://www.cbi.org.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CBI</a> highlights the North West corridor as a major economic zone for flexible working arrangements.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                Which industries hire fractional executives in Liverpool?
-                <span className="text-red-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Liverpool's key sectors include digital/tech, creative industries, life sciences (Knowledge Quarter), maritime/logistics, and fintech. The city is particularly strong for creative and marketing leadership roles, with strong support from organizations like <a href="https://www.techuk.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">techUK</a> and <a href="https://technation.io/about-us/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Tech Nation</a>.
-              </p>
-            </details>
-          </div>
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Liverpool Fractional Jobs FAQ
+          </h2>
+          <FAQ faqs={LIVERPOOL_FAQS} title="" />
         </div>
       </section>
 

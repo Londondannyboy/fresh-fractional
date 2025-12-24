@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { createDbQuery } from '@/lib/db'
 import { JobsGraph3D } from '@/components/JobsGraph3D'
+import { FAQ, CAMBRIDGE_FAQS } from '@/components/FAQ'
 
 export const revalidate = 3600
 
@@ -254,55 +255,13 @@ export default async function CambridgePage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-          </div>
-
-          <div className="space-y-6">
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                What is a fractional job in Cambridge?
-                <span className="text-cyan-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                A fractional job in Cambridge is a part-time executive role working 1-3 days per week. Cambridge's deep tech and biotech clusters create exceptional demand for fractional CTOs and CFOs with specialist expertise. The <a href="https://www.iod.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Institute of Directors</a> reports growing adoption of fractional leadership models.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                How much do fractional executives earn in Cambridge?
-                <span className="text-cyan-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Cambridge fractional executives earn £700-£1,200 per day - some of the highest rates outside London. Deep tech and biotech specialists can earn £150,000-£250,000+ annually, according to <a href="https://www.ons.gov.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">ONS</a> earnings data for the region.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                Why is Cambridge called Silicon Fen?
-                <span className="text-cyan-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Cambridge is called Silicon Fen because it hosts Europe's largest technology cluster with 4,500+ tech companies, £1.7bn+ annual VC investment, and more spinouts than any other UK university. <a href="https://www.techuk.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">techUK</a> recognizes Cambridge as a critical UK innovation hub.
-              </p>
-            </details>
-          </div>
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Cambridge Fractional Jobs FAQ
+          </h2>
+          <FAQ faqs={CAMBRIDGE_FAQS} title="" />
         </div>
-          <div className="mt-12 max-w-4xl mx-auto">
-            <p className="text-gray-700 leading-relaxed mb-4">
-              The region's business infrastructure is exceptional. <a href="https://www.cambridgeshirechamber.co.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Cambridgeshire Chambers of Commerce</a> supports local businesses, while the <a href="https://www.cbi.org.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CBI</a> tracks economic trends across the UK's key innovation clusters.
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              For fractional professionals, Cambridge offers unparalleled access to high-growth companies. Whether working with quantum computing startups, biotech scale-ups, or AI ventures, the breadth of opportunity is exceptional. The regional economy continues to attract <a href="https://www.british-business-bank.co.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">British Business Bank</a> backing for innovative businesses.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              Cambridge's premium day rates (£800-£1,200) reflect both the sophistication of clients and the specialized expertise required. For executives with deep tech or life sciences backgrounds, the region represents one of the UK's most lucrative markets for fractional careers, with strong support from professional bodies like <a href="https://www.cipd.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CIPD</a>.
-            </p>
-          </div>
       </section>
 
       {/* Internal Links */}

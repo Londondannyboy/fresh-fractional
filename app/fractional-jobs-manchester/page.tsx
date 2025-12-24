@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { createDbQuery } from '@/lib/db'
 import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
+import { FAQ, MANCHESTER_FAQS } from '@/components/FAQ'
 
 export const revalidate = 3600
 
@@ -280,43 +281,12 @@ export default async function ManchesterPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-          </div>
-
-          <div className="space-y-6">
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                What is a fractional job in Manchester?
-                <span className="text-red-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                A fractional job in Manchester is a part-time executive role working 1-3 days per week. Manchester's fintech and media clusters create strong demand for fractional CFOs and CMOs with commercial expertise. <a href="https://www.cipd.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CIPD</a> research shows fractional working is increasingly popular among senior professionals.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                How much do fractional executives earn in Manchester?
-                <span className="text-red-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Manchester fractional executives earn £700-£1,200 per day - competitive with London rates. With 2-4 clients, annual earnings of £140,000-£220,000+ are achievable. The <a href="https://www.iod.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Institute of Directors</a> provides resources for executives exploring portfolio careers.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                Why is Manchester called the Northern Powerhouse?
-                <span className="text-red-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Manchester is the Northern Powerhouse because it hosts 10,000+ digital jobs, £800m+ annual VC investment, and the UK's largest regional tech sector. It's the economic engine of the North. The <a href="https://www.britishchambers.org.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">British Chambers of Commerce</a> and <a href="https://www.cbi.org.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CBI</a> regularly highlight Manchester's economic contribution.
-              </p>
-            </details>
-          </div>
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Manchester Fractional Jobs FAQ
+          </h2>
+          <FAQ faqs={MANCHESTER_FAQS} title="" />
         </div>
       </section>
 

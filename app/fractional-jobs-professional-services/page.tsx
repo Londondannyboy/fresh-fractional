@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { createDbQuery } from '@/lib/db'
 import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
+import { FAQ, PROFESSIONAL_SERVICES_FAQS } from '@/components/FAQ'
 
 export const revalidate = 3600
 
@@ -357,38 +358,7 @@ export default async function ProfessionalServicesPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
           </div>
-
-          <div className="space-y-6">
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                What experience do I need for PS fractional roles?
-                <span className="text-gray-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Typically 15+ years in professional services with experience in partnerships, client service, and firm operations. Understanding of utilization rates, partner economics, and professional firm culture is essential.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                How much do PS fractional executives earn?
-                <span className="text-gray-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Professional services fractional executives earn £600-£1,100 per day. Specialists in digital transformation and legal/accounting tech command premium rates. Most work with 3-4 firms, earning £120,000-£170,000+ annually.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                Which PS firms hire fractional executives?
-                <span className="text-gray-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Mid-market firms (£5m-£50m revenue) are the primary market. They've outgrown partner-led operations but can't justify full C-suite. Growing boutiques and firms undergoing digital transformation also hire fractional executives.
-              </p>
-            </details>
-          </div>
+          <FAQ faqs={PROFESSIONAL_SERVICES_FAQS} title="" />
         </div>
       </section>
 

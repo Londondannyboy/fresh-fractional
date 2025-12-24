@@ -226,6 +226,120 @@ export const BIRMINGHAM_FAQS: FAQItem[] = [
   },
 ]
 
+export const LEEDS_FAQS: FAQItem[] = [
+  {
+    question: 'How much do fractional executives earn in Leeds?',
+    answer: 'Leeds fractional executives typically earn £600-£1,000 per day. The city\'s strong legal and financial services sectors offer competitive rates, often comparable to Birmingham levels. With 2-4 clients, annual earnings of £120,000-£200,000+ are achievable.',
+  },
+  {
+    question: 'What industries hire fractional executives in Leeds?',
+    answer: 'Leeds has exceptional demand in legal services (UK\'s largest legal sector outside London), financial services, digital/tech, and healthcare. The Leeds Digital Hub is growing rapidly, creating strong demand for fractional CTOs and CMOs.',
+  },
+  {
+    question: 'Can I work remotely from Leeds with London clients?',
+    answer: 'Yes. Leeds is just 2hr 15min from London by train, making it practical to serve London clients while benefiting from Yorkshire\'s lower living costs. Many fractional executives maintain a mixed portfolio of local and London-based clients.',
+  },
+  {
+    question: 'How do Leeds rates compare to London?',
+    answer: 'Leeds rates are typically 25-35% lower than London (£600-£1,000 vs £800-£1,500), but Yorkshire\'s cost of living is 40-50% lower. This means comparable or better purchasing power while enjoying better work-life balance.',
+  },
+]
+
+export const BELFAST_FAQS: FAQItem[] = [
+  {
+    question: 'How much do fractional executives earn in Belfast?',
+    answer: 'Belfast fractional executives typically earn £500-£900 per day. While lower than mainland UK rates, Northern Ireland\'s cost of living is 55% less than London, meaning exceptional real-world value. Annual earnings of £90,000-£150,000+ are typical.',
+  },
+  {
+    question: 'What industries hire fractional executives in Belfast?',
+    answer: 'Belfast has world-class demand in cyber security (Europe\'s largest cluster with 100+ companies), fintech, legal tech, and life sciences. Global companies like Proofpoint, Rapid7, and BlackBerry have major operations creating fractional CTO and CISO opportunities.',
+  },
+  {
+    question: 'Are fractional roles in Belfast mostly remote?',
+    answer: 'Many Belfast fractional roles offer hybrid working, with 1-2 days per week in-person and the rest remote. The city\'s compact size means short commutes, and some executives also serve Dublin or UK mainland clients remotely.',
+  },
+  {
+    question: 'How do Belfast rates compare to Dublin?',
+    answer: 'Belfast rates are typically 30-40% lower than Dublin, but cost of living is also 40% lower. Belfast offers access to similar quality clients (fintech, cyber security) with significantly better value and less competition than Dublin.',
+  },
+]
+
+export const CAMBRIDGE_FAQS: FAQItem[] = [
+  {
+    question: 'How much do fractional executives earn in Cambridge?',
+    answer: 'Cambridge fractional executives earn £700-£1,200 per day, among the highest rates outside London. Deep tech and biotech specialists can earn £150,000-£250,000+ annually. Rates reflect the sophistication of clients and specialized expertise required.',
+  },
+  {
+    question: 'What industries hire fractional executives in Cambridge?',
+    answer: 'Cambridge excels in biotech/life sciences (UK\'s largest cluster), AI/ML, deep tech, quantum computing, and medtech. The 900+ university spinouts create constant demand for fractional CFOs (fundraising/IPO expertise) and CTOs (technical/scientific leadership).',
+  },
+  {
+    question: 'Do I need biotech experience for Cambridge fractional roles?',
+    answer: 'Many roles require sector-specific experience, particularly in life sciences, deep tech, or research commercialization. Understanding complex funding rounds, regulatory pathways (FDA/EMA), and IP-led business models is highly valued.',
+  },
+  {
+    question: 'Is Cambridge suitable for fractional CFO work?',
+    answer: 'Exceptionally. Cambridge has the highest concentration of VC-backed companies outside London, with £1.7bn+ invested annually. Fractional CFOs with fundraising, due diligence, and IPO-readiness experience are in very high demand.',
+  },
+]
+
+export const OXFORD_FAQS: FAQItem[] = [
+  {
+    question: 'How much do fractional executives earn in Oxford?',
+    answer: 'Oxford fractional executives earn £700-£1,100 per day. Life sciences and space tech specialists can earn £140,000-£220,000+ annually working with 2-4 clients. Rates reflect Oxford\'s research-intensive, high-value client base.',
+  },
+  {
+    question: 'What industries hire fractional executives in Oxford?',
+    answer: 'Oxford leads in life sciences (AstraZeneca vaccine cluster), space tech (Harwell Campus with ESA), AI/ML, medtech, and cleantech. The 200+ university spinouts valued at £13bn+ require fractional leadership to commercialize breakthrough research.',
+  },
+  {
+    question: 'What is Harwell Campus?',
+    answer: 'Harwell is the UK\'s leading science and innovation campus, hosting ESA, Diamond Light Source, and 100+ space and healthcare tech companies. It\'s creating exceptional demand for fractional CTOs and CFOs with deep tech and scientific backgrounds.',
+  },
+  {
+    question: 'How does Oxford compare to Cambridge for fractional work?',
+    answer: 'Both offer premium rates and world-class research-led companies. Cambridge is slightly larger (more tech/AI), Oxford excels in life sciences and space tech. Both require specialized sector expertise and offer similar earning potential (£700-£1,200/day).',
+  },
+]
+
+export const LIVERPOOL_FAQS: FAQItem[] = [
+  {
+    question: 'How much do fractional executives earn in Liverpool?',
+    answer: 'Liverpool fractional executives earn £550-£1,000 per day. With 40% lower cost of living than London, purchasing power is excellent. Annual earnings of £110,000-£180,000+ are typical working with 2-4 clients across digital, creative, and life sciences sectors.',
+  },
+  {
+    question: 'What industries hire fractional executives in Liverpool?',
+    answer: 'Liverpool excels in digital/tech (7,000+ businesses), creative industries (Baltic Triangle with 500+ companies), life sciences (Knowledge Quarter), maritime/logistics, and fintech. The creative sector particularly drives demand for fractional CMOs and commercial leaders.',
+  },
+  {
+    question: 'Is Baltic Triangle good for fractional work?',
+    answer: 'Exceptional. Baltic Triangle is Liverpool\'s creative and tech hub with 500+ businesses including digital agencies, SaaS startups, and creative companies. It\'s ideal for fractional CMOs and CTOs, with a collaborative, startup-friendly atmosphere.',
+  },
+  {
+    question: 'Can I combine Liverpool and Manchester clients?',
+    answer: 'Yes, very common. Liverpool and Manchester are 35 minutes apart by train, making it practical to serve both markets. Many fractional executives build portfolios spanning the North West corridor, maximizing opportunities and rates.',
+  },
+]
+
+export const NEWCASTLE_FAQS: FAQItem[] = [
+  {
+    question: 'How much do fractional executives earn in Newcastle?',
+    answer: 'Newcastle fractional executives earn £500-£950 per day. With 50% lower cost of living than London, value is exceptional. Annual earnings of £100,000-£160,000+ are typical, with strong purchasing power and quality of life.',
+  },
+  {
+    question: 'What industries hire fractional executives in Newcastle?',
+    answer: 'Newcastle is strong in tech/digital (1,000+ companies), gaming (Ubisoft, Sumo Digital, 50+ studios), life sciences, energy/renewables, and fintech. The gaming sector creates particularly strong demand for fractional CTOs and CMOs.',
+  },
+  {
+    question: 'What is Newcastle Helix?',
+    answer: 'Newcastle Helix is a £350m innovation district focused on urban science, data, and ageing research. It combines world-class research with commercial spinouts, creating fractional opportunities in data science, healthtech, and research commercialization.',
+  },
+  {
+    question: 'Are fractional roles in Newcastle mostly remote?',
+    answer: 'Many Newcastle roles are hybrid (1-2 days per week in-person, rest remote). The city\'s compact size means short commutes. Some executives also serve clients across the North East or remotely for London-based companies.',
+  },
+]
+
 // Industry-based FAQs
 export const TECH_FAQS: FAQItem[] = [
   {
@@ -439,5 +553,61 @@ export const COO_SERVICE_FAQS: FAQItem[] = [
   {
     question: 'What experience should a Fractional COO have?',
     answer: 'Look for: 15+ years of operations experience with senior leadership roles; experience scaling companies similar to yours; track record of building systems and processes; cross-functional experience (operations touches everything); project management and implementation skills; and change management expertise.',
+  },
+]
+
+// HR-focused FAQs
+export const HR_FAQS: FAQItem[] = [
+  {
+    question: 'What is a Fractional HR Director?',
+    answer: 'A Fractional HR Director is an experienced HR leader who works with companies on a part-time basis, typically 1-3 days per week. They provide strategic people leadership, build HR infrastructure, and handle complex employee relations without the cost of a full-time HR Director hire.',
+  },
+  {
+    question: 'How much do Fractional HR jobs pay in the UK?',
+    answer: 'Fractional HR day rates in the UK typically range from £700 to £1,300 per day, depending on experience and location. London-based roles often command £900-£1,300/day, while regional positions average £700-£1,000/day. Annual earnings for fractional HR professionals working with multiple clients can range from £100,000 to £200,000+.',
+  },
+  {
+    question: 'What qualifications do I need for Fractional HR jobs?',
+    answer: 'Successful Fractional HR candidates typically have CIPD Level 7 qualification, 12-15+ years of HR experience with at least 5 years in senior leadership roles. Key requirements include expertise in UK employment law, experience building HR functions from scratch, strong employee relations skills, and proven ability to work at board level.',
+  },
+  {
+    question: 'What do Fractional HR Directors do?',
+    answer: 'Fractional HR Directors develop people strategy, build HR infrastructure (policies, handbooks, HRIS), handle complex employee relations cases, lead talent acquisition, manage performance frameworks, ensure employment law compliance, and advise leadership on organisational development. They provide strategic HR leadership without full-time overhead.',
+  },
+  {
+    question: 'How many days per week do Fractional HR professionals work?',
+    answer: 'Most Fractional HR engagements involve 1-3 days per week per client. Many fractional HR professionals work with 2-4 clients simultaneously, totaling 3-5 working days per week. The intensity often varies based on company needs—increasing during restructuring or growth phases and reducing during steady-state periods.',
+  },
+  {
+    question: 'What industries hire Fractional HR in the UK?',
+    answer: 'The highest demand for Fractional HR comes from tech scale-ups, professional services firms, VC/PE-backed companies, healthcare and life sciences, and financial services. Companies with 30-150 employees frequently hire fractional HR to professionalise people operations without the cost of a full-time CHRO.',
+  },
+]
+
+// Professional Services-focused FAQs
+export const PROFESSIONAL_SERVICES_FAQS: FAQItem[] = [
+  {
+    question: 'What are fractional jobs in professional services?',
+    answer: 'Fractional jobs in professional services are part-time executive roles helping consulting firms, law firms, accounting practices, and advisory businesses. Fractional executives provide strategic leadership in areas like operations, finance, technology, and business development without the cost of full-time C-suite hires.',
+  },
+  {
+    question: 'How much do professional services fractional executives earn?',
+    answer: 'Professional services fractional executives earn £600-£1,100 per day depending on role and expertise. Fractional CFOs command £800-£1,100/day, Fractional COOs £700-£1,000/day, and Fractional CTOs £750-£1,100/day. Most work with 3-4 firms simultaneously, earning £120,000-£170,000+ annually.',
+  },
+  {
+    question: 'Why do professional services firms hire fractional executives?',
+    answer: 'Professional services firms need specialist executive expertise that traditional partnership paths don\'t develop—financial planning, technology implementation, marketing, and operational excellence. Mid-market firms (£5m-£50m) particularly benefit from fractional executives who provide senior leadership at a fraction of full-time cost.',
+  },
+  {
+    question: 'What experience do I need for PS fractional roles?',
+    answer: 'Typically 15+ years in professional services with experience in partnerships, client service delivery, and firm operations. Understanding of utilization rates, realization metrics, partner economics, and professional firm culture is essential. Multi-firm experience across law, accounting, or consulting is highly valued.',
+  },
+  {
+    question: 'Which professional services firms hire fractional executives?',
+    answer: 'Mid-market firms (£5m-£50m revenue) are the primary market—they\'ve outgrown partner-led operations but can\'t justify full C-suite salaries. Growing boutique consultancies, law firms undergoing digital transformation, and accounting practices implementing new technology also frequently hire fractional leadership.',
+  },
+  {
+    question: 'How is working with PS firms different from other sectors?',
+    answer: 'Professional services require understanding of billable hours, partnership dynamics, and consensus-based decision making. Unlike corporate hierarchies, you can\'t mandate change—you must build partner buy-in. Success requires fluency in PS metrics (utilization, realization, leverage) and respect for professional culture.',
   },
 ]

@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { createDbQuery } from '@/lib/db'
 import { JobsGraph3D } from '@/components/JobsGraph3D'
+import { FAQ, OXFORD_FAQS } from '@/components/FAQ'
 
 export const revalidate = 3600
 
@@ -240,43 +241,12 @@ export default async function OxfordPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-          </div>
-
-          <div className="space-y-6">
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                What is a fractional job in Oxford?
-                <span className="text-indigo-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                A fractional job in Oxford is a part-time executive role working 1-3 days per week. Oxford's life sciences and deep tech clusters create exceptional demand for fractional CFOs and CTOs. Learn more about flexible working from the <a href="https://www.cipd.org/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CIPD</a>.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                How much do fractional executives earn in Oxford?
-                <span className="text-indigo-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Oxford fractional executives earn £700-£1,100 per day. Life sciences and space tech specialists can earn £140,000-£220,000+ annually working with 2-4 clients. For salary benchmarking, see <a href="https://www.ons.gov.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">ONS</a> data.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                What is Harwell Campus?
-                <span className="text-indigo-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Harwell Campus is the UK's leading science and innovation campus with ESA, Diamond Light Source, and 100+ space and healthcare tech companies. It's creating huge demand for fractional tech leadership, as evidenced by <a href="https://www.cbi.org.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CBI</a> innovation reports.
-              </p>
-            </details>
-          </div>
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Oxford Fractional Jobs FAQ
+          </h2>
+          <FAQ faqs={OXFORD_FAQS} title="" />
         </div>
       </section>
 

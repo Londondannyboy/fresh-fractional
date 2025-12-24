@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { createDbQuery } from '@/lib/db'
 import { JobsGraph3D } from '@/components/JobsGraph3D'
+import { FAQ, BELFAST_FAQS } from '@/components/FAQ'
 
 export const revalidate = 3600
 
@@ -261,43 +262,12 @@ export default async function BelfastPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-          </div>
-
-          <div className="space-y-6">
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                What is a fractional job in Belfast?
-                <span className="text-blue-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                A fractional job in Belfast is a part-time executive role working 1-3 days per week. Belfast's cyber security and fintech clusters make it ideal for fractional CTOs and CFOs. <a href="https://www.iod.com/news/news/articles/Fractional-executives-the-new-leadership-model/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Institute of Directors</a> highlights the growing fractional executive trend.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                How much do fractional executives earn in Belfast?
-                <span className="text-blue-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Belfast fractional executives earn £500-£900 per day. With 55% lower cost of living than London, take-home value is exceptional. Most earn £90,000-£150,000+ annually. <a href="https://www.cipd.org/uk/knowledge/factsheets/pay-salary-structures-factsheet/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CIPD salary surveys</a> provide benchmarking data for executive roles.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                Why is Belfast good for tech fractional roles?
-                <span className="text-blue-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Belfast has Europe's largest cyber security cluster with 100+ companies. Global tech firms like Proofpoint and Rapid7 have major operations here, creating excellent fractional CTO and CISO opportunities. <a href="https://www.cbi.org.uk/about-the-cbi/in-the-regions/northern-ireland/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CBI Northern Ireland</a> represents the region's major employers and tracks sector trends.
-              </p>
-            </details>
-          </div>
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Belfast Fractional Jobs FAQ
+          </h2>
+          <FAQ faqs={BELFAST_FAQS} title="" />
         </div>
       </section>
 

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { createDbQuery } from '@/lib/db'
 import { JobsGraph3D } from '@/components/JobsGraph3D'
 import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
+import { FAQ, BIRMINGHAM_FAQS } from '@/components/FAQ'
 
 export const revalidate = 3600
 
@@ -285,43 +286,12 @@ export default async function BirminghamPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-          </div>
-
-          <div className="space-y-6">
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                What is a fractional job in Birmingham?
-                <span className="text-blue-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                A fractional job in Birmingham is a part-time executive role working 1-3 days per week. Birmingham's manufacturing and financial services sectors create strong demand for fractional CFOs and COOs with operational expertise. The <a href="https://www.iod.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Institute of Directors</a> reports growing adoption of fractional leadership models among West Midlands businesses.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                How much do fractional executives earn in Birmingham?
-                <span className="text-blue-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Birmingham fractional executives earn £650-£1,100 per day. With 2-4 clients, annual earnings of £120,000-£200,000+ are achievable—competitive rates with lower living costs than London. The <a href="https://www.cbi.org.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CBI</a> notes that Birmingham offers excellent value for senior talent compared to other major UK cities.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                How will HS2 affect Birmingham fractional jobs?
-                <span className="text-blue-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                HS2 will put Birmingham 45 minutes from London, making it practical to serve clients in both cities. This is already driving business relocations and creating exceptional fractional opportunities. <a href="https://www.british-business-bank.co.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">British Business Bank</a> research shows increased investment in West Midlands scaleups anticipating improved connectivity.
-              </p>
-            </details>
-          </div>
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Birmingham Fractional Jobs FAQ
+          </h2>
+          <FAQ faqs={BIRMINGHAM_FAQS} title="" />
         </div>
       </section>
 

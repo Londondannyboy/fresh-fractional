@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { createDbQuery } from '@/lib/db'
 import { JobCard } from '@/components/JobCard'
 import { JobsGraph3D } from '@/components/JobsGraph3D'
+import { FAQ, NEWCASTLE_FAQS } from '@/components/FAQ'
 
 export const revalidate = 3600
 
@@ -271,43 +272,12 @@ export default async function NewcastlePage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-          </div>
-
-          <div className="space-y-6">
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                What is a fractional job in Newcastle?
-                <span className="text-slate-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                A fractional job in Newcastle is a part-time executive role working 1-3 days per week. Newcastle's growing tech and gaming sectors make it ideal for fractional CTOs and CMOs. The <a href="https://www.iod.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Institute of Directors</a> reports increasing adoption of fractional leadership models across UK businesses.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                How much do fractional executives earn in Newcastle?
-                <span className="text-slate-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Newcastle fractional executives earn £500-£950 per day. With 50% lower cost of living than London, take-home value is excellent. Most earn £100,000-£160,000+ annually. The <a href="https://www.cbi.org.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CBI</a> notes that regional cities offer strong value propositions for both businesses and executives.
-              </p>
-            </details>
-
-            <details className="group bg-gray-50 rounded-xl p-6 cursor-pointer">
-              <summary className="flex justify-between items-center font-bold text-lg text-gray-900 list-none">
-                Which industries hire fractional executives in Newcastle?
-                <span className="text-slate-700 group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">
-                Key industries include tech/digital, gaming, life sciences, energy, and fintech. The gaming sector (Ubisoft, Sumo Digital) is particularly strong for fractional leadership. The <a href="https://www.britishchambers.org.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">British Chambers of Commerce</a> highlights the North East's diversifying economy as a driver for specialist executive talent.
-              </p>
-            </details>
-          </div>
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Newcastle Fractional Jobs FAQ
+          </h2>
+          <FAQ faqs={NEWCASTLE_FAQS} title="" />
         </div>
       </section>
 
