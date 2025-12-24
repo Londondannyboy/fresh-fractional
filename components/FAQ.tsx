@@ -12,9 +12,10 @@ interface FAQProps {
   faqs?: FAQItem[]  // Alias for backwards compatibility
   title?: string
   className?: string
+  skipSchema?: boolean  // Set to true if page has its own FAQPage schema
 }
 
-export function FAQ({ items, faqs, title = 'Frequently Asked Questions', className = '' }: FAQProps) {
+export function FAQ({ items, faqs, title = 'Frequently Asked Questions', className = '', skipSchema = false }: FAQProps) {
   // Support both 'items' and 'faqs' prop names
   const faqItems = items || faqs || []
 
@@ -40,11 +41,13 @@ export function FAQ({ items, faqs, title = 'Frequently Asked Questions', classNa
 
   return (
     <section className={`${className}`}>
-      {/* JSON-LD structured data for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {/* JSON-LD structured data for SEO - skip if page has its own FAQPage schema */}
+      {!skipSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
 
       {title && (
         <h2 className="text-3xl font-bold text-gray-900 mb-8">{title}</h2>
