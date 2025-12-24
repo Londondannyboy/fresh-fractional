@@ -27,19 +27,14 @@ const nextConfig: NextConfig = {
         permanent: true, // 301 redirect for SEO
       },
       {
-        source: '/fractional-jobs-london',
-        destination: '/fractional-jobs-uk',
-        permanent: true, // 301 redirect for SEO
-      },
-      {
         source: '/uk-fractional-jobs-uk-london-fractional-jobs-london',
-        destination: '/fractional-jobs-uk',
-        permanent: true, // 301 redirect for SEO
+        destination: '/fractional-jobs-london',
+        permanent: true, // 301 redirect for SEO - point malformed URL to London page
       },
       {
         source: '/london',
-        destination: '/fractional-jobs-uk',
-        permanent: true, // 301 redirect for SEO
+        destination: '/fractional-jobs-london',
+        permanent: true, // 301 redirect for SEO - short URL to London page
       },
       // Redirect part-time pages to new SEO-optimized URLs with "jobs-uk" suffix
       {

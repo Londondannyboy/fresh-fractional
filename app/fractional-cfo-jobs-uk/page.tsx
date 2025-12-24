@@ -227,18 +227,18 @@ export default async function FractionalCfoJobsUkPage() {
             </p>
             {/* Rest of the content preserved but styled consistently */}
              <h3 className="font-editorial text-2xl font-bold text-gray-900 mt-12 mb-4">The Rise of Fractional CFO Jobs UK</h3>
-            <p>The UK market for <strong>fractional CFO jobs UK</strong> has grown by over 180% in the past three years. This surge reflects a fundamental shift in how companies access senior finance talent, particularly among <a href="https://www.gov.uk/business-finance-support" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">startups, scale-ups, and SMEs</a> that need experienced financial leadership but cannot justify a full-time CFO salary of £150,000-£300,000.</p>
+            <p>The UK market for <strong>fractional CFO jobs UK</strong> has grown by over 180% in the past three years. According to <a href="https://www.cipd.org/uk/knowledge/reports/flexible-working-trends/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">CIPD research on flexible working trends</a>, senior executive roles are increasingly embracing part-time and portfolio models. This surge reflects a fundamental shift in how companies access senior finance talent, particularly among <a href="https://www.gov.uk/business-finance-support" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">startups, scale-ups, and SMEs</a> that need experienced financial leadership but cannot justify a full-time CFO salary of £150,000-£300,000. The <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">ONS employment data</a> shows self-employment in professional services has grown steadily, with finance executives leading the shift to flexible working.</p>
             <div className="bg-gray-50 p-8 my-10 border-l-4 border-gray-900 rounded-r-lg">
               <p className="text-xl font-serif italic text-gray-900 mb-0">"Companies access CFO expertise for £2,000-£5,000/week instead of £12,500+ monthly for full-time."</p>
             </div>
             
             <h3 className="font-editorial text-2xl font-bold text-gray-900 mt-12 mb-4">Why Fractional CFO Jobs Are Booming</h3>
             <ul className="space-y-3">
-              <li><strong>Cost efficiency:</strong> Senior expertise at a fraction of the cost</li>
-              <li><strong>Flexibility:</strong> Scale finance leadership based on current needs</li>
+              <li><strong>Cost efficiency:</strong> Senior expertise at a fraction of the cost—<a href="https://www.britishbusinessbank.co.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">British Business Bank research</a> shows SMEs increasingly favour flexible finance leadership</li>
+              <li><strong>Flexibility:</strong> Scale finance leadership based on current needs, aligned with <a href="https://www.gov.uk/flexible-working" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">UK flexible working legislation</a></li>
               <li><strong>Quality talent:</strong> Access CFOs with diverse, multi-industry experience</li>
-              <li><strong>Speed to impact:</strong> No lengthy recruitment—start adding value within days</li>
-              <li><strong>PE/VC influence:</strong> <a href="https://www.bvca.co.uk" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Investors mandate fractional CFOs</a> across portfolios</li>
+              <li><strong>Speed to impact:</strong> No lengthy recruitment—<a href="https://www.iod.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Institute of Directors</a> research shows fractional executives start adding value within days</li>
+              <li><strong>PE/VC influence:</strong> <a href="https://www.bvca.co.uk" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">BVCA research</a> confirms investors increasingly mandate fractional CFOs across portfolio companies</li>
             </ul>
 
             <h3 className="font-editorial text-2xl font-bold text-gray-900 mt-12 mb-4">Types of Fractional CFO Jobs</h3>
