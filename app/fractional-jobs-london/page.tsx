@@ -19,8 +19,8 @@ const FractionalRateCalculatorUK = dynamic(
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Jobs London: CFO, CTO, CMO Executive Roles',
-  description: 'Find fractional jobs in London: CFO, CTO, CMO roles with £900-£1,500 day rates. Part-time executive opportunities in the City, Canary Wharf & beyond.',
+  title: 'Fractional Jobs London: CFO, CTO, CMO Executive Roles 2025',
+  description: 'Find fractional jobs in London. CFO, CTO, CMO roles with £900-£1,500 day rates. Updated daily. Part-time executive opportunities in the City, Canary Wharf & beyond.',
   keywords: 'fractional jobs London, fractional CFO London, fractional CTO London, fractional CMO London, part-time executive jobs London, interim executive London',
   alternates: {
     canonical: 'https://fractional.quest/fractional-jobs-london',
@@ -182,7 +182,41 @@ export default async function FractionalJobsLondonPage() {
     getLondonJobs()
   ])
 
+  // Generate fresh date for SEO - updates with each revalidation
+  const lastUpdated = new Date().toISOString()
+  const lastUpdatedDisplay = new Date().toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  })
+
   const jobPostingsSchema = generateJobPostingSchema(londonJobs as any[])
+
+  // WebPage schema with dateModified - this is what Google uses for "freshness"
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    'name': 'Fractional Jobs London: CFO, CTO, CMO Executive Roles',
+    'description': 'Find fractional jobs in London: CFO, CTO, CMO roles with £900-£1,500 day rates.',
+    'url': 'https://fractional.quest/fractional-jobs-london',
+    'datePublished': '2024-11-01T00:00:00Z',
+    'dateModified': lastUpdated,
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'Fractional Quest',
+      'url': 'https://fractional.quest'
+    },
+    'mainEntity': {
+      '@type': 'ItemList',
+      'numberOfItems': stats.totalLondon,
+      'itemListElement': (londonJobs as any[]).slice(0, 5).map((job, i) => ({
+        '@type': 'ListItem',
+        'position': i + 1,
+        'url': `https://fractional.quest/fractional-job/${job.slug}`
+      }))
+    }
+  }
+
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -208,6 +242,7 @@ export default async function FractionalJobsLondonPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingsSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -234,9 +269,14 @@ export default async function FractionalJobsLondonPage() {
               <span className="text-white">London</span>
             </nav>
 
-            <span className="inline-block bg-white/20 backdrop-blur text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-              {stats.totalLondon}+ London Opportunities
-            </span>
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <span className="inline-block bg-white/20 backdrop-blur text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
+                {stats.totalLondon}+ London Opportunities
+              </span>
+              <span className="text-white/70 text-xs">
+                Updated {lastUpdatedDisplay}
+              </span>
+            </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
               Fractional Jobs London
