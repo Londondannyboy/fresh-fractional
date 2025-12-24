@@ -299,7 +299,7 @@ export default async function FractionalCooJobsUkPage() {
 
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Fractional COO Jobs by Location</h3>
             <p>
-              London dominates the UK fractional COO market, accounting for approximately 55% of available positions. This concentration reflects London's status as the UK's startup and PE hub, with strong demand from companies backed by firms based in Mayfair and the City. However, regional opportunities are growing rapidly as the operational expertise of fractional COOs becomes more widely recognised.
+              London dominates the UK fractional COO market, accounting for approximately 55% of available positions. According to <a href="https://technation.io/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">Tech Nation</a>, this concentration reflects London's status as the UK's startup and PE hub. However, regional opportunities tracked by <a href="https://www.ons.gov.uk/employmentandlabourmarket" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">ONS employment data</a> are growing rapidly as the operational expertise of fractional COOs becomes more widely recognised.
             </p>
             <ul className="space-y-2">
               <li><strong>London:</strong> £950-£1,400/day - Tech startups, PE portfolio companies, financial services</li>
@@ -314,7 +314,7 @@ export default async function FractionalCooJobsUkPage() {
 
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Building a Successful Fractional COO Practice</h3>
             <p>
-              Transitioning to fractional COO work requires careful planning and positioning. Unlike CFOs or CMOs, who can often demonstrate value through clear financial metrics or campaign results, COOs must articulate the operational improvements they've delivered in ways that resonate with founders and PE partners.
+              Transitioning to fractional COO work requires careful planning and positioning. The <a href="https://www.cipd.org/uk/knowledge/reports/flexible-working-trends/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">CIPD flexible working trends</a> show increasing acceptance of senior part-time roles. Unlike CFOs or CMOs, who can demonstrate value through financial metrics or campaign results, COOs must articulate operational improvements in ways that resonate with founders and PE partners. The <a href="https://www.iod.com/" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-700 underline">Institute of Directors</a> provides excellent frameworks for demonstrating governance value.
             </p>
             <p>
               Successful fractional COOs typically focus on a specific niche—whether that's a particular industry (e-commerce, SaaS, manufacturing), company stage (Series A-B, PE-backed, turnaround), or operational domain (supply chain, customer operations, technology operations). This specialisation helps attract clients who value domain expertise over generalist capabilities.

@@ -222,7 +222,7 @@ export default async function FractionalHrJobsUkPage() {
           </figure>
           <article className="prose prose-lg prose-gray max-w-none">
             <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8 font-light">
-              <strong className="font-semibold text-gray-900">Fractional HR jobs</strong> represent a paradigm shift in how companies access senior people leadership. Part-time Chief Human Resources Officer and HR Director positions where experienced leaders provide strategic HR guidance to multiple organisations—delivering expert capability without the £120k-£250k full-time salary commitment.
+              <strong className="font-semibold text-gray-900">Fractional HR jobs</strong> represent a paradigm shift in how companies access senior people leadership. According to <a href="https://www.cipd.org/uk/knowledge/reports/flexible-working-trends/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD flexible working research</a>, senior HR roles are increasingly adopting part-time and portfolio models. Part-time Chief Human Resources Officer and HR Director positions where experienced leaders provide strategic HR guidance to multiple organisations—delivering expert capability without the £120k-£250k full-time salary commitment. The <a href="https://www.ons.gov.uk/employmentandlabourmarket" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">ONS employment data</a> confirms this shift toward flexible executive work.
             </p>
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">The Rise of Fractional HR Jobs UK</h3>
             <p>The UK market for <strong>fractional HR jobs UK</strong> has experienced 150% growth since 2021. This expansion reflects fundamental changes in how <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">organisations approach people strategy</a>, particularly among high-growth startups, scale-ups, and PE-backed portfolio companies that require senior HR expertise but lack the scale to justify a full-time CHRO.</p>
@@ -231,11 +231,11 @@ export default async function FractionalHrJobsUkPage() {
             </div>
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Why Fractional HR Jobs Are Booming</h3>
             <ul className="space-y-3">
-              <li><strong>Post-pandemic flexibility:</strong> <a href="https://www.acas.org.uk/flexible-working" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">Flexible working arrangements</a> normalised part-time executive roles</li>
-              <li><strong>PE/VC influence:</strong> Private equity firms mandate fractional HR across portfolio companies</li>
+              <li><strong>Post-pandemic flexibility:</strong> <a href="https://www.acas.org.uk/flexible-working" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">ACAS flexible working guidance</a> and <a href="https://www.gov.uk/flexible-working" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">UK flexible working legislation</a> have normalised part-time executive roles</li>
+              <li><strong>PE/VC influence:</strong> <a href="https://www.bvca.co.uk/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">BVCA research</a> shows private equity firms increasingly mandate fractional HR across portfolio companies</li>
               <li><strong>Skills shortage:</strong> <a href="https://www.cipd.org" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">CIPD research</a> shows acute shortage of senior HR talent in UK</li>
-              <li><strong>Cost efficiency:</strong> Strategic HR leadership at 20-40% of full-time cost</li>
-              <li><strong>Rapid deployment:</strong> Start driving culture and talent strategy within days, not months</li>
+              <li><strong>Cost efficiency:</strong> Strategic HR leadership at 20-40% of full-time cost, per <a href="https://www.britishbusinessbank.co.uk/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">British Business Bank</a> SME guidance</li>
+              <li><strong>Rapid deployment:</strong> Start driving culture and talent strategy within days, supported by <a href="https://www.iod.com/" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-700 underline">IoD governance frameworks</a></li>
             </ul>
             <h3 className="text-2xl font-black text-gray-900 mt-12 mb-4">Types of Fractional HR Jobs</h3>
             <div className="grid md:grid-cols-2 gap-6 not-prose my-8">
