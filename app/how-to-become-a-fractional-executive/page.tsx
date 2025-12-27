@@ -324,7 +324,9 @@ export default function HowToBecomeAFractionalExecutivePage() {
       <section className="py-12 bg-white border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/fractional-executive" className="text-gray-600 hover:text-amber-600 font-medium">What is Fractional?</Link>
+            <Link href="/fractional-executive" className="text-gray-600 hover:text-amber-600 font-medium">Fractional Executive</Link>
+            <Link href="/portfolio-career" className="text-gray-600 hover:text-amber-600 font-medium">Portfolio Career</Link>
+            <Link href="/portfolio-executive" className="text-gray-600 hover:text-amber-600 font-medium">Portfolio Executive</Link>
             <Link href="/fractional-work" className="text-gray-600 hover:text-amber-600 font-medium">Fractional Work</Link>
             <Link href="/fractional-executive-jobs" className="text-gray-600 hover:text-amber-600 font-medium">Executive Jobs</Link>
             <Link href="/part-time-executive-jobs" className="text-gray-600 hover:text-amber-600 font-medium">Part-Time Jobs</Link>

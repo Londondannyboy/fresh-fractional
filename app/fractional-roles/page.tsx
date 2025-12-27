@@ -366,6 +366,9 @@ export default function FractionalRolesPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/fractional-executive" className="text-gray-600 hover:text-stone-700 font-medium">Fractional Executive</Link>
             <Link href="/fractional-c-suite" className="text-gray-600 hover:text-stone-700 font-medium">C-Suite</Link>
+            <Link href="/fractional-cxo" className="text-gray-600 hover:text-stone-700 font-medium">Fractional CXO</Link>
+            <Link href="/fractional-director" className="text-gray-600 hover:text-stone-700 font-medium">Fractional Director</Link>
+            <Link href="/fractional-team" className="text-gray-600 hover:text-stone-700 font-medium">Fractional Team</Link>
             <Link href="/fractional-executive-jobs" className="text-gray-600 hover:text-stone-700 font-medium">Executive Jobs</Link>
             <Link href="/how-to-become-a-fractional-executive" className="text-gray-600 hover:text-stone-700 font-medium">Become Fractional</Link>
           </div>

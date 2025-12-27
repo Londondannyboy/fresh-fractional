@@ -320,6 +320,8 @@ export default function FractionalCSuitePage() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/fractional-executive" className="text-gray-600 hover:text-slate-700 font-medium">Fractional Executive</Link>
+            <Link href="/fractional-cxo" className="text-gray-600 hover:text-slate-700 font-medium">Fractional CXO</Link>
+            <Link href="/fractional-board-member" className="text-gray-600 hover:text-slate-700 font-medium">Board Member</Link>
             <Link href="/fractional-executive-jobs" className="text-gray-600 hover:text-slate-700 font-medium">Executive Jobs</Link>
             <Link href="/fractional-cfo-jobs-uk" className="text-gray-600 hover:text-slate-700 font-medium">CFO Jobs</Link>
             <Link href="/fractional-cmo-jobs-uk" className="text-gray-600 hover:text-slate-700 font-medium">CMO Jobs</Link>

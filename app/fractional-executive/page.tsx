@@ -393,6 +393,18 @@ export default function FractionalExecutivePage() {
               <Link href="/fractional-hr" className="text-gray-600 hover:text-purple-600 font-medium transition-colors">
                 Fractional HR
               </Link>
+              <Link href="/what-is-fractional" className="text-gray-600 hover:text-purple-600 font-medium transition-colors">
+                What is Fractional?
+              </Link>
+              <Link href="/fractional-cxo" className="text-gray-600 hover:text-purple-600 font-medium transition-colors">
+                Fractional CXO
+              </Link>
+              <Link href="/portfolio-career" className="text-gray-600 hover:text-purple-600 font-medium transition-colors">
+                Portfolio Career
+              </Link>
+              <Link href="/fractional-hiring" className="text-gray-600 hover:text-purple-600 font-medium transition-colors">
+                Fractional Hiring
+              </Link>
               <Link href="/fractional-executive-jobs" className="text-gray-600 hover:text-purple-600 font-medium transition-colors">
                 Fractional Executive Jobs
               </Link>
