@@ -18,7 +18,7 @@ export default function FractionalVsTimesharePage() {
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt=""
+            alt="Fractional ownership vs timeshare - luxury property comparison"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50"></div>

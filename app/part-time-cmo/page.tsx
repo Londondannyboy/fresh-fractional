@@ -48,7 +48,7 @@ export default async function PartTimeCmoPage() {
       {/* Hero with 3D Knowledge Graph Background */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://images.pexels.com/photos/7413891/pexels-photo-7413891.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" className="w-full h-full object-cover" />
+          <img src="https://images.pexels.com/photos/7413891/pexels-photo-7413891.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Part-time CMO UK - marketing executive leading strategy" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
         <div className="max-w-4xl mx-auto px-4 relative z-10">

@@ -17,7 +17,7 @@ export default function AboutPage() {
         <div className="absolute inset-0">
           <img
             src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt=""
+            alt="Fractional Quest - connecting executives with fractional leadership opportunities"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50" />

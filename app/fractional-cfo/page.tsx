@@ -364,6 +364,44 @@ export default function FractionalCFOGuidePage() {
         </div>
       </div>
 
+      {/* CFO Resources Hub */}
+      <section className="py-16 bg-white border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="mb-8">
+            <h2 className="text-2xl font-black text-gray-900 mb-2">CFO Resources & Insights</h2>
+            <p className="text-gray-600">Deep dives, market reports, and practical guides for fractional CFOs</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-600 mb-3">Market Intelligence</h3>
+              <div className="space-y-2">
+                <Link href="/state-fractional-cfo-market-2025" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">State of Fractional CFO Market 2025</Link>
+                <Link href="/best-fractional-cfo-companies" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Best Fractional CFO Companies</Link>
+                <Link href="/top-fractional-recruitment-agencies-best-fractional-recruitment-agency-fractional-recruiter" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Top Fractional Recruiters</Link>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-600 mb-3">For Businesses</h3>
+              <div className="space-y-2">
+                <Link href="/fractional-cfo-cost" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">CFO Cost Guide</Link>
+                <Link href="/fractional-cfo-for-startups" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">CFO for Startups</Link>
+                <Link href="/fractional-cfo-near-me" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Find a CFO Near You</Link>
+                <Link href="/fractional-cfo-consulting" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">CFO Consulting</Link>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-600 mb-3">For CFOs</h3>
+              <div className="space-y-2">
+                <Link href="/how-to-become-fractional-cfo" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">How to Become a Fractional CFO</Link>
+                <Link href="/fractional-cfo-training" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">CFO Training & Certification</Link>
+                <Link href="/cfo-community-reddit" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">CFO Community & Reddit</Link>
+                <Link href="/contract-cfo-jobs" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Contract CFO Jobs</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <RoleContentHub currentRole="cfo" />
     </div>
   )

@@ -45,7 +45,7 @@ export default function FractionalCfoSalaryPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-blue-900 to-blue-800 py-20 relative">
         <div className="absolute inset-0 opacity-20">
-          <img src="https://images.pexels.com/photos/4386370/pexels-photo-4386370.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" className="w-full h-full object-cover" />
+          <img src="https://images.pexels.com/photos/4386370/pexels-photo-4386370.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Fractional CFO salary UK - finance professional at work" className="w-full h-full object-cover" />
         </div>
         <div className="max-w-4xl mx-auto px-4 relative">
           <Link href="/" className="text-blue-800/40 hover:text-gray-900 mb-6 inline-block">← Back to Home</Link>

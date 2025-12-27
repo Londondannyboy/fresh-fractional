@@ -723,6 +723,44 @@ export default function FractionalCTOPage() {
         </div>
       </div>
 
+      {/* CTO Resources Hub */}
+      <section className="py-16 bg-white border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="mb-8">
+            <h2 className="text-2xl font-black text-gray-900 mb-2">CTO Resources & Insights</h2>
+            <p className="text-gray-600">Deep dives, guides, and practical resources for fractional CTOs</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-600 mb-3">Understanding the Role</h3>
+              <div className="space-y-2">
+                <Link href="/what-is-a-fractional-cto" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">What is a Fractional CTO?</Link>
+                <Link href="/fractional-cto-meaning" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Fractional CTO Meaning</Link>
+                <Link href="/fractional-cto-responsibilities" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">CTO Responsibilities</Link>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-600 mb-3">For Businesses</h3>
+              <div className="space-y-2">
+                <Link href="/fractional-cto-cost" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">CTO Cost Guide</Link>
+                <Link href="/fractional-cto-for-startups" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">CTO for Startups</Link>
+                <Link href="/fractional-cto-services" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">CTO Services</Link>
+                <Link href="/technology-consultants" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Technology Consultants</Link>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-600 mb-3">For CTOs</h3>
+              <div className="space-y-2">
+                <Link href="/how-to-become-fractional-cto" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">How to Become a Fractional CTO</Link>
+                <Link href="/fractional-cto-salary" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">CTO Salary Guide</Link>
+                <Link href="/part-time-cto" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Part-Time CTO Guide</Link>
+                <Link href="/top-fractional-recruitment-agencies-best-fractional-recruitment-agency-fractional-recruiter" className="block text-gray-700 hover:text-blue-600 font-medium transition-colors">Top Fractional Recruiters</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <RoleContentHub currentRole="cto" />
     </div>
   )

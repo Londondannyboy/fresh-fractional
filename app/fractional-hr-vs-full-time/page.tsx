@@ -46,7 +46,7 @@ export default function FractionalHRVsFullTimePage() {
       {/* Hero */}
       <section className="bg-gray-50 py-20 relative">
         <div className="absolute inset-0 z-0">
-          <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" className="w-full h-full object-cover opacity-40" />
+          <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Fractional HR vs full-time - comparing HR leadership options" className="w-full h-full object-cover opacity-40" />
         </div>
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <Link href="/fractional-hr" className="text-gray-400 hover:text-gray-900 mb-6 inline-block text-sm">← Back to HR Hub</Link>

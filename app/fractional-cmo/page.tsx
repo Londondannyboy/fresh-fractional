@@ -403,6 +403,43 @@ export default function FractionalCMOPage() {
         </div>
       </div>
 
+      {/* CMO Resources Hub */}
+      <section className="py-16 bg-white border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="mb-8">
+            <h2 className="text-2xl font-black text-gray-900 mb-2">CMO Resources & Insights</h2>
+            <p className="text-gray-600">Deep dives, guides, and practical resources for fractional CMOs</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-600 mb-3">Understanding the Role</h3>
+              <div className="space-y-2">
+                <Link href="/what-does-a-fractional-cmo-do" className="block text-gray-700 hover:text-amber-600 font-medium transition-colors">What Does a Fractional CMO Do?</Link>
+                <Link href="/fractional-cmo-meaning" className="block text-gray-700 hover:text-amber-600 font-medium transition-colors">Fractional CMO Meaning</Link>
+                <Link href="/fractional-cmo-responsibilities" className="block text-gray-700 hover:text-amber-600 font-medium transition-colors">CMO Responsibilities</Link>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-600 mb-3">For Businesses</h3>
+              <div className="space-y-2">
+                <Link href="/hire-fractional-cmo" className="block text-gray-700 hover:text-amber-600 font-medium transition-colors">How to Hire a Fractional CMO</Link>
+                <Link href="/fractional-cmo-cost" className="block text-gray-700 hover:text-amber-600 font-medium transition-colors">CMO Cost Guide</Link>
+                <Link href="/fractional-cmo-for-startups" className="block text-gray-700 hover:text-amber-600 font-medium transition-colors">CMO for Startups</Link>
+                <Link href="/fractional-marketing-agency" className="block text-gray-700 hover:text-amber-600 font-medium transition-colors">Marketing Agency vs CMO</Link>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-600 mb-3">For CMOs</h3>
+              <div className="space-y-2">
+                <Link href="/how-to-become-a-fractional-cmo" className="block text-gray-700 hover:text-amber-600 font-medium transition-colors">How to Become a Fractional CMO</Link>
+                <Link href="/fractional-cmo-salary" className="block text-gray-700 hover:text-amber-600 font-medium transition-colors">CMO Salary Guide</Link>
+                <Link href="/top-fractional-recruitment-agencies-best-fractional-recruitment-agency-fractional-recruiter" className="block text-gray-700 hover:text-amber-600 font-medium transition-colors">Top Fractional Recruiters</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <RoleContentHub currentRole="cmo" />
     </div>
   )

@@ -18,7 +18,7 @@ export default function FractionalProductPage() {
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         {/* Hero Background Image */}
         <div className="absolute inset-0">
-          <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" className="w-full h-full object-cover" />
+          <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Fractional product leadership UK - product team collaboration" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/50" />
         </div>
         {/* 3D Knowledge Graph Background */}

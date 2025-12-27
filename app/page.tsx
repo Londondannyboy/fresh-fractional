@@ -131,7 +131,7 @@ export default async function Home() {
                     "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop",
                     "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop"
                   ].map((src, i) => (
-                    <img key={i} src={src} alt="" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
+                    <img key={i} src={src} alt="Fractional executive" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
                   ))}
                 </div>
                 <div className="text-sm">

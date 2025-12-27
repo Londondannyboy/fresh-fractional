@@ -20,7 +20,7 @@ export default function FractionalRevenuePage() {
         <div className="absolute inset-0">
           <img
             src="https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt=""
+            alt="Fractional revenue leadership UK - sales executive driving growth"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50"></div>

@@ -18,7 +18,7 @@ export default function FractionalSecurityPage() {
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         {/* Hero Background Image */}
         <div className="absolute inset-0">
-          <img src="https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" className="w-full h-full object-cover" />
+          <img src="https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Fractional security leadership UK - cybersecurity professional" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/50" />
         </div>
         {/* 3D Knowledge Graph Background */}
