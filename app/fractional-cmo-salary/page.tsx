@@ -4,8 +4,8 @@ import { Suspense } from 'react'
 import { RateDistribution } from '@/components/RateDistribution'
 
 export const metadata: Metadata = {
-  title: 'Fractional CMO Salary UK 2025 - Day Rates, Annual Earnings & Pay Guide',
-  description: 'Fractional CMO salary guide for 2025. UK day rates £700-£1,400. Annual earnings £110k-£220k. Compare rates by location, industry and experience.',
+  title: 'Fractional CMO Salary UK 2025',
+  description: 'Fractional CMO salary UK. Day rates £700-£1,400, annual earnings £110k-£220k.',
   keywords: 'fractional cmo salary, fractional cmo day rate, fractional cmo pay, part time cmo salary, fractional cmo uk salary',
   openGraph: {
     title: 'Fractional CMO Salary UK 2025 - Complete Pay Guide',

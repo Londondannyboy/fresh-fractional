@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { FAQ } from '@/components/FAQ'
 
 export const metadata: Metadata = {
-  title: 'Fractional CFO Training & Certification Guide 2025',
-  description: 'Complete guide to fractional CFO training programs, essential certifications, skills development, and career transition paths for finance professionals in the UK.',
+  title: 'Fractional CFO Training 2025',
+  description: 'Fractional CFO training programs, certifications, skills, career transition paths.',
   openGraph: {
     title: 'Fractional CFO Training & Certification Guide 2025',
     description: 'Complete guide to fractional CFO training programs, essential certifications, skills development, and career transition paths for finance professionals in the UK.',

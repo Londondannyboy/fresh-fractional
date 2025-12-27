@@ -6,8 +6,8 @@ import { RoleCalculator } from '@/components/RoleCalculator'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional COO Cost 2025 | $60k-$180k vs $200k+ Full-Time',
-  description: 'How much does a fractional COO cost? $5k-$15k/month ($60k-$180k annually) vs $200k-$350k+ for full-time. Calculate your savings. Complete pricing guide.',
+  title: 'Fractional COO Cost 2025',
+  description: 'Fractional COO cost. $5k-$15k/month vs $200k+ full-time. Calculate savings.',
   keywords: 'fractional coo cost, how much does a fractional coo cost, fractional coo pricing, part time coo cost, coo cost',
   alternates: {
     canonical: 'https://fractional.quest/fractional-coo-cost',

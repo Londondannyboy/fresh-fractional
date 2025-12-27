@@ -4,8 +4,8 @@ import { FAQ } from '@/components/FAQ'
 import { WebPageSchema } from '@/components/WebPageSchema'
 
 export const metadata: Metadata = {
-  title: 'Fractional Financial Controller Jobs UK 2025 | Part-Time Controller Roles',
-  description: 'Fractional financial controller jobs in the UK. Day rates £500-£1,000, entry route to fractional finance, career progression to CFO roles.',
+  title: 'Fractional Controller Jobs UK',
+  description: 'Fractional controller jobs UK. Part-time roles £500-£1,000/day, CFO career path.',
   openGraph: {
     title: 'Fractional Financial Controller Jobs UK 2025',
     description: 'Find fractional controller opportunities. £500-£1,000/day rates, part-time financial controller roles.',

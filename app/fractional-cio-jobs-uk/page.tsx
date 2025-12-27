@@ -13,8 +13,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CIO Jobs UK | Part-Time CIO Roles 2025',
-  description: 'Fractional CIO jobs UK - Find part-time Chief Information Officer positions paying £800-£1,400/day. Browse live CIO roles for experienced technology leaders. Remote & hybrid available.',
+  title: 'Fractional CIO Jobs UK 2025',
+  description: 'Fractional CIO jobs UK. Part-time CIO roles for tech leaders. £800-£1,400/day.',
   keywords: 'fractional cio jobs, fractional cio jobs uk, part time cio, part-time cio, cio part time, fractional cio opportunities, fractional cio uk, part time chief information officer, fractional cio remote',
   alternates: {
     canonical: 'https://fractional.quest/fractional-cio-jobs-uk',

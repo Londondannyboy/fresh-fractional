@@ -4,8 +4,8 @@ import { Suspense } from 'react'
 import { RateDistribution } from '@/components/RateDistribution'
 
 export const metadata: Metadata = {
-  title: 'Fractional CFO Salary UK 2025 - Day Rates, Annual Earnings & Pay Guide',
-  description: 'Fractional CFO salary guide for 2025. UK day rates £800-£1,500. Annual earnings £120k-£250k. Compare rates by location, industry and experience level.',
+  title: 'Fractional CFO Salary UK 2025',
+  description: 'Fractional CFO salary UK. Day rates £800-£1,500, annual earnings £120k-£250k.',
   keywords: 'fractional cfo salary, fractional cfo day rate, fractional cfo pay, part time cfo salary, fractional cfo earnings uk',
   openGraph: {
     title: 'Fractional CFO Salary UK 2025 - Complete Pay Guide',

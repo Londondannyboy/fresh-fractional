@@ -13,8 +13,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CDO Jobs UK | Part-Time Chief Data Officer Roles',
-  description: 'Fractional CDO jobs UK - Find part-time Chief Data Officer positions paying £900-£1,500/day. Browse live CDO roles for experienced data leaders. Remote & hybrid available.',
+  title: 'Fractional CDO Jobs UK 2025',
+  description: 'Fractional CDO jobs UK. Part-time Chief Data Officer roles. £900-£1,500/day.',
   keywords: 'fractional cdo jobs, fractional cdo jobs uk, part time cdo, part-time chief data officer, cdo part time, fractional cdo opportunities, fractional data jobs, head of data part time',
   alternates: {
     canonical: 'https://fractional.quest/fractional-cdo-jobs-uk',

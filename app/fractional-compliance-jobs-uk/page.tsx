@@ -13,8 +13,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Compliance Jobs UK | Part-Time Compliance Roles',
-  description: 'Fractional Compliance jobs UK - Find part-time Compliance Officer positions paying £500-£900/day. Browse live compliance roles for experienced professionals. Remote & hybrid available.',
+  title: 'Fractional Compliance Jobs UK',
+  description: 'Fractional Compliance jobs UK. Part-time Compliance Officer roles. £500-£900/day.',
   keywords: 'fractional compliance jobs, fractional compliance officer jobs uk, part time compliance officer, fractional compliance roles, part time compliance jobs, compliance consultant jobs',
   alternates: {
     canonical: 'https://fractional.quest/fractional-compliance-jobs-uk',

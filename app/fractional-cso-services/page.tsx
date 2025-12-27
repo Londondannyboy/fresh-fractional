@@ -10,8 +10,8 @@ import { getRoleBreadcrumbs } from '@/lib/seo-config'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CSO Services UK | Hire a Part-Time Chief Sales Officer',
-  description: 'Hire a Fractional Chief Sales Officer (CSO) for your business. Expert sales leadership to build teams, drive revenue, and scale growth. High-impact sales strategy at a flexible cost.',
+  title: 'Fractional CSO Services UK',
+  description: 'Hire a Fractional CSO. Build sales teams, drive revenue, scale growth.',
   keywords: 'fractional cso, fractional chief sales officer, hire fractional cso, part time sales director, fractional sales leadership, fractional sales services',
   alternates: {
     canonical: 'https://fractional.quest/fractional-cso-services',

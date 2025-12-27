@@ -13,8 +13,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CGO Jobs UK | Part-Time Chief Green Officer Roles',
-  description: 'Fractional CGO jobs UK - Find part-time Chief Green Officer & Sustainability Officer positions paying £700-£1,200/day. Browse live CGO roles for ESG leaders. Remote & hybrid available.',
+  title: 'Fractional CGO Jobs UK 2025',
+  description: 'Fractional CGO jobs UK. Chief Green Officer, Sustainability roles. £700-£1,200/day.',
   keywords: 'fractional cgo jobs, fractional cgo jobs uk, part time chief green officer, fractional sustainability officer, cgo part time, fractional esg jobs, chief sustainability officer part time',
   alternates: {
     canonical: 'https://fractional.quest/fractional-cgo-jobs-uk',

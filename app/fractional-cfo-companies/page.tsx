@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { FAQ } from '@/components/FAQ'
 
 export const metadata: Metadata = {
-  title: 'Top Fractional CFO Companies UK: Comparison Guide 2025',
-  description: 'Compare UK fractional CFO companies, platforms, and individual practitioners. Independent analysis of pricing, services, and fit for different business needs.',
+  title: 'Fractional CFO Companies UK',
+  description: 'Compare UK fractional CFO companies, platforms, individual practitioners.',
   openGraph: {
     title: 'Top Fractional CFO Companies UK: Comparison Guide 2025',
     description: 'Compare UK fractional CFO companies, platforms, and individual practitioners. Independent analysis of pricing, services, and fit for different business needs.',

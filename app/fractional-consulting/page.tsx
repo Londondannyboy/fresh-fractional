@@ -5,8 +5,8 @@ import { JobsGraph3D } from '@/components/JobsGraph3D'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Consulting UK | Part-Time Expert Consultants',
-  description: 'Access fractional consulting services for your business. Expert consultants in finance, marketing, technology, and operations. Part-time expertise, full-time results.',
+  title: 'Fractional Consulting UK',
+  description: 'Fractional consulting services. Finance, marketing, technology, operations expertise.',
   keywords: 'fractional consulting, fractional consultants, part-time consulting, fractional consulting services, fractional consulting uk',
   alternates: { canonical: 'https://fractional.quest/fractional-consulting' },
 }
