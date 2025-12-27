@@ -19,8 +19,8 @@ const FractionalRateCalculatorUK = dynamic(
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Jobs London: CFO, CTO, CMO Executive Roles 2025',
-  description: 'Find fractional jobs in London. CFO, CTO, CMO roles with £900-£1,500 day rates. Updated daily. Part-time executive opportunities in the City, Canary Wharf & beyond.',
+  title: 'Fractional Jobs London: Executive Roles',
+  description: 'Find fractional jobs in London. CFO, CTO, CMO roles with £900-£1,500 day rates. Part-time opportunities in the City & Canary Wharf.',
   keywords: 'fractional jobs London, fractional CFO London, fractional CTO London, fractional CMO London, part-time executive jobs London, interim executive London',
   alternates: {
     canonical: 'https://fractional.quest/fractional-jobs-london',
