@@ -5,21 +5,39 @@ import { getDatasetItems, isFractionalRole, type NormalizedJob } from '@/lib/api
 const sql = neon(process.env.DATABASE_URL!)
 
 /**
- * POST /api/webhooks/apify
+ * POST /api/webhooks/apify?secret=YOUR_SECRET
  * Webhook endpoint for Apify run completion notifications
  *
- * Apify sends a POST request when an actor run completes with:
- * - resource.defaultDatasetId: the dataset containing results
- * - eventType: 'ACTOR.RUN.SUCCEEDED' | 'ACTOR.RUN.FAILED' etc.
+ * Configure in Apify Console → Actor → Integrations → Webhooks:
+ * URL: https://fractional.quest/api/webhooks/apify?secret=YOUR_SECRET
+ * Event: ACTOR.RUN.SUCCEEDED
+ *
+ * Payload format:
+ * {
+ *   "userId": "...",
+ *   "createdAt": "2024-01-01T00:00:00.000Z",
+ *   "eventType": "ACTOR.RUN.SUCCEEDED",
+ *   "eventData": {...},
+ *   "resource": { "id": "runId", "defaultDatasetId": "datasetId", ... }
+ * }
  */
 export async function POST(request: NextRequest) {
-  // Verify webhook secret (optional but recommended)
+  // Verify webhook secret via URL query param (Apify recommended method)
   const webhookSecret = process.env.APIFY_WEBHOOK_SECRET
-  const authHeader = request.headers.get('authorization')
+  const url = new URL(request.url)
+  const secretParam = url.searchParams.get('secret')
 
-  if (webhookSecret && authHeader !== `Bearer ${webhookSecret}`) {
-    console.warn('Apify webhook: invalid authorization')
+  // Also check X-Apify-Webhook header exists (confirms it's from Apify)
+  const apifyHeader = request.headers.get('x-apify-webhook')
+
+  if (webhookSecret && secretParam !== webhookSecret) {
+    console.warn('Apify webhook: invalid secret')
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
+  if (!apifyHeader) {
+    console.warn('Apify webhook: missing X-Apify-Webhook header')
+    // Don't reject - could be a test request
   }
 
   try {
