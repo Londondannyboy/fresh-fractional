@@ -20,6 +20,22 @@ const nextConfig: NextConfig = {
         destination: '/:slug',
         permanent: true, // 301 redirect for SEO
       },
+      // Redirect old article URLs to new job pages (from Search Console data)
+      {
+        source: '/articles/fractional-cmo-jobs-uk',
+        destination: '/fractional-cmo-jobs-uk',
+        permanent: true,
+      },
+      {
+        source: '/articles/fractional-cfo-jobs-uk',
+        destination: '/fractional-cfo-jobs-uk',
+        permanent: true,
+      },
+      {
+        source: '/articles/fractional-cfo-services-uk',
+        destination: '/fractional-cfo-services',
+        permanent: true,
+      },
       // /fractional-jobs is now a master hub page (not redirected)
       {
         source: '/uk-fractional-jobs-uk-london-fractional-jobs-london',
