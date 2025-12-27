@@ -4,8 +4,8 @@ import Link from 'next/link'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Hire Operations Consultants UK | Fractional Operations Experts',
-  description: 'Hire experienced operations consultants on a fractional basis. Expert operations professionals for scaling, process improvement, and efficiency. Available part-time.',
+  title: 'Operations Consultants UK',
+  description: 'Hire operations consultants UK. Scaling, process improvement, efficiency experts.',
   keywords: 'operations consultants, hire operations consultant, fractional operations expert, operations consultant uk, business operations consultant',
   alternates: { canonical: 'https://fractional.quest/operations-consultants' },
 }

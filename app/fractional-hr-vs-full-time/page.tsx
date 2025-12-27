@@ -6,8 +6,8 @@ import { StrategicComparisonInfographic, ComparisonData } from '@/components/inf
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional HR vs Full-Time HR | Which is Right for You? (2025)',
-  description: 'Fractional HR vs Full-Time HR comparison. Costs, flexibility, expertise, and when to choose each. Fractional saves 35-55% at £94k-£114k vs £145k-£183k full-time.',
+  title: 'Fractional vs Full-Time HR',
+  description: 'Fractional HR vs Full-Time comparison. Save 35-55%. £94k-£114k vs £145k-£183k.',
   keywords: 'fractional hr vs full time, fractional hr vs full time hr, part time hr vs full time, hire fractional hr or full time',
   alternates: {
     canonical: 'https://fractional.quest/fractional-hr-vs-full-time',

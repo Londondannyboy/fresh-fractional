@@ -9,8 +9,8 @@ import { JobsGraph3D } from '@/components/JobsGraph3D'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional HR Director UK | What They Do & When to Hire (2025)',
-  description: 'Fractional HR Directors provide senior people leadership 1-3 days/week at £900-£1,100/day. Learn what they do, when to hire, and how they compare to CHROs and HR Consultants.',
+  title: 'Fractional HR Director UK 2025',
+  description: 'Fractional HR Director UK. Senior people leadership 1-3 days/week. £900-£1,100/day.',
   keywords: 'fractional hr director, fractional head of hr, fractional hr leader, part time hr director, fractional hr director jobs',
   alternates: {
     canonical: 'https://fractional.quest/fractional-hr-director',

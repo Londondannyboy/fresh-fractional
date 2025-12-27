@@ -10,8 +10,8 @@ import { getRoleBreadcrumbs } from '@/lib/seo-config'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Managing Director Services UK | Hire a Part-Time MD',
-  description: 'Hire a Fractional Managing Director (MD) for your business. Experienced general management for turnarounds, interim leadership, and subsidiary oversight. Flexible and effective.',
+  title: 'Fractional MD Services UK',
+  description: 'Hire a Fractional MD. General management, turnarounds, interim leadership.',
   keywords: 'fractional md, fractional managing director, hire fractional md, part time managing director, fractional general manager, fractional leadership services',
   alternates: {
     canonical: 'https://fractional.quest/fractional-managing-director-services',

@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { FAQ } from '@/components/FAQ'
 
 export const metadata: Metadata = {
-  title: 'Compliance Officer Salary UK 2025 | Pay Guide & Day Rates',
-  description: 'Compliance officer salary UK 2025 - Full salary guide. Permanent £45k-£150k. Fractional day rates £800-£1,500. Salaries by seniority, industry, and location.',
+  title: 'Compliance Officer Salary UK',
+  description: 'Compliance officer salary UK. Permanent £45k-£150k, fractional £800-£1,500/day.',
   keywords: 'compliance officer salary uk, compliance officer salary, compliance manager salary uk, head of compliance salary, cco salary uk, mlro salary, compliance consultant salary',
   alternates: {
     canonical: 'https://fractional.quest/compliance-officer-salary-uk',

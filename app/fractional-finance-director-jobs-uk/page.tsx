@@ -13,8 +13,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Finance Director Jobs | Fractional FD Jobs UK 2025',
-  description: 'Fractional finance director jobs UK - Find fractional FD jobs paying £600-£1,000/day. Part-time Finance Director roles for experienced finance leaders. Fractional FD roles, remote & hybrid available.',
+  title: 'Fractional FD Jobs UK 2025',
+  description: 'Fractional Finance Director jobs UK. FD roles paying £600-£1,000/day.',
   keywords: 'fractional finance director jobs, fractional fd jobs, fractional fd jobs uk, part time finance director, fractional fd roles, part time fd jobs, finance director part time, fractional fd, fd jobs uk',
   alternates: {
     canonical: 'https://fractional.quest/fractional-finance-director-jobs-uk',

@@ -4,8 +4,8 @@ import Link from 'next/link'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Hire Finance Consultants UK | Fractional Finance Experts',
-  description: 'Hire experienced finance consultants on a fractional basis. Expert financial professionals for FP&A, fundraising, and financial strategy. Available part-time.',
+  title: 'Finance Consultants UK',
+  description: 'Hire finance consultants UK. FP&A, fundraising, financial strategy experts.',
   keywords: 'finance consultants, hire finance consultant, fractional finance expert, finance consultant uk, financial strategy consultant',
   alternates: { canonical: 'https://fractional.quest/finance-consultants' },
 }

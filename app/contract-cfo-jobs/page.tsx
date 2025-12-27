@@ -4,8 +4,8 @@ import { FAQ } from '@/components/FAQ'
 import { WebPageSchema } from '@/components/WebPageSchema'
 
 export const metadata: Metadata = {
-  title: 'Contract CFO Jobs UK: Fixed-Term CFO Opportunities 2025',
-  description: 'Find contract CFO jobs in the UK. Guide to interim CFO roles, contract lengths, day rates, and how contract CFO positions differ from fractional and permanent roles.',
+  title: 'Contract CFO Jobs UK 2025',
+  description: 'Contract CFO jobs UK. Interim CFO roles, contract lengths, day rates.',
   openGraph: {
     title: 'Contract CFO Jobs UK: Fixed-Term CFO Opportunities 2025',
     description: 'Find contract CFO jobs in the UK. Guide to interim CFO roles, contract lengths, day rates, and how contract CFO positions differ from fractional and permanent roles.',

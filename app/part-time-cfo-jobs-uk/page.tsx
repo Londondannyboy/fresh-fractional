@@ -14,8 +14,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Part-Time CFO Jobs UK | Fractional CFO & Remote CFO Roles 2025',
-  description: 'Part-time CFO jobs & fractional CFO roles in the UK. Remote CFO jobs paying £800-£1,500/day. Part-time chief financial officer positions wanted? Browse CFO jobs in London, Leeds, Manchester.',
+  title: 'Part-Time CFO Jobs UK 2025',
+  description: 'Part-time CFO jobs UK. Fractional, remote CFO roles. £800-£1,500/day.',
   keywords: 'part time cfo, part-time cfo, cfo part time, fractional cfo jobs, remote cfo jobs, part time cfo wanted, part time chief financial officer, cfo job, fractional cfo job description, part time cfo leeds, part time cfo london, part time cfo manchester',
   alternates: {
     canonical: 'https://fractional.quest/part-time-cfo-jobs-uk',

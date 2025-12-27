@@ -10,8 +10,8 @@ import { getRoleBreadcrumbs } from '@/lib/seo-config'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Finance Director Services UK | Hire a Part-Time FD',
-  description: 'Hire a Fractional Finance Director (FD) for your business. Operational finance leadership for SMEs. Manage cash flow, reporting, and compliance at a flexible cost.',
+  title: 'Fractional FD Services UK',
+  description: 'Hire a Fractional Finance Director. Cash flow, reporting, compliance for SMEs.',
   keywords: 'fractional fd, fractional finance director, hire fractional fd, part time finance director, fractional finance leadership, fractional fd services',
   alternates: {
     canonical: 'https://fractional.quest/fractional-finance-director-services',

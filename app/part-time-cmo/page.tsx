@@ -6,8 +6,8 @@ import { JobsGraph3D } from '@/components/JobsGraph3D'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Part-Time CMO Jobs UK 2025 - Flexible Chief Marketing Officer Roles',
-  description: 'Find part-time CMO jobs in the UK. Flexible Chief Marketing Officer positions paying £700-£1,400/day. Work 1-3 days per week with startups and scale-ups.',
+  title: 'Part-Time CMO UK 2025',
+  description: 'Part-time CMO jobs UK. Flexible CMO positions paying £700-£1,400/day.',
   keywords: 'part time cmo, part-time cmo, part time chief marketing officer, part time cmo jobs, flexible cmo roles, part-time cmo services',
   openGraph: {
     title: 'Part-Time CMO Jobs UK - Flexible Chief Marketing Officer Roles',
