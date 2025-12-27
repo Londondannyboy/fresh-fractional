@@ -39,8 +39,45 @@ const faqItems = [
 ]
 
 export default function PartTimeCOOPage() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Part-Time COO UK 2025: Fractional Operations Leadership',
+    description: 'Part-time COO services for UK businesses. Expert operations leadership 1-3 days per week.',
+    image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    author: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest' },
+    publisher: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest', logo: { '@type': 'ImageObject', url: 'https://fractional.quest/logo.svg' } },
+    datePublished: '2025-01-01',
+    dateModified: '2025-01-01',
+    mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://fractional.quest/part-time-coo' },
+  }
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://fractional.quest' },
+      { '@type': 'ListItem', position: 2, name: 'COO', item: 'https://fractional.quest/fractional-coo' },
+      { '@type': 'ListItem', position: 3, name: 'Part-Time COO', item: 'https://fractional.quest/part-time-coo' },
+    ],
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       {/* Hero */}
       <section className="bg-gradient-to-br from-rose-700 to-rose-600 py-24">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">

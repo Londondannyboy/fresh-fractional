@@ -39,8 +39,45 @@ const faqItems = [
 ]
 
 export default function FractionalCXOPage() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Fractional CXO UK 2025: Part-Time C-Suite Leadership',
+    description: 'Fractional CXO guide for UK businesses. Access part-time C-suite executives without full-time commitment or cost.',
+    image: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    author: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest' },
+    publisher: { '@type': 'Organization', name: 'Fractional Quest', url: 'https://fractional.quest', logo: { '@type': 'ImageObject', url: 'https://fractional.quest/logo.svg' } },
+    datePublished: '2025-01-01',
+    dateModified: '2025-01-01',
+    mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://fractional.quest/fractional-cxo' },
+  }
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://fractional.quest' },
+      { '@type': 'ListItem', position: 2, name: 'C-Suite', item: 'https://fractional.quest/fractional-c-suite' },
+      { '@type': 'ListItem', position: 3, name: 'Fractional CXO', item: 'https://fractional.quest/fractional-cxo' },
+    ],
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       {/* Hero */}
       <section className="bg-gradient-to-br from-indigo-700 to-indigo-600 py-24">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
