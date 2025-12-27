@@ -325,6 +325,22 @@ export default async function FractionalJobsUKPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {/* FAQ Schema - generated once in server component to avoid hydration duplicates */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: ukFractionalJobsFAQs.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.answer,
+            },
+          })),
+        }) }}
+      />
 
       {/* Hero Section with Colorful Aspirational Image */}
       <section className="relative min-h-[55vh] flex items-center overflow-hidden">
@@ -828,6 +844,7 @@ export default async function FractionalJobsUKPage() {
               items={ukFractionalJobsFAQs}
               title=""
               className=""
+              skipSchema={true}
             />
           </div>
         </div>
