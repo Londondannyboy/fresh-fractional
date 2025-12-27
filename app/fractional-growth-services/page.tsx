@@ -8,8 +8,8 @@ import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Growth Services UK | Hire a Part-Time Head of Growth',
-  description: 'Hire a Fractional Head of Growth or Growth Director. Expert leadership for user acquisition, retention, and scaling. Data-driven growth strategy at a flexible cost.',
+  title: 'Fractional Growth Services UK',
+  description: 'Hire a Fractional Head of Growth. User acquisition, retention, scaling expertise.',
   keywords: 'fractional head of growth, fractional growth director, hire fractional growth expert, part time growth marketing, fractional growth strategy, growth hacking services',
   alternates: {
     canonical: 'https://fractional.quest/fractional-growth-services',

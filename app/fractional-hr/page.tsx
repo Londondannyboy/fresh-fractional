@@ -9,8 +9,8 @@ import { RoleCalculator } from '@/components/RoleCalculator'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional HR UK | Fractional HR Director & CHRO Services 2025',
-  description: 'Fractional HR services UK - Hire a fractional HR director, fractional CHRO, or fractional HR manager. Part-time HR leadership from £700-£1,300/day. Interim HR director & outsourced HR solutions for UK businesses.',
+  title: 'Fractional HR UK 2025',
+  description: 'Fractional HR UK. Hire HR Director, CHRO, HR Manager. £700-£1,300/day.',
   keywords: 'fractional hr, fractional hr director, fractional chro, fractional hr services, fractional hr uk, fractional hr manager, part time hr, interim hr director, fractional hr consultant, outsourced hr, fractional hr cost, fractional hr salary, fractional hr for startups, what is fractional hr, fractional people director, hr director jobs, fractional chief people officer',
   alternates: { canonical: 'https://fractional.quest/fractional-hr' },
   openGraph: {

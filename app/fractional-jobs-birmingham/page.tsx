@@ -8,8 +8,8 @@ import { FAQ, BIRMINGHAM_FAQS } from '@/components/FAQ'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Jobs Birmingham - Executive Roles in the UK\'s Second City',
-  description: 'Find fractional executive jobs in Birmingham. CFO, CMO, CTO roles in Colmore Row & beyond. £650-£1,100 daily rates. Finance, manufacturing, and tech hub.',
+  title: 'Fractional Jobs Birmingham UK',
+  description: 'Fractional executive jobs in Birmingham. CFO, CMO, CTO roles. £650-£1,100/day.',
   keywords: 'fractional jobs Birmingham, fractional CFO Birmingham, fractional CTO Birmingham, part-time executive Birmingham',
   alternates: {
     canonical: 'https://fractional.quest/fractional-jobs-birmingham',

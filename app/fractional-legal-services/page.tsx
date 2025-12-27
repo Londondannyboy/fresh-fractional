@@ -10,8 +10,8 @@ import { getRoleBreadcrumbs } from '@/lib/seo-config'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Legal Services UK | Hire a Part-Time General Counsel',
-  description: 'Hire a Fractional General Counsel or Legal Counsel. Expert commercial legal support for contracts, IP, and employment. In-house legal quality at a fraction of the cost.',
+  title: 'Fractional Legal Services UK',
+  description: 'Hire a Fractional General Counsel. Contracts, IP, employment. In-house legal quality.',
   keywords: 'fractional general counsel, fractional legal counsel, hire fractional lawyer, part time general counsel, fractional head of legal, legal services for startups',
   alternates: {
     canonical: 'https://fractional.quest/fractional-legal-services',

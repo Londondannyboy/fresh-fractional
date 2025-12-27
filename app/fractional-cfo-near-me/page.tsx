@@ -6,8 +6,8 @@ import { JobsGlobe } from '@/components/JobsGlobe'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CFO Services Near Me | Local CFO Support in Your Area',
-  description: 'Find Fractional CFO services in your area. 260/mo searches, +586% YoY growth. Local CFO support in London, Manchester, Birmingham, Leeds, Edinburgh & across the UK.',
+  title: 'Fractional CFO Near Me UK',
+  description: 'Fractional CFO near me. Local CFO support in London, Manchester, Birmingham, Leeds.',
   keywords: 'fractional cfo near me, fractional cfo services near me, local fractional cfo, fractional cfo london, fractional cfo manchester, fractional cfo birmingham',
   alternates: {
     canonical: 'https://fractional.quest/fractional-cfo-near-me',

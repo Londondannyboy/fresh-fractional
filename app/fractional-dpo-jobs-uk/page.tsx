@@ -13,8 +13,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional DPO Jobs UK | Part-Time Data Protection Officer Roles',
-  description: 'Fractional DPO jobs UK - Find part-time Data Protection Officer positions paying £500-£900/day. Browse live DPO roles for experienced privacy professionals. Remote & hybrid available.',
+  title: 'Fractional DPO Jobs UK 2025',
+  description: 'Fractional DPO jobs UK. Part-time Data Protection Officer roles. £500-£900/day.',
   keywords: 'fractional dpo jobs, fractional data protection officer jobs uk, part time dpo, fractional privacy officer, gdpr consultant jobs, data privacy jobs part time',
   alternates: {
     canonical: 'https://fractional.quest/fractional-dpo-jobs-uk',

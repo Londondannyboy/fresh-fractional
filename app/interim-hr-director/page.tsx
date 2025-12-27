@@ -7,8 +7,8 @@ import { FAQ } from '@/components/FAQ'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Interim HR Director UK 2025 | Full-Time Temporary HR Leadership',
-  description: 'Interim HR Director guide for UK businesses. Full-time temporary HR leadership for 3-12 months. Compare with fractional HR Directors. £850-£1,200/day.',
+  title: 'Interim HR Director UK 2025',
+  description: 'Interim HR Director UK. Full-time temporary HR leadership 3-12 months. £850-£1,200/day.',
   keywords: 'interim hr director, interim hr director uk, temporary hr director, interim head of hr, interim vs fractional hr',
   alternates: {
     canonical: 'https://fractional.quest/interim-hr-director',

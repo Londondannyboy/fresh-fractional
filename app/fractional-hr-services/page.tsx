@@ -11,8 +11,8 @@ import { getRoleBreadcrumbs } from '@/lib/seo-config'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional HR Services UK | Expert People Leadership On-Demand',
-  description: 'Fractional HR services for UK businesses. Access experienced HR Directors and CHROs at £700-£1,300/day. Strategic people leadership without full-time cost.',
+  title: 'Fractional HR Services UK 2025',
+  description: 'Fractional HR services UK. HR Directors and CHROs at £700-£1,300/day.',
   keywords: 'fractional hr services, fractional hr services uk, outsourced hr services, part time hr services, fractional hr support',
   alternates: {
     canonical: 'https://fractional.quest/fractional-hr-services',

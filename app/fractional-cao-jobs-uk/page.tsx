@@ -13,8 +13,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CAO Jobs UK | Part-Time Chief Analytics Officer Roles',
-  description: 'Fractional CAO jobs UK - Find part-time Chief Analytics Officer positions paying £900-£1,400/day. Browse live CAO roles for experienced analytics leaders. Remote & hybrid available.',
+  title: 'Fractional CAO Jobs UK 2025',
+  description: 'Fractional CAO jobs UK. Part-time Chief Analytics Officer roles. £900-£1,400/day.',
   keywords: 'fractional cao jobs, fractional cao jobs uk, part time cao, part-time chief analytics officer, cao part time, fractional analytics opportunities, fractional data science jobs',
   alternates: {
     canonical: 'https://fractional.quest/fractional-cao-jobs-uk',

@@ -9,8 +9,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Remote Fractional Jobs UK | Work From Home Executive Roles 2025',
-  description: 'Remote fractional jobs UK - Find work from home fractional CFO, CMO, CTO, HR director & executive roles. Remote fractional executive positions paying £800-£1,500/day. Fully remote & hybrid opportunities.',
+  title: 'Remote Fractional Jobs UK 2025',
+  description: 'Remote fractional jobs UK. Work from home CFO, CMO, CTO roles. £800-£1,500/day.',
   keywords: 'remote fractional jobs, remote fractional, fractional remote jobs, work from home fractional, remote fractional cfo, remote fractional cmo, remote fractional cto, remote executive jobs, remote director jobs, work from home executive, remote fractional jobs uk, hybrid fractional jobs',
   alternates: {
     canonical: 'https://fractional.quest/remote-fractional-jobs',

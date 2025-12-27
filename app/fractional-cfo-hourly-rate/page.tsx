@@ -6,8 +6,8 @@ import { RoleCalculator } from '@/components/RoleCalculator'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CFO Hourly Rate UK 2025 | £150-£500/Hour Benchmarks',
-  description: 'Fractional CFO hourly rates in the UK: £150-£500/hour depending on experience. See rate benchmarks by seniority, location, and industry. 260/mo searches.',
+  title: 'Fractional CFO Hourly Rate UK',
+  description: 'Fractional CFO hourly rates UK. £150-£500/hour by experience, location, industry.',
   keywords: 'fractional cfo hourly rate, fractional cfo rates, cfo hourly rate, part time cfo rates, fractional cfo pricing',
   alternates: {
     canonical: 'https://fractional.quest/fractional-cfo-hourly-rate',

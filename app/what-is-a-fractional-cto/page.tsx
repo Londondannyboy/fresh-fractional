@@ -7,8 +7,8 @@ import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'What is a Fractional CTO? Definition, Role & When to Hire (2025)',
-  description: 'A Fractional CTO is an experienced Chief Technology Officer who works part-time (1-3 days/week) providing strategic technical leadership at 50-60% less cost than full-time. Complete definition guide.',
+  title: 'What is a Fractional CTO?',
+  description: 'Fractional CTO definition. Part-time tech leadership 1-3 days/week, 50-60% less cost.',
   keywords: 'what is a fractional cto, fractional cto definition, what does a fractional cto do, fractional vs full time cto, fractional cto meaning',
   alternates: {
     canonical: 'https://fractional.quest/what-is-a-fractional-cto',

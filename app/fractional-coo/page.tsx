@@ -11,8 +11,8 @@ import { RoleContentHub } from '@/components/RoleContentHub'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'What is a Fractional COO? Complete Guide 2025 | Fractional Quest',
-  description: 'A fractional COO provides part-time operational leadership for $5k-15k/month. Learn how fractional COOs work, what they do, and when to hire one.',
+  title: 'Fractional COO Guide UK 2025',
+  description: 'What is a fractional COO? Part-time operational leadership for $5k-15k/month.',
   keywords: 'what is a fractional coo, fractional coo meaning, fractional operations, part-time coo, fractional coo services',
   alternates: {
     canonical: 'https://fractional.quest/fractional-coo',

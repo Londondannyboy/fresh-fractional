@@ -6,8 +6,8 @@ import { HireProcessStepper } from '@/components/HireProcessStepper'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Data Leadership UK | Hire Part-Time Data Executives',
-  description: 'Hire fractional data leaders for your business. Part-time CDOs, VPs of Data, and Analytics Directors. Expert data leadership without full-time cost.',
+  title: 'Fractional Data UK 2025',
+  description: 'Hire fractional data leaders. Part-time CDOs, VPs of Data, Analytics Directors.',
   keywords: 'fractional data, fractional data director, part-time data executive, fractional vp analytics, hire data leader, fractional cdo',
   alternates: { canonical: 'https://fractional.quest/fractional-data' },
 }

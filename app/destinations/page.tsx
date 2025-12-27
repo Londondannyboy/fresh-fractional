@@ -5,8 +5,8 @@ import { PropertyOverlay } from '@/components/PropertyOverlay'
 import type { Destination } from '@/lib/types'
 
 export const metadata: Metadata = {
-  title: 'Best Destinations for Fractional Executives | Work From Anywhere',
-  description: 'Discover the best destinations for fractional executives and digital nomads. Find your ideal base with great timezone overlap, coworking spaces, and quality of life.',
+  title: 'Fractional Exec Destinations',
+  description: 'Best destinations for fractional executives. Timezone overlap, coworking, quality of life.',
 }
 
 async function getDestinations(): Promise<Destination[]> {

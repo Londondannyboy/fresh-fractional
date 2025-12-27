@@ -4,8 +4,8 @@ import Link from 'next/link'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Hire Cybersecurity Consultants UK | Fractional Security Experts',
-  description: 'Hire experienced cybersecurity consultants on a fractional basis. Expert security professionals for compliance, risk assessment, and security programmes. Available part-time.',
+  title: 'Cybersecurity Consultants UK',
+  description: 'Hire cybersecurity consultants UK. Fractional security experts for compliance, risk.',
   keywords: 'cybersecurity consultants, hire cybersecurity consultant, fractional security expert, cybersecurity consultant uk, information security consultant',
   alternates: { canonical: 'https://fractional.quest/cybersecurity-consultants' },
 }

@@ -4,8 +4,8 @@ import { FAQ } from '@/components/FAQ'
 import { StrategicComparisonInfographic, ComparisonData } from '@/components/infographics/StrategicComparisonInfographic'
 
 export const metadata: Metadata = {
-  title: 'Fractional CFO vs Full-Time CFO: Complete Comparison Guide 2025',
-  description: 'Detailed comparison of Fractional vs Full-Time CFO: costs, benefits, decision framework, and when each makes sense for your business in 2025.',
+  title: 'Fractional vs Full-Time CFO',
+  description: 'Fractional CFO vs Full-Time comparison. Costs, benefits, when each makes sense.',
   openGraph: {
     title: 'Fractional CFO vs Full-Time CFO: Complete Comparison Guide 2025',
     description: 'Detailed comparison of Fractional vs Full-Time CFO: costs, benefits, decision framework, and when each makes sense for your business in 2025.',

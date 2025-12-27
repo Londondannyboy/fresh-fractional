@@ -7,8 +7,8 @@ import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'What is a Fractional CFO? Definition, Role & When to Hire (2025)',
-  description: 'A Fractional CFO is an experienced Chief Financial Officer who works part-time (1-3 days/week) providing strategic financial leadership at 50-70% less cost than full-time. Learn when to hire one.',
+  title: 'What is a Fractional CFO?',
+  description: 'Fractional CFO definition. Part-time finance leadership 1-3 days/week, 50-70% less cost.',
   keywords: 'what is a fractional cfo, fractional cfo definition, what does a fractional cfo do, fractional vs full time cfo, fractional vs interim cfo',
   alternates: {
     canonical: 'https://fractional.quest/what-is-fractional-cfo',

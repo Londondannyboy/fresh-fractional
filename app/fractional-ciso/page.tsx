@@ -6,8 +6,8 @@ import { RoleCalculator } from '@/components/RoleCalculator'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CISO: The Complete Guide 2025 | Virtual CISO Services',
-  description: 'The complete guide to Fractional CISOs. Learn what a fractional CISO does, vCISO pricing, how to hire one, and fractional CISO jobs. 6,000+ searches/month.',
+  title: 'Fractional CISO Guide UK 2025',
+  description: 'What is a fractional CISO? Complete guide - vCISO pricing, how to hire, jobs.',
   keywords: 'fractional ciso, vciso, virtual ciso, ciso as a service, fractional ciso services, fractional ciso jobs, fractional ciso cost, ciso meaning',
   alternates: {
     canonical: 'https://fractional.quest/fractional-ciso',

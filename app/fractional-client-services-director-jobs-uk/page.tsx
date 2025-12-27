@@ -10,8 +10,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Client Services Director Jobs UK | Part-Time CS Roles',
-  description: 'Fractional Client Services Director jobs UK - Find part-time CS & Customer Success positions paying £600-£1,000/day. Browse live roles for experienced account directors. Remote & hybrid available.',
+  title: 'Fractional CSD Jobs UK 2025',
+  description: 'Fractional Client Services Director jobs UK. Part-time CS roles. £600-£1,000/day.',
   keywords: 'fractional client services director jobs, fractional customer success jobs uk, part time client services, fractional head of customer success, part time cs jobs, freelance account director',
   alternates: {
     canonical: 'https://fractional.quest/fractional-client-services-director-jobs-uk',
