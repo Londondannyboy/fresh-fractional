@@ -285,6 +285,92 @@ export default async function FractionalJobsPage() {
         </div>
       </section>
 
+      {/* UK Market Overview */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">The UK Fractional Executive Market</h2>
+          <div className="prose prose-lg text-gray-600">
+            <p>
+              The United Kingdom has emerged as one of Europe's leading markets for fractional executive
+              talent. According to the <a href="https://www.scaleupinstitute.org.uk/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700">ScaleUp Institute</a>,
+              UK scale-ups increasingly turn to fractional leaders for strategic guidance without the
+              overhead of full-time C-suite hires.
+            </p>
+            <p>
+              London remains the epicentre, accounting for over 60% of fractional opportunities, but
+              Manchester, Birmingham, Edinburgh, and Bristol are rapidly growing hubs. Remote and hybrid
+              arrangements have expanded the talent pool further, allowing executives outside major cities
+              to serve clients nationwide.
+            </p>
+            <p>
+              Day rates for fractional executives in the UK typically range from £700 to £1,500, with
+              CFOs and CTOs commanding the highest premiums. Most fractional professionals work with
+              2-4 clients simultaneously, earning £150,000 to £350,000+ annually while maintaining
+              flexibility over their schedules.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Benefits of Fractional Work</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">For Executives</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-1">✓</span>
+                  <span>Portfolio diversification across multiple industries</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-1">✓</span>
+                  <span>Higher earning potential than single employment</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-1">✓</span>
+                  <span>Flexibility to choose projects and clients</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-1">✓</span>
+                  <span>Work-life balance with reduced commuting</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-1">✓</span>
+                  <span>Continuous learning across different business challenges</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">For Companies</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-1">✓</span>
+                  <span>Access to senior expertise at 30-50% of full-time cost</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-1">✓</span>
+                  <span>No long-term employment commitments or notice periods</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-1">✓</span>
+                  <span>Fresh perspectives from experienced multi-sector professionals</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-1">✓</span>
+                  <span>Rapid onboarding for immediate strategic impact</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 mt-1">✓</span>
+                  <span>Scale expertise up or down based on business needs</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">

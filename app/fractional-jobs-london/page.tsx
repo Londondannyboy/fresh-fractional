@@ -466,6 +466,26 @@ export default async function FractionalJobsLondonPage() {
         </section>
       )}
 
+      {/* Why London for Fractional Work */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+            Why London Leads the UK Fractional Market
+          </h2>
+          <div className="prose prose-lg max-w-none text-gray-600">
+            <p className="mb-4">
+              London dominates the UK's fractional executive market, accounting for approximately 60% of all available positions. This concentration is driven by the capital's unique position as a global financial centre, home to Europe's largest technology cluster, and headquarters for thousands of scale-up businesses seeking flexible leadership.
+            </p>
+            <p className="mb-4">
+              The City of London and Canary Wharf provide consistent demand for fractional CFOs, particularly among fintech companies and PE-backed portfolio businesses requiring financial restructuring or IPO preparation. Meanwhile, Tech City's corridor from Shoreditch to King's Cross generates strong demand for fractional CTOs and CPOs from Series A to Series C startups navigating rapid growth phases.
+            </p>
+            <p>
+              London-based fractional executives command premium rates 25-40% higher than regional counterparts, reflecting both the cost of living adjustment and the complexity of mandates. Most London roles now offer hybrid arrangements, with executives typically spending 1-2 days per week on-site and the remainder working remotely—enabling portfolio careers spanning multiple clients across different sectors.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Rate Calculator */}
       <section id="rate-calculator" className="py-16 md:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
