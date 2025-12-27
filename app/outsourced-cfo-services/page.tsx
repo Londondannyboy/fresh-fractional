@@ -3,12 +3,12 @@ import Link from 'next/link'
 import { FAQ } from '@/components/FAQ'
 
 export const metadata: Metadata = {
-  title: 'Outsourced CFO Services UK | External CFO Solutions 2025',
-  description: 'Outsourced CFO services explained. How outsourcing your CFO function works, benefits, costs, and comparison with fractional and in-house CFO options. Hire an outsourced chief financial officer.',
+  title: 'Outsourced CFO Services UK',
+  description: 'Outsourced CFO services UK. How it works, benefits, costs, vs fractional and in-house.',
   keywords: 'outsourced cfo, outsourced cfo services, external cfo, hire outsourced cfo, outsourced chief financial officer, outsourced cfo uk, cfo outsourcing, outsource cfo function',
   openGraph: {
-    title: 'Outsourced CFO Services UK | External CFO Solutions 2025',
-    description: 'Complete guide to outsourced CFO services. Benefits, costs, and how it compares to fractional and in-house CFOs.',
+    title: 'Outsourced CFO Services UK',
+    description: 'Outsourced CFO services UK guide. Benefits, costs, comparisons.',
     url: 'https://fractional.quest/outsourced-cfo-services',
   },
   alternates: {

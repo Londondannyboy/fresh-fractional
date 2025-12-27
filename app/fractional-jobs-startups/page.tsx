@@ -9,8 +9,8 @@ import { FAQ, STARTUPS_FAQS } from '@/components/FAQ'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Jobs for Startups UK - CFO, CTO, CMO for Scale-ups',
-  description: 'Find fractional executive jobs at startups and scale-ups. Fractional CFO, CTO, CMO for Series A-C companies. £800-£1,300 daily rates. Equity options available.',
+  title: 'Fractional Startup Jobs UK',
+  description: 'Fractional exec jobs at startups. CFO, CTO, CMO for Series A-C. £800-£1,300/day.',
   openGraph: {
     title: 'Fractional Jobs for Startups UK - CFO, CTO, CMO for Scale-ups',
     description: 'Find fractional executive jobs at UK startups and scale-ups.',

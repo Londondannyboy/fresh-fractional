@@ -6,8 +6,8 @@ import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Interim CISO Services UK | Hire a Temporary CISO',
-  description: 'Hire an Interim CISO for your business. Full-time temporary security leadership for breaches, compliance, and security transformations. Expert CISOs available immediately.',
+  title: 'Interim CISO Services UK',
+  description: 'Hire an Interim CISO. Temporary security leadership for breaches and compliance.',
   keywords: 'interim ciso, interim ciso services, hire interim ciso, temporary ciso, interim chief information security officer, interim ciso uk',
   alternates: { canonical: 'https://fractional.quest/interim-ciso' },
 }

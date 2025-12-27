@@ -10,15 +10,15 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Sales Director Jobs UK | Part-Time Sales Roles',
-  description: 'Fractional Sales Director jobs UK - Find part-time Sales Director positions paying £600-£1,000/day. Browse live Sales Director roles for experienced sales leaders. Remote & hybrid available.',
+  title: 'Sales Director Jobs UK 2025',
+  description: 'Fractional Sales Director jobs UK. Part-time positions £600-£1,000/day. Remote & hybrid.',
   keywords: 'fractional sales director jobs, fractional sales jobs uk, part time sales director, fractional sales leadership, part time sales jobs, freelance sales director',
   alternates: {
     canonical: 'https://fractional.quest/fractional-sales-director-jobs-uk',
   },
   openGraph: {
-    title: 'Fractional Sales Director Jobs UK | Part-Time Sales Roles',
-    description: 'Fractional Sales Director jobs UK - Find part-time Sales Director positions paying £600-£1,000/day. Remote & hybrid available.',
+    title: 'Sales Director Jobs UK 2025',
+    description: 'Fractional Sales Director jobs UK. Part-time positions £600-£1,000/day.',
     images: ['/images/fractional-sales-director-jobs-uk.jpg'],
     url: 'https://fractional.quest/fractional-sales-director-jobs-uk',
   },

@@ -12,15 +12,15 @@ import { getRoleBreadcrumbs } from '@/lib/seo-config'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Project Manager Jobs UK | Part-Time PM Roles',
-  description: 'Fractional Project Manager jobs UK - Find part-time Project Manager positions paying £400-£700/day. Browse live PM roles for experienced delivery leads. Remote & hybrid available.',
+  title: 'Project Manager Jobs UK 2025',
+  description: 'Fractional Project Manager jobs UK. Part-time PM positions £400-£700/day. Remote & hybrid.',
   keywords: 'fractional project manager jobs, fractional pm jobs uk, part time project manager, fractional delivery manager, part time project management, freelance project manager',
   alternates: {
     canonical: 'https://fractional.quest/fractional-project-manager-jobs-uk',
   },
   openGraph: {
-    title: 'Fractional Project Manager Jobs UK | Part-Time PM Roles',
-    description: 'Fractional Project Manager jobs UK - Find part-time Project Manager positions paying £400-£700/day. Remote & hybrid available.',
+    title: 'Project Manager Jobs UK 2025',
+    description: 'Fractional Project Manager jobs UK. Part-time PM positions £400-£700/day.',
     images: ['/images/fractional-project-manager-jobs-uk.jpg'],
     url: 'https://fractional.quest/fractional-project-manager-jobs-uk',
   },

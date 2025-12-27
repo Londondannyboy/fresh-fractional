@@ -5,13 +5,13 @@ import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Interim CTO Services UK | Hire a Temporary CTO',
-  description: 'Hire an Interim CTO for your business. Full-time temporary technical leadership for transformations, migrations, and critical technical periods. Expert CTOs available immediately.',
+  title: 'Interim CTO Services UK',
+  description: 'Hire an Interim CTO. Temporary technical leadership for transformations and migrations.',
   keywords: 'interim cto, interim cto services, hire interim cto, temporary cto, interim chief technology officer, interim cto uk',
   alternates: { canonical: 'https://fractional.quest/interim-cto' },
   openGraph: {
-    title: 'Interim CTO Services UK | Hire a Temporary CTO',
-    description: 'Hire an Interim CTO for your business. Full-time temporary technical leadership.',
+    title: 'Interim CTO Services UK',
+    description: 'Hire an Interim CTO. Temporary technical leadership.',
     url: 'https://fractional.quest/interim-cto',
   },
 }

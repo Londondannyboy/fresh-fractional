@@ -13,8 +13,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Managing Director Jobs UK | Part-Time MD Roles',
-  description: 'Fractional Managing Director jobs UK - Find part-time MD positions paying £800-£1,500/day. Browse live Managing Director roles for experienced business leaders. Remote & hybrid available.',
+  title: 'Fractional MD Jobs UK 2025',
+  description: 'Fractional Managing Director jobs UK. Part-time MD roles. £800-£1,500/day.',
   keywords: 'fractional managing director jobs, fractional md jobs uk, part time managing director, fractional md roles, part time md jobs, fractional general management jobs',
   alternates: {
     canonical: 'https://fractional.quest/fractional-managing-director-jobs-uk',

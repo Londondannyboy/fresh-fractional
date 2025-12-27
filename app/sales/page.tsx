@@ -8,15 +8,15 @@ import { FAQ } from '@/components/FAQ'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Sales Jobs UK | Sales Director, CRO & BD Roles',
-  description: 'Fractional sales jobs UK - Find part-time Sales Director, CRO, and Business Development roles. Browse fractional sales jobs paying £600-£1,800/day. Remote & hybrid available.',
+  title: 'Fractional Sales Jobs UK',
+  description: 'Fractional sales jobs UK. Sales Director, CRO, BD roles £600-£1,800/day. Remote & hybrid.',
   keywords: 'fractional sales jobs, fractional sales jobs uk, part time sales director, fractional cro, sales director jobs, business development jobs, fractional sales, sales consultant jobs uk',
   alternates: {
     canonical: 'https://fractional.quest/sales',
   },
   openGraph: {
-    title: 'Fractional Sales Jobs UK | Sales Director, CRO & BD Roles',
-    description: 'Fractional sales jobs UK - Part-time Sales Director, CRO, and BD roles paying £600-£1,800/day.',
+    title: 'Fractional Sales Jobs UK',
+    description: 'Fractional sales jobs UK. Sales Director, CRO roles £600-£1,800/day.',
     url: 'https://fractional.quest/sales',
   },
 }

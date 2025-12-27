@@ -2,8 +2,8 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How It Works | Hire Fractional Executives | Fractional Quest",
-  description: "Learn how to hire fractional executives. Our simple process connects you with experienced CFOs, CMOs, CTOs and COOs at a fraction of full-time cost.",
+  title: "How Fractional Hiring Works",
+  description: "Hire fractional executives. Connect with experienced CFOs, CMOs, CTOs, COOs at a fraction of cost.",
   alternates: {
     canonical: "https://fractional.quest/how-it-works",
   },

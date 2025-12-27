@@ -6,8 +6,8 @@ import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Services UK | Part-Time Executive Leadership',
-  description: 'Access fractional executive services for your business. Part-time CFOs, CMOs, CTOs and more. Get senior leadership without full-time commitment or cost.',
+  title: 'Fractional Services UK',
+  description: 'Fractional executive services UK. Part-time CFOs, CMOs, CTOs. Senior leadership, flexible cost.',
   keywords: 'fractional services, fractional executive services, part-time executive, fractional leadership, fractional services uk',
   alternates: { canonical: 'https://fractional.quest/fractional-services' },
 }

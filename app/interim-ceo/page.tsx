@@ -9,15 +9,15 @@ import { RoleContentHub } from '@/components/RoleContentHub'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Interim CEO UK | Temporary Chief Executive Officer Roles',
-  description: 'Interim CEO roles UK - Full-time temporary Chief Executive Officer positions paying £1,200-£2,000/day. Browse live interim CEO jobs for experienced leaders.',
+  title: 'Interim CEO UK 2025',
+  description: 'Interim CEO roles UK. Temporary Chief Executive positions £1,200-£2,000/day.',
   keywords: 'interim ceo uk, interim ceo, temporary ceo, interim chief executive officer, ceo interim, interim ceo jobs uk',
   alternates: {
     canonical: 'https://fractional.quest/interim-ceo',
   },
   openGraph: {
-    title: 'Interim CEO UK | Temporary Chief Executive Officer Roles',
-    description: 'Interim CEO roles UK - Full-time temporary executive leadership paying £1,200-£2,000/day.',
+    title: 'Interim CEO UK 2025',
+    description: 'Interim CEO roles UK. Temporary executive leadership £1,200-£2,000/day.',
     url: 'https://fractional.quest/interim-ceo',
     images: ['/images/interim-ceo-uk.jpg'],
   },

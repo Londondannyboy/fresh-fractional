@@ -3,15 +3,15 @@ import Link from 'next/link'
 import { FAQ } from '@/components/FAQ'
 
 export const metadata: Metadata = {
-  title: 'Interim Compliance Officer UK | When and Why to Hire One 2025',
-  description: 'Interim compliance officer guide - when and why to hire one. Temporary CCO/MLRO cover, regulatory transitions, maternity cover. Day rates £900-£1,400 UK.',
+  title: 'Interim Compliance Officer UK',
+  description: 'Interim compliance officer UK. Temporary CCO/MLRO cover. Day rates £900-£1,400.',
   keywords: 'interim compliance officer, interim cco, interim mlro, temporary compliance officer, compliance maternity cover, interim compliance jobs',
   alternates: {
     canonical: 'https://fractional.quest/interim-compliance-officer',
   },
   openGraph: {
-    title: 'Interim Compliance Officer UK | When and Why to Hire One',
-    description: 'When to hire an interim compliance officer. Temporary CCO/MLRO cover for transitions, departures, and special projects.',
+    title: 'Interim Compliance Officer UK',
+    description: 'Interim compliance officer. Temporary CCO/MLRO cover UK.',
     url: 'https://fractional.quest/interim-compliance-officer',
   },
 }

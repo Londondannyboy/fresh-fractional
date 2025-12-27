@@ -6,8 +6,8 @@ import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Interim CPO Services UK | Hire a Temporary CPO',
-  description: 'Hire an Interim CPO for your business. Full-time temporary product leadership for launches, pivots, and product transformations. Expert CPOs available immediately.',
+  title: 'Interim CPO Services UK',
+  description: 'Hire an Interim CPO. Temporary product leadership for launches and pivots.',
   keywords: 'interim cpo, interim cpo services, hire interim cpo, temporary cpo, interim chief product officer, interim cpo uk',
   alternates: { canonical: 'https://fractional.quest/interim-cpo' },
 }

@@ -6,8 +6,8 @@ import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Interim CHRO Services UK | Hire a Temporary HR Director',
-  description: 'Hire an Interim CHRO for your business. Full-time temporary HR leadership for transformations, restructuring, and people challenges. Expert CHROs available immediately.',
+  title: 'Interim CHRO Services UK',
+  description: 'Hire an Interim CHRO. Temporary HR leadership for transformations and restructuring.',
   keywords: 'interim chro, interim hr director, hire interim chro, temporary hr director, interim chief hr officer, interim chro uk',
   alternates: { canonical: 'https://fractional.quest/interim-chro' },
 }

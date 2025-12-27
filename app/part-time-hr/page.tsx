@@ -6,15 +6,15 @@ import { JobsGraph3D } from '@/components/JobsGraph3D'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Part-Time HR Jobs UK 2025 - Flexible HR Director & CHRO Roles',
-  description: 'Find part-time HR jobs in the UK. Flexible HR Director and CHRO positions paying £700-£1,300/day. Work 1-3 days per week with growing companies.',
+  title: 'Part-Time HR Jobs UK 2025',
+  description: 'Part-time HR jobs UK. HR Director and CHRO positions £700-£1,300/day. 1-3 days per week.',
   keywords: 'part time hr, part-time hr, part time hr director, part time chro, part time hr jobs, flexible hr roles',
   alternates: {
     canonical: 'https://fractional.quest/part-time-hr',
   },
   openGraph: {
-    title: 'Part-Time HR Jobs UK - Flexible HR Director & CHRO Roles',
-    description: 'Find part-time HR jobs in the UK. Flexible HR positions paying £700-£1,300/day.',
+    title: 'Part-Time HR Jobs UK 2025',
+    description: 'Part-time HR jobs UK. HR Director, CHRO positions £700-£1,300/day.',
     images: ['/images/part-time-hr.jpg'],
     url: 'https://fractional.quest/part-time-hr',
   },

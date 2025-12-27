@@ -8,7 +8,7 @@ import { getAgencies, Agency } from '@/lib/agencies'
 
 export const metadata: Metadata = {
   title: 'Top Fractional Recruitment Agency UK',
-  description: 'Find the best fractional recruitment agency in the UK. Compare top fractional recruiters for CFO, CTO, CMO hiring. Save 40-60% vs full-time executive hires.',
+  description: 'Best fractional recruitment agency UK. Compare top recruiters. Save 40-60%.',
   keywords: 'best fractional recruitment agency, fractional recruiters, top fractional recruitment agencies, fractional recruitment agency uk, fractional executive recruitment, fractional cfo recruitment',
   alternates: {
     canonical: 'https://fractional.quest/top-fractional-recruitment-agencies-best-fractional-recruitment-agency-fractional-recruiter',

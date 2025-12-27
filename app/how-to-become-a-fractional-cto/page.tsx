@@ -5,15 +5,15 @@ import { FAQ } from '@/components/FAQ'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'How to Become a Fractional CTO: Complete Career Guide 2025',
-  description: 'Step-by-step guide to becoming a Fractional CTO in the UK. Learn prerequisites, how to find clients, set rates, and build a successful fractional CTO practice.',
+  title: 'Become a Fractional CTO 2025',
+  description: 'How to become a Fractional CTO UK. Prerequisites, find clients, set rates, build your practice.',
   keywords: 'how to become a fractional cto, fractional cto career, becoming a fractional cto, fractional cto guide',
   alternates: {
     canonical: 'https://fractional.quest/how-to-become-a-fractional-cto',
   },
   openGraph: {
-    title: 'How to Become a Fractional CTO: Complete Career Guide',
-    description: 'Everything you need to know about transitioning to a fractional CTO career.',
+    title: 'Become a Fractional CTO 2025',
+    description: 'Transition to a fractional CTO career. Complete guide.',
     images: ['/images/how-to-become-fractional-cto.jpg'],
     url: 'https://fractional.quest/how-to-become-a-fractional-cto',
   },

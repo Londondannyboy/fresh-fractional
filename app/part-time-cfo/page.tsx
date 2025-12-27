@@ -6,15 +6,15 @@ import { JobsGraph3D } from '@/components/JobsGraph3D'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Part-Time CFO | UK Part Time CFO Services & Jobs 2025',
-  description: 'Part-time CFO services UK - Hire a part time CFO or find CFO part time jobs paying £800-£1,500/day. Remote CFO jobs available. Part time CFO wanted? We connect companies with experienced CFOs.',
+  title: 'Part-Time CFO UK 2025',
+  description: 'Part-time CFO services UK. Hire a CFO or find jobs £800-£1,500/day. Remote available.',
   keywords: 'part time cfo, part-time cfo, part time cfo services, cfo part time, part time cfo jobs, remote cfo jobs, part time cfo wanted, part time cfo needed, part time cfos, flexible cfo roles',
   alternates: {
     canonical: 'https://fractional.quest/part-time-cfo',
   },
   openGraph: {
-    title: 'Part-Time CFO Services & Jobs UK | Hire a CFO Part Time',
-    description: 'Part-time CFO services UK. Find part time CFO jobs or hire a CFO part time. Remote options available. £800-£1,500/day.',
+    title: 'Part-Time CFO UK 2025',
+    description: 'Part-time CFO services UK. CFO jobs £800-£1,500/day.',
     url: 'https://fractional.quest/part-time-cfo',
   },
 }

@@ -13,8 +13,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Legal Jobs UK | Part-Time Legal Counsel Roles',
-  description: 'Fractional Legal jobs UK - Find part-time Legal Counsel positions paying £600-£1,000/day. Browse live legal roles for experienced lawyers. Remote & hybrid available.',
+  title: 'Fractional Legal Jobs UK 2025',
+  description: 'Fractional Legal jobs UK. Part-time Legal Counsel roles. £600-£1,000/day.',
   keywords: 'fractional legal jobs, fractional legal counsel jobs uk, part time legal counsel, fractional lawyer, part time lawyer jobs, freelance legal counsel',
   alternates: {
     canonical: 'https://fractional.quest/fractional-legal-jobs-uk',

@@ -2,8 +2,8 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Fractional Property Ownership UK: Complete Guide 2025",
-  description: "Everything you need to know about fractional property ownership in the UK. How it works, costs, tax implications, and top providers.",
+  title: "Fractional Property UK 2025",
+  description: "Fractional property ownership UK guide. How it works, costs, tax implications, top providers.",
   keywords: "fractional property ownership UK, fractional ownership property, shared property ownership UK, fractional real estate UK",
   alternates: {
     canonical: "https://fractional.quest/fractional-property-ownership-uk",

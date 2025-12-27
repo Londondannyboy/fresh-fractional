@@ -13,15 +13,15 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Product Manager Jobs UK | Part-Time PM Roles',
-  description: 'Fractional Product Manager jobs UK - Find part-time Product Manager positions paying £400-£700/day. Browse live PM roles for experienced product professionals. Remote & hybrid available.',
+  title: 'Fractional PM Jobs UK 2025',
+  description: 'Fractional Product Manager jobs UK. Part-time PM positions £400-£700/day. Remote & hybrid roles.',
   keywords: 'fractional product manager jobs, fractional pm jobs uk, part time product manager, fractional product roles, part time pm jobs, freelance product manager',
   alternates: {
     canonical: 'https://fractional.quest/fractional-product-manager-jobs-uk',
   },
   openGraph: {
-    title: 'Fractional Product Manager Jobs UK | Part-Time PM Roles',
-    description: 'Fractional Product Manager jobs UK - Find part-time PM positions paying £400-£700/day. Remote & hybrid available.',
+    title: 'Fractional PM Jobs UK 2025',
+    description: 'Fractional Product Manager jobs UK. Part-time PM positions £400-£700/day.',
     images: ['/images/fractional-product-manager-jobs-uk.jpg'],
     url: 'https://fractional.quest/fractional-product-manager-jobs-uk',
   },

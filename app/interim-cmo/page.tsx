@@ -5,13 +5,13 @@ import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Interim CMO Services UK | Hire a Temporary CMO',
-  description: 'Hire an Interim CMO for your business. Full-time temporary marketing leadership for transitions, rebrands, and transformations. Expert CMOs available immediately.',
+  title: 'Interim CMO Services UK',
+  description: 'Hire an Interim CMO. Temporary marketing leadership for transitions and rebrands.',
   keywords: 'interim cmo, interim cmo services, hire interim cmo, temporary cmo, interim chief marketing officer, interim cmo uk',
   alternates: { canonical: 'https://fractional.quest/interim-cmo' },
   openGraph: {
-    title: 'Interim CMO Services UK | Hire a Temporary CMO',
-    description: 'Hire an Interim CMO for your business. Full-time temporary marketing leadership.',
+    title: 'Interim CMO Services UK',
+    description: 'Hire an Interim CMO. Temporary marketing leadership.',
     url: 'https://fractional.quest/interim-cmo',
   },
 }

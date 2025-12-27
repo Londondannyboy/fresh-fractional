@@ -5,15 +5,15 @@ import { FAQ } from '@/components/FAQ'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CMO Meaning: What Does "Fractional CMO" Actually Mean? | Fractional.Quest',
-  description: 'Simple explanation of fractional CMO meaning. A fractional CMO is a part-time Chief Marketing Officer who provides strategic marketing leadership without the full-time cost. Learn when businesses use them.',
+  title: 'Fractional CMO Meaning',
+  description: 'Fractional CMO meaning. Part-time CMO provides marketing leadership at fraction of cost.',
   keywords: 'fractional cmo meaning, what does fractional cmo mean, fractional meaning, fractional chief marketing officer definition',
   alternates: {
     canonical: 'https://fractional.quest/fractional-cmo-meaning',
   },
   openGraph: {
-    title: 'Fractional CMO Meaning: What Does "Fractional CMO" Actually Mean?',
-    description: 'Clear definition of fractional CMO. Part-time marketing leadership at a fraction of full-time cost.',
+    title: 'Fractional CMO Meaning',
+    description: 'Fractional CMO definition. Part-time marketing leadership.',
     url: 'https://fractional.quest/fractional-cmo-meaning',
   },
 }

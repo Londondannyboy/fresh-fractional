@@ -3,15 +3,15 @@ import Link from 'next/link'
 import { FAQ } from '@/components/FAQ'
 
 export const metadata: Metadata = {
-  title: 'Outsourced Compliance Cost UK | Pricing Guide 2025',
-  description: 'How much does an outsourced compliance officer cost? UK pricing guide - day rates £800-£1,500, monthly retainers £3,000-£12,000. CCO, MLRO, and consultant costs.',
+  title: 'Outsourced Compliance Cost UK',
+  description: 'Outsourced compliance officer cost UK. Day rates £800-£1,500, retainers £3,000-£12,000.',
   keywords: 'outsourced compliance cost, compliance officer cost, fractional cco cost, mlro cost, compliance consultant rates, compliance services pricing',
   alternates: {
     canonical: 'https://fractional.quest/outsourced-compliance-cost',
   },
   openGraph: {
-    title: 'Outsourced Compliance Cost UK | Pricing Guide 2025',
-    description: 'Complete guide to outsourced compliance costs. Day rates £800-£1,500, monthly retainers £3,000-£12,000.',
+    title: 'Outsourced Compliance Cost UK',
+    description: 'Outsourced compliance costs UK. Day rates £800-£1,500.',
     url: 'https://fractional.quest/outsourced-compliance-cost',
   },
 }

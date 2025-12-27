@@ -5,8 +5,8 @@ import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Interim COO Services UK | Hire a Temporary COO',
-  description: 'Hire an Interim COO for your business. Full-time temporary operations leadership for transformations, restructuring, and critical periods. Expert COOs available immediately.',
+  title: 'Interim COO Services UK',
+  description: 'Hire an Interim COO. Temporary operations leadership for transformations and restructuring.',
   keywords: 'interim coo, interim coo services, hire interim coo, temporary coo, interim chief operating officer, interim coo uk',
   alternates: { canonical: 'https://fractional.quest/interim-coo' },
 }

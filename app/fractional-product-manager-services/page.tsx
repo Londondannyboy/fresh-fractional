@@ -10,15 +10,15 @@ import { getRoleBreadcrumbs } from '@/lib/seo-config'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Product Manager Services UK | Hire a Part-Time PM',
-  description: 'Hire a Fractional Product Manager (PM). Expert product leadership for roadmap planning, user research, and delivery. Ship faster with experienced part-time PMs.',
+  title: 'Fractional PM Services UK',
+  description: 'Hire a Fractional PM. Expert product leadership for roadmap, user research, delivery.',
   keywords: 'fractional product manager, fractional pm, hire fractional pm, part time product manager, product management services, freelance product manager',
   alternates: {
     canonical: 'https://fractional.quest/fractional-product-manager-services',
   },
   openGraph: {
-    title: 'Fractional Product Manager Services UK | Hire a Part-Time PM',
-    description: 'Hire a Fractional PM. Expert product leadership to ship faster and better.',
+    title: 'Fractional PM Services UK',
+    description: 'Hire a Fractional PM. Expert product leadership for roadmap and delivery.',
     images: ['/images/fractional-product-manager-services.jpg'],
     url: 'https://fractional.quest/fractional-product-manager-services',
   },

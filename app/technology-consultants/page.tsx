@@ -4,8 +4,8 @@ import Link from 'next/link'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Hire Technology Consultants UK | Fractional Tech Experts',
-  description: 'Hire experienced technology consultants on a fractional basis. Expert tech professionals for architecture, engineering leadership, and digital transformation. Available part-time.',
+  title: 'Technology Consultants UK',
+  description: 'Hire technology consultants UK. Fractional tech experts for architecture, digital transformation.',
   keywords: 'technology consultants, hire tech consultant, fractional technology expert, it consultant uk, technical strategy consultant',
   alternates: { canonical: 'https://fractional.quest/technology-consultants' },
 }

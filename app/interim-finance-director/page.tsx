@@ -5,13 +5,13 @@ import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Interim Finance Director Services UK | Hire a Temporary FD',
-  description: 'Hire an Interim Finance Director for your business. Full-time temporary financial leadership for transitions, transformations, and gap-filling. Expert FDs available immediately.',
+  title: 'Interim Finance Director UK',
+  description: 'Hire an Interim Finance Director. Temporary financial leadership for transitions.',
   keywords: 'interim finance director, interim fd, hire interim finance director, temporary finance director, interim fd uk',
   alternates: { canonical: 'https://fractional.quest/interim-finance-director' },
   openGraph: {
-    title: 'Interim Finance Director Services UK | Hire a Temporary FD',
-    description: 'Hire an Interim Finance Director for your business. Full-time temporary financial leadership.',
+    title: 'Interim Finance Director UK',
+    description: 'Hire an Interim Finance Director. Temporary financial leadership.',
     url: 'https://fractional.quest/interim-finance-director',
   },
 }

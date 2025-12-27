@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'How to Become a Fractional COO | Complete Career Guide 2025',
-  description: 'Learn how to become a fractional COO: experience needed (15+ years), how to find clients, pricing strategy ($1,000-$1,800/day), and building your practice.',
+  title: 'Become a Fractional COO 2025',
+  description: 'How to become a fractional COO. Experience, clients, pricing ($1,000-$1,800/day), practice building.',
   keywords: 'how to become fractional coo, fractional coo career, become part time coo, fractional executive career',
 }
 

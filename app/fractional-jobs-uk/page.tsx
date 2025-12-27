@@ -25,8 +25,8 @@ const IR35Calculator = dynamic(() => import('@/components/IR35Calculator').then(
 export const revalidate = 3600 // Revalidate every hour
 
 export const metadata: Metadata = {
-  title: 'Fractional Jobs UK: CFO, CTO, CMO, PM Roles',
-  description: 'Find fractional jobs UK: 17+ CFO, CTO, CMO, Project Manager roles with £700-£1,500 day rates. Part-time executive opportunities. Apply today.',
+  title: 'Fractional Jobs UK 2025',
+  description: 'Find fractional jobs UK. CFO, CTO, CMO, PM roles. £700-£1,500/day rates.',
   keywords: 'fractional jobs UK, fractional CFO jobs UK, fractional CTO jobs UK, fractional CMO jobs UK, fractional project manager UK, part-time executive jobs UK, interim executive jobs UK, fractional COO jobs UK',
   alternates: {
     canonical: 'https://fractional.quest/fractional-jobs-uk',

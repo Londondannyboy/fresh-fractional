@@ -7,8 +7,8 @@ import type { FeaturedExecutive } from '@/lib/types'
 import type { CandidateProfile } from '@/lib/candidate-profiles'
 
 export const metadata: Metadata = {
-  title: 'Fractional Executives | Meet Our Community',
-  description: 'Meet fractional executives who have built the lifestyle of their dreams. Browse profiles, discover stories, and connect with experienced fractional leaders.',
+  title: 'Fractional Executives UK',
+  description: 'Meet fractional executives UK. Browse profiles, discover stories, connect with leaders.',
 }
 
 // Aspirational images of professionals

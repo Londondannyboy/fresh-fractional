@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'State of Fractional CFO Market 2025: UK Industry Report',
-  description: 'Comprehensive 2025 fractional CFO market analysis. Industry trends, growth forecasts, demand drivers, and future outlook for UK fractional finance market.',
+  title: 'Fractional CFO Market 2025',
+  description: '2025 fractional CFO market analysis UK. Trends, growth forecasts, demand drivers.',
   openGraph: {
-    title: 'State of Fractional CFO Market 2025 UK',
-    description: 'Industry analysis and market trends for fractional CFO services in 2025.',
+    title: 'Fractional CFO Market 2025',
+    description: 'UK fractional CFO market analysis and trends 2025.',
     url: 'https://fractional.quest/state-fractional-cfo-market-2025',
   },
   alternates: {

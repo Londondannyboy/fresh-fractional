@@ -5,15 +5,15 @@ import { IR35Calculator } from '@/components/IR35Calculator'
 import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 
 export const metadata: Metadata = {
-  title: 'Part-Time Compliance Jobs UK | Flexible Compliance Roles 2025',
-  description: 'Part-time compliance jobs UK - Find flexible compliance officer, CCO, and MLRO positions. Day rates £800-£1,500. Remote & hybrid roles. FCA-regulated firms hiring now.',
+  title: 'Part-Time Compliance Jobs UK',
+  description: 'Part-time compliance jobs UK. CCO, MLRO positions £800-£1,500/day. Remote & hybrid.',
   keywords: 'part time compliance jobs, part time compliance officer, part time compliance jobs uk, flexible compliance roles, compliance consultant jobs, fractional compliance jobs, remote compliance jobs uk',
   alternates: {
     canonical: 'https://fractional.quest/part-time-compliance-jobs-uk',
   },
   openGraph: {
-    title: 'Part-Time Compliance Jobs UK | Flexible Compliance Roles 2025',
-    description: 'Find part-time compliance jobs in the UK. Flexible CCO, MLRO, and compliance officer roles paying £800-£1,500/day.',
+    title: 'Part-Time Compliance Jobs UK',
+    description: 'Part-time compliance jobs UK. CCO, MLRO roles £800-£1,500/day.',
     url: 'https://fractional.quest/part-time-compliance-jobs-uk',
   },
 }

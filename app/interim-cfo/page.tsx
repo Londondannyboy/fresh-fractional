@@ -5,13 +5,13 @@ import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Interim CFO Services UK | Hire a Temporary CFO',
-  description: 'Hire an Interim CFO for your business. Full-time temporary financial leadership for transitions, transformations, and gap-filling. Expert CFOs available immediately.',
+  title: 'Interim CFO Services UK',
+  description: 'Hire an Interim CFO. Temporary financial leadership for transitions and transformations.',
   keywords: 'interim cfo, interim cfo services, hire interim cfo, temporary cfo, interim chief financial officer, interim cfo uk',
   alternates: { canonical: 'https://fractional.quest/interim-cfo' },
   openGraph: {
-    title: 'Interim CFO Services UK | Hire a Temporary CFO',
-    description: 'Hire an Interim CFO for your business. Full-time temporary financial leadership.',
+    title: 'Interim CFO Services UK',
+    description: 'Hire an Interim CFO. Temporary financial leadership.',
     url: 'https://fractional.quest/interim-cfo',
   },
 }

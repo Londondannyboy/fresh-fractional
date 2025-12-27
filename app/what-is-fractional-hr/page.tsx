@@ -6,15 +6,15 @@ import { JobsGraph3D } from '@/components/JobsGraph3D'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'What is Fractional HR? Definition, Meaning & Guide (2025)',
-  description: 'Fractional HR is part-time HR leadership (1-3 days/week) from experienced CHROs and HR Directors. Save 50-70% vs full-time. Complete definition and guide for UK businesses.',
+  title: 'What is Fractional HR? Guide',
+  description: 'Fractional HR is part-time HR leadership (1-3 days/week). Save 50-70% vs full-time. UK guide.',
   keywords: 'what is fractional hr, fractional hr meaning, fractional hr definition, what does fractional hr mean, fractional human resources',
   alternates: {
     canonical: 'https://fractional.quest/what-is-fractional-hr',
   },
   openGraph: {
-    title: 'What is Fractional HR? Complete Definition & Guide',
-    description: 'Everything you need to know about fractional HR - definition, how it works, costs, and when UK businesses should hire fractional HR leaders.',
+    title: 'What is Fractional HR? Guide',
+    description: 'Fractional HR guide UK. Definition, costs, when to hire.',
     images: ['/images/what-is-fractional-hr.jpg'],
     url: 'https://fractional.quest/what-is-fractional-hr',
   },

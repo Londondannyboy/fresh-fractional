@@ -6,8 +6,8 @@ import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Interim CIO Services UK | Hire a Temporary CIO',
-  description: 'Hire an Interim CIO for your business. Full-time temporary IT leadership for digital transformation, system migrations, and critical IT periods. Expert CIOs available immediately.',
+  title: 'Interim CIO Services UK',
+  description: 'Hire an Interim CIO. Temporary IT leadership for digital transformation and migrations.',
   keywords: 'interim cio, interim cio services, hire interim cio, temporary cio, interim chief information officer, interim cio uk',
   alternates: { canonical: 'https://fractional.quest/interim-cio' },
 }

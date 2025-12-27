@@ -10,15 +10,15 @@ import { DesktopOnly } from '@/components/DesktopOnly'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Project Manager UK | Part-Time PM Jobs 2025',
-  description: 'Fractional project manager jobs UK - Find part-time PM positions paying £500-£1,200/day. Browse live project management roles. Remote & hybrid available.',
+  title: 'Fractional Project Manager UK',
+  description: 'Fractional project manager jobs UK. Part-time PM positions £500-£1,200/day. Remote & hybrid.',
   keywords: 'fractional project manager, fractional pm, part time project manager, interim project manager, fractional project management, project manager jobs uk',
   alternates: {
     canonical: 'https://fractional.quest/fractional-project-manager',
   },
   openGraph: {
-    title: 'Fractional Project Manager UK | Part-Time PM Jobs 2025',
-    description: 'Fractional project manager jobs UK - Find part-time PM positions paying £500-£1,200/day. Remote & hybrid available.',
+    title: 'Fractional Project Manager UK',
+    description: 'Fractional project manager jobs UK. Part-time PM positions £500-£1,200/day.',
     url: 'https://fractional.quest/fractional-project-manager',
   },
 }

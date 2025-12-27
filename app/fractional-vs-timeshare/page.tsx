@@ -2,8 +2,8 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Fractional Ownership vs Timeshare: Key Differences Explained",
-  description: "Confused about fractional ownership vs timeshare? Learn the crucial differences in ownership, value, costs, and which is right for you.",
+  title: "Fractional vs Timeshare Guide",
+  description: "Fractional ownership vs timeshare differences: ownership, value, costs compared.",
   keywords: "fractional ownership vs timeshare, timeshare vs fractional, fractional ownership timeshare difference, is fractional ownership a timeshare",
   alternates: {
     canonical: "https://fractional.quest/fractional-vs-timeshare",

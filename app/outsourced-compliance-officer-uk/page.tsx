@@ -3,15 +3,15 @@ import Link from 'next/link'
 import { FAQ } from '@/components/FAQ'
 
 export const metadata: Metadata = {
-  title: 'Outsourced Compliance Officer UK | Complete Guide 2025',
-  description: 'The complete guide to outsourced compliance officers in the UK. Fractional CCO & MLRO services, FCA requirements (SMF16/SMF17), costs, and how to hire. For FinTech, crypto & regulated firms.',
+  title: 'Outsourced Compliance UK 2025',
+  description: 'Outsourced compliance officer UK guide. Fractional CCO, MLRO, FCA requirements, costs.',
   keywords: 'outsourced compliance officer, fractional compliance officer, fractional CCO, outsourced MLRO, FCA compliance officer, SMF16, SMF17, compliance consultant UK, fractional compliance services',
   alternates: {
     canonical: 'https://fractional.quest/outsourced-compliance-officer-uk',
   },
   openGraph: {
-    title: 'Outsourced Compliance Officer UK | Complete Guide 2025',
-    description: 'Complete guide to outsourced compliance officers. Fractional CCO & MLRO services, FCA requirements, costs, and how to hire for UK regulated firms.',
+    title: 'Outsourced Compliance UK 2025',
+    description: 'Outsourced compliance officer UK. CCO, MLRO, FCA requirements.',
     url: 'https://fractional.quest/outsourced-compliance-officer-uk',
   },
 }

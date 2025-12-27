@@ -11,8 +11,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Product Manager Jobs UK | Part-Time CPO Roles',
-  description: 'Fractional product manager jobs UK - Find part-time Chief Product Officer positions paying £800-£1,400/day. Browse live product leadership roles for experienced product leaders.',
+  title: 'Fractional Product Jobs UK 2025',
+  description: 'Fractional product manager jobs UK. Part-time CPO roles. £800-£1,400/day.',
   keywords: 'fractional product manager jobs uk, fractional cpo jobs, part time product lead, fractional product jobs, cpo jobs uk, part time chief product officer',
   openGraph: {
     title: 'Fractional Product Manager Jobs UK | Part-Time CPO Roles',

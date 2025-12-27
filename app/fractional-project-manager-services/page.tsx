@@ -10,14 +10,14 @@ import { getRoleBreadcrumbs } from '@/lib/seo-config'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional Project Manager Services UK | Hire a Part-Time PM',
-  description: 'Hire a Fractional Project Manager (PM). Expert delivery management for key initiatives, software projects, and change programmes. Flexible project leadership.',
+  title: 'Project Manager Services UK',
+  description: 'Hire a Fractional Project Manager. Expert delivery for initiatives and change programmes.',
   keywords: 'fractional project manager, fractional pm, hire fractional project manager, part time project manager, freelance project manager, delivery manager services',
   alternates: {
     canonical: 'https://fractional.quest/fractional-project-manager-services',
   },
   openGraph: {
-    title: 'Fractional Project Manager Services UK | Hire a Part-Time PM',
+    title: 'Project Manager Services UK',
     description: 'Hire a Fractional Project Manager. Expert delivery for key initiatives.',
     images: ['/images/fractional-project-manager-services.jpg'],
     url: 'https://fractional.quest/fractional-project-manager-services',

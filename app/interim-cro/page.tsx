@@ -6,8 +6,8 @@ import { ServiceComparisonTable } from '@/components/ServiceComparisonTable'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Interim CRO Services UK | Hire a Temporary CRO',
-  description: 'Hire an Interim CRO for your business. Full-time temporary revenue leadership for sales transformations and go-to-market pivots. Expert CROs available immediately.',
+  title: 'Interim CRO Services UK',
+  description: 'Hire an Interim CRO. Temporary revenue leadership for sales transformations.',
   keywords: 'interim cro, interim cro services, hire interim cro, temporary cro, interim chief revenue officer, interim cro uk',
   alternates: { canonical: 'https://fractional.quest/interim-cro' },
 }
