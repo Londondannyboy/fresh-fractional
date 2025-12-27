@@ -14,8 +14,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CISO Jobs UK | Virtual CISO Roles',
-  description: 'Fractional CISO jobs UK - Find part-time Chief Information Security Officer positions paying £900-£1,600/day. Browse live vCISO roles for experienced security leaders.',
+  title: 'Fractional CISO Jobs UK: vCISO Roles',
+  description: 'Fractional CISO jobs UK. Part-time vCISO positions paying £900-£1,600/day. Browse live roles for security leaders.',
   keywords: 'fractional ciso jobs uk, fractional ciso jobs, part time ciso jobs, virtual ciso jobs uk, vciso jobs, ciso jobs uk, part time chief information security officer',
   alternates: {
     canonical: 'https://fractional.quest/fractional-ciso-jobs-uk',

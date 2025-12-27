@@ -17,8 +17,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CFO Jobs UK | Part-Time Chief Financial Officer Roles 2025',
-  description: 'Fractional CFO jobs UK - Find part-time Chief Financial Officer positions paying £800-£1,500/day. Browse fractional CFO job descriptions, requirements & live CFO roles. Remote & hybrid fractional finance manager opportunities available.',
+  title: 'Fractional CFO Jobs UK: Part-Time Roles',
+  description: 'Fractional CFO jobs UK. Part-time CFO positions paying £800-£1,500/day. Browse live roles for experienced finance leaders.',
   keywords: 'fractional cfo jobs, fractional cfo jobs uk, part time cfo, part-time cfo, cfo part time, fractional cfo opportunities, fractional cfo uk, part time chief financial officer, fractional cfo remote, fractional chief financial officer, fractional cfo job description, fractional finance manager',
   alternates: {
     canonical: 'https://fractional.quest/fractional-cfo-jobs-uk',

@@ -16,8 +16,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional COO Jobs UK | Part-Time COO Roles 2025',
-  description: 'Fractional COO jobs UK - Find part-time Chief Operating Officer positions paying £750-£1,400/day. Browse live COO roles for experienced operations leaders. Remote & hybrid available.',
+  title: 'Fractional COO Jobs UK: Part-Time Roles',
+  description: 'Fractional COO jobs UK. Part-time COO positions paying £750-£1,400/day. Browse live roles for experienced operations leaders.',
   keywords: 'fractional coo jobs uk, fractional coo jobs, part time coo jobs, fractional coo uk, coo jobs uk, part time chief operating officer, fractional coo',
   alternates: {
     canonical: 'https://fractional.quest/fractional-coo-jobs-uk',

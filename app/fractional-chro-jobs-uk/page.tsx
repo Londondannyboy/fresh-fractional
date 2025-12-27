@@ -15,8 +15,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CHRO Jobs UK | How to Become a Fractional CHRO (2025)',
-  description: 'Fractional CHRO jobs UK - Find part-time Chief HR Officer roles paying £1,100-£1,300/day. Career guide for becoming a fractional CHRO. 10+ monthly searches.',
+  title: 'Fractional CHRO Jobs UK: HR Leadership',
+  description: 'Fractional CHRO jobs UK. Part-time Chief HR Officer roles paying £1,100-£1,300/day. Browse live roles for HR leaders.',
   keywords: 'fractional chro jobs, fractional chro jobs uk, how to become a fractional chro, fractional chief people officer jobs, part time chro jobs',
   alternates: {
     canonical: 'https://fractional.quest/fractional-chro-jobs-uk',

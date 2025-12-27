@@ -15,8 +15,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CEO Jobs UK | Executive Leadership Roles',
-  description: 'Fractional CEO jobs UK - Find part-time Chief Executive Officer positions paying £1,000-£2,000/day. Browse live CEO roles for experienced executive leaders.',
+  title: 'Fractional CEO Jobs UK: Executive Roles',
+  description: 'Fractional CEO jobs UK. Part-time CEO positions paying £1,000-£2,000/day. Browse live roles for experienced executive leaders.',
   keywords: 'fractional ceo jobs uk, fractional ceo jobs, part time ceo jobs, fractional ceo uk, ceo jobs uk, part time chief executive officer',
   alternates: {
     canonical: 'https://fractional.quest/fractional-ceo-jobs-uk',

@@ -16,8 +16,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CTO Jobs UK | Part-Time CTO Roles 2025',
-  description: 'Fractional CTO jobs UK - Find part-time Chief Technology Officer positions paying £850-£1,600/day. Browse live CTO roles for experienced tech leaders. Remote & hybrid available.',
+  title: 'Fractional CTO Jobs UK: Part-Time Roles',
+  description: 'Fractional CTO jobs UK. Part-time CTO positions paying £850-£1,600/day. Browse live roles for experienced tech leaders.',
   keywords: 'fractional cto jobs uk, fractional cto jobs, part time cto jobs, fractional cto uk, cto jobs uk, part time chief technology officer, fractional cto',
   alternates: {
     canonical: 'https://fractional.quest/fractional-cto-jobs-uk',

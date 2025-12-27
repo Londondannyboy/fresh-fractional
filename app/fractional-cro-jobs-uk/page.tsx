@@ -13,8 +13,8 @@ import { WebPageSchema, LastUpdatedBadge } from '@/components/WebPageSchema'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Fractional CRO Jobs UK | Part-Time Chief Revenue Officer Roles',
-  description: 'Fractional CRO jobs UK - Find part-time Chief Revenue Officer positions paying £1,000-£1,800/day. Browse live CRO roles for experienced sales & growth leaders. Remote & hybrid available.',
+  title: 'Fractional CRO Jobs UK: Revenue Roles',
+  description: 'Fractional CRO jobs UK. Part-time CRO positions paying £1,000-£1,800/day. Browse live roles for sales & growth leaders.',
   keywords: 'fractional cro jobs, fractional cro jobs uk, part time cro, part-time chief revenue officer, cro part time, fractional cro opportunities, fractional sales jobs, head of sales part time',
   alternates: {
     canonical: 'https://fractional.quest/fractional-cro-jobs-uk',
